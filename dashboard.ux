@@ -1,0 +1,58 @@
+<Panel ux:Name="dashboard" Background="#f00">
+	<WhileWindowLandscape>
+		<ScrollView AllowedScrollDirections="Horizontal" Alignment="Center">
+			<StackPanel Orientation="Horizontal">
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
+					<Tapped>
+						<Toggle Target="dashboardUp" />
+						<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+					</Tapped>
+					<Text FontSize="15" Value="Согласование" Alignment="Center" />
+				</Rectangle>
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
+					<Tapped>
+						<Toggle Target="dashboardUp" />
+						<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
+					</Tapped>
+					<Text FontSize="15" Value="Рассмотрение" Alignment="Center" />
+				</Rectangle>
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
+					<Tapped>
+						<Toggle Target="dashboardUp" />
+						<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+					</Tapped>
+					<Text FontSize="15" Value="Исполнение" Alignment="Center" />
+				</Rectangle>
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
+					<Tapped>
+						<Toggle Target="dashboardUp" />
+						<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+					</Tapped>
+					<Text FontSize="15" Value="Ознакомление" Alignment="Center" />
+				</Rectangle>
+			</StackPanel>
+		</ScrollView>
+    </WhileWindowLandscape>
+    <WhileWindowPortrait>
+    	<ScrollView AllowedScrollDirections="Vertical" Alignment="Center">
+    		<Grid ColumnCount="2">
+    			<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+    			<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+    			<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+    		</Grid>
+			<!-- <StackPanel Orientation="Vertical">
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa" />
+			</StackPanel> -->
+		</ScrollView>
+    </WhileWindowPortrait>
+
+	<!-- <Button Height="30" Text="Согласование" Alignment="Center" >
+		<Clicked>
+			<Set dashboardUp.Value="true" />
+		</Clicked>
+	</Button> -->
+</Panel>

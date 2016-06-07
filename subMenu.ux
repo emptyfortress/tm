@@ -1,0 +1,10 @@
+<Panel>
+	<WhileTrue ux:Name="subMenuVisible">
+		<Move Target="submenu" X="-1" RelativeTo="Size" Duration=".3" Easing="CircularInOut"  />
+		<Change overlayRec.Color="#000a" Duration="0.15" DelayBack="0.25"/>
+		<Move Target="addIcon1" X="-.7" Y="-.7" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".2" />
+	</WhileTrue>
+	<Rectangle ux:Name="submenu" Width="350" Height="100%" Background="#fff" Alignment="CenterRight">
+		<Translation X="1" RelativeTo="Size" />
+	</Rectangle>
+</Panel>
