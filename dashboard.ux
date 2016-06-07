@@ -1,37 +1,49 @@
-<Panel ux:Name="dashboard" Background="#f00">
+<Panel ux:Name="dashboard">
+	<LinearGradient StartPoint="0,1" EndPoint="1,0">
+        <GradientStop Offset="0" Color="#013A61" />
+        <GradientStop Offset="1" Color="#6BAAD3" />
+    </LinearGradient>
 	<WhileWindowLandscape>
-		<ScrollView AllowedScrollDirections="Horizontal" Alignment="Center">
-			<StackPanel Orientation="Horizontal">
-				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
-					<Tapped>
-						<Toggle Target="dashboardUp" />
-						<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-					</Tapped>
-					<Text FontSize="15" Value="Согласование" Alignment="Center" />
-				</Rectangle>
-				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
-					<Tapped>
-						<Toggle Target="dashboardUp" />
-						<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
-					</Tapped>
-					<Text FontSize="15" Value="Рассмотрение" Alignment="Center" />
-				</Rectangle>
-				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
-					<Tapped>
-						<Toggle Target="dashboardUp" />
-						<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-					</Tapped>
-					<Text FontSize="15" Value="Исполнение" Alignment="Center" />
-				</Rectangle>
-				<Rectangle Width="200" Height="300" Margin="20" Background="#fffa">
-					<Tapped>
-						<Toggle Target="dashboardUp" />
-						<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-					</Tapped>
-					<Text FontSize="15" Value="Ознакомление" Alignment="Center" />
-				</Rectangle>
-			</StackPanel>
-		</ScrollView>
+		<DockPanel>
+			<!-- <Panel Dock="Top"> -->
+				<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background"  />
+			<!-- </Panel> -->
+			<ScrollView AllowedScrollDirections="Horizontal" Alignment="Center">
+				<StackPanel Orientation="Horizontal" Alignment="CenterLeft">
+					<Rectangle Width="200" Height="300" Margin="20" Background="#fff" Opacity=".3">
+						<Tapped>
+							<Toggle Target="dashboardUp" />
+							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+						</Tapped>
+						<Text FontSize="15" Value="Согласование" Alignment="Center" />
+					</Rectangle>
+					<Rectangle Width="200" Height="300" Margin="20" Background="#fff" Opacity=".3">
+						<Tapped>
+							<Toggle Target="dashboardUp" />
+							<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
+						</Tapped>
+						<Text FontSize="15" Value="Рассмотрение" Alignment="Center" />
+					</Rectangle>
+					<Rectangle Width="200" Height="300" Margin="20" Background="#fff" Opacity=".3">
+						<Tapped>
+							<Toggle Target="dashboardUp" />
+							<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+						</Tapped>
+						<Text FontSize="15" Value="Исполнение" Alignment="Center" />
+					</Rectangle>
+					<Rectangle Width="200" Height="300" Margin="20" Background="#fff" Opacity=".3">
+						<Tapped>
+							<Toggle Target="dashboardUp" />
+							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+						</Tapped>
+						<Text FontSize="15" Value="Ознакомление" Alignment="Center" />
+					</Rectangle>
+				</StackPanel>
+			</ScrollView>
+			<Panel Dock="Bottom" Margin="100, 0, 0, 100">
+				<Text FontSize="50" TextColor="#fff">22 Декабря</Text>
+			</Panel>
+		</DockPanel>
     </WhileWindowLandscape>
     <WhileWindowPortrait>
     	<ScrollView AllowedScrollDirections="Vertical" Alignment="Center">
@@ -50,9 +62,7 @@
 		</ScrollView>
     </WhileWindowPortrait>
 
-	<!-- <Button Height="30" Text="Согласование" Alignment="Center" >
-		<Clicked>
-			<Set dashboardUp.Value="true" />
-		</Clicked>
-	</Button> -->
+
+    <Image File="Assets/city.png" Alignment="BottomCenter" Layer="Background" Opacity=".5" />
+    <Image File="Assets/flag.png" Alignment="TopRight" Layer="Background"  />
 </Panel>
