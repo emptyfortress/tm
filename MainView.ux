@@ -1,10 +1,20 @@
 <App Background="#eeeeeeff">
 	<JavaScript></JavaScript>
-	<ClientPanel>
-
+	<DockPanel>
+		<StatusBarBackground Dock="Top"/>
+		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
 
-
+		<Image ux:Name="addPageIcon" File="Assets/plus.png" Width="30" Height="30" Alignment="BottomRight" Visibility="Collapsed">
+			<Tapped>
+				<Set addPageState.Active="visible" />
+			</Tapped>
+		</Image>
+		<Image ux:Name="addPageIcon1" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,20,20">
+			<Tapped>
+				<Toggle Target="viewAddPage" />
+			</Tapped>
+		</Image>
 
 		<Rectangle ux:Name="closeIcon" Width="100" Height="100" Fill="#000" Alignment="BottomRight" Visibility="Collapsed">
 			<Clicked>
@@ -13,21 +23,17 @@
 		</Rectangle>
 
 
-
-		<Panel ux:Name="addPanel" >
-			<Rectangle Layer="Background" Fill="#BCD3FA" Width="3000" Height="2000" Alignment="BottomRight"  Anchor="100%,100%" TransformOrigin="Anchor" >
-				<Scaling ux:Name="addPageScaling" Factor="0" />
-			</Rectangle>
+		
+		<Panel ux:Name="addPanel"  Anchor="100%,100%" TransformOrigin="Anchor" Alignment="BottomRight">
+			<Scaling ux:Name="addPageScaling" Factor="0" />
+			<Rectangle Layer="Background" Fill="#BCD3FA" Width="3000" Height="2000" Alignment="BottomRight" />
 		</Panel>
 
-		<Circle ux:Name="addPageIcon" Width="100" Height="100" Fill="#fff" Alignment="BottomRight">
-			<Clicked>
-                <Set addPageState.Active="visible"/>
-            </Clicked>
-		</Circle>
+
+
 
 <!-- Folder icons ************************************************-->
-		<Panel ux:Name="actionIcon1" Alignment="BottomRight">
+		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed">
 			<Circle  Width="100" Height="100" Fill="#000" >
 				<Clicked>
 					<Toggle Target="iconsVisible" />
@@ -55,7 +61,7 @@
 		</Rectangle>
 
 		<!-- Details submenu **************************************************-->
-		<Panel ux:Name="actionIcon2" Alignment="BottomRight" >
+		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed">
 			<Circle Width="100" Height="100" Fill="#f00">
 				<Clicked>
 					<Toggle Target="subMenuVisible" />
@@ -64,21 +70,21 @@
 			<Circle ux:Name="addIcon1" Width="80" Height="80" Fill="#666" />
 		</Panel>
 
+		
 
 
 <!-- This is hamburger ******************************************** -->
-		<Panel Margin="7,5,5,5" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft">
+		<Panel ux:Name="ham" Margin="10,10,0,0" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft" >
 			<Tapped>
         		<NavigateToggle Target="menu" />
         		<Toggle Target="menuVisible" />
         	</Tapped>
-
-			<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#000">
+			<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#fff">
 				<Translation Y="-9" ux:Name="topMenuTranslation" />
 				<Rotation ux:Name="topMenuRotation" />
 			</Rectangle>
-			<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#000" />
-			<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#000">
+			<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#fff" />
+			<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#fff">
 				<Translation Y="9" ux:Name="bottomMenuTranslation" />
 				<Rotation ux:Name="bottomMenuRotation" /> 
 			</Rectangle>
@@ -222,6 +228,6 @@
 
 		</Panel>
 
-	</ClientPanel>
+	</DockPanel>
 </App>
 

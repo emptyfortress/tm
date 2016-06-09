@@ -5,7 +5,6 @@
 	<ExitingAnimation>
 		<Move X="1" RelativeTo="Size" />
 	</ExitingAnimation>
-
 	<string ux:Property="Title" />
 	<Text Alignment="Center" Value="{Property this.Title}" FontSize="20" TextColor="#000000" />
 	<Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#000000">

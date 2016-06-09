@@ -1,5 +1,4 @@
 <Panel>
-		
 	<WhileTrue ux:Name="dashboardUp">
 		<Move Target="dashboard" Y="-1" RelativeTo="Size" Duration=".6" Easing="BackIn" />
 		<Set addPageState.Active="hidden"/>
@@ -9,6 +8,9 @@
 		<Change actionIcon1.Opacity="1" Duration=".3" />
 		<Change actionIcon2.Visibility="Visible" />
 		<Change actionIcon2.Opacity="1" Duration=".3" />
+		<Change topRectangle.Fill="#000" Duration=".3" />
+		<Change middleRectangle.Fill="#000" Duration=".3" />
+		<Change bottomRectangle.Fill="#000" Duration=".3" />
 	</WhileTrue>
 	<WhileTrue ux:Name="iconsVisible">
 		<Move Target="viewIcon" X=".5" Y="-.5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" />
@@ -18,10 +20,19 @@
 	</WhileTrue>
 
 	<WhileTrue ux:Name="menuVisible">
+		<Change topRectangle.Fill="#000" />
+		<Change middleRectangle.Fill="#000" />
+		<Change bottomRectangle.Fill="#000" />
+		<Change actionIcon2.Opacity="1" Duration=".3" />
 		<Change addPageIcon.Opacity="0" Duration=".3" />
 		<Change actionIcon1.Opacity="0" Duration=".2" DelayBack=".2" />
 		<!-- <Set actionIcon2.Visibility="Collapsed" /> -->
 		<Change actionIcon2.Opacity="0" Duration=".3" />
+	</WhileTrue>
+
+	<WhileTrue ux:Name="viewAddPage">
+		<Change addPageScaling.Factor="1" Duration=".5" DurationBack=".5" Easing="CircularInOut" />
+		<Rotate Target="addPageIcon1" DegreesZ="135" Duration=".3" />
 	</WhileTrue>
 
 	<StateGroup ux:Name="addPageState" Rest="hidden">
