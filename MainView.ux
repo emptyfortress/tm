@@ -10,6 +10,7 @@
 				<Set addPageState.Active="visible" />
 			</Tapped>
 		</Image>
+
 		<Image ux:Name="addPageIcon1" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,20,20">
 			<Tapped>
 				<Toggle Target="viewAddPage" />
@@ -21,16 +22,11 @@
                 <Set addPageState.Active="hidden"/>
             </Clicked>
 		</Rectangle>
-
-
 		
 		<Panel ux:Name="addPanel"  Anchor="100%,100%" TransformOrigin="Anchor" Alignment="BottomRight">
 			<Scaling ux:Name="addPageScaling" Factor="0" />
 			<Rectangle Layer="Background" Fill="#BCD3FA" Width="3000" Height="2000" Alignment="BottomRight" />
 		</Panel>
-
-
-
 
 <!-- Folder icons ************************************************-->
 		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed">
@@ -48,7 +44,6 @@
             	</Clicked>
 			</Circle>
 		</Panel>
-
 
 		<Rectangle ux:Name="viewIcon" Width="100" Height="100" Fill="#000" Alignment="BottomLeft">
 			<Translation XY="-1,1" RelativeTo="Size" />
@@ -69,8 +64,6 @@
 			</Circle>
 			<Circle ux:Name="addIcon1" Width="80" Height="80" Fill="#666" />
 		</Panel>
-
-		
 
 
 <!-- This is hamburger ******************************************** -->
@@ -174,6 +167,7 @@
 				<SwipeNavigate SwipeDirection="Left" />
 
 				<folderPage ux:Name="folder1" Title="Согласование">
+					<fa-check Color="#000" Alignment="Center" FontSize="60" />
 					<MyButton Width="150" CornerRadius="0" TextColor="#fff" Text="Details" Alignment="Bottom">
 						<Tapped>
 							<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
