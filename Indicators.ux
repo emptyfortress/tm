@@ -1,4 +1,7 @@
 <Panel Dock="Top">
-	<PageIndicator ux:Name="folderIndicator" Navigation="_listNavigation" Alignment="TopCenter" Layer="Overlay" Margin="5" Visibility="Visible" />
-	<PageIndicator ux:Name="detailIndicator" Navigation="_detailNavigation" Alignment="TopCenter" Layer="Overlay" Margin="5" Visibility="Collapsed" />
+	<PageIndicator ux:Name="folderIndicator" Navigation="_listNavigation" Alignment="TopRight" Layer="Overlay" Margin="2" Visibility="Visible">
+       <PageIndicatorDot Height="20" Width="20" />
+    </PageIndicator>
+	<!-- <PageIndicator ux:Name="folderIndicator" Navigation="_listNavigation" Alignment="TopRight" Layer="Overlay" Margin="2" Visibility="Visible" /> -->
+	<PageIndicator ux:Name="detailIndicator" Navigation="_detailNavigation" Alignment="TopRight" Layer="Overlay" Margin="5" Visibility="Collapsed" />
 </Panel>

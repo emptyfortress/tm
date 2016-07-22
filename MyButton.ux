@@ -1,5 +1,5 @@
 <Panel ux:Class="MyButton" Text="Click me!"
-       Fill="#f00" TextColor="#000" CornerRadius="10" Padding="10">
+       Fill="#f00" TextColor="#000" CornerRadius="10" Padding="10" HitTestMode="LocalBoundsAndChildren">
     <string ux:Property="Text"/>
     <float4 ux:Property="CornerRadius" />
     <Brush ux:Property="Fill" />

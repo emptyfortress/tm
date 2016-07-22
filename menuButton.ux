@@ -1,0 +1,12 @@
+<!-- <Panel ux:Class="menuButton" TextColor="#2F6A92" Size="18" Background="#fff" >
+    <string ux:Property="Text"/>
+    <float4 ux:Property="TextColor"/>
+    <float ux:Property="Size"/>
+    <Text Alignment="Left" TextColor="{Property this.TextColor}" Value="{Property this.Text}" FontSize="{Property this.Size}"/>
+    <WhilePressed>
+    	<Change this.Background="#000" />
+    </WhilePressed>
+</Panel> -->
+<Button ux:Class="menuButton" Margin="2">
+	
+</Button>

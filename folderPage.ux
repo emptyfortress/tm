@@ -1,4 +1,4 @@
-<Page ux:Class="folderPage" Title="folder" Background="#ccc">
+<Page ux:Class="folderPage" Title="folder" >
 	<EnteringAnimation>
 		<Move X="-1" RelativeTo="Size" />
 	</EnteringAnimation>
@@ -6,8 +6,37 @@
 		<Move X="1" RelativeTo="Size" />
 	</ExitingAnimation>
 	<string ux:Property="Title" />
-	<Text Alignment="Center" Value="{Property this.Title}" FontSize="20" TextColor="#000000" />
-	<Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#000000">
+	<string ux:Property="Count" />
+	<int ux:Property="CountNum" />
+	<Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#fff">
 		<Translation Y="1" RelativeTo="Size" />
 	</Text>
+	
+	<DockPanel>
+		<StackPanel Orientation="Horizontal" Dock="Top">
+			<Panel Alignment="TopLeft" Margin="80,0,0,0" >
+				<Text Value="{Property this.Count}" FontSize="35" Alignment="Center" Color="#fff"/>
+				<Image File="Assets/bookmark.png" />
+			</Panel>
+			<Text Value="{Property this.Title}" FontSize="25" Margin="10,15,0,0"/>
+		</StackPanel>
+		<!-- <ScrollView ux:Name="listView" MaxWidth="80%" Margin="0,20,0,0">
+			<StackPanel>
+				<Each Count="{Property this.CountNum}">
+					<Rectangle  Height="100" Color="#ccc" Margin="10">
+						<Clicked>
+							<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
+							<Set detailsActive.Value="true" />
+						</Clicked>
+					</Rectangle>
+				</Each>
+			</StackPanel>
+		</ScrollView> -->
+		
+	</DockPanel>
+	
+
+	<Rectangle Color="#fff" Layer="Background">
+		<DropShadow />
+	</Rectangle>
 </Page>

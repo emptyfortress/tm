@@ -1,70 +1,94 @@
-<App Background="#eeeeeeff">
-	<JavaScript></JavaScript>
+<App Background="#ccccccff">
+	<JavaScript>
+	</JavaScript>
+	
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
 		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
-
-		<Image ux:Name="addPageIcon" File="Assets/plus.png" Width="30" Height="30" Alignment="BottomRight" Visibility="Collapsed">
-			<Tapped>
-				<Set addPageState.Active="visible" />
-			</Tapped>
-		</Image>
-
+		<LinearGradient StartPoint="0,1" EndPoint="1,0">
+	        <GradientStop Offset="0" Color="#013A61" />
+	        <GradientStop Offset="1" Color="#6BAAD3" />
+	    </LinearGradient>
 		<Image ux:Name="addPageIcon1" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,20,20">
 			<Tapped>
 				<Toggle Target="viewAddPage" />
 			</Tapped>
 		</Image>
 
-		<Rectangle ux:Name="closeIcon" Width="100" Height="100" Fill="#000" Alignment="BottomRight" Visibility="Collapsed">
-			<Clicked>
-                <Set addPageState.Active="hidden"/>
-            </Clicked>
-		</Rectangle>
-		
-		<Panel ux:Name="addPanel"  Anchor="100%,100%" TransformOrigin="Anchor" Alignment="BottomRight">
-			<Scaling ux:Name="addPageScaling" Factor="0" />
-			<Rectangle Layer="Background" Fill="#BCD3FA" Width="3000" Height="2000" Alignment="BottomRight" />
+		<Image ux:Name="closeIcon" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,20,20" Visibility="Hidden">
+			<Rotation Degrees="140" />
+			<Tapped>
+				<Set addPageState.Active="hidden"/>
+			</Tapped>
+		</Image>
+
+
+		<Panel ux:Name="addPanel">
+			<Translation XY="1,1" RelativeTo="ParentSize" />
+			<Rectangle ux:Name="addBg" Layer="Background" Fill="#BCD3FA" />
 		</Panel>
 
+
+		
 <!-- Folder icons ************************************************-->
-		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed">
-			<Circle  Width="100" Height="100" Fill="#000" >
+		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,7,7">
+			<Image ux:Name="pointer" File="Assets/pointer.png"  Color="#fff" Width="24" Height="32" />
+			<Circle ux:Name="pointerBg"  Width="60" Height="60" Fill="#7BB652"></Circle>
+			<Image ux:Name="addPageIcon2" File="Assets/plus.png" Width="50" Height="50" Color="#000">
+				<Tapped>
+					<Set addPageState.Active="visible"/>
+				</Tapped>
+			</Image>
+			<Clicked>
+				<Toggle Target="iconsVisible" />
+				<Toggle Target="actionIconColor" />
+			</Clicked>
+			<LongPressed>
+				<Set addPageState.Active="visible"/>
+			</LongPressed>
+		</Panel>
+
+
+		<Panel ux:Name="viewIcon" Width="200" Height="200" Alignment="BottomLeft">
+			<fa-eye Color="#000" FontSize="40" Alignment="Center">
+				<Translation XY="-4,4" RelativeTo="Size" />
+			</fa-eye>
+			<Circle  Fill="#fff" >
+				<Translation XY="-1,1" RelativeTo="Size" />
+				<DropShadow  Angle="225" Color="#000" Size="40" Distance="5" />
+			</Circle>
+		</Panel>
+		<Panel  ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
+			<fa-search Color="#000" FontSize="40" Alignment="Center">
+				<Translation XY="-4.3,-4" RelativeTo="Size" />
+			</fa-search>
+			<Circle Fill="#fff">
+				<Translation XY="-1,-1" RelativeTo="Size" />
+				<DropShadow  Angle="135" Color="#000" Size="40" Distance="5" />
+			</Circle>
+		</Panel>
+		<Panel  ux:Name="filterIcon" Width="200" Height="200" Alignment="TopRight">
+			<fa-filter Color="#000" FontSize="40" Alignment="Center">
+				<Translation XY="5,-4" RelativeTo="Size" />
+			</fa-filter>
+			<Circle Fill="#fff">
+				<Translation XY="1,-1" RelativeTo="Size" />
+				<DropShadow  Angle="45" Color="#000" Size="40" Distance="5" />
+			</Circle>
+		</Panel>
+
+		<!-- Details submenu **************************************************-->
+		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed">
+			<Circle  Width="70" Height="70" Fill="#0f0" >
 				<Clicked>
-					<Toggle Target="iconsVisible" />
+					<Toggle Target="subMenuVisible" />
 				</Clicked>
 				<LongPressed>
 					<Set addPageState.Active="visible"/>
 				</LongPressed>
 			</Circle>
-			<Circle ux:Name="addIcon" Width="80" Height="80" Fill="#fff">
-				<Clicked>
-                	<Set addPageState.Active="visible"/>
-            	</Clicked>
-			</Circle>
 		</Panel>
-
-		<Rectangle ux:Name="viewIcon" Width="100" Height="100" Fill="#000" Alignment="BottomLeft">
-			<Translation XY="-1,1" RelativeTo="Size" />
-		</Rectangle>
-		<Rectangle ux:Name="searchIcon" Width="50" Height="50" Fill="#000" Alignment="TopLeft">
-			<Translation XY="-1,-1" RelativeTo="Size" />
-		</Rectangle>
-		<Rectangle ux:Name="filterIcon" Width="50" Height="50" Fill="#000" Alignment="TopRight">
-			<Translation XY="1,-1" RelativeTo="Size" />
-		</Rectangle>
-
-		<!-- Details submenu **************************************************-->
-		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed">
-			<Circle Width="100" Height="100" Fill="#f00">
-				<Clicked>
-					<Toggle Target="subMenuVisible" />
-				</Clicked>
-			</Circle>
-			<Circle ux:Name="addIcon1" Width="80" Height="80" Fill="#666" />
-		</Panel>
-
 
 <!-- This is hamburger ******************************************** -->
 		<Panel ux:Name="ham" Margin="10,10,0,0" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft" >
@@ -86,7 +110,7 @@
 <!-- this is main screen ****************************************** -->
 		<EdgeNavigation ux:Name="edge" />
 		
-		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#d5d5d5">
+		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#BFDCF7">
 			<EnteringAnimation>
 		        <Move X="-1" RelativeTo="Size" />
 		    </EnteringAnimation>
@@ -103,50 +127,122 @@
 				<Scale Target="mainApp" Factor=".6" Duration=".3" />
 				<Set subMenuVisible.Value="false" />
 			</ActivatingAnimation>
-			<StackPanel>
-				<Button Text="dash" Alignment="Center">
-					<Tapped>
-						<Toggle Target="menuVisible" />
-						<NavigateToggle Target="menu" NavigationContext="edge" />
-						<Set dashboardUp.Value="false" Delay=".5" />
-					</Tapped>
-				</Button>
-				<Button Text="page2" Alignment="Center">
-					<Tapped>
-						<Set foldersActive.Value="true" />
-						<NavigateToggle Target="menu" NavigationContext="edge" />
-						<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-						<Set Target="foldersPanel.Visibility" Value="Visible" />
-						<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
-						<Set menuVisible.Value="false" Delay=".5" />
-						<Set dashboardUp.Value="true" />
-						<Set detailIndicator.Visibility="Collapsed" />
-						<Set folderIndicator.Visibility="Visible" />
-					</Tapped>
-				</Button>
-				<Button Text="page4" Alignment="Center">
-					<Tapped>
-						<Set foldersActive.Value="true" />
-						<NavigateToggle Target="menu" NavigationContext="edge" />
-						<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-						<Set Target="foldersPanel.Visibility" Value="Visible" />
-						<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-						<Set menuVisible.Value="false" Delay=".5" />
-						<Set dashboardUp.Value="true" />
-						<Set detailIndicator.Visibility="Collapsed" />
-						<Set folderIndicator.Visibility="Visible" />
-					</Tapped>
-				</Button>
-			</StackPanel>
+			<DropShadow />
+			
+			<DockPanel Margin="0,20,0,0">
+				<StackPanel Dock="Top">
+					
+					<Circle Width="50" Height="50" Color="#fff" >
+						<Stroke Width="2" Color="#fff" />
+						<ImageFill File="Assets/user.jpg" />
+					</Circle>
+					<Text FontSize="11" Alignment="Center">Матвиенко В.И.</Text>
+				</StackPanel>
+
+				<ScrollView>
+					<Grid Columns="1*,auto" Margin="20, 50, 15,0" CellSpacing="20">
+						<StackPanel Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft">
+							<Tapped>
+								<Toggle Target="menuVisible" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<Set dashboardUp.Value="false" Delay=".5" />
+								<Set actionIcon1.Visibility="Hidden" /> 
+								<Set actionIcon2.Visibility="Hidden" /> 
+							</Tapped>
+
+							<fa-home Color="#2F6A92"  FontSize="20"/>
+							<Text Value="ГЛАВНАЯ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+						</StackPanel>
+
+						<Button Text="СОГЛАСОВАНИЕ" Alignment="Left">
+							<Tapped>
+								<Set foldersActive.Value="true" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
+								<Set Target="foldersPanel.Visibility" Value="Visible" />
+								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+								<Set menuVisible.Value="false" Delay=".5" />
+								<Set dashboardUp.Value="true" />
+								<Set detailIndicator.Visibility="Collapsed" />
+								<Set folderIndicator.Visibility="Visible" />
+							</Tapped>
+						</Button>
+						<Button Text="4" Alignment="Right"></Button>
+						<Button Text="РАССМОТРЕНИЕ" Alignment="Left">
+							<Tapped>
+								<Set foldersActive.Value="true" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
+								<Set Target="foldersPanel.Visibility" Value="Visible" />
+								<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
+								<Set menuVisible.Value="false" Delay=".5" />
+								<Set dashboardUp.Value="true" />
+								<Set detailIndicator.Visibility="Collapsed" />
+								<Set folderIndicator.Visibility="Visible" />
+							</Tapped>
+						</Button>
+						<Button Text="3" Alignment="Right"></Button>
+						<Button Text="ИСПОЛНЕНИЕ" Alignment="Left">
+							<Tapped>
+								<Set foldersActive.Value="true" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
+								<Set Target="foldersPanel.Visibility" Value="Visible" />
+								<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+								<Set menuVisible.Value="false" Delay=".5" />
+								<Set dashboardUp.Value="true" />
+								<Set detailIndicator.Visibility="Collapsed" />
+								<Set folderIndicator.Visibility="Visible" />
+							</Tapped>
+						</Button>
+						<Button Text="" Alignment="Right"></Button>
+						<Button Text="ОЗНАКОМЛЕНИЕ" Alignment="Left">
+							<Tapped>
+								<Set foldersActive.Value="true" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
+								<Set Target="foldersPanel.Visibility" Value="Visible" />
+								<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+								<Set menuVisible.Value="false" Delay=".5" />
+								<Set dashboardUp.Value="true" />
+								<Set detailIndicator.Visibility="Collapsed" />
+								<Set folderIndicator.Visibility="Visible" />
+							</Tapped>
+						</Button>
+						<Button Text="8" Alignment="Right"></Button>
+						<Button Text="ПАПКА" Alignment="Left"></Button>
+						<Button Text="" Alignment="Right"></Button>
+						<Button Text="ПАПКА" Alignment="Left"></Button>
+						<Button Text="" Alignment="Right"></Button>
+
+						<StackPanel ux:Name="qqq" Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft" Background="#ccc" >
+							<WhilePressed>
+								<Change qqq.Background.Value="#000" />
+							</WhilePressed>
+							<fa-star Color="#2F6A92"  FontSize="20"/>
+							<Text Value="Избранное" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft">
+							<fa-calendar-check-o Color="#2F6A92"  FontSize="20"/>
+							<Text Value="Поручения" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+						</StackPanel>
+					</Grid>
+				</ScrollView>
+				
+				<Grid ColumnCount="2" Dock="Bottom" Margin="0,0,0,20">
+					<StackPanel>
+						<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>
+						<Text Value="Настройки" FontSize="12" Alignment="Center" />
+					</StackPanel>
+					<StackPanel>
+						<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
+						<Text Value="Выход" FontSize="12"  Alignment="Center"  />
+					</StackPanel>
+				</Grid>
+			</DockPanel>
 		</Sidebar>
 		
-		
-
-		
 		<ux:Include File="dashboard.ux" />
-
-
-
 
 		<ux:Include File="Indicators.ux" />
 
@@ -158,27 +254,62 @@
 		<Panel Dock="Fill" ux:Name="mainApp" Background="#eee">
 			<LinearNavigation ux:Name="_mainNavigation"  /> 
 			<Panel ux:Name="foldersPanel">
-				<Clicked>
+				<LongPressed>
 					<NavigateToggle Target="mainApp" NavigationContext="edge" />
 					<Set menuVisible.Value="false" />
 					<Set iconsVisible.Value="false" />
-				</Clicked>
+				</LongPressed>
 				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />
 				<SwipeNavigate SwipeDirection="Left" />
 
-				<folderPage ux:Name="folder1" Title="Согласование">
-					<fa-check Color="#000" Alignment="Center" FontSize="60" />
-					<MyButton Width="150" CornerRadius="0" TextColor="#fff" Text="Details" Alignment="Bottom">
-						<Tapped>
-							<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
-							<Set detailsActive.Value="true" />
-							<Set subMenuVisible.Value="false" />
-						</Tapped>
-					</MyButton>
+				<folderPage ux:Name="folder1" Title="Согласование" Count="4" CountNum="5">
+					<ScrollView ux:Name="listView" MaxWidth="80%" Margin="0,80,0,0">
+						<StackPanel>
+							<Each Count="5">
+								<Rectangle  Height="100" Color="#ccc" Margin="10">
+									<Clicked>
+										<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
+										<Set detailsActive.Value="true" />
+									</Clicked>
+								</Rectangle>
+							</Each>
+						</StackPanel>
+					</ScrollView>
 				</folderPage>
-				<folderPage ux:Name="folder2" Title="Рассмотрение"></folderPage>
-				<folderPage ux:Name="folder3" Title="Исполнение"></folderPage>
-				<folderPage ux:Name="folder4" Title="Ознакомление"></folderPage>
+				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" CountNum="3">
+					<ScrollView MaxWidth="80%" Margin="0,80,0,0">
+						<StackPanel>
+							<Each Count="3">
+								<Rectangle  Height="100" Color="#ccc" Margin="10">
+									<Clicked>
+										<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
+										<Set detailsActive.Value="true" />
+									</Clicked>
+								</Rectangle>
+							</Each>
+						</StackPanel>
+					</ScrollView>
+				</folderPage>
+				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" CountNum="0">
+					<StackPanel Alignment="Center">
+						<fa-diamond Alignment="Center" Color="#ccc" FontSize="60" />
+						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
+					</StackPanel>
+				</folderPage>
+				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" CountNum="10">
+					<ScrollView MaxWidth="80%" Margin="0,80,0,0">
+						<StackPanel>
+							<Each Count="10">
+								<Rectangle  Height="100" Color="#ccc" Margin="10">
+									<Clicked>
+										<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
+										<Set detailsActive.Value="true" />
+									</Clicked>
+								</Rectangle>
+							</Each>
+						</StackPanel>
+					</ScrollView>
+				</folderPage>
 			</Panel>
 
 			<Panel ux:Name="detailsPanel" ClipToBounds="false">
@@ -192,12 +323,12 @@
 				</Clicked>
 
 				<EnteringAnimation>
-	            	<Scale Factor="1" Duration=".3" />
-	            	<Change detailsPanel.Opacity="1" Duration=".3" />
+	            	<Change detailsPanel.Opacity="1" Duration=".1" />
+	            	<Scale Factor="1" Duration=".3" Delay=".1" />
 	        	</EnteringAnimation>
 	        	<ExitingAnimation>
 	            	<Scale Factor=".1" Duration=".3" />
-	            	<Change detailsPanel.Opacity="0" Duration=".3" />
+	            	<Change detailsPanel.Opacity="0" Duration=".3" Delay=".1" />
 	        	</ExitingAnimation>
 
 	        	<detailPage ux:Name="detail1" Title="Detail">
@@ -218,8 +349,6 @@
 	        	</detailPage>
 
 			</Panel>
-
-
 		</Panel>
 
 	</DockPanel>
