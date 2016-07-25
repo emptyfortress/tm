@@ -161,17 +161,171 @@
     	<Image File="Assets/city.png" Alignment="BottomCenter" Layer="Background" Opacity=".3" Offset="0, 50" />
     </WhileWindowLandscape>
 
+
     <WhileWindowPortrait>
-    	<Grid Rows="1*,6*,1*">
-			<Panel>
-				<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 10, 50, 0"   />
-				<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Margin="0, 20, 20, 0" >
-					<Stroke Width="2" Color="#fff" />
-					<ImageFill File="Assets/user.jpg" />
-				</Circle>
-			</Panel>
-			<ScrollView AllowedScrollDirections="Vertical" Alignment="Center">
-					<StackPanel Orientation="Vertical" Alignment="CenterLeft">
+	    <WhileWindowSize LessThan="380,900">
+    		<Grid Rows="1*,6*,1*">
+				<Panel>
+					<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 10, 50, 0"   />
+					<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Margin="0, 20, 20, 0" >
+						<Stroke Width="2" Color="#fff" />
+						<ImageFill File="Assets/user.jpg" />
+					</Circle>
+				</Panel>
+				<ScrollView>
+					<StackPanel>
+						<StackPanel Orientation="Vertical" Width="200">
+								<Tapped>
+									<Toggle Target="dashboardUp" />
+									<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+								</Tapped>
+
+								<Panel>
+									<Panel Alignment="TopRight">
+										<Text FontSize="25" TextColor="#fff" Value="4" Alignment="Center"   />
+										<Circle Width="50" Height="50">
+											<LinearGradient >
+	            								<GradientStop Color="#FF0000" Offset="0" />
+	            								<GradientStop Color="#A20000" Offset="1" />
+	        								</LinearGradient>
+											<Stroke Width="4" Brush="#fff" />
+											<DropShadow />
+										</Circle>
+									</Panel>
+									
+									<Image File="Assets/doc1.png" Alignment="Center" />	
+									<Each Items="{docs}">
+										<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".5"  >
+											<Rotation Degrees="{degrees}" />
+											<DropShadow />
+										</Rectangle>
+									</Each>
+								</Panel>
+								<Text FontSize="20" Value="Согласование" TextColor="#fff" Alignment="Center" Offset="0, -10" />
+							</StackPanel>
+							<StackPanel Orientation="Vertical" Width="200">
+								<Tapped>
+									<Toggle Target="dashboardUp" />
+									<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
+								</Tapped>
+
+								<Panel>
+									<Panel Alignment="TopRight">
+										<Text FontSize="25" TextColor="#fff" Value="3" Alignment="Center"   />
+										<Circle Width="50" Height="50">
+											<LinearGradient >
+	            								<GradientStop Color="#FF0000" Offset="0" />
+	            								<GradientStop Color="#A20000" Offset="1" />
+	        								</LinearGradient>
+											<Stroke Width="4" Brush="#fff" />
+											<DropShadow />
+										</Circle>
+									</Panel>
+									
+									<Image File="Assets/doc3.png" Alignment="Center" /> 	
+									<Each Items="{docs1}">
+										<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".5"  >
+											<Rotation Degrees="{degrees}" />
+											<DropShadow />
+										</Rectangle>
+									</Each>
+								</Panel>
+								<Text FontSize="20" Value="Рассмотрение" TextColor="#fff" Alignment="Center" Offset="0, -10" />
+							</StackPanel>
+							<StackPanel Orientation="Vertical" Width="200">
+								<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+									</Tapped>
+								</Rectangle>
+
+								<Text FontSize="20" Value="Исполнение" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							</StackPanel>
+							<StackPanel Orientation="Vertical" Width="200">
+								<Tapped>
+									<Toggle Target="dashboardUp" />
+									<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+								</Tapped>
+
+								<Panel>
+									<Panel Alignment="TopRight">
+										<Text FontSize="25" TextColor="#fff" Value="8" Alignment="Center"   />
+										<Circle Width="50" Height="50">
+											<LinearGradient >
+	            								<GradientStop Color="#FF0000" Offset="0" />
+	            								<GradientStop Color="#A20000" Offset="1" />
+	        								</LinearGradient>
+											<Stroke Width="4" Brush="#fff" />
+											<DropShadow />
+										</Circle>
+									</Panel>
+									
+									<Image File="Assets/doc2.png" Alignment="Center" />	
+									<Each Items="{docs2}">
+										<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".5"  >
+											<Rotation Degrees="{degrees}" />
+											<DropShadow />
+										</Rectangle>
+									</Each>
+								</Panel>
+								<Text FontSize="20" Value="Ознакомление" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							</StackPanel>
+							<StackPanel Orientation="Vertical" Width="200">
+								<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+									</Tapped>
+								</Rectangle>
+
+								<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							</StackPanel>
+							<StackPanel Orientation="Vertical" Width="200">
+								<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+									</Tapped>
+								</Rectangle>
+
+								<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							</StackPanel>
+							<StackPanel Orientation="Vertical" Width="200">
+								<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+									</Tapped>
+								</Rectangle>
+
+								<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							</StackPanel>
+					</StackPanel>
+				</ScrollView>
+				<Panel>
+					<Image File="Assets/date.png" Height="35" Alignment="BottomLeft" Layer="Background" Margin="20, 0, 0, 20"  />
+					<StackPanel Orientation="Horizontal" Alignment="BottomCenter"  Margin="20, 0, 0, 20">
+						<Image File="Assets/refresh.png" Alignment="Center" Width="35" Opacity=".5" Margin="20,0,0,0" >
+							<WhileVisible>
+						        <Spin Frequency="-.2" />
+						    </WhileVisible>
+						</Image>
+					</StackPanel>
+				</Panel>
+			</Grid>
+    	</WhileWindowSize>
+    	<WhileWindowSize GreaterThan="381,381">
+	    	<Grid Rows="1*,6*,1*">
+				<Panel>
+					<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 10, 50, 0"   />
+					<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Margin="0, 20, 20, 0" >
+						<Stroke Width="2" Color="#fff" />
+						<ImageFill File="Assets/user.jpg" />
+					</Circle>
+				</Panel>
+				<ScrollView>
+					<Grid ColumnCount="2" Alignment="HorizontalCenter" >
 						<StackPanel Orientation="Vertical">
 							<Tapped>
 								<Toggle Target="dashboardUp" />
@@ -245,7 +399,6 @@
 								<Toggle Target="dashboardUp" />
 								<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
 							</Tapped>
-
 							<Panel>
 								<Panel Alignment="TopRight">
 									<Text FontSize="25" TextColor="#fff" Value="8" Alignment="Center"   />
@@ -299,20 +452,21 @@
 
 							<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 						</StackPanel>
-					</StackPanel>
+					</Grid>
 				</ScrollView>
-			<Panel>
-				<Image File="Assets/date.png" Height="50" Alignment="BottomLeft" Layer="Background" Margin="20, 0, 0, 20"  />
-				<StackPanel Orientation="Horizontal" Alignment="BottomCenter"  Margin="20, 0, 0, 20">
-					<Image File="Assets/refresh.png" Alignment="Center" Width="40" Opacity=".5" Margin="20,0,0,0" >
-						<WhileVisible>
-					        <Spin Frequency="-.2" />
-					    </WhileVisible>
-					</Image>
-				</StackPanel>
+				<Panel>
+					<Image File="Assets/date.png" Height="50" Alignment="BottomLeft" Layer="Background" Margin="20, 0, 0, 20"  />
+					<StackPanel Orientation="Horizontal" Alignment="BottomCenter"  Margin="20, 0, 0, 20">
+						<Image File="Assets/refresh.png" Alignment="Center" Width="40" Opacity=".5" Margin="20,0,0,0" >
+							<WhileVisible>
+						        <Spin Frequency="-.2" />
+						    </WhileVisible>
+						</Image>
+					</StackPanel>
 
-			</Panel>
-    	</Grid>
+				</Panel>
+	    	</Grid>
+    	</WhileWindowSize>
     	<Image File="Assets/city.png" Alignment="BottomCenter" Layer="Background" Opacity=".3" Offset="0, 200" StretchMode="PointPrecise" Width="2000" />
     </WhileWindowPortrait>
 

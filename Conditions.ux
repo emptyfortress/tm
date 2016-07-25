@@ -66,6 +66,5 @@
 		<Set Target="actionIcon1.Visibility" Value="Visible" />
 	</WhileTrue>
 
-
 	
 </Panel>
