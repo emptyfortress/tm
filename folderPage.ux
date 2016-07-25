@@ -20,19 +20,6 @@
 			</Panel>
 			<Text Value="{Property this.Title}" FontSize="25" Margin="10,15,0,0"/>
 		</StackPanel>
-		<!-- <ScrollView ux:Name="listView" MaxWidth="80%" Margin="0,20,0,0">
-			<StackPanel>
-				<Each Count="{Property this.CountNum}">
-					<Rectangle  Height="100" Color="#ccc" Margin="10">
-						<Clicked>
-							<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
-							<Set detailsActive.Value="true" />
-						</Clicked>
-					</Rectangle>
-				</Each>
-			</StackPanel>
-		</ScrollView> -->
-		
 	</DockPanel>
 	
 

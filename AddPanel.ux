@@ -1,15 +1,17 @@
-<Panel ux:Class="AddPanel">
-	<Translation XY="1,1" RelativeTo="ParentSize" />
-	<Rectangle ux:Name="addBg" Layer="Background" Fill="#BCD3FA" />
+<Panel ux:Class="AddPanel" Background="#ccc">
 
 	<DockPanel>
-		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" />
-		<Panel Height="40" Dock="Bottom" Background="#ccc">
+		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" Margin="15" />
+		<PageControl Active="Add">
+			<Page ux:Name="Who" Background="#f00" />
+			<Page ux:Name="Add" Background="#0f0" />
+			<Page ux:Name="When" Background="#00f" />
+		</PageControl>
+		<Panel Height="40" Width="100" Dock="Bottom" Background="#000" Margin="30">
 			<Button Text="Отправить" />
 		</Panel>
+		
 	</DockPanel>
-
-
 </Panel>
 
 

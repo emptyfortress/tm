@@ -1,7 +1,7 @@
 <App Background="#ccccccff">
 	<JavaScript>
 	</JavaScript>
-	
+
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
 		<BottomBarBackground Dock="Bottom"/>
@@ -10,32 +10,32 @@
 	        <GradientStop Offset="0" Color="#013A61" />
 	        <GradientStop Offset="1" Color="#6BAAD3" />
 	    </LinearGradient>
-		<Image ux:Name="addPageIcon1" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,20,20">
+
+
+		<AddPanel ux:Name="addPanel" Dock="Fill">
+			<Translation XY="1,1" RelativeTo="Size" />
+			<Image ux:Name="closeIcon" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10">
+				<Rotation Degrees="45" />
+				<Tapped>
+					<Set addPageState.Active="hidden"/>
+				</Tapped>
+			</Image>
+		</AddPanel>
+		
+		<Image ux:Name="addPageIcon1" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Visible">
 			<Tapped>
-				<Toggle Target="viewAddPage" />
+				<Set addPageState.Active="visible"/>
 			</Tapped>
 		</Image>
 
-		<Image ux:Name="closeIcon" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,20,20" Visibility="Hidden">
-			<Rotation Degrees="140" />
-			<Tapped>
-				<Set addPageState.Active="hidden"/>
-			</Tapped>
-		</Image>
 
-
-		<AddPanel ux:Name="addPanel"></AddPanel>
-		
-
-
-		
 <!-- Folder icons ************************************************-->
-		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,7,7">
+		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,10,10">
 			<Image ux:Name="pointer" File="Assets/pointer.png"  Color="#fff" Width="24" Height="32" />
 			<Circle ux:Name="pointerBg"  Width="60" Height="60" Fill="#7BB652"></Circle>
 			<Image ux:Name="addPageIcon2" File="Assets/plus.png" Width="50" Height="50" Color="#000">
 				<Tapped>
-					<Set addPageState.Active="visible"/>
+					<!-- <Set addPageState.Active="visible"/> -->
 				</Tapped>
 			</Image>
 			<Clicked>
@@ -77,8 +77,8 @@
 		</Panel>
 
 		<!-- Details submenu **************************************************-->
-		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed">
-			<Circle  Width="70" Height="70" Fill="#0f0" >
+		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,10,10">
+			<Circle  Width="60" Height="60" Fill="#0f0" >
 				<Clicked>
 					<Toggle Target="subMenuVisible" />
 				</Clicked>
@@ -249,7 +249,7 @@
     		<ux:Include File="subMenu.ux" />
     	</Panel>
 
-		<Panel Dock="Fill" ux:Name="mainApp" Background="#eee">
+		<Panel Dock="Fill" ux:Name="mainApp">
 			<LinearNavigation ux:Name="_mainNavigation"  /> 
 			<Panel ux:Name="foldersPanel">
 				<LongPressed>

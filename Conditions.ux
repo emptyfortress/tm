@@ -1,7 +1,7 @@
 <Panel>
 	<WhileTrue ux:Name="dashboardUp">
-		<Move Target="dashboard" Y="-1" RelativeTo="Size" Duration=".6" Easing="BackIn" />
-		<Set addPageState.Active="hidden"/>
+		<Move Target="dashboard" Y="-1.2" RelativeTo="Size" Duration=".6" Easing="BackIn" />
+		<!-- <Set addPageState.Active="hidden"/> -->
 		<Change addPageIcon1.Opacity="0" Duration=".3" />
 		<Change addPageIcon1.Visibility="Collapsed" Delay=".3" />
 		<Change actionIcon1.Visibility="Visible" />
@@ -28,21 +28,15 @@
 		<Change actionIcon1.Opacity="0" Duration=".2" DelayBack=".2" />
 	</WhileTrue>
 
-	<WhileTrue ux:Name="viewAddPage">
-		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".5" Easing="CubicIn" />
-		<!-- <Change addPageScaling.Factor="1" Duration=".8" DurationBack=".8" Easing="CircularInOut" /> -->
-		<Rotate Target="addPageIcon1" DegreesZ="135" Duration=".3" />
-	</WhileTrue>
-
 	<StateGroup ux:Name="addPageState" Rest="hidden">
 		<State ux:Name="hidden">
-			<!-- <Change addPageScaling.Factor="0" Duration=".5" DurationBack=".5" Easing="CircularInOut" /> -->
-			<Set closeIcon.Visibility="Hidden" />
+			<Move Target="addPanel" X="1" Y="1" RelativeTo="ParentSize" Duration=".5" Easing="CubicIn" />
+			<Set actionIcon2.Visibility="Visible" />
 		</State>
 		<State ux:Name="visible">
-			<!-- <Change addPageScaling.Factor="1" Duration=".5" DurationBack=".5" Easing="CircularInOut" /> -->
+			<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
 			<Set iconsVisible.Value="false" />
-			<Set closeIcon.Visibility="Visible" Delay=".3" />
+			<Set actionIcon2.Visibility="Collapsed" />
 		</State>
 	</StateGroup>
 	
