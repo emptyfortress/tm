@@ -1,0 +1,16 @@
+<Panel ux:Class="AddPanel">
+	<Translation XY="1,1" RelativeTo="ParentSize" />
+	<Rectangle ux:Name="addBg" Layer="Background" Fill="#BCD3FA" />
+
+	<DockPanel>
+		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" />
+		<Panel Height="40" Dock="Bottom" Background="#ccc">
+			<Button Text="Отправить" />
+		</Panel>
+	</DockPanel>
+
+
+</Panel>
+
+
+
