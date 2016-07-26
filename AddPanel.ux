@@ -1,14 +1,37 @@
-<Panel ux:Class="AddPanel" Background="#ccc">
+<Panel ux:Class="AddPanel" Background="#BFDCF7">
 
 	<DockPanel>
 		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" Margin="15" />
-		<PageControl Active="Add">
-			<Page ux:Name="Who" Background="#f00" />
+		<PageControl>
+			<Page ux:Name="Who">
+				<ScrollView>
+					<StackPanel  Width="80%">
+						<Text Value="Выберите исполнителя" Alignment="TopCenter" />
+						<WrapPanel Orientation="Horizontal">
+							<Each Count="8">
+								<Clicked>
+									<NavigateTo Target="Add" />
+								</Clicked>
+								<Panel Width="70" Height="70">
+									<fa-user Alignment="Center" Color="#2F6A92" FontSize="30" />
+									<Circle Color="#fff" Margin="10" Opacity=".5" />
+								</Panel>
+							</Each>
+						</WrapPanel>
+						<Rectangle Height="1" Width="100%" Color="#2F6A92" />
+						<WrapPanel Orientation="Horizontal"  Margin="0, 20, 0, 0">
+							<Each Count="26">
+								<Text Value="A" Color="#2F6A92" FontSize="40" Margin="20"/>
+							</Each> 
+						</WrapPanel>
+					</StackPanel>
+				</ScrollView>
+			</Page>
 			<Page ux:Name="Add" Background="#0f0" />
 			<Page ux:Name="When" Background="#00f" />
 		</PageControl>
-		<Panel Height="40" Width="100" Dock="Bottom" Background="#000" Margin="30">
-			<Button Text="Отправить" />
+		<Panel Height="40" Width="100" Dock="Bottom" Background="#000" Margin="20">
+			<Button Text="Далее" />
 		</Panel>
 		
 	</DockPanel>

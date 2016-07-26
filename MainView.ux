@@ -35,7 +35,9 @@
 			<Circle ux:Name="pointerBg"  Width="60" Height="60" Fill="#7BB652"></Circle>
 			<Image ux:Name="addPageIcon2" File="Assets/plus.png" Width="50" Height="50" Color="#000">
 				<Tapped>
-					<!-- <Set addPageState.Active="visible"/> -->
+					<Set addPageState.Active="visible"/>
+					<Set actionIconColor.Value="false"/>
+					<Set actionIconColor.Value="false"/>
 				</Tapped>
 			</Image>
 			<Clicked>
@@ -76,17 +78,17 @@
 			</Circle>
 		</Panel>
 
-		<!-- Details submenu **************************************************-->
 		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,10,10">
 			<Circle  Width="60" Height="60" Fill="#0f0" >
 				<Clicked>
-					<Toggle Target="subMenuVisible" />
+					<!-- <Toggle Target="subMenuVisible" /> -->
 				</Clicked>
 				<LongPressed>
 					<Set addPageState.Active="visible"/>
 				</LongPressed>
 			</Circle>
 		</Panel>
+
 
 <!-- This is hamburger ******************************************** -->
 		<Panel ux:Name="ham" Margin="10,10,0,0" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft" >
@@ -123,7 +125,7 @@
 				<Change bottomRectangle.Width="28" Duration=".3" />
 				<Move Target="mainApp" X="150" Duration=".3" />
 				<Scale Target="mainApp" Factor=".6" Duration=".3" />
-				<Set subMenuVisible.Value="false" />
+				<!-- <Set subMenuVisible.Value="false" /> -->
 			</ActivatingAnimation>
 			<DropShadow />
 			
@@ -145,7 +147,7 @@
 								<NavigateToggle Target="menu" NavigationContext="edge" />
 								<Set dashboardUp.Value="false" Delay=".5" />
 								<Set actionIcon1.Visibility="Hidden" /> 
-								<Set actionIcon2.Visibility="Hidden" /> 
+								<!-- <Set actionIcon2.Visibility="Hidden" />  -->
 							</Tapped>
 
 							<fa-home Color="#2F6A92"  FontSize="20"/>
@@ -156,8 +158,6 @@
 							<Tapped>
 								<Set foldersActive.Value="true" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-								<Set Target="foldersPanel.Visibility" Value="Visible" />
 								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 								<Set menuVisible.Value="false" Delay=".5" />
 								<Set dashboardUp.Value="true" />
@@ -244,10 +244,7 @@
 
 		<ux:Include File="Indicators.ux" />
 
-		<Panel HitTestMode="None">
-    		<Rectangle ux:Name="overlayRec" Layer="Background" />
-    		<ux:Include File="subMenu.ux" />
-    	</Panel>
+		
 
 		<Panel Dock="Fill" ux:Name="mainApp">
 			<LinearNavigation ux:Name="_mainNavigation"  /> 
@@ -277,13 +274,48 @@
 				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" CountNum="3">
 					<ScrollView MaxWidth="80%" Margin="0,80,0,0">
 						<StackPanel>
+							<Rectangle Height="1" Width="100%" Color="#999" />
 							<Each Count="3">
-								<Rectangle  Height="100" Color="#ccc" Margin="10">
-									<Clicked>
-										<NavigateTo Target="detail2" NavigationContext="_detailNavigation" />
-										<Set detailsActive.Value="true" />
-									</Clicked>
-								</Rectangle>
+								<StackPanel>
+									<WhileTrue ux:Name="preview">
+										<Change Target="hidPanel.Visibility" Value="Visible" />
+										<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
+										<Change Target="hidPanel.Height" Value="100" Duration=".3" />
+									</WhileTrue>
+									<PageControl Active="task">
+										<Page Height="100" Color="#EAAF00">
+											<Clicked>
+												<NavigateTo Target="task" />
+											</Clicked>
+											<Grid ColumnCount="5">
+												<Image File="Assets/open-mail.png" Width="32" />
+												<Image File="Assets/open.png" Width="32" />
+												<Image File="Assets/star.png" Width="32" />
+												<Image File="Assets/task.png" Width="32"  />
+												<Image File="Assets/delegate.png" Width="32"  />
+											</Grid>
+										</Page>
+										<Page ux:Name="task" Height="100" Color="#fff">
+											<Clicked>
+												<Toggle Target="preview" />
+											</Clicked>
+											<Text Value="Это дайджест задания/поручения" Alignment="CenterLeft" FontSize="20" />
+										</Page>
+										<Page Height="100" Color="#B20000">
+											<Clicked>
+												<NavigateTo Target="task" />
+											</Clicked>
+											<StackPanel Orientation="Horizontal">
+												<fa-trash-o Alignment="CenterLeft" Margin="30,0,30,0" FontSize="30" Color="#fff" />
+												<Text Value="Не показывать на устройстве" Color="#fff" FontSize="20" Alignment="CenterLeft" />
+											</StackPanel>
+										</Page>
+									</PageControl>
+								<Panel	 ux:Name="hidPanel" Width="100%" Height="0"  Visibility="Collapsed" Opacity="0">
+									<Text Value="Это панель превью" Alignment="CenterLeft" Margin="20" />
+								</Panel>
+								<Rectangle Height="1" Width="100%" Color="#999" />
+								</StackPanel>
 							</Each>
 						</StackPanel>
 					</ScrollView>
@@ -311,7 +343,7 @@
 			</Panel>
 
 			<Panel ux:Name="detailsPanel" ClipToBounds="false">
-				<LinearNavigation ux:Name="_detailNavigation" Easing="CubicOut" Duration=".3" />
+				<LinearNavigation ux:Name="_detailNavigation"/>
 				<SwipeNavigate SwipeDirection="Left" />
 
 				<Clicked>
@@ -319,7 +351,7 @@
 					<Set menuVisible.Value="false" />
 					<Set iconsVisible.Value="false" />
 				</Clicked>
-
+					
 				<EnteringAnimation>
 	            	<Change detailsPanel.Opacity="1" Duration=".1" />
 	            	<Scale Factor="1" Duration=".3" Delay=".1" />
@@ -328,12 +360,36 @@
 	            	<Scale Factor=".1" Duration=".3" />
 	            	<Change detailsPanel.Opacity="0" Duration=".3" Delay=".1" />
 	        	</ExitingAnimation>
+				
+				<!-- <Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Visible" Margin="0,0,10,10">
+					<Circle  Width="60" Height="60" Fill="#0f0" >
+						<Clicked>
+							<Toggle Target="subMenuVisible" />
+						</Clicked>
+						<LongPressed>
+							<Set addPageState.Active="visible"/>
+						</LongPressed>
+					</Circle>
+				</Panel> -->
+				
+				<!-- <Panel HitTestMode="None">
+		    		<Rectangle ux:Name="overlayRec" Layer="Background" />
+		    		<ux:Include File="subMenu.ux" />
+		    	</Panel> -->
 
+	        	<detailPage ux:Name="detail0" Title="Detail">
+	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">
+	        			<Tapped>
+	        				<Set foldersActive.Value="true" />
+	        				<!-- <Set subMenuVisible.Value="false" /> -->
+		        		</Tapped>
+	        		</Button>
+	        	</detailPage>
 	        	<detailPage ux:Name="detail1" Title="Detail">
 	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">
 	        			<Tapped>
 	        				<Set foldersActive.Value="true" />
-	        				<Set subMenuVisible.Value="false" />
+	        				<!-- <Set subMenuVisible.Value="false" /> -->
 		        		</Tapped>
 	        		</Button>
 	        	</detailPage>
@@ -341,7 +397,7 @@
 	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">
 	        			<Tapped>
 	        				<Set foldersActive.Value="true" />
-	        				<Set subMenuVisible.Value="false" />
+	        				<!-- <Set subMenuVisible.Value="false" /> -->
 		        		</Tapped>
 	        		</Button>
 	        	</detailPage>

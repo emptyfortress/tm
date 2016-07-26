@@ -4,6 +4,7 @@
 		<!-- <Set addPageState.Active="hidden"/> -->
 		<Change addPageIcon1.Opacity="0" Duration=".3" />
 		<Change addPageIcon1.Visibility="Collapsed" Delay=".3" />
+		<Change actionIcon2.Visibility="Visible" />
 		<Change actionIcon1.Visibility="Visible" />
 		<Change actionIcon1.Opacity="1" Duration=".3" />
 		<Change topRectangle.Fill="#000" Duration=".3" />
@@ -26,28 +27,29 @@
 		<Change middleRectangle.Fill="#000" />
 		<Change bottomRectangle.Fill="#000" />
 		<Change actionIcon1.Opacity="0" Duration=".2" DelayBack=".2" />
+		<Change actionIcon2.Opacity="0" Duration=".2" DelayBack=".2" />
 	</WhileTrue>
 
 	<StateGroup ux:Name="addPageState" Rest="hidden">
 		<State ux:Name="hidden">
 			<Move Target="addPanel" X="1" Y="1" RelativeTo="ParentSize" Duration=".5" Easing="CubicIn" />
-			<Set actionIcon2.Visibility="Visible" />
+			<!-- <Set actionIcon2.Visibility="Visible" /> -->
+			<!-- <Set actionIconColor.Value="false" /> -->
 		</State>
 		<State ux:Name="visible">
 			<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
 			<Set iconsVisible.Value="false" />
-			<Set actionIcon2.Visibility="Collapsed" />
 		</State>
 	</StateGroup>
 	
 	<WhileTrue ux:Name="detailsActive">
 		<BringToFront Target="detailsPanel" />
 		<NavigateTo Target="detailsPanel" NavigationContext="_mainNavigation" />
-		<Set Target="foldersPanel.Visibility" Value="Hidden" Delay=".5" />
-		<Set Target="actionIcon1.Visibility" Value="Hidden" />
-		<Set Target="actionIcon2.Visibility" Value="Visible" />
-		<Set detailIndicator.Visibility="Visible" />
+		<Set Target="foldersPanel.Visibility" Value="Collapsed" Delay=".5" />
+		<Set Target="actionIcon1.Visibility" Value="Collapsed" />
+		<!-- <Set Target="actionIcon2.Visibility" Value="Visible" /> -->
 		<Set folderIndicator.Visibility="Collapsed" />
+		<Set detailIndicator.Visibility="Visible" />
 		<Set foldersActive.Value="false" />
 	</WhileTrue>
 	<WhileTrue ux:Name="foldersActive">
@@ -56,9 +58,11 @@
 		<Set detailIndicator.Visibility="Collapsed" />
 		<Set folderIndicator.Visibility="Visible" />
 		<Set detailsActive.Value="false" />
-		<Set Target="actionIcon2.Visibility" Value="Collapsed" />
+		<!-- <Set Target="actionIcon2.Visibility" Value="Collapsed" /> -->
 		<Set Target="actionIcon1.Visibility" Value="Visible" />
 	</WhileTrue>
+
+	
 
 	
 </Panel>

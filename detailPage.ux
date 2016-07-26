@@ -11,6 +11,7 @@
 	<Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#fff">
 		<Translation Y="1" RelativeTo="Size" />
 	</Text>
+
 	<Rectangle Color="#fff" Layer="Background">
 		<DropShadow />
 	</Rectangle>
