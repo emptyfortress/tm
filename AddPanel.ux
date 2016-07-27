@@ -1,29 +1,54 @@
 <Panel ux:Class="AddPanel" Background="#BFDCF7">
-
+	<JavaScript>
+		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+		module.exports = {
+			alphabet : alphabet
+		};
+	</JavaScript>
 	<DockPanel>
-		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" Margin="15" />
+		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" Margin="10" />
 		<PageControl>
-			<Page ux:Name="Who">
-				<ScrollView>
-					<StackPanel  Width="80%">
+			<Page ux:Name="Who" Padding="10,0,10,0">
+				<ScrollView ux:Name="letters" Visibility="Visible">
+					<StackPanel >
 						<Text Value="Выберите исполнителя" Alignment="TopCenter" />
 						<WrapPanel Orientation="Horizontal">
-							<Each Count="8">
+							<Each Count="7">
 								<Clicked>
 									<NavigateTo Target="Add" />
 								</Clicked>
-								<Panel Width="70" Height="70">
+								<Panel Width="65" Height="65">
 									<fa-user Alignment="Center" Color="#2F6A92" FontSize="30" />
-									<Circle Color="#fff" Margin="10" Opacity=".5" />
+									<Circle Color="#fff" Margin="5" Opacity=".5" />
 								</Panel>
 							</Each>
 						</WrapPanel>
 						<Rectangle Height="1" Width="100%" Color="#2F6A92" />
 						<WrapPanel Orientation="Horizontal"  Margin="0, 20, 0, 0">
-							<Each Count="26">
-								<Text Value="A" Color="#2F6A92" FontSize="40" Margin="20"/>
+							<Each Items="{alphabet}">
+								<Text Value="{}" Color="#2F6A92" FontSize="25" Margin="20"/>
 							</Each> 
 						</WrapPanel>
+					</StackPanel>
+				</ScrollView>
+				<ScrollView ux:Name="list">
+					<StackPanel>
+						<Text Value="O" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0" />
+						<Each Count="5">
+							<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92" Visibility="Visible" />
+						</Each>
+						<Text Value="П" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0" />
+						<Each Count="5">
+							<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92" Visibility="Visible" />
+						</Each>
+						<Text Value="Р" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0" />
+						<Each Count="5">
+							<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92" Visibility="Visible" />
+						</Each>
+						<Text Value="C" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0" />
+						<Each Count="5">
+							<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92" Visibility="Visible" />
+						</Each>
 					</StackPanel>
 				</ScrollView>
 			</Page>
