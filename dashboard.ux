@@ -134,14 +134,17 @@
 							<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 						</StackPanel>
 						<StackPanel Orientation="Vertical">
-							<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
-								<Tapped>
-									<Toggle Target="dashboardUp" />
-									<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-								</Tapped>
-							</Rectangle>
+							<Panel>
+								<Image File="Assets/doc1.png" Alignment="Center" />	
+								<Each Items="{docs2}">
+									<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".5"  >
+										<Rotation Degrees="{degrees}" />
+										<DropShadow />
+									</Rectangle>
+								</Each>
+							</Panel>
 
-							<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							<Text FontSize="20" Value="Избранное" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 						</StackPanel>
 					</StackPanel>
 				</ScrollView>
@@ -154,6 +157,12 @@
 					        <Spin Frequency="-.2" />
 					    </WhileVisible>
 					</Image>
+					<Panel>
+						<Circle Width="10" Height="10" Alignment="TopRight" Color="Red">
+							<Stroke Width="1" Color="#fff" />
+						</Circle>
+						<fa-bell-o FontSize="30" Color="#fff" Margin="20,0,0,0" Alignment="Bottom" />
+					</Panel>
 				</StackPanel>
 
 			</Panel>
@@ -291,15 +300,18 @@
 
 								<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 							</StackPanel>
-							<StackPanel Orientation="Vertical" Width="200">
-								<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
-									<Tapped>
-										<Toggle Target="dashboardUp" />
-										<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-									</Tapped>
-								</Rectangle>
+							<StackPanel Orientation="Vertical">
+								<Panel>
+									<Image File="Assets/doc1.png" Alignment="Center" />	
+									<Each Items="{docs2}">
+										<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".5"  >
+											<Rotation Degrees="{degrees}" />
+											<DropShadow />
+										</Rectangle>
+									</Each>
+								</Panel>
 
-								<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+								<Text FontSize="20" Value="Избранное" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 							</StackPanel>
 					</StackPanel>
 				</ScrollView>
@@ -311,6 +323,12 @@
 						        <Spin Frequency="-.2" />
 						    </WhileVisible>
 						</Image>
+						<Panel>
+							<Circle Width="10" Height="10" Alignment="TopRight" Color="Red">
+								<Stroke Width="1" Color="#fff" />
+							</Circle>
+							<fa-bell-o FontSize="30" Color="#fff" Margin="20,0,0,0" Alignment="Bottom" />
+						</Panel>
 					</StackPanel>
 				</Panel>
 			</Grid>
@@ -443,14 +461,17 @@
 							<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 						</StackPanel>
 						<StackPanel Orientation="Vertical">
-							<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".2">
-								<Tapped>
-									<Toggle Target="dashboardUp" />
-									<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-								</Tapped>
-							</Rectangle>
+							<Panel>
+								<Image File="Assets/doc1.png" Alignment="Center" />	
+								<Each Items="{docs2}">
+									<Rectangle Width="170" Height="220" Margin="20" Background="#fff" Opacity=".5"  >
+										<Rotation Degrees="{degrees}" />
+										<DropShadow />
+									</Rectangle>
+								</Each>
+							</Panel>
 
-							<Text FontSize="20" Value="Папка" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
+							<Text FontSize="20" Value="Избранное" TextColor="#fff" Alignment="Center" Offset="0, -10"/>
 						</StackPanel>
 					</Grid>
 				</ScrollView>
@@ -462,6 +483,12 @@
 						        <Spin Frequency="-.2" />
 						    </WhileVisible>
 						</Image>
+						<Panel>
+							<Circle Width="10" Height="10" Alignment="TopRight" Color="Red">
+								<Stroke Width="1" Color="#fff" />
+							</Circle>
+							<fa-bell-o FontSize="30" Color="#fff" Margin="20,0,0,0" Alignment="Bottom" />
+						</Panel>
 					</StackPanel>
 
 				</Panel>
