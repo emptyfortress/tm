@@ -1,10 +1,13 @@
-<Panel ux:Class="AddPanel" Background="#BFDCF7">
+<Panel  ux:Name="addPanel" Dock="Fill" Background="#BFDCF7">
 	<JavaScript>
 		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
 		module.exports = {
 			alphabet : alphabet
 		};
 	</JavaScript>
+
+	<Translation XY="1,1" RelativeTo="Size" />
+
 	<DockPanel>
 		<Text Value="Поручение" FontSize="30" Alignment="Center" Dock="Top" Margin="10" />
 		<PageControl>
@@ -18,7 +21,7 @@
 									<NavigateTo Target="Add" />
 								</Clicked>
 								<Panel Width="65" Height="65">
-									<fa-user Alignment="Center" Color="#2F6A92" FontSize="30" />
+									<fa-user Alignment="Center" Color="blue" FontSize="30" />
 									<Circle Color="#fff" Margin="5" Opacity=".5" />
 								</Panel>
 							</Each>

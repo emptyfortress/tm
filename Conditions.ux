@@ -1,53 +1,47 @@
 <Panel>
 	<WhileTrue ux:Name="dashboardUp">
+		<Set iconsVisible.Value="false" />
+		<Change iconsPanel.Visibility="Visible" Delay=".6" />
 		<Move Target="dashboard" Y="-1.2" RelativeTo="Size" Duration=".6" Easing="BackIn" />
-		<!-- <Set addPageState.Active="hidden"/> -->
-		<Change addPageIcon1.Opacity="0" Duration=".3" />
-		<Change addPageIcon1.Visibility="Collapsed" Delay=".3" />
-		<Change actionIcon2.Visibility="Visible" />
-		<Change actionIcon1.Visibility="Visible" />
-		<Change actionIcon1.Opacity="1" Duration=".3" />
+		<Change plusIcon.Color="#000" Duration=".5" />
 		<Change topRectangle.Fill="#000" Duration=".3" />
 		<Change middleRectangle.Fill="#000" Duration=".3" />
 		<Change bottomRectangle.Fill="#000" Duration=".3" />
 	</WhileTrue>
+
+
 	<WhileTrue ux:Name="iconsVisible">
 		<Move Target="viewIcon" X=".5" Y="-.5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" />
 		<Move Target="searchIcon" X=".5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".1" />
 		<Move Target="filterIcon" X="-.5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".2" />
-		<Move Target="addPageIcon2" X="-1" Y="-1" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".3" />
-	</WhileTrue>
-	<WhileTrue ux:Name="actionIconColor">
-		<Change pointerBg.Fill="#B20000"  />
-		<Rotate Target="pointer" Degrees="120" Duration=".2" />
+		<Change overRec.Opacity=".3" Duration=".5" />
+		<Change overRec.Visibility="Visible" />
+		<Change plusIcon.HitTestMode="None" />
+		<Rotate Target="plusIcon" Degrees="-135" Duration=".3" />
 	</WhileTrue>
 
 	<WhileTrue ux:Name="menuVisible">
 		<Change topRectangle.Fill="#000" />
 		<Change middleRectangle.Fill="#000" />
 		<Change bottomRectangle.Fill="#000" />
-		<Change actionIcon1.Opacity="0" Duration=".2" DelayBack=".2" />
-		<Change actionIcon2.Opacity="0" Duration=".2" DelayBack=".2" />
+		<Change plusIcon.Visibility="Hidden" Duration=".2" />
+		<Change action.Visibility="Hidden" Duration=".2" />
 	</WhileTrue>
 
-	<StateGroup ux:Name="addPageState" Rest="hidden">
-		<State ux:Name="hidden">
-			<Move Target="addPanel" X="1" Y="1" RelativeTo="ParentSize" Duration=".5" Easing="CubicIn" />
-			<!-- <Set actionIcon2.Visibility="Visible" /> -->
-			<!-- <Set actionIconColor.Value="false" /> -->
-		</State>
-		<State ux:Name="visible">
-			<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
-			<Set iconsVisible.Value="false" />
-		</State>
-	</StateGroup>
+	<WhileTrue ux:Name="addPageActive" >
+		<Change plusIcon.Visibility="Visible" />
+		<Rotate Target="plusIcon" Degrees="135" Duration=".3" />
+		<Change plusIcon.Color="blue" Duration=".5" />
+		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
+		<Change iconsVisible.Value="false" />
+	</WhileTrue>
 	
 	<WhileTrue ux:Name="detailsActive">
 		<BringToFront Target="detailsPanel" />
 		<NavigateTo Target="detailsPanel" NavigationContext="_mainNavigation" />
 		<Set Target="foldersPanel.Visibility" Value="Collapsed" Delay=".5" />
-		<Set Target="actionIcon1.Visibility" Value="Collapsed" />
-		<!-- <Set Target="actionIcon2.Visibility" Value="Visible" /> -->
+		<Set Target="plusIcon.Visibility" Value="Collapsed" />
+		<Set Target="action.Visibility" Value="Visible" />
 		<Set folderIndicator.Visibility="Collapsed" />
 		<Set detailIndicator.Visibility="Visible" />
 		<Set foldersActive.Value="false" />
@@ -58,11 +52,11 @@
 		<Set detailIndicator.Visibility="Collapsed" />
 		<Set folderIndicator.Visibility="Visible" />
 		<Set detailsActive.Value="false" />
-		<!-- <Set Target="actionIcon2.Visibility" Value="Collapsed" /> -->
-		<Set Target="actionIcon1.Visibility" Value="Visible" />
 	</WhileTrue>
-
-	
-
+	<WhileTrue ux:Name="subMenuVisible">
+		<Move Target="subMenu" X="-1" RelativeTo="Size" Duration=".3" Easing="CircularInOut"  />
+		<Change overlayRec.Color="#ccca" Duration="0.5"/>
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+	</WhileTrue>
 	
 </Panel>

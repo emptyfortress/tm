@@ -1,6 +1,8 @@
 <App Background="#ccccccff">
 	<JavaScript>
 	</JavaScript>
+	
+	<float4 ux:Global="blue" ux:Value="#2F6A92" />
 
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
@@ -11,84 +13,36 @@
 	        <GradientStop Offset="1" Color="#6BAAD3" />
 	    </LinearGradient>
 
-
-		<AddPanel ux:Name="addPanel" Dock="Fill">
-			<Translation XY="1,1" RelativeTo="Size" />
-			<Image ux:Name="closeIcon" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10">
-				<Rotation Degrees="45" />
-				<Tapped>
-					<Set addPageState.Active="hidden"/>
-				</Tapped>
-			</Image>
-		</AddPanel>
-		
-		<Image ux:Name="addPageIcon1" File="Assets/plus.png" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Visible">
+		<Image ux:Name="plusIcon" File="Assets/plus.png" Color="#fff" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
+			<SwipeGesture ux:Name="swipe" Direction="Up" Length="50" Type="Simple" />
 			<Tapped>
-				<Set addPageState.Active="visible"/>
+				<Toggle Target="addPageActive" />
 			</Tapped>
+			<LongPressed>
+				<Toggle Target="iconsVisible" />
+			</LongPressed>
+			<Swiped Source="swipe">
+				<Toggle Target="iconsVisible" />
+			</Swiped>
 		</Image>
 
+		<ux:Include File="AddPanel.ux" />
 
-<!-- Folder icons ************************************************-->
-		<Panel ux:Name="actionIcon1" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,10,10">
-			<Image ux:Name="pointer" File="Assets/pointer.png"  Color="#fff" Width="24" Height="32" />
-			<Circle ux:Name="pointerBg"  Width="60" Height="60" Fill="#7BB652"></Circle>
-			<Image ux:Name="addPageIcon2" File="Assets/plus.png" Width="50" Height="50" Color="#000">
-				<Tapped>
-					<Set addPageState.Active="visible"/>
-					<Set actionIconColor.Value="false"/>
-					<Set actionIconColor.Value="false"/>
-				</Tapped>
-			</Image>
-			<Clicked>
-				<Toggle Target="iconsVisible" />
-				<Toggle Target="actionIconColor" />
-			</Clicked>
+		<ux:Include File="Icons.ux" />
+		
+		<Image ux:Name="action" File="Assets/plus.png" Color="#f00" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Hidden">
+			<SwipeGesture ux:Name="swipe1" Direction="Up" Length="50" Type="Simple" />
+			<Tapped>
+				<Toggle Target="addPageActive" />
+			</Tapped>
 			<LongPressed>
-				<Set addPageState.Active="visible"/>
+				<Toggle Target="subMenuVisible" />
 			</LongPressed>
-		</Panel>
-
-
-		<Panel ux:Name="viewIcon" Width="200" Height="200" Alignment="BottomLeft">
-			<fa-eye Color="#000" FontSize="40" Alignment="Center">
-				<Translation XY="-4,4" RelativeTo="Size" />
-			</fa-eye>
-			<Circle  Fill="#fff" >
-				<Translation XY="-1,1" RelativeTo="Size" />
-				<DropShadow  Angle="225" Color="#000" Size="40" Distance="5" />
-			</Circle>
-		</Panel>
-		<Panel  ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
-			<fa-search Color="#000" FontSize="40" Alignment="Center">
-				<Translation XY="-4.3,-4" RelativeTo="Size" />
-			</fa-search>
-			<Circle Fill="#fff">
-				<Translation XY="-1,-1" RelativeTo="Size" />
-				<DropShadow  Angle="135" Color="#000" Size="40" Distance="5" />
-			</Circle>
-		</Panel>
-		<Panel  ux:Name="filterIcon" Width="200" Height="200" Alignment="TopRight">
-			<fa-filter Color="#000" FontSize="40" Alignment="Center">
-				<Translation XY="5,-4" RelativeTo="Size" />
-			</fa-filter>
-			<Circle Fill="#fff">
-				<Translation XY="1,-1" RelativeTo="Size" />
-				<DropShadow  Angle="45" Color="#000" Size="40" Distance="5" />
-			</Circle>
-		</Panel>
-
-		<Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Collapsed" Margin="0,0,10,10">
-			<Circle  Width="60" Height="60" Fill="#0f0" >
-				<Clicked>
-					<!-- <Toggle Target="subMenuVisible" /> -->
-				</Clicked>
-				<LongPressed>
-					<Set addPageState.Active="visible"/>
-				</LongPressed>
-			</Circle>
-		</Panel>
-
+			<Swiped Source="swipe1">
+				<Toggle Target="subMenuVisible" />
+			</Swiped>
+		</Image>
+		
 
 <!-- This is hamburger ******************************************** -->
 		<Panel ux:Name="ham" Margin="10,10,0,0" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft" >
@@ -146,8 +100,8 @@
 								<Toggle Target="menuVisible" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
 								<Set dashboardUp.Value="false" Delay=".5" />
-								<Set actionIcon1.Visibility="Hidden" /> 
-								<!-- <Set actionIcon2.Visibility="Hidden" />  -->
+								<Set action.Visibility="Hidden" /> 
+								<Set plusIcon.Visibility="Visible" /> 
 							</Tapped>
 
 							<fa-home Color="#2F6A92"  FontSize="20"/>
@@ -241,9 +195,7 @@
 		</Sidebar>
 		
 		<ux:Include File="dashboard.ux" />
-
 		<ux:Include File="Indicators.ux" />
-
 		
 
 		<Panel Dock="Fill" ux:Name="mainApp">
@@ -341,7 +293,8 @@
 					</ScrollView>
 				</folderPage>
 			</Panel>
-
+<!-- Details panel ********************************************************************************************************************************* -->
+			
 			<Panel ux:Name="detailsPanel" ClipToBounds="false">
 				<LinearNavigation ux:Name="_detailNavigation"/>
 				<SwipeNavigate SwipeDirection="Left" />
@@ -361,21 +314,16 @@
 	            	<Change detailsPanel.Opacity="0" Duration=".3" Delay=".1" />
 	        	</ExitingAnimation>
 				
-				<!-- <Panel ux:Name="actionIcon2" Alignment="BottomRight" Visibility="Visible" Margin="0,0,10,10">
-					<Circle  Width="60" Height="60" Fill="#0f0" >
-						<Clicked>
+				<Panel Layer="Overlay" >
+					<Rectangle ux:Name="overlayRec" Layer="Background" HitTestMode="None">
+						<Tapped>
 							<Toggle Target="subMenuVisible" />
-						</Clicked>
-						<LongPressed>
-							<Set addPageState.Active="visible"/>
-						</LongPressed>
-					</Circle>
-				</Panel> -->
-				
-				<!-- <Panel HitTestMode="None">
-		    		<Rectangle ux:Name="overlayRec" Layer="Background" />
-		    		<ux:Include File="subMenu.ux" />
-		    	</Panel> -->
+						</Tapped>
+					</Rectangle>
+					<Panel ux:Name="subMenu" Width="350" Height="100%" Color="#fff" Alignment="Right">
+						<Translation X="1" RelativeTo="Size" />
+					</Panel>
+				</Panel>
 
 	        	<detailPage ux:Name="detail0" Title="Detail">
 	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">
@@ -401,7 +349,7 @@
 		        		</Tapped>
 	        		</Button>
 	        	</detailPage>
-
+				
 			</Panel>
 		</Panel>
 
