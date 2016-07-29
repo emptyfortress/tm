@@ -1,0 +1,8 @@
+<Panel>
+	<StackPanel>
+		<Text Value="Поручение" FontSize="30" Alignment="Center" Margin="10" />
+	</StackPanel>
+</Panel>
+
+
+

@@ -25,7 +25,7 @@
 				<Toggle Target="iconsVisible" />
 			</Swiped>
 		</Image>
-
+	
 		<ux:Include File="AddPanel.ux" />
 
 		<ux:Include File="Icons.ux" />

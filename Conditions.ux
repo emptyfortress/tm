@@ -28,13 +28,13 @@
 		<Change action.Visibility="Hidden" Duration=".2" />
 	</WhileTrue>
 
-	<WhileTrue ux:Name="addPageActive" >
+	<WhileFalse ux:Name="addPageActive" >
 		<Change plusIcon.Visibility="Visible" />
 		<Rotate Target="plusIcon" Degrees="135" Duration=".3" />
 		<Change plusIcon.Color="blue" Duration=".5" />
 		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
-	</WhileTrue>
+	</WhileFalse>
 	
 	<WhileTrue ux:Name="detailsActive">
 		<BringToFront Target="detailsPanel" />
@@ -57,6 +57,12 @@
 		<Move Target="subMenu" X="-1" RelativeTo="Size" Duration=".3" Easing="CircularInOut"  />
 		<Change overlayRec.Color="#ccca" Duration="0.5"/>
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+	</WhileTrue>
+	<WhileTrue ux:Name="userList">
+		<Change Target="last.Visibility" Value="Hidden" />
+		<Change Target="letters.Visibility" Value="Hidden" />
+		<Change Target="searchBox.Visibility" Value="Hidden" />
+		<Change Target="list.Visibility" Value="Visible" />
 	</WhileTrue>
 	
 </Panel>
