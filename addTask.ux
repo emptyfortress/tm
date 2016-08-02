@@ -1,7 +1,7 @@
 <Panel>
-	<StackPanel>
+	<!-- <StackPanel>
 		<Text Value="Поручение" FontSize="30" Alignment="Center" Margin="10" />
-	</StackPanel>
+	</StackPanel> -->
 </Panel>
 
 

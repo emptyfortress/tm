@@ -11,24 +11,27 @@
 	<DockPanel>
 
 		
-		<Panel Dock="Top" Margin="0,10,0,0">
-			<Text ux:Name="whoText" Value="Поручение: Кому"  FontSize="20" Alignment="Center" />
-			<Text ux:Name="whatText" Value="Поручение: Что сделать"  FontSize="20" Alignment="Center" Visibility="Hidden" />
-			<Text ux:Name="whenText" Value="Поручение: Срок исполнения"  FontSize="20" Alignment="Center" Visibility="Hidden" />
+		<Panel Dock="Top" Color="blue" Padding="0,20">
+			<fa-check-circle FontSize="35" Alignment="Left" Color="#fff" Margin="20,0,0,0" />
+			<Text ux:Name="whoText" Value="Кому" Color="#fff"  FontSize="25" Alignment="Center" />
+			<Text ux:Name="whatText" Value="Что сделать" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
+			<Text ux:Name="whenText" Value="Срок исполнения" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
 		</Panel>
 		<PageControl Active="Who">
-			<Page ux:Name="Who" Padding="10,0,10,0">
+			<Page ux:Name="Who" Padding="10,0,10,0" ClipToBounds="true">
 				<ActivatingAnimation>
 					<Change Target="whoText.Visibility" Value="Visible" />
 					<Change Target="whatText.Visibility" Value="Hidden" />
 					<Change Target="whenText.Visibility" Value="Hidden" />
 				</ActivatingAnimation>
+				
+				
 				<StackPanel>
-					<Panel ux:Name="last" Visibility="Visible"  >
+					<Panel ux:Name="last" Visibility="Visible" >
 						<StackPanel>
-							<Text Value="Последние:" Alignment="CenterLeft" Margin="0,0,20,0" />
-							<ScrollView AllowedScrollDirections="Horizontal">
-								<StackPanel Orientation="Horizontal">
+							<Text Value="Последние:" Alignment="CenterLeft" Margin="0,10,20,0" />
+							<ScrollView ux:Name="lastUser" AllowedScrollDirections="Horizontal">
+								<StackPanel  Orientation="Horizontal" Height="65">
 									<Each Count="20">
 										<Panel Width="65" Height="65">
 											<Clicked>
@@ -45,10 +48,36 @@
 									</Each>
 								</StackPanel>
 							</ScrollView>
+							<ScrollView ux:Name="lastDept" Visibility="Collapsed" AllowedScrollDirections="Horizontal">
+								<StackPanel  Orientation="Horizontal" >
+									<Each Count="10">
+										<StackPanel Orientation="Horizontal" Margin="0,0,10,0" Height="65" Padding="10,0" >
+											<fa-briefcase Alignment="Center" Color="blue" FontSize="30" />
+											<Text Value="Роль" Alignment="CenterLeft" Margin="5,0" />
+											<Rectangle Color="#fff" Opacity=".5" Layer="Background" />
+										</StackPanel>
+									</Each>
+								</StackPanel>
+							</ScrollView>
 						</StackPanel>
 					</Panel>
+<!-- This is my switch ***********************************************************************************************-->
+					<StackPanel ux:Name="changeView" Orientation="Horizontal" Alignment="Center" >
+					    <Text Value="Сотрудники" FontSize="15" Alignment="CenterRight" />
+					    <mySwitch Margin="10,20">
+					    	<WhileTrue>
+					    		<Change scaleBg.Factor="1" Duration=".4" Easing="QuadraticOut" Delay="0.2" />
+					    		<Change searchBox.Visibility="Hidden" Delay=".2" />
+					    		<Change letters.Visibility="Collapsed" Delay=".25" />
+					    		<Change lastUser.Visibility="Collapsed" Delay=".25" />
+					    		<Change lastDept.Visibility="Visible" Delay=".25" />
+					    		<Change deptList.Visibility="Visible" Delay=".25" />
+					    	</WhileTrue>
+					    </mySwitch>
+					    <Text Value="Роли" FontSize="15" Alignment="CenterLeft" />
+					</StackPanel>
 					
-					<StackPanel ux:Name="searchBox" Orientation="Horizontal" Alignment="Center" Margin="0,20,0,0">
+					<StackPanel ux:Name="searchBox" Orientation="Horizontal" Alignment="Center">
 						<Panel>
 							<Button Alignment="CenterRight" Text="x" Margin="5">
 								<Clicked>
@@ -59,6 +88,7 @@
 								<WhileFocused>
 									<Change Target="search.Opacity" Value="1" Duration=".2" />
 									<Change Target="text.Width" Value="300" Duration=".2" />
+									<Change Target="text.Height" Value="40" Duration=".2" />
 								</WhileFocused>
 
 								<Rectangle ux:Name="search" Layer="Background" Color="#fff" Opacity="0">
@@ -83,10 +113,24 @@
 							</Each> 
 						</WrapPanel>
 					</ScrollView>
+				
+					<ScrollView ux:Name="deptList" Visibility="Collapsed">
+						<WrapPanel Orientation="Horizontal">
+							<Each Count="10">
+								<StackPanel Orientation="Horizontal" Margin="5" Height="65" Padding="10,0" >
+									<fa-briefcase Alignment="Center" Color="blue" FontSize="30" />
+									<Text Value="Роль" Alignment="CenterLeft" Margin="5,0" />
+									<Rectangle Color="#fff" Opacity=".5" Layer="Background" />
+								</StackPanel>
+							</Each>
+						</WrapPanel>
+					</ScrollView>
+					
+
 				</StackPanel>
 				<ScrollView ux:Name="list" Visibility="Hidden">
 					<StackPanel Alignment="HorizontalCenter">
-						<Text Value="O" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0" />
+						<Text Value="O" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0"/>
 						<Each Count="5">
 							<StackPanel Orientation="Horizontal">
 								<Panel Width="65" Height="65">
@@ -146,6 +190,13 @@
 						</Each>
 					</StackPanel>
 				</ScrollView>
+				
+
+<!-- This is bgCircle ********************************************************				 -->
+				<Circle ux:Name="bgCircle" Color="#97C8F4" Width="2000" Height="2000" Alignment="TopCenter" Anchor="50%">
+					<Translation Y="140" />
+					<Scaling ux:Name="scaleBg" Factor="0" />
+				</Circle>
 			</Page>
 			<Page ux:Name="Add">
 				<ActivatingAnimation>
@@ -164,10 +215,15 @@
 				<ux:Include File="addWhen.ux" />
 			</Page>
 		</PageControl>
-		<Panel Height="40" Width="100" Dock="Bottom" Background="#000" Margin="20">
-			<Button Text="Далее" />
+
+		<Panel Dock="Bottom">
+			<Panel Height="40" Width="100" Margin="20" Alignment="Center">
+				<Button Text="Далее" Color="#fff" />
+			</Panel>
+			
 		</Panel>
-		
+			
+
 	</DockPanel>
 </Panel>
 

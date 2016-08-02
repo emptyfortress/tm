@@ -7,10 +7,10 @@
 	<WhileWindowLandscape>
 		<Grid Rows="1*,3*,1*">
 			<Panel>
-				<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 20, 0, 0"  />
+				<!-- <Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 20, 0, 0"  /> -->
 				<Circle Width="50" Height="50" Color="#fff" Alignment="TopRight" Margin="0, 20, 20, 0" >
 					<Stroke Width="2" Color="#fff" />
-					<ImageFill File="Assets/user.jpg" />
+					<ImageFill File="Assets/user.png" />
 				</Circle>
 			</Panel>
 			<Panel MaxWidth="90%">
@@ -168,6 +168,7 @@
 			</Panel>
 		</Grid>
     	<Image File="Assets/city.png" Alignment="BottomCenter" Layer="Background" Opacity=".3" Offset="0, 50" />
+    	<!-- <Image File="Assets/screen.jpg" Alignment="TopCenter" Layer="Background" StretchMode="PointPrecise" /> -->
     </WhileWindowLandscape>
 
 
@@ -178,7 +179,7 @@
 					<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 10, 50, 0"   />
 					<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Margin="0, 20, 20, 0" >
 						<Stroke Width="2" Color="#fff" />
-						<ImageFill File="Assets/user.jpg" />
+						<ImageFill File="Assets/user.png" />
 					</Circle>
 				</Panel>
 				<ScrollView>
@@ -339,7 +340,7 @@
 					<Image File="Assets/gerb.png" Alignment="TopLeft" Layer="Background" Margin="80, 10, 50, 0"   />
 					<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Margin="0, 20, 20, 0" >
 						<Stroke Width="2" Color="#fff" />
-						<ImageFill File="Assets/user.jpg" />
+						<ImageFill File="Assets/user.png" />
 					</Circle>
 				</Panel>
 				<ScrollView>

@@ -1,8 +1,11 @@
-<Panel>
-	<StackPanel>
-		<Text Value="Срок" FontSize="30" Alignment="Center" Margin="10" />
+<DockPanel>
+	<StackPanel Dock="Top" Orientation="Horizontal" Margin="10" Alignment="Center" ItemSpacing="5" >
+		<Button Padding="10" Text="Завтра" Color="#fff"/>
+		<Button Padding="10" Text="Через 2 дня" Color="#fff"/>
+		<Button Padding="10" Text="На след. неделе" Color="#fff"/>
+		<!-- <Button Padding="10" Text="К концу квартала" Color="#fff"/> -->
 	</StackPanel>
-</Panel>
+</DockPanel>
 
 
 

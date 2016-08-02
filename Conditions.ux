@@ -62,6 +62,7 @@
 		<Change Target="last.Visibility" Value="Hidden" />
 		<Change Target="letters.Visibility" Value="Hidden" />
 		<Change Target="searchBox.Visibility" Value="Hidden" />
+		<Change Target="changeView.Visibility" Value="Hidden" />
 		<Change Target="list.Visibility" Value="Visible" />
 	</WhileTrue>
 	

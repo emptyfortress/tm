@@ -1,0 +1,53 @@
+<ToggleControl ux:Class="mySwitch" Margin="4,4,4,4"
+			Width="80"
+			Height="48" Focus.IsFocusable="true" ux:Name="_switch">
+	<Clicked>
+		<ToggleSwipeActive Target="swipe" />
+	</Clicked>
+
+	<SwipeGesture Direction="Right" Length="38" Type="Active" ux:Name="swipe" />
+
+	<WhileSwipeActive Source="swipe">
+		<Change Target="_switch.Value" Value="true" />
+	</WhileSwipeActive>
+	<SwipingAnimation Source="swipe">
+		<Change enabledTimeline.TargetProgress="1" />
+	</SwipingAnimation>
+
+	<Panel Layer="Background">
+		<Circle
+			Alignment="CenterLeft"
+			Width="34"
+			Height="34"
+			Margin="4,0,14,0">
+			<SolidColor ux:Name="thumbFill" Color="#fafafaff" />
+			<DropShadow Angle="90" Distance="0" Size="3" Spread="0.07" />
+			<Timeline ux:Name="enabledTimeline">
+				<Move X="38" Duration="0.25" Easing="QuadraticInOut" />
+			</Timeline>
+		</Circle>
+
+		<Rectangle
+			CornerRadius="23"
+			Width="80"
+			Height="40"
+			Alignment="Center">
+			<SolidColor ux:Name="trackFill" Color="#ffffffaa" />
+			<Stroke>
+				<SolidColor ux:Name="strokeColor" Color="#2F6A92aa" />
+			</Stroke>
+		</Rectangle>
+	</Panel>
+
+	<WhileDisabled>
+		<Change thumbFill.Color="#bdbdbdff" Easing="QuadraticInOut" Duration="0.25" />
+		<Change trackFill.Color="#0000001e" Easing="QuadraticInOut" Duration="0.25" />
+	</WhileDisabled>
+
+	<WhileTrue>
+		<Change thumbFill.Color="#fff" Easing="QuadraticInOut" Duration="0.25" />
+		<Change trackFill.Color="#ffffff00" Easing="QuadraticInOut" Duration="0.25" />
+		<Change strokeColor.Color="#ffffffff" Easing="QuadraticInOut" Duration="0.25" />
+		<Change enabledTimeline.TargetProgress="1" DelayBack="0" />
+	</WhileTrue>
+</ToggleControl>

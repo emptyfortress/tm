@@ -25,7 +25,7 @@
 				<Toggle Target="iconsVisible" />
 			</Swiped>
 		</Image>
-	
+
 		<ux:Include File="AddPanel.ux" />
 
 		<ux:Include File="Icons.ux" />
@@ -88,7 +88,7 @@
 					
 					<Circle Width="50" Height="50" Color="#fff" >
 						<Stroke Width="2" Color="#fff" />
-						<ImageFill File="Assets/user.jpg" />
+						<ImageFill File="Assets/user.png" />
 					</Circle>
 					<Text FontSize="11" Alignment="Center">Матвиенко В.И.</Text>
 				</StackPanel>
