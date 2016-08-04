@@ -8,7 +8,7 @@
     "*"
   ],
   "Projects": [
-    "fuse_modules\\danmademe\\fuse-fontawesome\\danmademe_fontawesome_include.unoproj"
+    "fuse_modules/danmademe/fuse-fontawesome/danmademe_fontawesome_include.unoproj"
   ],
   "Excludes": [
     "fuse_modules/"

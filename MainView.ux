@@ -12,8 +12,8 @@
 	        <GradientStop Offset="0" Color="#013A61" />
 	        <GradientStop Offset="1" Color="#6BAAD3" />
 	    </LinearGradient>
-
-		<Image ux:Name="plusIcon" File="Assets/plus.png" Color="#fff" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
+		
+		<Panel ux:Name="plusIcon" Alignment="BottomRight" Margin="15" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
 			<SwipeGesture ux:Name="swipe" Direction="Up" Length="50" Type="Simple" />
 			<Tapped>
 				<Toggle Target="addPageActive" />
@@ -24,7 +24,25 @@
 			<Swiped Source="swipe">
 				<Toggle Target="iconsVisible" />
 			</Swiped>
-		</Image>
+
+			<Rectangle Width="30" Height="3" Color="#000" Opacity=".5" Alignment="Center" />
+			<Rectangle Width="3" Height="30" Color="#000" Opacity=".5" Alignment="Center" />
+			<Circle Width="50" Height="50" Color="#fff" Opacity=".5" Alignment="Center">
+			</Circle>
+		</Panel>
+
+		<!-- <Image ux:Name="plusIcon" File="Assets/plus.png" Color="#fff" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
+			<SwipeGesture ux:Name="swipe" Direction="Up" Length="50" Type="Simple" />
+			<Tapped>
+				<Toggle Target="addPageActive" />
+			</Tapped>
+			<LongPressed>
+				<Toggle Target="iconsVisible" />
+			</LongPressed>
+			<Swiped Source="swipe">
+				<Toggle Target="iconsVisible" />
+			</Swiped>
+		</Image> -->
 
 		<ux:Include File="AddPanel.ux" />
 
@@ -259,7 +277,7 @@
 											</Clicked>
 											<StackPanel Orientation="Horizontal">
 												<fa-trash-o Alignment="CenterLeft" Margin="30,0,30,0" FontSize="30" Color="#fff" />
-												<Text Value="Не показывать на устройстве" Color="#fff" FontSize="20" Alignment="CenterLeft" />
+												<Text Value="Удалить" Color="#fff" FontSize="20" Alignment="CenterLeft" />
 											</StackPanel>
 										</Page>
 									</PageControl>

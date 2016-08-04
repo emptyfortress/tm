@@ -3,7 +3,7 @@
 		<Set iconsVisible.Value="false" />
 		<Change iconsPanel.Visibility="Visible" Delay=".6" />
 		<Move Target="dashboard" Y="-1.2" RelativeTo="Size" Duration=".6" Easing="BackIn" />
-		<Change plusIcon.Color="#000" Duration=".5" />
+		<!-- <Change plusIcon.Color="#000" Duration=".5" /> -->
 		<Change topRectangle.Fill="#000" Duration=".3" />
 		<Change middleRectangle.Fill="#000" Duration=".3" />
 		<Change bottomRectangle.Fill="#000" Duration=".3" />
@@ -28,13 +28,13 @@
 		<Change action.Visibility="Hidden" Duration=".2" />
 	</WhileTrue>
 
-	<WhileFalse ux:Name="addPageActive" >
-		<Change plusIcon.Visibility="Visible" />
-		<Rotate Target="plusIcon" Degrees="135" Duration=".3" />
-		<Change plusIcon.Color="blue" Duration=".5" />
+	<WhileTrue ux:Name="addPageActive" >
+		<!-- <Change plusIcon.Visibility="Visible" /> -->
+		<Rotate Target="plusIcon" Degrees="45" Duration=".3" />
+		<!-- <Change plusIcon.Color="blue" Duration=".5" /> -->
 		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
-	</WhileFalse>
+	</WhileTrue>
 	
 	<WhileTrue ux:Name="detailsActive">
 		<BringToFront Target="detailsPanel" />

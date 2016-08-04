@@ -1,8 +1,4 @@
-<Panel>
-	<!-- <StackPanel>
-		<Text Value="Поручение" FontSize="30" Alignment="Center" Margin="10" />
-	</StackPanel> -->
-</Panel>
+<Text Value="Здесь текст задания, шаблоны, диктофон, аттачи" Alignment="Center" />
 
 
 

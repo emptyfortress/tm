@@ -1,4 +1,4 @@
 <Panel Dock="Top">
-	<PageIndicator ux:Name="folderIndicator" Navigation="_listNavigation" Alignment="TopRight" Layer="Overlay" Margin="5" Visibility="Visible" />
-	<PageIndicator ux:Name="detailIndicator" Navigation="_detailNavigation" Alignment="TopRight" Layer="Overlay" Margin="5" Visibility="Collapsed" />
+	<PageIndicator ux:Name="folderIndicator" Navigation="_listNavigation" Alignment="TopRight" Layer="Overlay" Margin="7" Visibility="Visible" />
+	<PageIndicator ux:Name="detailIndicator" Navigation="_detailNavigation" Alignment="TopRight" Layer="Overlay" Margin="7" Visibility="Collapsed" />
 </Panel>
