@@ -14,6 +14,8 @@
 	</Text>
 	
 	<DockPanel>
+		
+
 		<WhileWindowSize LessThan="380,900">
 			<StackPanel Orientation="Horizontal" Dock="Top">
 				<Panel Alignment="TopLeft" Margin="55,0,0,0" >

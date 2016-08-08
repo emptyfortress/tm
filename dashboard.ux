@@ -1,8 +1,8 @@
 <Panel ux:Name="dashboard" ClipToBounds="true">
 	<JavaScript File="dashboard.js" />
-	<LinearGradient StartPoint="0,1" EndPoint="1,0">
-        <GradientStop Offset="0" Color="#013A61" />
-        <GradientStop Offset="1" Color="#6BAAD3" />
+	<LinearGradient StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#304153" />
+        <GradientStop Offset="1" Color="#000" />
     </LinearGradient>
 	<WhileWindowLandscape>
 		<Grid Rows="1*,3*,1*">
@@ -167,7 +167,7 @@
 
 			</Panel>
 		</Grid>
-    	<Image File="Assets/city.png" Alignment="BottomCenter" Layer="Background" Opacity=".3" Offset="0, 50" />
+    	<Image File="Assets/screen.jpg" Alignment="BottomCenter" Layer="Background" Opacity=".5"  />
     	<!-- <Image File="Assets/screen.jpg" Alignment="TopCenter" Layer="Background" StretchMode="PointPrecise" /> -->
     </WhileWindowLandscape>
 

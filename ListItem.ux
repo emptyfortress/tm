@@ -1,0 +1,40 @@
+<StackPanel ux:Class="ListItem">
+	<WhileTrue ux:Name="preview">
+		<Change Target="hidPanel.Visibility" Value="Visible" />
+		<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
+		<Change Target="hidPanel.Height" Value="100" Duration=".3" />
+	</WhileTrue>
+	<PageControl Active="task">
+		<Page Height="100" Color="#EAAF00">
+			<Clicked>
+				<NavigateTo Target="task" />
+			</Clicked>
+			<Grid ColumnCount="5">
+				<Image File="Assets/open-mail.png" Width="32" />
+				<Image File="Assets/open.png" Width="32" />
+				<Image File="Assets/star.png" Width="32" />
+				<Image File="Assets/task.png" Width="32"  />
+				<Image File="Assets/delegate.png" Width="32"  />
+			</Grid>
+		</Page>
+		<Page ux:Name="task" Height="100" Color="#fff">
+			<Clicked>
+				<Toggle Target="preview" />
+			</Clicked>
+			<Text Value="Это дайджест задания/поручения" Alignment="CenterLeft" FontSize="20" />
+		</Page>
+		<Page Height="100" Color="#B20000">
+			<Clicked>
+				<NavigateTo Target="task" />
+			</Clicked>
+			<StackPanel Orientation="Horizontal">
+				<fa-trash-o Alignment="CenterLeft" Margin="30,0,30,0" FontSize="30" Color="#fff" />
+				<Text Value="Удалить" Color="#fff" FontSize="20" Alignment="CenterLeft" />
+			</StackPanel>
+		</Page>
+	</PageControl>
+	<Panel	 ux:Name="hidPanel" Width="100%" Height="0"  Visibility="Collapsed" Opacity="0">
+		<Text Value="Это панель превью" Alignment="CenterLeft" Margin="20" />
+	</Panel>
+	<Rectangle Height="1" Width="100%" Color="#999" />
+</StackPanel>
