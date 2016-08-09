@@ -3,10 +3,6 @@
 		<Set iconsVisible.Value="false" />
 		<Change iconsPanel.Visibility="Visible" Delay=".6" />
 		<Move Target="dashboard" Y="-1.2" RelativeTo="Size" Duration=".6" Easing="BackIn" />
-		<!-- <Change plusIcon.Color="#000" Duration=".5" /> -->
-		<Change topRectangle.Fill="#000" Duration=".3" />
-		<Change middleRectangle.Fill="#000" Duration=".3" />
-		<Change bottomRectangle.Fill="#000" Duration=".3" />
 	</WhileTrue>
 
 
@@ -65,5 +61,5 @@
 		<Change Target="changeView.Visibility" Value="Hidden" />
 		<Change Target="list.Visibility" Value="Visible" />
 	</WhileTrue>
-	
+
 </Panel>

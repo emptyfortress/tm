@@ -1,0 +1,16 @@
+<Grid ux:Class="circleDiagram" Rows="2*,7*">
+	<string ux:Property="Header"/>
+	<string ux:Property="Count"/>
+	<float ux:Property="End" />
+	<float4 ux:Property="BarColor"/>
+	<Text Value="{Property this.Header}" Color="#999" Alignment="TopLeft" />
+	<Panel>
+		<Text Value="{Property this.Count}" FontSize="40" Alignment="Center" />
+		<Circle Color="#fff" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
+			<Stroke Width="10" Color="{Property this.BarColor}" />
+		</Circle>
+		<Circle Color="#fff">
+			<Stroke Width="10" Color="#eee" />
+		</Circle>
+	</Panel>
+</Grid>

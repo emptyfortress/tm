@@ -31,21 +31,7 @@
 			</Circle>
 		</Panel>
 
-		<!-- <Image ux:Name="plusIcon" File="Assets/plus.png" Color="#fff" Width="60" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
-			<SwipeGesture ux:Name="swipe" Direction="Up" Length="50" Type="Simple" />
-			<Tapped>
-				<Toggle Target="addPageActive" />
-			</Tapped>
-			<LongPressed>
-				<Toggle Target="iconsVisible" />
-			</LongPressed>
-			<Swiped Source="swipe">
-				<Toggle Target="iconsVisible" />
-			</Swiped>
-		</Image> -->
-
 		<ux:Include File="AddPanel.ux" />
-
 		<ux:Include File="Icons.ux" />
 		
 		<Image ux:Name="action" File="Assets/plus.png" Color="#f00" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Hidden">
@@ -68,12 +54,12 @@
         		<NavigateToggle Target="menu" />
         		<Toggle Target="menuVisible" />
         	</Tapped>
-			<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#fff">
+			<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#000">
 				<Translation Y="-9" ux:Name="topMenuTranslation" />
 				<Rotation ux:Name="topMenuRotation" />
 			</Rectangle>
-			<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#fff" />
-			<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#fff">
+			<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#000" />
+			<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#000">
 				<Translation Y="9" ux:Name="bottomMenuTranslation" />
 				<Rotation ux:Name="bottomMenuRotation" /> 
 			</Rectangle>
@@ -86,9 +72,9 @@
 		        <Move X="1" RelativeTo="Size" Easing="CircularIn" />
 			</EnteringAnimation>
 		</Sidebar>
-		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#BFDCF7">
+		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#fff">
 			<EnteringAnimation>
-		        <Move X="-1" RelativeTo="Size" />
+		        <Move X="-2" RelativeTo="Size" />
 		    </EnteringAnimation>
 			<ActivatingAnimation>
 				<!-- Change to cross out -->
@@ -103,16 +89,16 @@
 				<Scale Target="mainApp" Factor=".6" Duration=".3" />
 				<!-- <Set subMenuVisible.Value="false" /> -->
 			</ActivatingAnimation>
-			<DropShadow />
+			<DropShadow Distance="1" Angle="180" Size="10" />
 			
 			<DockPanel Margin="0,20,0,0">
 				<StackPanel Dock="Top">
 					
 					<Circle Width="50" Height="50" Color="#fff" >
-						<Stroke Width="2" Color="#fff" />
+						<Stroke Width="1" Color="#ccc" />
 						<ImageFill File="Assets/user.png" />
 					</Circle>
-					<Text FontSize="11" Alignment="Center">Матвиенко В.И.</Text>
+					<Text FontSize="14" Alignment="Center" Color="blue">Орлов П.С.</Text>
 				</StackPanel>
 
 				<ScrollView>
@@ -125,9 +111,9 @@
 								<Set action.Visibility="Hidden" /> 
 								<Set plusIcon.Visibility="Visible" /> 
 							</Tapped>
-
-							<fa-home Color="#2F6A92"  FontSize="20"/>
-							<Text Value="ГЛАВНАЯ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+							<Image File="Assets/dash-icon.png" Color="blue"  />
+							<!-- <fa-home Color="#2F6A92"  FontSize="20"/> -->
+							<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
 						</StackPanel>
 
 						<Button Text="СОГЛАСОВАНИЕ" Alignment="Left">
@@ -220,14 +206,6 @@
 		<ux:Include File="Indicators.ux" />
 		
 
-		<!-- <Rectangle Color="#ccc" Layer="Overlay">
-			<WhileFloat Value="{Property TheTransform.ZoomFactor}" LessThan="1">
-				<CancelInteractions/>
-			</WhileFloat>
-			<InteractiveTransform ux:Name="TheTransform"/>
-			<ZoomGesture Target="TheTransform" Minimum="1" Maximum="3" ux:Name="TheZoom"/>
-			<Attractor Target="TheTransform.ZoomFactor" ux:Name="TheZoomer" TimeMultiplier="2"/>
-		</Rectangle> -->
 		<Panel Dock="Fill" ux:Name="mainApp">
 			<LinearNavigation ux:Name="_mainNavigation"  /> 
 			<Panel ux:Name="foldersPanel">

@@ -1,0 +1,9 @@
+<Panel ux:Class="folder">
+	<string ux:Property="Text"/>
+	<string ux:Property="Count"/>
+	<dashPanel Width="150" Height="100">
+		<Text Value="{Property this.Text}" FontSize="15" Color="#666" Alignment="TopLeft"  />
+		<Text Value="{Property this.Count}" FontSize="30" Color="#000" Alignment="BottomRight"/>
+		<fa-folder-open-o Alignment="BottomLeft" Margin="10" Color="#ccc" />
+	</dashPanel>
+</Panel>

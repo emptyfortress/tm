@@ -1,0 +1,7 @@
+<Panel ux:Class="dashPanel" Background="#fff" Margin="2,2,5,5" Padding="10" >
+	<!-- <WhileWindowPortrait>
+		<Change this.MinWidth.Value="450" />
+	</WhileWindowPortrait> -->
+	<!-- <float4 ux:Property="PanelHeight" /> -->
+	<DropShadow Distance="1" Size="2" Angle="135"  />
+</Panel>
