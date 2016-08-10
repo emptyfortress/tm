@@ -9,9 +9,9 @@
 	<string ux:Property="Count" />
 	<int ux:Property="CountNum" />
 	
-	<Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#fff">
+	<!-- <Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#fff">
 		<Translation Y="1" RelativeTo="Size" />
-	</Text>
+	</Text> -->
 	
 	<DockPanel>
 		

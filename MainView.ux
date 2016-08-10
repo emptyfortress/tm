@@ -8,9 +8,9 @@
 		<StatusBarBackground Dock="Top"/>
 		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
-		<LinearGradient StartPoint="0,1" EndPoint="1,0">
-	        <GradientStop Offset="0" Color="#013A61" />
+		<LinearGradient StartPoint="1,1" EndPoint="0,0">
 	        <GradientStop Offset="1" Color="#6BAAD3" />
+	        <GradientStop Offset="0" Color="#013A61" />
 	    </LinearGradient>
 		
 		<Panel ux:Name="plusIcon" Alignment="BottomRight" Margin="15" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
@@ -74,7 +74,7 @@
 		</Sidebar>
 		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#fff">
 			<EnteringAnimation>
-		        <Move X="-2" RelativeTo="Size" />
+		        <Move X="-1.1" RelativeTo="Size" Easing="CircularIn" />
 		    </EnteringAnimation>
 			<ActivatingAnimation>
 				<!-- Change to cross out -->
@@ -86,7 +86,9 @@
 				<Change topRectangle.Width="28" Duration=".3" />
 				<Change bottomRectangle.Width="28" Duration=".3" />
 				<Move Target="mainApp" X="150" Duration=".3" />
-				<Scale Target="mainApp" Factor=".6" Duration=".3" />
+				<Move Target="mainApp" Y="-80" Duration=".3" />
+				<Scale Target="mainApp" Factor=".5" Duration=".3" />
+				<!-- <Scale Target="folder1" Factor=".9" Duration=".3" /> -->
 				<!-- <Set subMenuVisible.Value="false" /> -->
 			</ActivatingAnimation>
 			<DropShadow Distance="1" Angle="180" Size="10" />
@@ -215,8 +217,8 @@
 					<Set iconsVisible.Value="true" />
 				</LongPressed>
 				<Tapped>
-					<NavigateToggle Target="menu" NavigationContext="edge" />
-					<!-- <Set menuVisible.Value="false" /> -->
+					<!-- <NavigateToggle Target="menu" NavigationContext="edge" /> -->
+					<Set menuVisible.Value="false" />
 				</Tapped>
 
 				<folderPage ux:Name="folder1" Title="Согласование" Count="4" CountNum="5">
@@ -319,7 +321,7 @@
 				
 			</Panel>
 		</Panel>
-
+		<Image File="Assets/diamond.png" Layer="Background" Alignment="BottomRight" Offset="0, 70" />
 	</DockPanel>
 </App>
 

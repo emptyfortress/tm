@@ -41,7 +41,7 @@
 					</WhileWindowPortrait>
 					<StackPanel ux:Name="dashStack" Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="20">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
-						<Panel>
+						<!-- <Panel>
 							<StackPanel>
 								<dashHeader Value="Проблемы" />
 								<WhileWindowPortrait>
@@ -67,7 +67,7 @@
 									</dashPanel>
 								</WhileWindowLandscape>
 							</StackPanel>
-						</Panel>
+						</Panel> -->
 						<Panel>
 							<StackPanel>
 								<dashHeader Value="Сегодня" />
