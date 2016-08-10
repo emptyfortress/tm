@@ -1,0 +1,21 @@
+<!-- <StackPanel ux:Class="unreadText" Orientation="Horizontal" Margin="5" ItemSpacing="7" Background="#fff">
+	<string ux:Property="Text"/>
+	<string ux:Property="Quantity"/>
+	<fa-folder-open-o Alignment="BottomLeft" Margin="10" Color="#ccc" />
+	<Text Value="{Property this.Quantity}" FontSize="30" Color="#000" Alignment="CenterLeft"  />
+	<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap" Alignment="CenterLeft"/>
+</StackPanel> -->
+<StackPanel ux:Class="unreadText">
+	<Grid Columns="auto,auto,1*,auto" Background="#fff">
+		<string ux:Property="Text"/>
+		<string ux:Property="Quantity"/>
+		
+		<Rectangle Width="5" Height="100%" Color="#7DB9EE">
+			
+		</Rectangle>
+		<fa-folder-open-o Alignment="Left" Margin="10" Color="#000" />
+		<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap" Alignment="CenterLeft"/>
+		<Text Value="{Property this.Quantity}" FontSize="26" Color="#000" Alignment="CenterRight" Margin="0,0,10,0"  />
+	</Grid>
+	<Rectangle Height="1" Color="#cecece" />
+</StackPanel>

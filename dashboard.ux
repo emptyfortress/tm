@@ -5,7 +5,6 @@
 				<Panel>
 					<WhileWindowSize GreaterThan="450,450">
 						<Change iconBar.ItemSpacing.Value="65" />
-						<Change iconBar.Alignment.Value="TopLeft" />
 						<Panel ux:Name="calBig">
 							<StackPanel Orientation="Horizontal">
 								<Text Value="22" FontSize="30" Margin="3" Alignment="Center" />
@@ -34,8 +33,75 @@
 
 <!-- this is main scroll *****************************************************			 -->
 			<PageControl>
-				<Page Background="#f00"></Page>
-				<Page Background="#0f0"></Page>
+				<Page ux:Name="dash">
+					<ScrollView ux:Name="dashScroll" AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="10">
+						<Panel Margin="7">
+							<ColumnLayout ColumnCount="2" Orientation="Vertical" Sizing="Fill" ColumnSpacing="20" ItemSpacing="50" ux:Name="TheColumns" />
+							
+							<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
+							<Panel>
+								<StackPanel>
+									<dashHeader Value="Новое" />
+									<!-- <dashPanel> -->
+										<StackPanel >
+											<unreadText Quantity="3" Text="Согласование">
+												<Tapped>
+													<Toggle Target="dashboardUp" />
+													<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+												</Tapped>
+											</unreadText>
+											<unreadText Quantity="8" Text="Рассмотрение">
+												<Tapped>
+													<Toggle Target="dashboardUp" />
+													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+												</Tapped>
+											</unreadText>
+											<unreadText Quantity="15" Text="Ознакомление">
+												<Tapped>
+													<Toggle Target="dashboardUp" />
+													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+												</Tapped>
+											</unreadText>
+										</StackPanel>
+									<!-- </dashPanel> -->
+								</StackPanel>
+							</Panel>
+							<Panel>
+								<Rectangle Height="200" Width="200" Background="#000"></Rectangle>
+							</Panel>
+							<Panel>
+								<StackPanel>
+									<dashHeader Value="Сегодня" />
+									<dashPanel>
+										<StackPanel >
+											<todayText Quantity="3" Text="встречи в календаре">
+												<Tapped>
+													<Toggle Target="dashboardUp" />
+													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+												</Tapped>
+											</todayText>
+										</StackPanel>
+									</dashPanel>
+									<dashHeader Value="Завтра" Margin="0,10,0,0" />
+									<dashPanel>
+										<StackPanel>
+											<todayText Quantity="5" Text="поручений истекает срок" />
+										</StackPanel>
+									</dashPanel>
+								</StackPanel>
+							</Panel>
+							
+
+
+
+
+							<WhileWindowPortrait>
+								<Change TheColumns.ColumnCount.Value="1" />
+							</WhileWindowPortrait>
+						</Panel>
+					</ScrollView>
+				</Page>
+				<Page ux:Name="nav" Background="#0f0"></Page>
 			</PageControl>
 
 

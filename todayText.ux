@@ -1,7 +1,6 @@
-<StackPanel ux:Class="todayText" Orientation="Horizontal" Margin="5" ItemSpacing="7" ContentAlignment="CenterLeft">
+<StackPanel ux:Class="todayText" Orientation="Horizontal" Margin="5" ItemSpacing="7">
 	<string ux:Property="Text"/>
 	<string ux:Property="Quantity"/>
-	<fa-caret-down Color="#fff" />
-	<Text Value="{Property this.Quantity}" FontSize="25" Color="#000"  />
-	<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap"/>
+	<Text Value="{Property this.Quantity}" FontSize="30" Color="#000" Alignment="CenterLeft"  />
+	<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap" Alignment="CenterLeft"/>
 </StackPanel>
