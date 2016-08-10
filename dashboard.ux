@@ -33,7 +33,15 @@
 			</StackPanel>
 
 <!-- this is main scroll *****************************************************			 -->
-			<Panel Margin="20" >
+			<PageControl>
+				<Page Background="#f00"></Page>
+				<Page Background="#0f0"></Page>
+			</PageControl>
+
+
+
+
+			<!-- <Panel Margin="20" >
 				<ScrollView ux:Name="dashScroll" AllowedScrollDirections="Horizontal" Alignment="Center" >
 					<WhileWindowPortrait>
 						<Change dashScroll.AllowedScrollDirections.Value="Vertical" />
@@ -41,33 +49,6 @@
 					</WhileWindowPortrait>
 					<StackPanel ux:Name="dashStack" Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="20">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
-						<!-- <Panel>
-							<StackPanel>
-								<dashHeader Value="Проблемы" />
-								<WhileWindowPortrait>
-									<dashPanel Height="150" Width="300" >
-										<StackPanel>
-												<Panel Height="50" Color="#7BB652">
-													<fa-smile-o Color="#fff" FontSize="30" Alignment="Center" />
-												</Panel>
-											<Text Value="Проблем нет" Width="150" TextWrapping="Wrap" Margin="0, 10" />
-										</StackPanel>
-										<fa-cog Alignment="BottomLeft" Color="#ccc" />
-									</dashPanel>
-								</WhileWindowPortrait>
-								<WhileWindowLandscape>
-									<dashPanel Height="300">
-										<StackPanel>
-												<Panel Height="50" Color="#7BB652">
-													<fa-smile-o Color="#fff" FontSize="30" Alignment="Center" />
-												</Panel>
-											<Text Value="Проблем нет" Width="150" TextWrapping="Wrap" Margin="0, 10" />
-										</StackPanel>
-										<fa-cog Alignment="BottomLeft" Color="#ccc" />
-									</dashPanel>
-								</WhileWindowLandscape>
-							</StackPanel>
-						</Panel> -->
 						<Panel>
 							<StackPanel>
 								<dashHeader Value="Сегодня" />
@@ -238,10 +219,9 @@
 									</dashPanel>
 								</WrapPanel>
 							</StackPanel>
-						
 					</StackPanel>
 				</ScrollView>
-			</Panel>
+			</Panel> -->
 		</Grid>
 
 </Panel>
