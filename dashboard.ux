@@ -34,13 +34,14 @@
 <!-- this is main scroll *****************************************************			 -->
 			<PageControl>
 				<Page ux:Name="dash">
-					<ScrollView ux:Name="dashScroll" AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="10">
+					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="10">
 						<Panel Margin="7">
 							<ColumnLayout ColumnCount="2" Orientation="Vertical" Sizing="Fill" ColumnSpacing="20" ItemSpacing="50" ux:Name="TheColumns" />
 							
 							<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
 							<Panel>
 								<StackPanel>
+									<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
 									<dashHeader Value="Новое" />
 										<StackPanel >
 											<unreadText Quantity="3" Text="Согласование">
@@ -134,6 +135,25 @@
 									</dashPanel>
 								</WrapPanel>
 							</Panel>
+							<Panel>
+								<StackLayout Orientation="Vertical" />
+								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
+								<dashHeader Value="Лента событий" />
+								<dashPanel Height="200">
+									<ScrollView AllowedScrollDirections="Horizontal">
+										<StackPanel>
+											<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет'" />
+											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет'" />
+											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотрудничестве'" />
+											<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотрудничестве'"/>
+											<newText Time="10:20" Text="Изменено состояние в 'Предложение о сотрудничестве as'ldk as'ldk as'ldk alskj asl'gk j" />
+											<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования'" />
+											<newText Time="22 дек" Text="Делегировано 'Договор о поставках оборудования'" />
+											<newText Time="22 дек" Text="Создано 'Договор о поставках оборудования'" />
+										</StackPanel>
+									</ScrollView>
+								</dashPanel>
+							</Panel>
 
 
 
@@ -142,7 +162,7 @@
 							</WhileWindowSize>
 							<WhileWindowPortrait>
 								<Change TheColumns.ColumnCount.Value="1" />
-								<Change TheColumns.ItemSpacing.Value="10" />
+								<!-- <Change TheColumns.ItemSpacing.Value="10" /> -->
 							</WhileWindowPortrait>
 						</Panel>
 					</ScrollView>

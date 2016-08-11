@@ -108,7 +108,7 @@
 
 				<ScrollView>
 					<Grid Columns="1*,auto" Margin="20, 50, 15,0" CellSpacing="20">
-						<StackPanel Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft">
+						<StackPanel Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren">
 							<Tapped>
 								<Toggle Target="menuVisible" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />

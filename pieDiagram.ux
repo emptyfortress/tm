@@ -8,7 +8,7 @@
 	
 	<StackPanel Alignment="Center">
 		<Text Value="{Property this.Count}" FontSize="30" Alignment="Center" />
-		<Text Value="{Property this.Header}" FontSize="12" Alignment="Center" Offset="0, -10"/>
+		<Text Value="{Property this.Header}" FontSize="12" Alignment="Center" Offset="0, -5"/>
 	</StackPanel>
 	<Circle Color="#fff" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
 		<Stroke Width="10" Color="{Property this.Color1}" />
