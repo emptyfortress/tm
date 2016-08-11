@@ -74,7 +74,7 @@
 		</Sidebar>
 		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#fff">
 			<EnteringAnimation>
-		        <Move X="-1.1" RelativeTo="Size" Easing="CircularIn" />
+		        <Move X="-1" RelativeTo="Size"  />
 		    </EnteringAnimation>
 			<ActivatingAnimation>
 				<!-- Change to cross out -->
@@ -91,7 +91,10 @@
 				<!-- <Scale Target="folder1" Factor=".9" Duration=".3" /> -->
 				<!-- <Set subMenuVisible.Value="false" /> -->
 			</ActivatingAnimation>
-			<DropShadow Distance="1" Angle="180" Size="10" />
+			<Rectangle Color="#fff" Layer="Background">
+				<Stroke Width="1" Color="#ddd" />
+			</Rectangle>
+			<!-- <DropShadow Distance="1" Angle="180" Size="10" /> -->
 			
 			<DockPanel Margin="0,20,0,0">
 				<StackPanel Dock="Top">
@@ -204,6 +207,13 @@
 			</DockPanel>
 		</Sidebar>
 		
+		<Panel>
+			<Rectangle ux:Name="overlayRec" Layer="Background" HitTestMode="None" Color="#0003" Visibility="Hidden">
+				<Tapped>
+					
+				</Tapped>
+			</Rectangle>
+		</Panel>
 		<ux:Include File="dashboard.ux" />
 		<ux:Include File="Indicators.ux" />
 		
@@ -283,7 +293,7 @@
 	            	<Change detailsPanel.Opacity="0" Duration=".3" Delay=".1" />
 	        	</ExitingAnimation>
 				
-				<Panel Layer="Overlay" >
+				<!-- <Panel Layer="Overlay" >
 					<Rectangle ux:Name="overlayRec" Layer="Background" HitTestMode="None">
 						<Tapped>
 							<Toggle Target="subMenuVisible" />
@@ -292,7 +302,7 @@
 					<Panel ux:Name="subMenu" Width="350" Height="100%" Color="#fff" Alignment="Right">
 						<Translation X="1" RelativeTo="Size" />
 					</Panel>
-				</Panel>
+				</Panel> -->
 
 	        	<detailPage ux:Name="detail0" Title="Detail">
 	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">

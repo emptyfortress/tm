@@ -1,0 +1,10 @@
+<StackPanel ux:Class="legend" Orientation="Horizontal">
+	<string ux:Property="Text"/>
+	<string ux:Property="Count"/>
+	<float4 ux:Property="boxColor" />
+
+	<Rectangle Width="10" Height="10" Color="{Property this.boxColor}" />
+	<Text Value="{Property this.Text}" Alignment="CenterLeft" Margin="5, 0"/>
+	<Text Value="{Property this.Count}" Alignment="CenterLeft" Margin="5, 0" />
+	
+</StackPanel>

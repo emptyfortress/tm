@@ -2,8 +2,7 @@
   "RootNamespace": "",
   "Packages": [
     "Fuse",
-    "FuseJS",
-    "Fuse.Physics"
+    "FuseJS"
   ],
   "Includes": [
     "*"

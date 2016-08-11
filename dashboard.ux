@@ -42,7 +42,6 @@
 							<Panel>
 								<StackPanel>
 									<dashHeader Value="Новое" />
-									<!-- <dashPanel> -->
 										<StackPanel >
 											<unreadText Quantity="3" Text="Согласование">
 												<Tapped>
@@ -63,231 +62,105 @@
 												</Tapped>
 											</unreadText>
 										</StackPanel>
-									<!-- </dashPanel> -->
 								</StackPanel>
-							</Panel>
-							<Panel>
-								<Rectangle Height="200" Width="200" Background="#000"></Rectangle>
 							</Panel>
 							<Panel>
 								<StackPanel>
 									<dashHeader Value="Сегодня" />
 									<dashPanel>
 										<StackPanel >
-											<todayText Quantity="3" Text="встречи в календаре">
+											<todayText Quantity="4" Text="Поручений на контроле">
 												<Tapped>
 													<Toggle Target="dashboardUp" />
 													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
 												</Tapped>
 											</todayText>
+											<todayText Quantity="3" Text="Документов ждут рассмотрения" />
+											<todayText Quantity="7" Text="Документов ждут согласования" />
+											<todayText Quantity="3" Text="Встреч в календаре" />
+												
 										</StackPanel>
 									</dashPanel>
 									<dashHeader Value="Завтра" Margin="0,10,0,0" />
 									<dashPanel>
 										<StackPanel>
-											<todayText Quantity="5" Text="поручений истекает срок" />
+											<todayText Quantity="1" Text="Истекает срок у поручений" />
 										</StackPanel>
 									</dashPanel>
 								</StackPanel>
 							</Panel>
-							
+							<Panel>
+								<StackLayout Orientation="Vertical" />
+								<dashHeader Value="Поручения" />
+								<dashPanel>
+									<Grid Columns="auto, 1*" CellSpacing="10" Alignment="Center">
+										<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
+										<StackPanel Alignment="CenterLeft"  ux:Name="legendBlock" Visibility="Collapsed">
+											<WhileWindowSize GreaterThan="340">
+												<Change legendBlock.Visibility.Value="Visible" />
+											</WhileWindowSize>
+											<legend boxColor="#ccc" Count="20" Text="на согласование" />
+											<legend boxColor="#ccc" Count="10" Text="на рассмотрение" />
+											<legend boxColor="#ccc" Count="7" Text="на исполнение" />
+										</StackPanel>
+									</Grid>
+								</dashPanel>
+								<dashPanel>
+									<Grid Columns="auto, 1*" CellSpacing="10" Alignment="Center">
+										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
+											
+										<StackPanel Alignment="CenterLeft" ux:Name="legendBlock1" Visibility="Collapsed">
+											<WhileWindowSize GreaterThan="340">
+												<Change legendBlock1.Visibility.Value="Visible" />
+											</WhileWindowSize>
+											<legend boxColor="#ccc" Count="20" Text="завершено в срок" />
+											<legend boxColor="#ccc" Count="10" Text="просрочено" />
+											<legend boxColor="#ccc" Count="7" Text="делегировано" />
+										</StackPanel>
+									</Grid>
+								</dashPanel>
+								<WrapPanel>
+									<dashPanel>
+										<circleDiagram Header="Просрочено" Count="4" End="30" BarColor="#f00" />
+									</dashPanel>
+									<dashPanel>
+										<circleDiagram Header="Делегировано" Count="6" End="70" BarColor="#777777" />
+									</dashPanel>
+									<dashPanel>
+										<circleDiagram Header="В работе" Count="12" End="130" BarColor="#777777" />
+									</dashPanel>
+									<dashPanel>
+										<circleDiagram Header="Контроль" Count="8" End="90" BarColor="#777777" />
+									</dashPanel>
+								</WrapPanel>
+							</Panel>
 
 
 
-
+							<WhileWindowSize LessThan="300,300">
+								<Change legendBlock.Visibility.Value="Collapsed" /> 
+							</WhileWindowSize>
 							<WhileWindowPortrait>
 								<Change TheColumns.ColumnCount.Value="1" />
+								<Change TheColumns.ItemSpacing.Value="10" />
 							</WhileWindowPortrait>
 						</Panel>
 					</ScrollView>
 				</Page>
-				<Page ux:Name="nav" Background="#0f0"></Page>
+				<Page ux:Name="nav">
+					<ScrollView>
+						<WrapPanel Orientation="Horizontal" Margin="20">
+							<Each Count="20">
+								<folder Text="Имя папки" Count="115">
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+									</Tapped>
+								</folder>
+							</Each>
+						</WrapPanel>
+					</ScrollView>
+				</Page>
 			</PageControl>
-
-
-
-
-			<!-- <Panel Margin="20" >
-				<ScrollView ux:Name="dashScroll" AllowedScrollDirections="Horizontal" Alignment="Center" >
-					<WhileWindowPortrait>
-						<Change dashScroll.AllowedScrollDirections.Value="Vertical" />
-						<Change dashStack.Orientation.Value="Vertical" />
-					</WhileWindowPortrait>
-					<StackPanel ux:Name="dashStack" Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="20">
-						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
-						<Panel>
-							<StackPanel>
-								<dashHeader Value="Сегодня" />
-								<dashPanel>
-									<StackPanel >
-										<todayTextUp Quantity="2" Text="поручений просрочено" />
-										<todayTextDown Quantity="4" Text="поручений на контроле" />
-										<todayTextUp Quantity="6" Text="документов ждут согласования" />
-										<todayText Quantity="3" Text="встречи в календаре" />
-									</StackPanel>
-								</dashPanel>
-								<dashHeader Value="Завтра" Margin="0,10,0,0" />
-								<dashPanel>
-									<StackPanel>
-										<todayTextDown Quantity="5" Text="поручений истекает срок" />
-									</StackPanel>
-								</dashPanel>
-							</StackPanel>
-						</Panel>
-						<Panel>
-							<StackPanel>
-								<dashHeader Value="Поручения" />
-								<Grid ColumnCount="4" RowCount="2" Width="550" Height="310">
-									<dashPanel>
-										<circleDiagram Header="Активные" Count="17" End="120" BarColor="#7BB652" />
-										<Tapped>
-											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-										</Tapped>
-									</dashPanel>
-									<dashPanel>
-										<circleDiagram Header="Просроченные" Count="3" End="-40" BarColor="#D90000" />
-									</dashPanel>
-									<dashPanel>
-										<circleDiagram Header="Контроль" Count="4" End="-30" BarColor="#429AE7" />
-									</dashPanel>
-									<dashPanel>
-										<circleDiagram Header="Черновики" Count="2" End="-60" BarColor="#999" />
-									</dashPanel>
-									<dashPanel ColumnSpan="2">
-										<StackPanel>
-											<Text Value="Выдано поручений" Alignment="TopLeft" Color="#999" />
-											<StackPanel Orientation="Horizontal" ItemSpacing="3" Alignment="BottomCenter" Margin="20">
-												<Rectangle Width="20" Height="20" Color="#7F00FF" Alignment="Bottom"/>
-												<Rectangle Width="20" Height="70" Color="#7F00FF" Alignment="Bottom"/>
-												<Rectangle Width="20" Height="34" Color="#7F00FF" Alignment="Bottom"/>
-												<Rectangle Width="20" Height="30" Color="#7F00FF" Alignment="Bottom"/>
-												<Rectangle Width="20" Height="50" Color="#7F00FF" Alignment="Bottom"/>
-												<Rectangle Width="20" Height="40" Color="#7F00FF" Alignment="Bottom"/>
-												<Rectangle Width="20" Height="10" Color="#7F00FF" Alignment="Bottom"/>
-											</StackPanel>
-										</StackPanel>
-									</dashPanel>
-									<dashPanel ColumnSpan="2">
-										<Text Value="Выполнено поручений" Alignment="TopLeft" Color="#999" />
-										<StackPanel Orientation="Horizontal" ItemSpacing="3" Alignment="BottomCenter" Margin="20">
-											<Rectangle Width="20" Height="20" Color="#7BB652" Alignment="Bottom"/>
-											<Rectangle Width="20" Height="10" Color="#7BB652" Alignment="Bottom"/>
-											<Rectangle Width="20" Height="0" Color="#7BB652" Alignment="Bottom"/>
-											<Rectangle Width="20" Height="5" Color="#7BB652" Alignment="Bottom"/>
-											<Rectangle Width="20" Height="7" Color="#7BB652" Alignment="Bottom"/>
-											<Rectangle Width="20" Height="15" Color="#7BB652" Alignment="Bottom"/>
-											<Rectangle Width="20" Height="20" Color="#7BB652" Alignment="Bottom"/>
-										</StackPanel>
-									</dashPanel>
-								</Grid>
-							</StackPanel>
-						</Panel>
-						<Panel>
-							<StackPanel>
-								<dashHeader Value="Новое" />
-								<dashPanel Height="300" Width="500">
-									<ScrollView>
-										<StackPanel>
-											<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет...'" />
-											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет...'" />
-											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотруднич...'" />
-											<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотруднич...'" />
-											<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования...'" />
-											<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет...'" />
-											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет...'" />
-											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотруднич...'" />
-											<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотруднич...'" />
-											<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования...'" />
-											<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет...'" />
-											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет...'" />
-											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотруднич...'" />
-											<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотруднич...'" />
-											<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования...'" />
-										</StackPanel>
-									</ScrollView>
-								</dashPanel>
-								<Text Value="Очистить" Color="#D90000" Alignment="Right" Margin="5" />
-							</StackPanel>
-						</Panel>
-						<Panel>
-							<StackPanel>
-								<dashHeader Value="Сотрудники" />
-									<ScrollView MaxHeight="300">
-										<Panel>
-										<StackPanel Width="300">
-											<dashPanel>
-												<userName User="Орлов П.С." Tasks="12" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Соколов И.У." Tasks="7" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Синицына Т.К." Tasks="5" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Воробьев Ж.К." Tasks="5" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Снегирев Б.Б" Tasks="3" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Орлов П.С." Tasks="12" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Соколов И.У." Tasks="7" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Синицына Т.К." Tasks="5" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Воробьев Ж.К." Tasks="5" />
-											</dashPanel>
-											<dashPanel>
-												<userName User="Снегирев Б.Б" Tasks="3" />
-											</dashPanel>
-										</StackPanel>
-										</Panel>
-									</ScrollView>
-							</StackPanel>
-						</Panel>
-							<StackPanel>
-								<dashHeader Value="Папки" />
-								<WrapPanel ux:Name="folderWrap" Orientation="Vertical" Height="320">
-									<folder Text="Согласование" Count="115">
-										<Tapped>
-											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-										</Tapped>
-									</folder>
-									<folder Text="Рассмотрение" Count="80">
-										<Tapped>
-											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
-										</Tapped>
-									</folder>
-									<folder Text="Исполнение" Count="7">
-										<Tapped>
-											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-										</Tapped>
-									</folder>
-									<folder Text="Контроль" Count="14">
-										<Tapped>
-											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-										</Tapped>
-									</folder>
-									<dashPanel Width="150" Height="100">
-										<Text Value="Избранное" FontSize="15" Color="#666" Alignment="TopLeft"  />
-										<Text Value="24" FontSize="30" Color="#000" Alignment="BottomRight"/>
-										<fa-star Alignment="BottomLeft" FontSize="25" Margin="5" Color="#F8BF00" />
-									</dashPanel>
-								</WrapPanel>
-							</StackPanel>
-					</StackPanel>
-				</ScrollView>
-			</Panel> -->
 		</Grid>
-
 </Panel>

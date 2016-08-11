@@ -1,6 +1,8 @@
-<StackPanel ux:Class="todayText" Orientation="Horizontal" Margin="5" ItemSpacing="7">
+<Grid ux:Class="todayText" Columns="auto,1*,auto">
 	<string ux:Property="Text"/>
 	<string ux:Property="Quantity"/>
-	<Text Value="{Property this.Quantity}" FontSize="30" Color="#000" Alignment="CenterLeft"  />
+
+	<fa-calendar-o Alignment="Left" Margin="10" Color="#000" />
 	<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap" Alignment="CenterLeft"/>
-</StackPanel>
+	<Text Value="{Property this.Quantity}" FontSize="26" Color="#000" Alignment="CenterRight" />
+</Grid>

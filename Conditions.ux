@@ -22,6 +22,8 @@
 		<Change bottomRectangle.Fill="#000" />
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
 		<Change action.Visibility="Hidden" Duration=".2" />
+		<!-- <Change overlayRec.Visibility.Value="Visible" /> -->
+		<!-- <Change overlayRec.HitTestMode="LocalBoundsAndChildren" /> -->
 	</WhileTrue>
 
 	<WhileTrue ux:Name="addPageActive" >
@@ -50,7 +52,7 @@
 		<Set detailsActive.Value="false" />
 	</WhileTrue>
 	<WhileTrue ux:Name="subMenuVisible">
-		<Move Target="subMenu" X="-1" RelativeTo="Size" Duration=".3" Easing="CircularInOut"  />
+		<!-- <Move Target="subMenu" X="-1" RelativeTo="Size" Duration=".3" Easing="CircularInOut"  /> -->
 		<Change overlayRec.Color="#ccca" Duration="0.5"/>
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 	</WhileTrue>
