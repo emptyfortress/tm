@@ -7,6 +7,17 @@
   "Includes": [
     "*"
   ],
+  "Title": "alrosa",
+  "Android": {
+      "Icons": {
+          "LDPI": "Assets/appicon/ldpi.png",
+          "MDPI": "Assets/appicon/mdpi.png",
+          "HDPI": "Assets/appicon/hdpi.png",
+          "XHDPI": "Assets/appicon/xhdpi.png",
+          "XXHDPI": "Assets/appicon/xxhdpi.png",
+          "XXXHDPI": "Assets/appicon/xxxhdpi.png",
+      }
+  },
   "Projects": [
     "fuse_modules/danmademe/fuse-fontawesome/danmademe_fontawesome_include.unoproj"
   ],

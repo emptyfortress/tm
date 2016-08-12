@@ -4,7 +4,7 @@
 			<StackPanel ux:Name="iconBar" Orientation="Horizontal" Margin="80,20,20,0" Alignment="TopRight" ItemSpacing="35">
 				<Panel>
 					<WhileWindowSize GreaterThan="450,450">
-						<Change iconBar.ItemSpacing.Value="65" />
+						<Change iconBar.ItemSpacing.Value="45" />
 						<Panel ux:Name="calBig">
 							<StackPanel Orientation="Horizontal">
 								<Text Value="22" FontSize="30" Margin="3" Alignment="Center" />
@@ -34,7 +34,7 @@
 <!-- this is main scroll *****************************************************			 -->
 			<PageControl>
 				<Page ux:Name="dash">
-					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="10">
+					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="0,10">
 						<Panel Margin="7">
 							<ColumnLayout ColumnCount="2" Orientation="Vertical" Sizing="Fill" ColumnSpacing="20" ItemSpacing="50" ux:Name="TheColumns" />
 							
@@ -94,30 +94,27 @@
 								<StackLayout Orientation="Vertical" />
 								<dashHeader Value="Поручения" />
 								<dashPanel>
-									<Grid Columns="auto, 1*" CellSpacing="10" Alignment="Center">
-										<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
-										<StackPanel Alignment="CenterLeft"  ux:Name="legendBlock" Visibility="Collapsed">
-											<WhileWindowSize GreaterThan="340">
-												<Change legendBlock.Visibility.Value="Visible" />
-											</WhileWindowSize>
-											<legend boxColor="#ccc" Count="20" Text="на согласование" />
-											<legend boxColor="#ccc" Count="10" Text="на рассмотрение" />
-											<legend boxColor="#ccc" Count="7" Text="на исполнение" />
-										</StackPanel>
-									</Grid>
-								</dashPanel>
-								<dashPanel>
-									<Grid Columns="auto, 1*" CellSpacing="10" Alignment="Center">
-										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
-											
-										<StackPanel Alignment="CenterLeft" ux:Name="legendBlock1" Visibility="Collapsed">
-											<WhileWindowSize GreaterThan="340">
-												<Change legendBlock1.Visibility.Value="Visible" />
-											</WhileWindowSize>
-											<legend boxColor="#ccc" Count="20" Text="завершено в срок" />
-											<legend boxColor="#ccc" Count="10" Text="просрочено" />
-											<legend boxColor="#ccc" Count="7" Text="делегировано" />
-										</StackPanel>
+									<Grid ux:Name="taskGrid" ColumnCount="1" CellSpacing="10">
+										<PageControl>
+											<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
+											<StackPanel Alignment="Center">
+												<Text Value="Входящие - 37" />
+												<Rectangle Height="1" Color="#666" />
+												<legend boxColor="#ccc" Count="20" Text="на согласование" />
+												<legend boxColor="#ccc" Count="10" Text="на рассмотрение" />
+												<legend boxColor="#ccc" Count="7" Text="на исполнение" />
+											</StackPanel>
+										</PageControl>
+										<PageControl>
+											<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
+											<StackPanel Alignment="Center">
+												<Text Value="Исходящие - 22" />
+												<Rectangle Height="1" Color="#666" />
+												<legend boxColor="#ccc" Count="15" Text="завершено в срок" />
+												<legend boxColor="#ccc" Count="6" Text="просрочено" />
+												<legend boxColor="#ccc" Count="3" Text="делегировано" />
+											</StackPanel>
+										</PageControl>
 									</Grid>
 								</dashPanel>
 								<WrapPanel>
@@ -146,7 +143,7 @@
 											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет'" />
 											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотрудничестве'" />
 											<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотрудничестве'"/>
-											<newText Time="10:20" Text="Изменено состояние в 'Предложение о сотрудничестве as'ldk as'ldk as'ldk alskj asl'gk j" />
+											<newText Time="10:20" Text="Изменено состояние в 'Предложение о сотрудничестве это длинное предлинное сосотояние для проверки скролла" />
 											<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования'" />
 											<newText Time="22 дек" Text="Делегировано 'Договор о поставках оборудования'" />
 											<newText Time="22 дек" Text="Создано 'Договор о поставках оборудования'" />
@@ -154,11 +151,23 @@
 									</ScrollView>
 								</dashPanel>
 							</Panel>
+							<Panel>
+								<StackLayout Orientation="Vertical" />
+								<dashHeader Value="Сотрудники" />
+								<StackPanel>
+									<userName User="Орлов П.С." Tasks="5" />
+									<userName User="Воробьев У.С." Tasks="5" />
+									<userName User="Воронова Г.Т." Tasks="3" />
+									<userName User="Снегирев Ф.А." Tasks="8" />
+									<userName User="Гусев Л.С." Tasks="12" />
+								</StackPanel>
+							</Panel>
 
 
 
-							<WhileWindowSize LessThan="300,300">
-								<Change legendBlock.Visibility.Value="Collapsed" /> 
+							<WhileWindowSize GreaterThan="375">
+								<Change taskGrid.ColumnCount.Value="2" /> 
+								<Change taskGrid.CellSpacing.Value="5" /> 
 							</WhileWindowSize>
 							<WhileWindowPortrait>
 								<Change TheColumns.ColumnCount.Value="1" />
