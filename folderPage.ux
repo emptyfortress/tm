@@ -14,27 +14,20 @@
 	</Text> -->
 	
 	<DockPanel>
-		
 
-		<WhileWindowSize LessThan="380,900">
 			<StackPanel Orientation="Horizontal" Dock="Top">
-				<Panel Alignment="TopLeft" Margin="55,0,0,0" >
-					<Text Value="{Property this.Count}" FontSize="30" Alignment="Center" Color="#fff"/>
-					<Image File="Assets/bookmark.png" Width="35"/>
+				<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
+					<Text ux:Name="folderCount" Value="{Property this.Count}" FontSize="25" Alignment="Center" Color="#fff"/>
+					<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30"/>
 				</Panel>
-				<Text Value="{Property this.Title}" FontSize="20" Margin="10,15,0,0"/>
+				<Text ux:Name="folderTitle" Value="{Property this.Title}" FontSize="20" Margin="10,15,0,0"/>
+				<WhileWindowSize GreaterThan="380">
+					<Change folderPanel.Margin.Value="80,0,0,0" />
+					<Change bookmark.Width.Value="45" />
+					<Change folderCount.FontSize.Value="35" />
+					<Change folderTitle.FontSize.Value="30" />
+				</WhileWindowSize>
 			</StackPanel>
-		</WhileWindowSize>
-
-		<WhileWindowSize GreaterThan="380">
-			<StackPanel Orientation="Horizontal" Dock="Top">
-				<Panel Alignment="TopLeft" Margin="80,0,0,0" >
-					<Text Value="{Property this.Count}" FontSize="35" Alignment="Center" Color="#fff"/>
-					<Image File="Assets/bookmark.png" />
-				</Panel>
-				<Text Value="{Property this.Title}" FontSize="25" Margin="10,15,0,0"/>
-			</StackPanel>
-		</WhileWindowSize>
 
 
 
