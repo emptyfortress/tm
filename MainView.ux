@@ -98,8 +98,7 @@
 				<Move Target="mainApp" X="150" Duration=".3" />
 				<Move Target="mainApp" Y="-80" Duration=".3" />
 				<Scale Target="mainApp" Factor=".5" Duration=".3" />
-				<!-- <Scale Target="folder1" Factor=".9" Duration=".3" /> -->
-				<!-- <Set subMenuVisible.Value="false" /> -->
+				<Change blockRect.HitTestMode="LocalBoundsAndChildren" />
 			</ActivatingAnimation>
 			<Rectangle Color="#fff" Layer="Background">
 				<Stroke Width="1" Color="#ddd" />
@@ -236,11 +235,13 @@
 				<LongPressed>
 					<Set iconsVisible.Value="true" />
 				</LongPressed>
-				<Tapped>
-					<!-- <NavigateToggle Target="menu" NavigationContext="edge" /> -->
-					<Set menuVisible.Value="false" />
-				</Tapped>
-
+				
+				<Rectangle ux:Name="blockRect" Layer="Overlay" Color="#fff" HitTestMode="None" Opacity="0">
+					<Tapped>
+						<NavigateToggle Target="menu" NavigationContext="edge" />
+						<Set menuVisible.Value="false" />
+					</Tapped>
+				</Rectangle>
 				<folderPage ux:Name="folder1" Title="Согласование" Count="4" CountNum="5">
 					<ScrollView ux:Name="listView" Margin="100,80,100,0">
 						<StackPanel>
