@@ -2,23 +2,6 @@
 	<JavaScript File="dashboard.js" />
 		<Grid Rows="1*,8*">
 			<StackPanel ux:Name="iconBar" Orientation="Horizontal" Margin="80,20,20,0" Alignment="TopRight" ItemSpacing="35">
-				<!-- <Panel> -->
-					<!-- <WhileWindowSize GreaterThan="450,450"> -->
-						<!-- <Change iconBar.ItemSpacing.Value="45" /> -->
-						<!-- <Panel ux:Name="calBig">
-							<StackPanel Orientation="Horizontal">
-								<Text Value="22" FontSize="30" Margin="3" Alignment="Center" />
-								<StackPanel Margin="5,9">
-									<Text Value="Вторник" FontSize="10" />
-									<Text Value="ДЕКАБРЯ" FontSize="11" />
-								</StackPanel>
-							</StackPanel>
-							<Rectangle Color="#fff">
-								<DropShadow Distance="1" Size="2" Angle="135"  />
-							</Rectangle>
-						</Panel> -->
-					<!-- </WhileWindowSize> -->
-				<!-- </Panel> -->
 				<fa-calendar-o FontSize="20" Alignment="VerticalCenter"/>
 				<fa-search FontSize="20" Alignment="VerticalCenter">
 					<Scaling X="-1" />

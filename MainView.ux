@@ -9,6 +9,7 @@
 	</JavaScript>
 	
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
+	<float4 ux:Global="red" ux:Value="#B20000" />
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
 	<Font File="Assets/fonts/Roboto-Bold.ttf" ux:Global="Bold" />
