@@ -1,7 +1,10 @@
 <App Background="#ccccccff">
 	<JavaScript>
-		var Observable = require('FuseJS/Observable');
+		// var Observable = require('FuseJS/Observable');
+		var Bundle = require("FuseJS/Bundle");
+		var items = JSON.parse(Bundle.readSync("data.json"));
 		module.exports = {
+			items: items
 		};
 		
 
@@ -239,7 +242,7 @@
 				<folderPage ux:Name="folder1" Title="Согласование" Count="4" CountNum="5">
 					<ScrollView ux:Name="listView" Margin="100,80,100,0">
 						<StackPanel>
-							<Each Items="{tasks}">
+							<Each Items="{items.docs}">
 								<ListItem />
 							</Each>
 						</StackPanel>

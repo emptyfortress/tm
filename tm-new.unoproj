@@ -5,7 +5,8 @@
     "FuseJS"
   ],
   "Includes": [
-    "*"
+    "*",
+    "data.json:Bundle"
   ],
   "Title": "alrosa",
   "iOS": {
