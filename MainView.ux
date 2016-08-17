@@ -241,16 +241,19 @@
 						<Set menuVisible.Value="false" />
 					</Tapped>
 				</Rectangle>
-				<folderPage ux:Name="folder1" Title="Согласование" Count="4" CountNum="5">
-					<ScrollView Margin="100,80,100,0">
-						<StackPanel>
+				<folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5">
+					<ScrollView Margin="0,80,0,0">
+						<StackPanel ux:Name="scroll1" ItemSpacing="150">
+							<WhileWindowLandscape>
+								<Change scroll1.Margin="100" />
+							</WhileWindowLandscape>
 							<Each Items="{items.docs}">
 								<DocItem />
 							</Each>
 						</StackPanel>
 					</ScrollView>
 				</folderPage>
-				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" CountNum="3">
+				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3">
 					<ScrollView Margin="0,80,0,0">
 						<StackPanel  MaxWidth="60%">
 							<Rectangle Height="1" Width="100%" Color="#999" />
@@ -260,13 +263,13 @@
 						</StackPanel>
 					</ScrollView>
 				</folderPage>
-				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" CountNum="0">
+				<folderPage ux:Name="folder3" Title="Исполнение"  Count="">
 					<StackPanel Alignment="Center" MaxWidth="60%">
 						<fa-diamond Alignment="Center" Color="#ccc" FontSize="60" />
 						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
 					</StackPanel>
 				</folderPage>
-				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" CountNum="10">
+				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8">
 					<ScrollView MaxWidth="80%" Margin="0,80,0,0">
 						<StackPanel  MaxWidth="60%">
 							<Each Count="10">
