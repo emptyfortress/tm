@@ -103,7 +103,6 @@
 			<Rectangle Color="#fff" Layer="Background">
 				<Stroke Width="1" Color="#ddd" />
 			</Rectangle>
-			<!-- <DropShadow Distance="1" Angle="180" Size="10" /> -->
 			
 			<DockPanel Margin="0,20,0,0">
 				<StackPanel Dock="Top">
@@ -243,10 +242,10 @@
 					</Tapped>
 				</Rectangle>
 				<folderPage ux:Name="folder1" Title="Согласование" Count="4" CountNum="5">
-					<ScrollView ux:Name="listView" Margin="100,80,100,0">
+					<ScrollView Margin="100,80,100,0">
 						<StackPanel>
 							<Each Items="{items.docs}">
-								<ListItem />
+								<DocItem />
 							</Each>
 						</StackPanel>
 					</ScrollView>
