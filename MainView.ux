@@ -2,7 +2,7 @@
 	<JavaScript>
 		// var Observable = require('FuseJS/Observable');
 		var Bundle = require("FuseJS/Bundle");
-		var items = JSON.parse(Bundle.readSync("data.json"));
+		var items = JSON.parse(Bundle.readSync("Assets/data.json"));
 		module.exports = {
 			items: items
 		};

@@ -6,7 +6,7 @@
   ],
   "Includes": [
     "*",
-    "data.json:Bundle"
+    "Assets/data.json:Bundle"
   ],
   "Title": "alrosa",
   "iOS": {

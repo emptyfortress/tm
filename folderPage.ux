@@ -9,12 +9,7 @@
 	<string ux:Property="Count" />
 	<int ux:Property="CountNum" />
 	
-	<!-- <Text Alignment="BottomCenter" Value="{Property this.Title}" FontSize="50" TextColor="#fff">
-		<Translation Y="1" RelativeTo="Size" />
-	</Text> -->
-	
 	<DockPanel>
-
 			<StackPanel Orientation="Horizontal" Dock="Top">
 				<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
 					<Text ux:Name="folderCount" Value="{Property this.Count}" FontSize="25" Alignment="Center" Color="#fff"/>
@@ -28,14 +23,10 @@
 					<Change folderTitle.FontSize.Value="30" />
 				</WhileWindowSize>
 			</StackPanel>
-
-
-
 	</DockPanel>
 	
 
 	<Rectangle Color="#fff" Layer="Background">
-		<Stroke Offset="-5" Width="1" Color="#ccc" />
-		<!-- <DropShadow /> -->
+		<Stroke Offset="1" Width="1" Color="#bbb" />
 	</Rectangle>
 </Page>
