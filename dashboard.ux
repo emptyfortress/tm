@@ -15,7 +15,7 @@
 			</StackPanel>
 
 <!-- this is main scroll *****************************************************			 -->
-			<PageControl Active="nav">
+			<PageControl>
 				<Page ux:Name="dash">
 					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="0">
 						<Panel Margin="7">

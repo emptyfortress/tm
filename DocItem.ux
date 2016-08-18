@@ -40,7 +40,7 @@
 				<WhileTrue ux:Name="GrowMe">
 				   <Scale Factor="1.2" Duration="0.1"/>
 				</WhileTrue>
-				<Text Value="{info}" FontSize="12" Margin="10" Color="#000" />
+				<Text Value="{info}" FontSize="12" Margin="10" />
 				<Clicked>
 					<Set hidPanel1.Visibility.Value="Collapsed" />
 				</Clicked>
