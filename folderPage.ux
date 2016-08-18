@@ -8,12 +8,13 @@
 	<string ux:Property="Title" />
 	<string ux:Property="Count" />
 	<int ux:Property="CountNum" />
+	<float4 ux:Property="bookmarkColor" />
 	
 	<DockPanel ux:Name="moveMe">
 			<StackPanel Orientation="Horizontal" Dock="Top">
 				<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
 					<Text ux:Name="folderCount" Value="{Property this.Count}" FontSize="25" Alignment="Center" Color="#fff"/>
-					<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30"/>
+					<Image ux:Name="bookmark" File="Assets/bookmark.png" Color="{Property this.bookmarkColor}" Width="30"/>
 				</Panel>
 				<Text ux:Name="folderTitle" Value="{Property this.Title}" FontSize="20" Margin="10,15,0,0"/>
 				<WhileWindowSize GreaterThan="380">

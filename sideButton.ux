@@ -1,0 +1,12 @@
+<Grid ux:Class="sideButton" Columns="1*,auto" Padding="10">
+	<string ux:Property="Text"/>
+	<string ux:Property="Quantity"/>
+
+	<Text Value="{Property this.Text}" Color="blue" FontSize="18" Alignment="CenterLeft"/>
+	<Text Value="{Property this.Quantity}" Color="blue" Alignment="CenterRight"/>
+	<Rectangle ux:Name="Bg" Layer="Background" Color="#fff" />
+	<WhilePressed>
+		<Change Bg.Color="lightblue" />
+	</WhilePressed>
+</Grid>
+

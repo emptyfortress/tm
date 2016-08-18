@@ -9,6 +9,7 @@
 	</JavaScript>
 	
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
+	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />
 	<float4 ux:Global="red" ux:Value="#B20000" />
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
@@ -103,33 +104,48 @@
 			<Rectangle Color="#fff" Layer="Background">
 				<Stroke Width="1" Color="#ddd" />
 			</Rectangle>
-			
-			<DockPanel Margin="0,20,0,0">
-				<StackPanel Dock="Top">
-					
-					<Circle Width="50" Height="50" Color="#fff" >
-						<Stroke Width="1" Color="#ccc" />
-						<ImageFill File="Assets/user.png" />
-					</Circle>
-					<Text FontSize="14" Alignment="Center" Color="blue">Орлов П.С.</Text>
-				</StackPanel>
+				<ScrollView Margin="0,50,0,0">
+					<StackPanel>
+						<StackPanel Margin="0,0,0,80">
+							<Circle Width="50" Height="50" Color="#fff" >
+								<Stroke Width="1" Color="#ccc" />
+								<ImageFill File="Assets/user.png" />
+							</Circle>
+							<Text FontSize="14" Alignment="Center" Color="blue">Орлов П.С.</Text>
+						</StackPanel>
 
-				<ScrollView>
-					<Grid Columns="1*,auto" Margin="20, 50, 15,0" CellSpacing="20">
-						<StackPanel Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren">
+						<StackPanel ux:Name="dashButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 							<Tapped>
 								<Toggle Target="menuVisible" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="dash" NavigationContext="dashboardNav" />
 								<Set dashboardUp.Value="false" Delay=".5" />
 								<Set action.Visibility="Hidden" /> 
 								<Set plusIcon.Visibility="Visible" /> 
 							</Tapped>
-							<Image File="Assets/dash-icon.png" Color="blue"  />
-							<!-- <fa-home Color="#2F6A92"  FontSize="20"/> -->
+							<WhilePressed>
+								<Change dashButton.Background.Value="#CCE4F8" />
+							</WhilePressed>
+							<Image File="Assets/dash-icon.png" Width="25" Color="blue"  />
 							<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
 						</StackPanel>
+						<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+							<Tapped>
+								<Toggle Target="menuVisible" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="nav" NavigationContext="dashboardNav" />
+								<Set dashboardUp.Value="false" Delay=".5" />
+								<Set action.Visibility="Hidden" /> 
+								<Set plusIcon.Visibility="Visible" /> 
+							</Tapped>
+							<WhilePressed>
+								<Change folderButton.Background.Value="#CCE4F8" />
+							</WhilePressed>
+							<fa-folder-open-o Color="blue" FontSize="20" />
+							<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+						</StackPanel>
 
-						<Button Text="СОГЛАСОВАНИЕ" Alignment="Left">
+						<sideButton Text="Согласование" Quantity="4" >
 							<Tapped>
 								<Set foldersActive.Value="true" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
@@ -139,80 +155,56 @@
 								<Set detailIndicator.Visibility="Collapsed" />
 								<Set folderIndicator.Visibility="Visible" />
 							</Tapped>
-						</Button>
-						<Button Text="4" Alignment="Right"></Button>
-						<Button Text="РАССМОТРЕНИЕ" Alignment="Left">
+						</sideButton>
+						<sideButton Text="Рассмотрение" Quantity="3" >
 							<Tapped>
 								<Set foldersActive.Value="true" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-								<Set Target="foldersPanel.Visibility" Value="Visible" />
 								<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
 								<Set menuVisible.Value="false" Delay=".5" />
 								<Set dashboardUp.Value="true" />
 								<Set detailIndicator.Visibility="Collapsed" />
 								<Set folderIndicator.Visibility="Visible" />
 							</Tapped>
-						</Button>
-						<Button Text="3" Alignment="Right"></Button>
-						<Button Text="ИСПОЛНЕНИЕ" Alignment="Left">
+						</sideButton>
+						<sideButton Text="Исполнение" Quantity="" >
 							<Tapped>
 								<Set foldersActive.Value="true" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-								<Set Target="foldersPanel.Visibility" Value="Visible" />
 								<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
 								<Set menuVisible.Value="false" Delay=".5" />
 								<Set dashboardUp.Value="true" />
 								<Set detailIndicator.Visibility="Collapsed" />
 								<Set folderIndicator.Visibility="Visible" />
 							</Tapped>
-						</Button>
-						<Button Text="" Alignment="Right"></Button>
-						<Button Text="ОЗНАКОМЛЕНИЕ" Alignment="Left">
+						</sideButton>
+						<sideButton Text="Ознакомление" Quantity="8" >
 							<Tapped>
 								<Set foldersActive.Value="true" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-								<Set Target="foldersPanel.Visibility" Value="Visible" />
 								<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
 								<Set menuVisible.Value="false" Delay=".5" />
 								<Set dashboardUp.Value="true" />
 								<Set detailIndicator.Visibility="Collapsed" />
 								<Set folderIndicator.Visibility="Visible" />
 							</Tapped>
-						</Button>
-						<Button Text="8" Alignment="Right"></Button>
-						<Button Text="ПАПКА" Alignment="Left"></Button>
-						<Button Text="" Alignment="Right"></Button>
-						<Button Text="ПАПКА" Alignment="Left"></Button>
-						<Button Text="" Alignment="Right"></Button>
-
-						<StackPanel ux:Name="qqq" Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft" Background="#ccc" >
-							<WhilePressed>
-								<Change qqq.Background.Value="#000" />
-							</WhilePressed>
-							<fa-star Color="#2F6A92"  FontSize="20"/>
-							<Text Value="Избранное" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
-						</StackPanel>
-						<StackPanel Orientation="Horizontal" ColumnSpan="2" ContentAlignment="CenterLeft">
-							<fa-calendar-check-o Color="#2F6A92"  FontSize="20"/>
-							<Text Value="Поручения" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
-						</StackPanel>
-					</Grid>
+						</sideButton>
+						<sideButton Text="Папка" />
+						<sideButton Text="Папка" />
+						<sideButton Text="Папка" />
+						<Rectangle Height="1" Color="blue" />
+						<Grid ColumnCount="2" Margin="0,20">
+							<StackPanel>
+								<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>
+								<Text Value="Настройки" FontSize="12" Alignment="Center" />
+							</StackPanel>
+							<StackPanel>
+								<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
+								<Text Value="Выход" FontSize="12"  Alignment="Center"  />
+							</StackPanel>
+						</Grid>
+					</StackPanel>
 				</ScrollView>
-				
-				<Grid ColumnCount="2" Dock="Bottom" Margin="0,0,0,20">
-					<StackPanel>
-						<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>
-						<Text Value="Настройки" FontSize="12" Alignment="Center" />
-					</StackPanel>
-					<StackPanel>
-						<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
-						<Text Value="Выход" FontSize="12"  Alignment="Center"  />
-					</StackPanel>
-				</Grid>
-			</DockPanel>
 		</Sidebar>
 		
 		<Panel>
@@ -254,7 +246,7 @@
 							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
 								<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
 									<Text ux:Name="folderCount" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
-									<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30"/>
+									<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="red"/>
 								</Panel>
 								<Text ux:Name="folderTitle" Value="Согласование" FontSize="20" Margin="10,15,0,0"/>
 							</StackPanel>
@@ -320,7 +312,7 @@
 							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe2" TransformOrigin="TopLeft" >
 								<Panel ux:Name="folderPanel2" Alignment="TopLeft" Margin="55,0,0,0" >
 									<Text ux:Name="folderCount2" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
-									<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30"/>
+									<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30" Color="red"/>
 								</Panel>
 								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" Margin="10,15,0,0"/>
 							</StackPanel>
@@ -371,13 +363,13 @@
 						</StackPanel>
 					</ScrollView>
 				</folderPage> -->
-				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0">
+				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0" bookmarkColor="lightblue">
 					<StackPanel Alignment="Center" MaxWidth="60%">
 						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
 					</StackPanel>
 				</folderPage>
-				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" Padding="5,0">
+				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" Padding="5,0" bookmarkColor="red">
 					<ScrollView Margin="0,80,0,0">
 						<StackPanel ux:Name="scroll4" ItemSpacing="120">
 							<WhileWindowLandscape>
@@ -450,7 +442,7 @@
 				
 			</Panel>
 		</Panel>
-		<Image File="Assets/diamond.png" Layer="Background" Alignment="BottomRight" Offset="0, 70" />
+		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 	</DockPanel>
 </App>
 
