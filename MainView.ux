@@ -241,11 +241,58 @@
 						<Set menuVisible.Value="false" />
 					</Tapped>
 				</Rectangle>
-				<folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5,0">
+
+				<Page ux:Name="folder1">
+					<EnteringAnimation>
+						<Move X="-1" RelativeTo="Size" />
+					</EnteringAnimation>
+					<ExitingAnimation>
+						<Move X="1" RelativeTo="Size" />
+					</ExitingAnimation>
+					
+					<DockPanel>
+							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
+								<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
+									<Text ux:Name="folderCount" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
+									<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30"/>
+								</Panel>
+								<Text ux:Name="folderTitle" Value="Согласование" FontSize="20" Margin="10,15,0,0"/>
+							</StackPanel>
+							<WhileWindowSize GreaterThan="380">
+								<Change folderPanel.Margin.Value="80,0,0,0" />
+								<Change bookmark.Width.Value="45" />
+								<Change folderCount.FontSize.Value="35" />
+								<Change folderTitle.FontSize.Value="30" />
+							</WhileWindowSize>
+					</DockPanel>
+
+					<ScrollView Margin="0,80,0,0">
+
+						<ScrollingAnimation From="80" To="200">
+							<Move Target="moveMe" X="40"  Duration=".5" Easing="QuarticOut" />
+							<Scale Target="moveMe" Factor=".4" Duration=".5" Easing="QuadraticOut"/>
+						</ScrollingAnimation>
+
+						<StackPanel ux:Name="scroll1" ItemSpacing="120" Margin="3,100">
+							<WhileWindowLandscape>
+								<Change scroll1.Margin="100" />
+							</WhileWindowLandscape>
+							<Each Items="{items.docs}">
+								<DocItem />
+							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
+						</StackPanel>
+					</ScrollView>
+
+					<Rectangle Color="#fff" Layer="Background">
+						<Stroke Offset="1" Width="1" Color="#bbb" />
+					</Rectangle>
+				</Page>
+
+				<!-- <folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5,0">
 					<ScrollView Margin="0,80,0,0">
 
 						<ScrollingAnimation From="20" To="100">
-							<!-- <Move Target="" RelativeTo="Size" Y="-2" Easing="QuarticOut" /> -->
 						</ScrollingAnimation>
 
 
@@ -259,10 +306,61 @@
 							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
 					</ScrollView>
-				</folderPage>
-				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" Padding="5,0">
+				</folderPage> -->
+
+				<Page ux:Name="folder2">
+					<EnteringAnimation>
+						<Move X="-1" RelativeTo="Size" />
+					</EnteringAnimation>
+					<ExitingAnimation>
+						<Move X="1" RelativeTo="Size" />
+					</ExitingAnimation>
+					
+					<DockPanel>
+							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe2" TransformOrigin="TopLeft" >
+								<Panel ux:Name="folderPanel2" Alignment="TopLeft" Margin="55,0,0,0" >
+									<Text ux:Name="folderCount2" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
+									<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30"/>
+								</Panel>
+								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" Margin="10,15,0,0"/>
+							</StackPanel>
+							<WhileWindowSize GreaterThan="380">
+								<Change folderPanel2.Margin.Value="80,0,0,0" />
+								<Change bookmark2.Width.Value="45" />
+								<Change folderCount2.FontSize.Value="35" />
+								<Change folderTitle2.FontSize.Value="30" />
+							</WhileWindowSize>
+					</DockPanel>
+
 					<ScrollView Margin="0,80,0,0">
-						<StackPanel ux:Name="scroll2" ItemSpacing="120">
+
+						<ScrollingAnimation From="80" To="200">
+							<Move Target="moveMe2" X="40"  Duration=".5" Easing="QuarticOut" />
+							<Scale Target="moveMe2" Factor=".4" Duration=".5" Easing="QuadraticOut"/>
+						</ScrollingAnimation>
+
+
+						<StackPanel ux:Name="scroll2" ItemSpacing="120" Margin="3,100">
+							<WhileWindowLandscape>
+								<Change scroll2.Margin="100" />
+							</WhileWindowLandscape>
+							<Each Items="{items.tasks}">
+								<DocItem />
+							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
+						</StackPanel>
+					</ScrollView>
+
+					<Rectangle Color="#fff" Layer="Background">
+						<Stroke Offset="1" Width="1" Color="#bbb" />
+					</Rectangle>
+				</Page>
+
+
+
+				<!-- <folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" Padding="5,0">
+					<ScrollView Margin="0,80,0,0">
+						<StackPanel ux:Name="scroll2" ItemSpacing="120" Margin="3,100">
 							<WhileWindowLandscape>
 								<Change scroll2.Margin="100" />
 							</WhileWindowLandscape>
@@ -272,7 +370,7 @@
 							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
 					</ScrollView>
-				</folderPage>
+				</folderPage> -->
 				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0">
 					<StackPanel Alignment="Center" MaxWidth="60%">
 						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
