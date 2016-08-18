@@ -163,8 +163,8 @@
 				<Page ux:Name="nav">
 					<ScrollView>
 						<WrapPanel Orientation="Horizontal" Margin="20">
-							<Each Count="20">
-								<folder Text="Имя папки" Count="115">
+							<Each Items="{items.folders}">
+								<folder Text="{name}" Count="115">
 									<Tapped>
 										<Toggle Target="dashboardUp" />
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />

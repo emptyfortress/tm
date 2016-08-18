@@ -1,8 +1,0 @@
-<StackPanel ux:Class="todayTextDown" Orientation="Horizontal" Margin="5" ItemSpacing="7" ContentAlignment="TopLeft">
-	<string ux:Property="Text"/>
-	<string ux:Property="Quantity"/>
-	<fa-caret-down Color="#7BB652" />
-	<Text Value="{Property this.Quantity}" FontSize="25" Color="#000"  />
-	<Text Value="{Property this.Text}"  Color="#666" TextWrapping="Wrap"/>
-
-</StackPanel>
