@@ -241,7 +241,7 @@
 						<Set menuVisible.Value="false" />
 					</Tapped>
 				</Rectangle>
-				<folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5">
+				<folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5,0">
 					<ScrollView Margin="0,80,0,0">
 						<StackPanel ux:Name="scroll1" ItemSpacing="150">
 							<WhileWindowLandscape>
