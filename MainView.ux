@@ -345,7 +345,7 @@
 								<Change scroll2.Margin="100" />
 							</WhileWindowLandscape>
 							<Each Items="{items.tasks}">
-								<DocItem />
+								<TaskItem />
 							</Each>
 							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
