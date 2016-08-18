@@ -234,7 +234,7 @@
 					</Tapped>
 				</Rectangle>
 
-				<Page ux:Name="folder1">
+				<Page ux:Name="folder1" Padding="5,0">
 					<EnteringAnimation>
 						<Move X="-1" RelativeTo="Size" />
 					</EnteringAnimation>
@@ -300,7 +300,7 @@
 					</ScrollView>
 				</folderPage> -->
 
-				<Page ux:Name="folder2">
+				<Page ux:Name="folder2" Padding="5,0">
 					<EnteringAnimation>
 						<Move X="-1" RelativeTo="Size" />
 					</EnteringAnimation>
@@ -371,7 +371,7 @@
 				</folderPage>
 				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" Padding="5,0" bookmarkColor="red">
 					<ScrollView Margin="0,80,0,0">
-						<StackPanel ux:Name="scroll4" ItemSpacing="120">
+						<StackPanel ux:Name="scroll4" Margin="3,100" ItemSpacing="120">
 							<WhileWindowLandscape>
 								<Change scroll4.Margin="100" />
 							</WhileWindowLandscape>
