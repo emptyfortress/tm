@@ -40,11 +40,11 @@
 				<WhileTrue ux:Name="GrowMe">
 				   <Scale Factor="1.2" Duration="0.1"/>
 				</WhileTrue>
-				<Text Value="{info}" FontSize="12" Margin="10" Color="#fff" />
+				<Text Value="{info}" FontSize="12" Margin="10" />
 				<Clicked>
 					<Set hidPanel1.Visibility.Value="Collapsed" />
 				</Clicked>
-				<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" />
+				<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
 			</Panel>
 			<Panel ClipToBounds="true">
 

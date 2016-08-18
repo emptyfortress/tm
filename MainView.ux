@@ -377,12 +377,16 @@
 						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
 					</StackPanel>
 				</folderPage>
-				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8">
-					<ScrollView MaxWidth="80%" Margin="0,80,0,0">
-						<StackPanel  MaxWidth="60%">
-							<Each Count="10">
-								<!-- <ListItem /> -->
+				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" Padding="5,0">
+					<ScrollView Margin="0,80,0,0">
+						<StackPanel ux:Name="scroll4" ItemSpacing="120">
+							<WhileWindowLandscape>
+								<Change scroll4.Margin="100" />
+							</WhileWindowLandscape>
+							<Each Items="{items.docs}">
+								<DocItem />
 							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
 					</ScrollView>
 				</folderPage>
