@@ -36,13 +36,13 @@
 											<unreadText Quantity="8" Text="Рассмотрение">
 												<Tapped>
 													<Toggle Target="dashboardUp" />
-													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+													<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
 												</Tapped>
 											</unreadText>
 											<unreadText Quantity="15" Text="Ознакомление">
 												<Tapped>
 													<Toggle Target="dashboardUp" />
-													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+													<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
 												</Tapped>
 											</unreadText>
 										</StackPanel>

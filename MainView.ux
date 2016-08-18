@@ -243,29 +243,33 @@
 				</Rectangle>
 				<folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5,0">
 					<ScrollView Margin="0,80,0,0">
-						<StackPanel ux:Name="scroll1" ItemSpacing="150">
+						<StackPanel ux:Name="scroll1" ItemSpacing="120">
 							<WhileWindowLandscape>
 								<Change scroll1.Margin="100" />
 							</WhileWindowLandscape>
 							<Each Items="{items.docs}">
 								<DocItem />
 							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
 					</ScrollView>
 				</folderPage>
-				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3">
+				<folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" Padding="5,0">
 					<ScrollView Margin="0,80,0,0">
-						<StackPanel  MaxWidth="60%">
-							<Rectangle Height="1" Width="100%" Color="#999" />
-							<Each Count="20">
-								<!-- <ListItem /> -->
+						<StackPanel ux:Name="scroll2" ItemSpacing="120">
+							<WhileWindowLandscape>
+								<Change scroll2.Margin="100" />
+							</WhileWindowLandscape>
+							<Each Items="{items.tasks}">
+								<TaskItem />
 							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
 					</ScrollView>
 				</folderPage>
-				<folderPage ux:Name="folder3" Title="Исполнение"  Count="">
+				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0">
 					<StackPanel Alignment="Center" MaxWidth="60%">
-						<fa-diamond Alignment="Center" Color="#ccc" FontSize="60" />
+						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
 					</StackPanel>
 				</folderPage>

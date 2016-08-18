@@ -1,0 +1,116 @@
+<Panel ux:Class="TaskItem">
+	<WhileTrue ux:Name="preview">
+		<Change Target="hidPanel.Visibility" Value="Visible" />
+		<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
+		<Change Target="hidPanel.Height" Value="100" Duration=".3" />
+	</WhileTrue>
+	<WhileTrue ux:Name="preview1">
+		<Change Target="hidPanel1.Visibility" Value="Visible" />
+		<Change Target="bell.Visibility" Value="Hidden" />
+	</WhileTrue>
+	<WhileTrue ux:Name="newItem">
+		<Change Target="newTitle.Font" Value="Regular" />
+		<Change Target="newTitle1.Font" Value="Bold" />
+		<Change Target="newRect.Opacity" Value="0" />
+	</WhileTrue>
+	
+
+	<PageControl Active="task" >
+		<Page MinHeight="100" Color="#EAAF00">
+			<Clicked>
+				<NavigateTo Target="task" />
+			</Clicked>
+			<Grid ColumnCount="5">
+				<Image File="Assets/open-mail.png" Width="32" />
+				<Image File="Assets/open.png" Width="32" />
+				<Image File="Assets/star.png" Width="32" />
+				<Image File="Assets/task.png" Width="32"  />
+				<Image File="Assets/delegate.png" Width="32"  />
+			</Grid>
+		</Page>
+
+		<Page ux:Name="task" Color="#fff" ClipToBounds="true">
+			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#7DB9EE" Margin="0,0,10,0" Opacity="{old}">
+				<Clicked>
+					<Toggle Target="preview1" />
+  					 <Pulse Target="GrowMe"/>
+				</Clicked>
+			</fa-bell-o>
+			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
+				<WhileTrue ux:Name="GrowMe">
+				   <Scale Factor="1.2" Duration="0.1"/>
+				</WhileTrue>
+				<Text Value="{info}" FontSize="12" Margin="10" Color="#fff" />
+				<Clicked>
+					<Set hidPanel1.Visibility.Value="Collapsed" />
+				</Clicked>
+				<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" />
+			</Panel>
+			<Panel ClipToBounds="true">
+
+				<Rectangle Width="10" Color="#ccc" Alignment="Left" Opacity=".1">
+					<Clicked>
+						<Toggle Target="newItem" />
+					</Clicked>
+				</Rectangle>
+				<Rectangle ux:Name="newRect" Width="3" Color="#B20000" Alignment="Left" Opacity="{new}"/>
+				
+				<StackPanel Margin="20,0,0,0" >
+					<StackPanel Orientation="Horizontal" ItemSpacing="5">
+						<Clicked>
+							<Toggle Target="preview" />
+						</Clicked>
+						<fa-check Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
+						<Text Value="{type}" />
+					</StackPanel>
+					<Panel Margin="0,15,0,5" >
+						<Clicked>
+							<Change greenScaling.Factor="1" Duration="0.5" Easing="CircularIn" />
+							<Change greenColor.Color="#D6EDFF" Duration="0.25" Easing="CircularIn"  />
+						</Clicked>
+						<Text ux:Name="newTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
+						<Text ux:Name="newTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
+					</Panel>
+					<Text Value="{description}" Font="Light" Color="#000" FontSize="14" TextAlignment="Left" TextWrapping="Wrap">
+						<Clicked>
+							<Toggle Target="preview" />
+						</Clicked>
+					</Text>
+					<Panel ux:Name="hidPanel" Height="0"  Visibility="Collapsed" Opacity="0" Margin="30,10,0,0">
+						<StackLayout />
+						<StackPanel Orientation="Horizontal" ItemSpacing="10">
+							<Text Value="Автор:" />
+							<Text Value="{from}"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" ItemSpacing="10">
+							<Text Value="Срок исполнения:" />
+							<Text Value="{deadline}"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" ItemSpacing="10">
+							<Text Value="Исполнители:" />
+							<Text Value="{to}"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" ItemSpacing="10">
+							<Text Value="Контролер:" />
+							<Text Value="{controler}"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" ItemSpacing="10">
+							<Text Value="Дата контроля:" />
+							<Text Value="{controldate}"/>
+						</StackPanel>
+					</Panel>
+				</StackPanel>
+				<Circle Width="2000" Height="2000" Layer="Background">
+	                <SolidColor ux:Name="greenColor" Color="#fff" />
+	                <Scaling ux:Name="greenScaling" Factor="0" />
+	            </Circle>
+			</Panel>
+		</Page>
+		<Page  MinHeight="100" Color="#B20000">
+			<StackPanel Orientation="Horizontal">
+				<fa-trash-o Alignment="CenterLeft" Margin="30,0,30,0" FontSize="30" Color="#fff" />
+				<Text Value="Удалить" Color="#fff" FontSize="20" Alignment="CenterLeft" />
+			</StackPanel>
+		</Page>
+	</PageControl>
+</Panel>
