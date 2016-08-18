@@ -155,7 +155,6 @@
 							</WhileWindowSize>
 							<WhileWindowPortrait>
 								<Change TheColumns.ColumnCount.Value="1" />
-								<!-- <Change TheColumns.ItemSpacing.Value="10" /> -->
 							</WhileWindowPortrait>
 						</Panel>
 					</ScrollView>

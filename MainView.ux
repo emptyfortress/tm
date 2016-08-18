@@ -243,6 +243,12 @@
 				</Rectangle>
 				<folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5,0">
 					<ScrollView Margin="0,80,0,0">
+
+						<ScrollingAnimation From="20" To="100">
+							<!-- <Move Target="" RelativeTo="Size" Y="-2" Easing="QuarticOut" /> -->
+						</ScrollingAnimation>
+
+
 						<StackPanel ux:Name="scroll1" ItemSpacing="120">
 							<WhileWindowLandscape>
 								<Change scroll1.Margin="100" />

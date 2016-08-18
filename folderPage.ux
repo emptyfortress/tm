@@ -9,7 +9,7 @@
 	<string ux:Property="Count" />
 	<int ux:Property="CountNum" />
 	
-	<DockPanel>
+	<DockPanel ux:Name="moveMe">
 			<StackPanel Orientation="Horizontal" Dock="Top">
 				<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
 					<Text ux:Name="folderCount" Value="{Property this.Count}" FontSize="25" Alignment="Center" Color="#fff"/>
