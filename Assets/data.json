@@ -221,20 +221,20 @@
         },
         {
         "name": "Рассмотрение",
+         "new": "3",
+        "changed": "8",
+        "newcount": "Visible",
+        "bell": "Visible",
+        "changed": "7",
+        "folder": "folder2"
+        },
+        {
+        "name": "Исполнение",
         "new": "",
         "changed": "5",
         "newcount": "Hidden",
         "bell": "Visible",
         "changed": "4",
-        "folder": "folder2"
-        },
-        {
-        "name": "Исполнение",
-        "new": "3",
-        "changed": "8",
-        "newcount": "Visible",
-        "bell": "Visible",
-        "changed": "7",
         "folder": "folder3"
         },
         {
