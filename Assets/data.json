@@ -213,32 +213,53 @@
         {
         "name": "Согласование",
         "new": "12",
-        "changed": "1"
+        "changed": "1",
+        "newcount": "Visible",
+        "bell": "Hidden",
+        "changed": "",
+        "folder": "folder1"
         },
         {
         "name": "Рассмотрение",
         "new": "",
-        "changed": "5"
+        "changed": "5",
+        "newcount": "Hidden",
+        "bell": "Visible",
+        "changed": "4",
+        "folder": "folder2"
         },
         {
         "name": "Исполнение",
         "new": "3",
-        "changed": "8"
+        "changed": "8",
+        "newcount": "Visible",
+        "bell": "Visible",
+        "changed": "7",
+        "folder": "folder3"
         },
         {
         "name": "Ознакомление",
         "new": "",
-        "changed": ""
+        "changed": "",
+        "bell": "Hidden",
+        "changed": "",
+        "newcount": "Hidden",
+        "folder": "folder4"
         },
         {
         "name": "Личная папка",
         "new": "",
-        "changed": ""
+        "changed": "",
+        "newcount": "Hidden",
+        "bell": "Visible",
+        "changed": "17"
         },
         {
         "name": "Архив",
         "new": "",
-        "changed": ""
+        "changed": "",
+        "bell": "Hidden",
+        "newcount": "Hidden"
         }
 
     ]

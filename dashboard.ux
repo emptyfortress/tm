@@ -15,7 +15,7 @@
 			</StackPanel>
 
 <!-- this is main scroll *****************************************************			 -->
-			<PageControl>
+			<PageControl Active="nav">
 				<Page ux:Name="dash">
 					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="0">
 						<Panel Margin="7">
@@ -162,12 +162,12 @@
 				</Page>
 				<Page ux:Name="nav">
 					<ScrollView>
-						<WrapPanel Orientation="Horizontal" Margin="20">
+						<WrapPanel Orientation="Horizontal" Margin="10">
 							<Each Items="{items.folders}">
-								<folder Text="{name}" Count="115">
+								<folder Text="{name}" Count="{new}" Changed="{changed}" Margin="0,0,5,5">
 									<Tapped>
 										<Toggle Target="dashboardUp" />
-										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+										<NavigateTo Target="{folder}" NavigationContext="_listNavigation" />
 									</Tapped>
 								</folder>
 							</Each>

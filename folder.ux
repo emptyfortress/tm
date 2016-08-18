@@ -1,9 +1,13 @@
 <Panel ux:Class="folder">
 	<string ux:Property="Text"/>
 	<string ux:Property="Count"/>
-	<dashPanel Width="150" Height="100">
-		<Text Value="{Property this.Text}" FontSize="15" Color="#666" Alignment="TopLeft"  />
-		<Text Value="{Property this.Count}" FontSize="30" Color="#000" Alignment="BottomRight"/>
-		<fa-folder-open-o Alignment="BottomLeft" Margin="10" Color="#ccc" />
+	<string ux:Property="Changed"/>
+	<dashPanel Width="180" Height="100">
+		<Rectangle Width="3" Height="100" Color="red" Alignment="Left" Offset="-10,0" Visibility="{newcount}" />
+		<fa-folder-o Alignment="TopLeft" Color="#000" />
+		<Text Value="{Property this.Text}" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
+		<Text Value="{Property this.Count}" FontSize="30" Color="red" Alignment="BottomRight"/>
+		<fa-bell-o Alignment="BottomLeft" Color="#7DB9EE" Margin="0,0,0,10" Visibility="{bell}" />
+		<Text Value="{Property this.Changed}" Color="#7DB9EE" Alignment="BottomLeft" Margin="18,0,0,8"/>
 	</dashPanel>
 </Panel>
