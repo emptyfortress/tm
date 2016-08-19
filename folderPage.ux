@@ -7,23 +7,38 @@
 	</ExitingAnimation>
 	<string ux:Property="Title" />
 	<string ux:Property="Count" />
-	<int ux:Property="CountNum" />
 	<float4 ux:Property="bookmarkColor" />
 	
 	<DockPanel ux:Name="moveMe">
 			<StackPanel Orientation="Horizontal" Dock="Top">
-				<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
+				<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0"  ClipToBounds="true">
 					<Text ux:Name="folderCount" Value="{Property this.Count}" FontSize="25" Alignment="Center" Color="#fff"/>
+					<Text ux:Name="folderCount1" Value="12" FontSize="25" Alignment="Center" Color="#fff">
+						<Translation Y="-1" RelativeTo="ParentSize" />
+					</Text>
 					<Image ux:Name="bookmark" File="Assets/bookmark.png" Color="{Property this.bookmarkColor}" Width="30"/>
+					<Clicked>
+						<DebugAction Message="Click" />
+					</Clicked>
 				</Panel>
 				<Text ux:Name="folderTitle" Value="{Property this.Title}" FontSize="20" Margin="10,15,0,0"/>
 				<WhileWindowSize GreaterThan="380">
 					<Change folderPanel.Margin.Value="80,0,0,0" />
 					<Change bookmark.Width.Value="45" />
 					<Change folderCount.FontSize.Value="35" />
+					<Change folderCount1.FontSize.Value="35" />
 					<Change folderTitle.FontSize.Value="30" />
 				</WhileWindowSize>
 			</StackPanel>
+			<SwipeGesture ux:Name="swipe" Direction="Right" Type="Active" Length="200" />
+			<!-- <Swiped Source="swipe">
+				<Move Target="bookmark" X="100" Duration=".4" DurationBack=".2" />
+		    </Swiped> -->
+			<SwipingAnimation Source="swipe">
+				<Move Target="folderCount" Y="-1" RelativeTo="ParentSize" Duration=".5" />
+				<Move Target="folderCount1" Y="1" RelativeTo="ParentSize" Duration=".5"  />
+				<Change bookmark.Color.Value="sky" Duration=".5" />
+			</SwipingAnimation>
 	</DockPanel>
 	
 

@@ -53,7 +53,7 @@
 						<Toggle Target="newItem" />
 					</Clicked>
 				</Rectangle>
-				<Rectangle ux:Name="newRect" Width="3" Color="#B20000" Alignment="Left" Opacity="{new}"/>
+				<Rectangle ux:Name="newRect" Width="3" Color="sky" Alignment="Left" Opacity="{new}"/>
 				
 				<StackPanel Margin="20,0,0,0" >
 					<StackPanel Orientation="Horizontal" ItemSpacing="5">

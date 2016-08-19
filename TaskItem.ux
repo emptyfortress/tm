@@ -53,7 +53,7 @@
 						<Toggle Target="newItem" />
 					</Clicked>
 				</Rectangle>
-				<Rectangle ux:Name="newRect" Width="3" Color="#B20000" Alignment="Left" Opacity="{new}"/>
+				<Rectangle ux:Name="newRect" Width="3" Color="sky" Alignment="Left" Opacity="{new}"/>
 				
 				<StackPanel Margin="20,0,0,0" >
 					<StackPanel Orientation="Horizontal" ItemSpacing="5">
@@ -62,14 +62,15 @@
 						</Clicked>
 						<fa-check Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
 						<Text Value="{type}" />
+						<fa-clock-o Alignment="CenterLeft" Color="red" FontSize="16" Margin="20,0,0,0" Visibility="{clock}" />
 					</StackPanel>
 					<Panel Margin="0,15,0,5" >
 						<Clicked>
 							<Change greenScaling.Factor="1" Duration="0.5" Easing="CircularIn" />
 							<Change greenColor.Color="#D6EDFF" Duration="0.25" Easing="CircularIn"  />
 						</Clicked>
-						<Text ux:Name="newTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
-						<Text ux:Name="newTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
+						<Text ux:Name="newTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" Color="{red}" />
+						<Text ux:Name="newTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap" Color="{red}"/>
 					</Panel>
 					<Text Value="{description}" Font="Light" Color="#000" FontSize="14" TextAlignment="Left" TextWrapping="Wrap">
 						<Clicked>
@@ -83,8 +84,8 @@
 							<Text Value="{from}"/>
 						</StackPanel>
 						<StackPanel Orientation="Horizontal" ItemSpacing="10">
-							<Text Value="Срок исполнения:" />
-							<Text Value="{deadline}"/>
+							<Text Value="Срок исполнения:" Color="{red}"/>
+							<Text Value="{deadline}" Color="{red}"/>
 						</StackPanel>
 						<StackPanel Orientation="Horizontal" ItemSpacing="10">
 							<Text Value="Исполнители:" />

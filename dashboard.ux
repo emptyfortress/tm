@@ -163,7 +163,7 @@
 					<ScrollView>
 						<WrapPanel Orientation="Horizontal" Margin="10">
 							<Each Items="{items.folders}">
-								<folder Text="{name}" Count="{new}" Changed="{changed}" Margin="0,0,5,5">
+								<folder Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Margin="0,0,5,5">
 									<Tapped>
 										<Toggle Target="dashboardUp" />
 										<NavigateTo Target="{folder}" NavigationContext="_listNavigation" />

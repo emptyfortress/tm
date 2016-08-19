@@ -2,12 +2,19 @@
 	<string ux:Property="Text"/>
 	<string ux:Property="Count"/>
 	<string ux:Property="Changed"/>
+	<string ux:Property="Deadline"/>
 	<dashPanel Width="180" Height="100">
-		<Rectangle Width="3" Height="100" Color="red" Alignment="Left" Offset="-10,0" Visibility="{newcount}" />
+		<Rectangle Width="3" Height="100" Color="sky" Alignment="Left" Offset="-10,0" Visibility="{newcount}" />
 		<fa-folder-o Alignment="TopLeft" Color="#000" />
 		<Text Value="{Property this.Text}" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
-		<Text Value="{Property this.Count}" FontSize="30" Color="red" Alignment="BottomRight"/>
-		<fa-bell-o Alignment="BottomLeft" Color="#7DB9EE" Margin="0,0,0,10" Visibility="{bell}" />
-		<Text Value="{Property this.Changed}" Color="#7DB9EE" Alignment="BottomLeft" Margin="18,0,0,8"/>
+		<Text Value="{Property this.Count}" FontSize="30" Color="sky" Alignment="BottomRight" Offset="0,7"/>
+		<Panel Alignment="BottomLeft">
+			<StackLayout Orientation="Horizontal" />
+
+			<fa-bell-o Color="#7DB9EE" Visibility="{bell}" FontSize="14" Alignment="CenterLeft" />
+			<Text Value="{Property this.Changed}" Color="#7DB9EE" Visibility="{bell}" Alignment="CenterLeft" Margin="0,0,10,0" />
+			<fa-clock-o Color="red" Visibility="{deadvis}" FontSize="14" Alignment="CenterLeft" />
+			<Text Value="{Property this.Deadline}" Visibility="{deadvis}" Color="red" Alignment="CenterLeft" />
+		</Panel>
 	</dashPanel>
 </Panel>

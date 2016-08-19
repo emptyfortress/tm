@@ -144,7 +144,8 @@
         "deadline": "18.02.2014",
         "from": "Орлов",
         "new": "1",
-        "old": "0"
+        "old": "0",
+        "clock": "Collapsed"
         },
         {
         "type": "На рассмотрение",
@@ -155,7 +156,9 @@
         "from": "Иванова",
         "new": "0",
         "old": "1",
-        "info": "В поручение добавлен документ"
+        "info": "В поручение добавлен документ",
+        "red": "#B20000",
+        "clock": "Visible"
         },
         {
         "type": "На подписание",
@@ -166,7 +169,8 @@
         "from": "Иванова",
         "new": "0",
         "old": "1",
-        "info": "Изменился статус поручения"
+        "info": "Изменился статус поручения",
+        "clock": "Collapsed"
         },
         {
         "type": "На исполнение",
@@ -179,7 +183,8 @@
         "controler": "Миронова",
         "controldate": "03.01.2015",
         "new": "1",
-        "old": "0"
+        "old": "0",
+        "clock": "Collapsed"
         },
         {
         "type": "На исполнение",
@@ -192,7 +197,8 @@
         "controler": "",
         "controldate": "",
         "new": "1",
-        "old": "0"
+        "old": "0",
+        "clock": "Collapsed"
         },
         {
         "type": "На ознакомление",
@@ -206,18 +212,20 @@
         "controldate": "20.01.2016",
         "new": "0",
         "old": "1",
-        "info": "Изменился статус поручения"
+        "info": "Изменился статус поручения",
+        "red": "#B20000",
+        "clock": "Visible"
         }
     ],
     "folders":[
         {
         "name": "Согласование",
         "new": "12",
-        "changed": "1",
         "newcount": "Visible",
-        "bell": "Hidden",
+        "bell": "Collapsed",
         "changed": "",
-        "folder": "folder1"
+        "folder": "folder1",
+        "deadvis": "Collapsed"
         },
         {
         "name": "Рассмотрение",
@@ -226,41 +234,48 @@
         "newcount": "Visible",
         "bell": "Visible",
         "changed": "7",
-        "folder": "folder2"
+        "folder": "folder2",
+        "deadline": "5",
+        "deadvis": "Visible"
         },
         {
         "name": "Исполнение",
         "new": "",
         "changed": "",
-        "bell": "Hidden",
+        "bell": "Collapsed",
         "changed": "",
-        "newcount": "Hidden",
-        "folder": "folder3"
+        "newcount": "Collapsed",
+        "folder": "folder3",
+        "deadline": "1",
+        "deadvis": "Visible"
         },
         {
         "name": "Ознакомление",
         "new": "",
         "changed": "5",
-        "newcount": "Hidden",
+        "newcount": "Collapsed",
         "bell": "Visible",
         "changed": "4",
-        "folder": "folder4"
+        "folder": "folder4",
+        "deadvis": "Collapsed"
         
         },
         {
         "name": "Личная папка",
         "new": "",
         "changed": "",
-        "newcount": "Hidden",
+        "newcount": "Collapsed",
         "bell": "Visible",
-        "changed": "17"
+        "changed": "17",
+        "deadvis": "Collapsed"
         },
         {
         "name": "Архив",
         "new": "",
         "changed": "",
-        "bell": "Hidden",
-        "newcount": "Hidden"
+        "bell": "Collapsed",
+        "newcount": "Collapsed",
+        "deadvis": "Collapsed"
         }
 
     ]

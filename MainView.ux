@@ -10,6 +10,7 @@
 	
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />
+	<float4 ux:Global="sky" ux:Value="#0095DA" />
 	<float4 ux:Global="red" ux:Value="#B20000" />
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
@@ -246,7 +247,7 @@
 							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
 								<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
 									<Text ux:Name="folderCount" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
-									<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="red"/>
+									<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="sky"/>
 								</Panel>
 								<Text ux:Name="folderTitle" Value="Согласование" FontSize="20" Margin="10,15,0,0"/>
 							</StackPanel>
@@ -311,7 +312,7 @@
 					<DockPanel>
 							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe2" TransformOrigin="TopLeft" >
 								<Panel ux:Name="folderPanel2" Alignment="TopLeft" Margin="55,0,0,0" >
-									<Text ux:Name="folderCount2" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
+									<Text ux:Name="folderCount2" Value="7" FontSize="25" Alignment="Center" Color="#fff"/>
 									<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30" Color="red"/>
 								</Panel>
 								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" Margin="10,15,0,0"/>
