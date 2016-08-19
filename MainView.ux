@@ -119,7 +119,7 @@
 							<Tapped>
 								<Toggle Target="menuVisible" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="dash" NavigationContext="dashboardNav" />
+								<!-- <NavigateTo Target="dash" NavigationContext="dashboardNav" /> -->
 								<Set dashboardUp.Value="false" Delay=".5" />
 								<Set action.Visibility="Hidden" /> 
 								<Set plusIcon.Visibility="Visible" /> 
@@ -134,7 +134,7 @@
 							<Tapped>
 								<Toggle Target="menuVisible" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="nav" NavigationContext="dashboardNav" />
+								<!-- <NavigateTo Target="nav" NavigationContext="dashboardNav" /> -->
 								<Set dashboardUp.Value="false" Delay=".5" />
 								<Set action.Visibility="Hidden" /> 
 								<Set plusIcon.Visibility="Visible" /> 

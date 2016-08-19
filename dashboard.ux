@@ -1,6 +1,42 @@
-<Panel ux:Name="dashboard" ClipToBounds="true" Background="#EAEAEA">
-	<JavaScript File="dashboard.js" />
-		<Grid Rows="1*,8*">
+<DockPanel ux:Name="dashboard" ClipToBounds="true" Background="#EAEAEA">
+	<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="35" Alignment="TopRight" Height="50">
+		<fa-calendar-o ux:Name="Cal" FontSize="20" Alignment="VerticalCenter">
+			<Clicked>
+				<Set pages.Active="page1" />
+			</Clicked>
+		</fa-calendar-o>
+		<fa-bell-o ux:Name="Bell" FontSize="20" Alignment="VerticalCenter" >
+			<Clicked>
+				<Set pages.Active="page2" />
+			</Clicked>
+		</fa-bell-o>
+		<fa-search FontSize="20" Alignment="VerticalCenter">
+			<Scaling X="-1" />
+		</fa-search>
+		<fa-refresh FontSize="20" Alignment="VerticalCenter" >
+			<WhileVisible>
+		        <Spin Frequency=".2" />
+		    </WhileVisible>
+		</fa-refresh>
+	</StackPanel>
+	<PageControl ux:Name="pages">
+		<Page ux:Name="page1" Background="#ccc">
+			<ActivatingAnimation>
+            </ActivatingAnimation>
+		</Page>
+		<Page ux:Name="page2" Background="#fff">
+			<ActivatingAnimation>
+            </ActivatingAnimation>
+		</Page>
+		<Page ux:Name="page3" Background="#f00"></Page>
+		<Page ux:Name="page4" Background="#0f0"></Page>
+	</PageControl>
+
+
+
+
+
+		<!-- <Grid Rows="1*,8*">
 			<StackPanel ux:Name="iconBar" Orientation="Horizontal" Margin="80,20,20,0" Alignment="TopRight" ItemSpacing="35">
 				<fa-calendar-o FontSize="20" Alignment="VerticalCenter"/>
 				<fa-search FontSize="20" Alignment="VerticalCenter">
@@ -14,7 +50,6 @@
 				</fa-refresh>
 			</StackPanel>
 
-<!-- this is main scroll *****************************************************			 -->
 			<PageControl ux:Name="dashboardNav">
 				<Page ux:Name="dash">
 					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="0">
@@ -27,7 +62,7 @@
 									<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
 									<dashHeader Value="Новое" />
 										<StackPanel >
-											<unreadText Quantity="3" Text="Согласование111">
+											<unreadText Quantity="3" Text="Согласование">
 												<Tapped>
 													<Toggle Target="dashboardUp" />
 													<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
@@ -174,5 +209,5 @@
 					</ScrollView>
 				</Page>
 			</PageControl>
-		</Grid>
-</Panel>
+		</Grid> -->
+</DockPanel>
