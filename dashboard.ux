@@ -27,7 +27,7 @@
 									<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
 									<dashHeader Value="Новое" />
 										<StackPanel >
-											<unreadText Quantity="3" Text="Согласование">
+											<unreadText Quantity="3" Text="Согласование111">
 												<Tapped>
 													<Toggle Target="dashboardUp" />
 													<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
