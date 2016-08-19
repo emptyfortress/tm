@@ -62,7 +62,8 @@
 						</Clicked>
 						<fa-check Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
 						<Text Value="{type}" />
-						<fa-clock-o Alignment="CenterLeft" Color="red" FontSize="16" Margin="20,0,0,0" Visibility="{clock}" />
+						<Image File="Assets/clock.png" Alignment="CenterLeft" Width="18" Color="red" Margin="20,0,0,0" Visibility="{clock}" />
+						<!-- <fa-clock-o Alignment="CenterLeft" Color="red" FontSize="16" Margin="20,0,0,0" Visibility="{clock}" /> -->
 					</StackPanel>
 					<Panel Margin="0,15,0,5" >
 						<Clicked>

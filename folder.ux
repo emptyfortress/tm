@@ -13,7 +13,8 @@
 
 			<fa-bell-o Color="#7DB9EE" Visibility="{bell}" FontSize="14" Alignment="CenterLeft" />
 			<Text Value="{Property this.Changed}" Color="#7DB9EE" Visibility="{bell}" Alignment="CenterLeft" Margin="0,0,10,0" />
-			<fa-clock-o Color="red" Visibility="{deadvis}" FontSize="14" Alignment="CenterLeft" />
+			<Image File="Assets/clock.png" Alignment="CenterLeft" Width="18" Color="red"  Visibility="{deadvis}" />
+			<!-- <fa-clock-o Color="red" Visibility="{deadvis}" FontSize="14" Alignment="CenterLeft" /> -->
 			<Text Value="{Property this.Deadline}" Visibility="{deadvis}" Color="red" Alignment="CenterLeft" />
 		</Panel>
 	</dashPanel>
