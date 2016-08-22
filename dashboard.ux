@@ -1,14 +1,24 @@
 <Panel ux:Name="dashboard" Background="#EAEAEA">
 	<Panel ux:Class="Icon" Width="50" Height="35" >
-	    <Image Source="{Resource iconFile}" Color="#000" />
+	    <Image Source="{Resource iconFile}" Color="#000" Alignment="Center" />
 	</Panel>
 	
-
+	
 	<DockPanel>
+		<StackPanel Dock="Top" Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
+			<Icon>
+				<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
+			</Icon>
+			<Icon>
+				<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
+				<WhileVisible>
+			        <Spin Frequency=".2" />
+			    </WhileVisible>
+			</Icon>
+		</StackPanel>
 		<StackPanel Dock="Bottom" >
-			<MultiLayoutPanel Height="50" ux:Name="tabBar" Margin="0,0,0,50">
-				<GridLayout ColumnCount="6" Rows="1*"/>
-				<!-- <StackLayout Orientation="Horizontal"/> -->
+			<MultiLayoutPanel Height="50" ux:Name="tabBar" >
+				<GridLayout ColumnCount="5" Rows="1*"/>
 				<Panel ux:Name="tahoTab">
 					<Placeholder>
 						<Rectangle ux:Name="indicator" Alignment="Top" Height="4" Fill="#6c7a89">
@@ -21,15 +31,6 @@
 						<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set navigation.Active="taho" />
-						</Clicked>
-					</Icon>
-				</Panel>
-				<Panel ux:Name="calTab">
-					<Placeholder  Target="indicator"/>
-					<Icon>
-						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
-						<Clicked>
-							<Set navigation.Active="cal" />
 						</Clicked>
 					</Icon>
 				</Panel>
@@ -69,12 +70,6 @@
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
 				<WelcomeText>Welcome to Page 1</WelcomeText>
-			</Page>
-			<Page ux:Name="cal" Background="#abb7b7">
-				<WhileActive Threshold="0.5">
-					<Set tabBar.LayoutElement="calTab" />
-				</WhileActive>
-				<WelcomeText>Welcome to Page 2</WelcomeText>
 			</Page>
 			<Page ux:Name="bell" Background="#f2f1ef">
 				<WhileActive Threshold="0.5">
