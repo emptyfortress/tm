@@ -1,9 +1,10 @@
 <Panel Dock="Top">
 	<PageIndicator ux:Name="folderIndicator" Navigation="_listNavigation" Alignment="TopRight" Layer="Overlay" Margin="7" Visibility="Visible">
-		<Circle ux:Binding="DotFactory" ux:Template="DotTemplate" Fill="#ccc" Margin="3" Width="5" Height="5">
+		<Circle ux:Binding="DotFactory" ux:Template="DotTemplate" Fill="#fff" Margin="3" Width="5" Height="5">
+			<Stroke Width="1" Color="#aaa" />
 			<ActivatingAnimation>
                 <Scale Factor="1.5"/>
-                <Circle Fill="#238C00" />
+                <Circle Fill="#888" />
             </ActivatingAnimation>
 		</Circle>
 	</PageIndicator>
