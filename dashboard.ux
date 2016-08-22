@@ -2,10 +2,11 @@
 	<Panel ux:Class="Icon" Width="50" Height="35" >
 	    <Image Source="{Resource iconFile}" Color="#000" Alignment="Center" />
 	</Panel>
-	
-	
-	<DockPanel>
-		<StackPanel Dock="Top" Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
+	<Panel ux:Class="Header" Margin="0,-10,0,50">
+		<string ux:Property="Text"/>
+		<Text Value="{Property this.Text}" FontSize="25" Color="#999" Alignment="TopCenter" />
+	</Panel>
+	<StackPanel Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
 			<Icon>
 				<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
 			</Icon>
@@ -16,6 +17,8 @@
 			    </WhileVisible>
 			</Icon>
 		</StackPanel>
+	
+	<DockPanel>
 		<StackPanel Dock="Bottom" >
 			<MultiLayoutPanel Height="50" ux:Name="tabBar" >
 				<GridLayout ColumnCount="5" Rows="1*"/>
@@ -64,14 +67,20 @@
 			</MultiLayoutPanel>
 		</StackPanel>
 		<PageControl ux:Name="_dashPages">
-			<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
 			<Page ux:Name="taho" Padding="20">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
-				<ScrollView>
+				<Header Text="СВОДКА" />
+				<ScrollView Margin="0,50,0,0">
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
+						<Panel>
+							<StackLayout />
+							<dashHeader Value="Ожидает синхронизации" />
+							<Text Value="Синхронизировать" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
+							<notSynced Quantity="1" Text="Рассмотрение" />
+						</Panel>
 						<Panel>
 							<StackPanel>
 								<dashHeader Value="Новое" />
@@ -147,7 +156,8 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="bellTab" />
 				</WhileActive>
-				<ScrollView>
+				<Header Text="СВОДКА" />
+				<ScrollView Margin="0,50,0,0">
 					<Panel>
 						<StackLayout ItemSpacing="20" />
 						<Panel>
@@ -202,7 +212,8 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="foldersTab" />
 				</WhileActive>
-				<ScrollView>
+				<Header Text="ПАПКИ" />
+				<ScrollView Margin="0,50,0,0">
 					<WrapPanel Orientation="Horizontal" Margin="10">
 						<Each Items="{items.folders}">
 							<folder Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Margin="0,0,5,5">
@@ -219,10 +230,11 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="usersTab" />
 				</WhileActive>
-				<ScrollView>
+				<Header Text="СОТРУДНИКИ" />
+				<ScrollView Margin="0,50,0,0">
 					<Panel>
 						<StackLayout Orientation="Vertical" />
-						<dashHeader Value="Сотрудники" />
+						<dashHeader Value="Моя команда" />
 						<StackPanel>
 							<userName User="Орлов П.С." Tasks="5" />
 							<userName User="Воробьев У.С." Tasks="5" />
@@ -237,120 +249,3 @@
 		</PageControl>
 	</DockPanel>
 </Panel>
-
-
-		<!-- <Grid Rows="1*,8*">
-
-			<PageControl ux:Name="dashboardNav">
-				<Page ux:Name="dash">
-					<ScrollView AllowedScrollDirections="Vertical" Alignment="TopCenter" Margin="0">
-						<Panel Margin="7">
-							<ColumnLayout ColumnCount="2" Orientation="Vertical" Sizing="Fill" ColumnSpacing="20" ItemSpacing="50" ux:Name="TheColumns" />
-							
-							<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
-							<Panel>
-								<StackPanel>
-									<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
-									<dashHeader Value="Новое" />
-										<StackPanel >
-											<unreadText Quantity="3" Text="Согласование">
-												<Tapped>
-													<Toggle Target="dashboardUp" />
-													<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-												</Tapped>
-											</unreadText>
-											<unreadText Quantity="8" Text="Рассмотрение">
-												<Tapped>
-													<Toggle Target="dashboardUp" />
-													<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
-												</Tapped>
-											</unreadText>
-											<unreadText Quantity="15" Text="Ознакомление">
-												<Tapped>
-													<Toggle Target="dashboardUp" />
-													<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-												</Tapped>
-											</unreadText>
-										</StackPanel>
-								</StackPanel>
-							</Panel>
-							<Panel>
-								<StackPanel>
-									<dashHeader Value="Сегодня" />
-									<dashPanel>
-										<StackPanel >
-											<todayText Quantity="4" Text="Поручений на контроле">
-												<Tapped>
-													<Toggle Target="dashboardUp" />
-													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-												</Tapped>
-											</todayText>
-											<todayText Quantity="3" Text="Документов ждут рассмотрения" />
-											<todayText Quantity="7" Text="Документов ждут согласования" />
-											<todayText Quantity="3" Text="Встреч в календаре" />
-												
-										</StackPanel>
-									</dashPanel>
-									<dashHeader Value="Завтра" Margin="0,10,0,0" />
-									<dashPanel>
-										<StackPanel>
-											<todayText Quantity="1" Text="Истекает срок у поручений" />
-										</StackPanel>
-									</dashPanel>
-								</StackPanel>
-							</Panel>
-							<Panel>
-								<StackLayout Orientation="Vertical" />
-								<dashHeader Value="Поручения" />
-								<dashPanel>
-									<Grid ux:Name="taskGrid" ColumnCount="1" CellSpacing="10">
-										<PageControl>
-											<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
-											<StackPanel Alignment="Center">
-												<Text Value="Входящие - 37" />
-												<Rectangle Height="1" Color="#666" />
-												<legend boxColor="#ccc" Count="20" Text="на согласование" />
-												<legend boxColor="#ccc" Count="10" Text="на рассмотрение" />
-												<legend boxColor="#ccc" Count="7" Text="на исполнение" />
-											</StackPanel>
-										</PageControl>
-										<PageControl>
-											<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
-											<StackPanel Alignment="Center">
-												<Text Value="Исходящие - 22" />
-												<Rectangle Height="1" Color="#666" />
-												<legend boxColor="#ccc" Count="15" Text="завершено в срок" />
-												<legend boxColor="#ccc" Count="6" Text="просрочено" />
-												<legend boxColor="#ccc" Count="3" Text="делегировано" />
-											</StackPanel>
-										</PageControl>
-									</Grid>
-								</dashPanel>
-								<WrapPanel>
-									<dashPanel>
-										<circleDiagram Header="Просрочено" Count="4" End="30" BarColor="#f00" />
-									</dashPanel>
-									<dashPanel>
-										<circleDiagram Header="Делегировано" Count="6" End="70" BarColor="#777777" />
-									</dashPanel>
-									<dashPanel>
-										<circleDiagram Header="В работе" Count="12" End="130" BarColor="#777777" />
-									</dashPanel>
-									<dashPanel>
-										<circleDiagram Header="Контроль" Count="8" End="90" BarColor="#777777" />
-									</dashPanel>
-								</WrapPanel>
-							</Panel>
-
-							<WhileWindowSize GreaterThan="375">
-								<Change taskGrid.ColumnCount.Value="2" /> 
-								<Change taskGrid.CellSpacing.Value="5" /> 
-							</WhileWindowSize>
-							<WhileWindowPortrait>
-								<Change TheColumns.ColumnCount.Value="1" />
-							</WhileWindowPortrait>
-						</Panel>
-					</ScrollView>
-				</Page>
-			</PageControl>
-		</Grid> -->
