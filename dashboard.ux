@@ -1,36 +1,150 @@
-<DockPanel ux:Name="dashboard" ClipToBounds="true" Background="#EAEAEA">
-	<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="35" Alignment="TopRight" Height="50">
-		<fa-calendar-o ux:Name="Cal" FontSize="20" Alignment="VerticalCenter">
-			<Clicked>
-				<Set pages.Active="page1" />
-			</Clicked>
-		</fa-calendar-o>
-		<fa-bell-o ux:Name="Bell" FontSize="20" Alignment="VerticalCenter" >
-			<Clicked>
-				<Set pages.Active="page2" />
-			</Clicked>
-		</fa-bell-o>
-		<fa-search FontSize="20" Alignment="VerticalCenter">
-			<Scaling X="-1" />
-		</fa-search>
-		<fa-refresh FontSize="20" Alignment="VerticalCenter" >
-			<WhileVisible>
-		        <Spin Frequency=".2" />
-		    </WhileVisible>
-		</fa-refresh>
+<Panel ux:Name="dashboard" Background="#EAEAEA">
+	<Panel ux:Class="Icon" Width="50" Height="35" >
+	    <Image Source="{Resource iconFile}" Color="#000" />
+	</Panel>
+	
+
+	<DockPanel>
+		<StackPanel Dock="Bottom" >
+			<MultiLayoutPanel Height="50" ux:Name="tabBar" Margin="0,0,0,50">
+				<GridLayout ColumnCount="6" Rows="1*"/>
+				<!-- <StackLayout Orientation="Horizontal"/> -->
+				<Panel ux:Name="tahoTab">
+					<Placeholder>
+						<Rectangle ux:Name="indicator" Alignment="Top" Height="4" Fill="#6c7a89">
+							<LayoutAnimation>
+								<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
+							</LayoutAnimation>
+						</Rectangle>
+					</Placeholder>
+					<Icon>
+						<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
+						<Clicked>
+							<Set navigation.Active="taho" />
+						</Clicked>
+					</Icon>
+				</Panel>
+				<Panel ux:Name="calTab">
+					<Placeholder  Target="indicator"/>
+					<Icon>
+						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
+						<Clicked>
+							<Set navigation.Active="cal" />
+						</Clicked>
+					</Icon>
+				</Panel>
+				<Panel ux:Name="bellTab">
+					<Placeholder  Target="indicator"/>
+					<Icon>
+						<FileImageSource File="Assets/bell.png" ux:Key="iconFile"/>
+						<Clicked>
+							<Set navigation.Active="bell" />
+						</Clicked>
+					</Icon>
+				</Panel>
+				<Panel ux:Name="foldersTab">
+					<Placeholder  Target="indicator"/>
+					<Icon>
+						<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
+						<Clicked>
+							<Set navigation.Active="folders" />
+						</Clicked>
+					</Icon>
+				</Panel>
+				<Panel ux:Name="usersTab">
+					<Placeholder  Target="indicator"/>
+					<Icon>
+						<FileImageSource File="Assets/users.png" ux:Key="iconFile"/>
+						<Clicked>
+							<Set navigation.Active="users" />
+						</Clicked>
+					</Icon>
+				</Panel>
+			</MultiLayoutPanel>
+		</StackPanel>
+		<PageControl ux:Name="navigation">
+			<Text ux:Class="WelcomeText" FontSize="30" Alignment="Center"/>
+			<Page ux:Name="taho" Background="#eee">
+				<WhileActive Threshold="0.5">
+					<Set tabBar.LayoutElement="tahoTab" />
+				</WhileActive>
+				<WelcomeText>Welcome to Page 1</WelcomeText>
+			</Page>
+			<Page ux:Name="cal" Background="#abb7b7">
+				<WhileActive Threshold="0.5">
+					<Set tabBar.LayoutElement="calTab" />
+				</WhileActive>
+				<WelcomeText>Welcome to Page 2</WelcomeText>
+			</Page>
+			<Page ux:Name="bell" Background="#f2f1ef">
+				<WhileActive Threshold="0.5">
+					<Set tabBar.LayoutElement="bellTab" />
+				</WhileActive>
+				<WelcomeText>Welcome to Page 3</WelcomeText>
+			</Page>
+			<Page ux:Name="folders" Background="#f2f1ef">
+				<WhileActive Threshold="0.5">
+					<Set tabBar.LayoutElement="foldersTab" />
+				</WhileActive>
+				<WelcomeText>Welcome to Page 4</WelcomeText>
+			</Page>
+			<Page ux:Name="users" Background="#f2f1ef">
+				<WhileActive Threshold="0.5">
+					<Set tabBar.LayoutElement="usersTab" />
+				</WhileActive>
+				<WelcomeText>Welcome to Page 5</WelcomeText>
+			</Page>
+		</PageControl>
+	</DockPanel>
+</Panel>
+
+
+<!-- <DockPanel ux:Name="dashboard" Background="#EAEAEA">
+	<Panel ux:Class="Tab" ux:Name="self" ClipToBounds="false" Margin="0,0,0,4" Background="#bdc3c7">
+        <string ux:Property="Text" />
+        <Text Value="{Property self.Text}" TextColor="#FFF"  Alignment="Center" />
+    </Panel>
+
+	<StackPanel Dock="Top">
+		<MultiLayoutPanel ux:Name="tabBar" Height="50">
+			<GridLayout ColumnCount="2" Rows="1*"/>
+				<Panel ux:Name="page1Tab">
+					<Placeholder>
+						<Rectangle ux:Name="indicator" Alignment="Bottom" Height="4" Fill="#6c7a89">
+		                    <LayoutAnimation>
+		                        <Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
+		                    </LayoutAnimation>
+		                </Rectangle>
+		        	</Placeholder>
+		        	<Tab Text="Page 1">
+						<Clicked>
+							<Set pages.Active="page1" />
+						</Clicked>
+					</Tab>
+				</Panel>
+				<Panel ux:Name="page2Tab">
+	                <Placeholder  Target="indicator"/>
+	                <Tab Text="Page 2">
+						<Clicked>
+							<Set pages.Active="page2" />
+						</Clicked>
+					</Tab>
+				</Panel>
+		</MultiLayoutPanel>
 	</StackPanel>
 	<PageControl ux:Name="pages">
 		<Page ux:Name="page1" Background="#ccc">
-			<ActivatingAnimation>
-            </ActivatingAnimation>
+			<WhileActive Threshold="0.5">
+                <Set tabBar.LayoutElement="page1Tab" />
+            </WhileActive>
 		</Page>
 		<Page ux:Name="page2" Background="#fff">
-			<ActivatingAnimation>
-            </ActivatingAnimation>
+			<WhileActive Threshold="0.5">
+                <Set tabBar.LayoutElement="page1Tab" />
+            </WhileActive>
 		</Page>
-		<Page ux:Name="page3" Background="#f00"></Page>
-		<Page ux:Name="page4" Background="#0f0"></Page>
 	</PageControl>
+</DockPanel> -->
 
 
 
@@ -210,4 +324,3 @@
 				</Page>
 			</PageControl>
 		</Grid> -->
-</DockPanel>

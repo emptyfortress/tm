@@ -15,7 +15,7 @@
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
 	<Font File="Assets/fonts/Roboto-Bold.ttf" ux:Global="Bold" />
-
+	
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
 		<BottomBarBackground Dock="Bottom"/>
