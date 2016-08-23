@@ -107,7 +107,7 @@
 			</Rectangle>
 				<ScrollView Margin="0,50,0,0">
 					<StackPanel>
-						<StackPanel Margin="0,0,0,80">
+						<StackPanel Margin="0,0,0,40">
 							<Circle Width="50" Height="50" Color="#fff" >
 								<Stroke Width="1" Color="#ccc" />
 								<ImageFill File="Assets/user.png" />
@@ -127,15 +127,14 @@
 							<WhilePressed>
 								<Change dashButton.Background.Value="#CCE4F8" />
 							</WhilePressed>
-							<Image File="Assets/dash-icon.png" Width="25" Color="blue"  />
-							<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+							<Image File="Assets/dash-icon.png" Color="blue" Alignment="CenterLeft"  />
+							<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 						</StackPanel>
 						<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 							<Tapped>
 								<Toggle Target="menuVisible" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
 								<NavigateTo Target="folders" NavigationContext="_dashPages" />
-								<!-- <NavigateTo Target="nav" NavigationContext="dashboardNav" /> -->
 								<Set dashboardUp.Value="false" Delay=".5" />
 								<Set action.Visibility="Hidden" /> 
 								<Set plusIcon.Visibility="Visible" /> 
@@ -143,11 +142,48 @@
 							<WhilePressed>
 								<Change folderButton.Background.Value="#CCE4F8" />
 							</WhilePressed>
-							<fa-folder-open-o Color="blue" FontSize="20" />
-							<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" />
+							<Image File="Assets/folder-open.png" Color="blue" Alignment="CenterLeft"   />
+							<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
+						</StackPanel>
+						<StackPanel ux:Name="userButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+							<Tapped>
+								<Toggle Target="menuVisible" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="users" NavigationContext="_dashPages" />
+								<Set dashboardUp.Value="false" Delay=".5" />
+								<Set action.Visibility="Hidden" /> 
+								<Set plusIcon.Visibility="Visible" /> 
+							</Tapped>
+							<WhilePressed>
+								<Change userButton.Background.Value="#CCE4F8" />
+							</WhilePressed>
+							<Image File="Assets/users.png" Color="blue" Alignment="CenterLeft"  />
+							<Text Value="СОТРУДНИКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 						</StackPanel>
 
-						<sideButton Text="Согласование" Quantity="4" >
+						<sideButton Text="На синхронизацию" Quantity="2" >
+							<Tapped>
+								<Set foldersActive.Value="true" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+								<Set menuVisible.Value="false" Delay=".5" />
+								<Set dashboardUp.Value="true" />
+								<Set detailIndicator.Visibility="Collapsed" />
+								<Set folderIndicator.Visibility="Visible" />
+							</Tapped>
+						</sideButton>
+						<sideButton Text="Черновики" Quantity="11" >
+							<Tapped>
+								<Set foldersActive.Value="true" />
+								<NavigateToggle Target="menu" NavigationContext="edge" />
+								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+								<Set menuVisible.Value="false" Delay=".5" />
+								<Set dashboardUp.Value="true" />
+								<Set detailIndicator.Visibility="Collapsed" />
+								<Set folderIndicator.Visibility="Visible" />
+							</Tapped>
+						</sideButton>
+						<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
 							<Tapped>
 								<Set foldersActive.Value="true" />
 								<NavigateToggle Target="menu" NavigationContext="edge" />
@@ -283,24 +319,6 @@
 					</Rectangle>
 				</Page>
 
-				<!-- <folderPage ux:Name="folder1" Title="Согласование" Count="4" Padding="5,0">
-					<ScrollView Margin="0,80,0,0">
-
-						<ScrollingAnimation From="20" To="100">
-						</ScrollingAnimation>
-
-
-						<StackPanel ux:Name="scroll1" ItemSpacing="120">
-							<WhileWindowLandscape>
-								<Change scroll1.Margin="100" />
-							</WhileWindowLandscape>
-							<Each Items="{items.docs}">
-								<DocItem />
-							</Each>
-							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
-						</StackPanel>
-					</ScrollView>
-				</folderPage> -->
 
 				<Page ux:Name="folder2" Padding="5,0">
 					<EnteringAnimation>
@@ -349,22 +367,6 @@
 						<Stroke Offset="1" Width="1" Color="#bbb" />
 					</Rectangle>
 				</Page>
-
-
-
-				<!-- <folderPage ux:Name="folder2" Title="Рассмотрение"  Count="3" Padding="5,0">
-					<ScrollView Margin="0,80,0,0">
-						<StackPanel ux:Name="scroll2" ItemSpacing="120" Margin="3,100">
-							<WhileWindowLandscape>
-								<Change scroll2.Margin="100" />
-							</WhileWindowLandscape>
-							<Each Items="{items.tasks}">
-								<TaskItem />
-							</Each>
-							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
-						</StackPanel>
-					</ScrollView>
-				</folderPage> -->
 				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0" bookmarkColor="lightblue">
 					<StackPanel Alignment="Center" MaxWidth="60%">
 						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
@@ -385,7 +387,7 @@
 					</ScrollView>
 				</folderPage>
 			</Panel>
-<!-- Details panel ********************************************************************************************************************************* -->
+<!-- Details panel ****************************************************************************************************************** -->
 			
 			<Panel ux:Name="detailsPanel" ClipToBounds="false">
 				<LinearNavigation ux:Name="_detailNavigation"/>
