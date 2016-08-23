@@ -1,0 +1,11 @@
+<StackPanel ux:Class="roleName" Background="#fff">
+	<Grid CellSpacing="5" Columns="auto,1*" Margin="10,5">
+		<string ux:Property="Role"/>
+		<!-- <string ux:Property="Tasks"/> -->
+		<!-- <Image File="Assets/user-icon.png" Width="30" Alignment="CenterLeft" /> -->
+		<fa-briefcase Alignment="CenterLeft" Margin="5" Color="#B1B1A5" />
+		<Text Value="{Property this.Role}"  Color="#666" Alignment="CenterLeft"/>
+		<!-- <Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  /> -->
+	</Grid>
+	<Rectangle Height="1" Color="#cecece" />
+</StackPanel>

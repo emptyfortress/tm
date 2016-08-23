@@ -10,6 +10,7 @@
 			<Icon>
 				<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
 			</Icon>
+			<Text Value="4" Color="red" Alignment="Center" Offset="10,0" />
 			<Icon>
 				<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 				<WhileVisible>
@@ -19,9 +20,9 @@
 		</StackPanel>
 	
 	<DockPanel>
-		<StackPanel Dock="Bottom" >
+		<StackPanel Dock="Bottom" Margin="10,0,50,0">
 			<MultiLayoutPanel Height="50" ux:Name="tabBar" >
-				<GridLayout ColumnCount="5" Rows="1*"/>
+				<GridLayout ColumnCount="3" Rows="1*"/>
 				<Panel ux:Name="tahoTab">
 					<Placeholder>
 						<Rectangle ux:Name="indicator" Alignment="Top" Height="4" Fill="#6c7a89">
@@ -34,15 +35,6 @@
 						<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="taho" />
-						</Clicked>
-					</Icon>
-				</Panel>
-				<Panel ux:Name="bellTab">
-					<Placeholder  Target="indicator"/>
-					<Icon>
-						<FileImageSource File="Assets/bell.png" ux:Key="iconFile"/>
-						<Clicked>
-							<Set _dashPages.Active="bell" />
 						</Clicked>
 					</Icon>
 				</Panel>
@@ -76,12 +68,6 @@
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
 						<Panel>
-							<StackLayout />
-							<dashHeader Value="Ожидает синхронизации" />
-							<Text Value="Синхронизировать" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
-							<notSynced Quantity="1" Text="Рассмотрение" />
-						</Panel>
-						<Panel>
 							<StackPanel>
 								<dashHeader Value="Новое" />
 								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
@@ -113,7 +99,12 @@
 							<dashPanel>
 								<Grid ux:Name="taskGrid" ColumnCount="2" CellSpacing="10">
 									<PageControl>
-										<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
+										<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" >
+											<Tapped>
+												<Toggle Target="dashboardUp" />
+												<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+											</Tapped>
+										</pieDiagram>
 										<StackPanel Alignment="Center">
 											<Text Value="Входящие - 37" />
 											<Rectangle Height="1" Color="#666" />
@@ -123,7 +114,12 @@
 										</StackPanel>
 									</PageControl>
 									<PageControl>
-										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" />
+										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" >
+											<Tapped>
+												<Toggle Target="dashboardUp" />
+												<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+											</Tapped>
+										</pieDiagram>
 										<StackPanel Alignment="Center">
 											<Text Value="Исходящие - 22" />
 											<Rectangle Height="1" Color="#666" />
@@ -137,75 +133,85 @@
 							<WrapPanel>
 								<dashPanel>
 									<circleDiagram Header="Просрочено" Count="4" End="30" BarColor="#f00" />
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+									</Tapped>
 								</dashPanel>
 								<dashPanel>
 									<circleDiagram Header="Делегировано" Count="6" End="70" BarColor="#777777" />
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+									</Tapped>
 								</dashPanel>
 								<dashPanel>
 									<circleDiagram Header="В работе" Count="12" End="130" BarColor="#777777" />
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+									</Tapped>
 								</dashPanel>
 								<dashPanel>
 									<circleDiagram Header="Контроль" Count="8" End="90" BarColor="#777777" />
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+									</Tapped>
 								</dashPanel>
 							</WrapPanel>
 						</Panel>
+						<Panel>
+							<StackLayout ItemSpacing="20" />
+							<Panel>
+								<StackPanel>
+									<dashHeader Value="Сегодня" />
+									<dashPanel>
+										<StackPanel >
+											<todayText Quantity="4" Text="Поручений на контроле">
+												<Tapped>
+													<Toggle Target="dashboardUp" />
+													<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+												</Tapped>
+											</todayText>
+											<todayText Quantity="3" Text="Документов ждут рассмотрения" />
+											<todayText Quantity="7" Text="Документов ждут согласования" />
+											<todayText Quantity="3" Text="Встреч в календаре" />
+												
+										</StackPanel>
+									</dashPanel>
+									<dashHeader Value="Завтра" Margin="0,10,0,0" />
+									<dashPanel>
+										<StackPanel>
+											<todayText Quantity="1" Text="Истекает срок у поручений" />
+										</StackPanel>
+									</dashPanel>
+								</StackPanel>
+							</Panel>
+							<Panel>
+								<StackLayout Orientation="Vertical" />
+								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
+								<dashHeader Value="Лента событий" />
+								<dashPanel Height="200">
+									<ScrollView AllowedScrollDirections="Horizontal">
+										<StackPanel>
+											<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет'" />
+											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет'" />
+											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотрудничестве'" />
+											<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотрудничестве'"/>
+											<newText Time="10:20" Text="Изменено состояние в 'Предложение о сотрудничестве это длинное предлинное сосотояние для проверки скролла" />
+											<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования'" />
+											<newText Time="22 дек" Text="Делегировано 'Договор о поставках оборудования'" />
+											<newText Time="22 дек" Text="Создано 'Договор о поставках оборудования'" />
+										</StackPanel>
+									</ScrollView>
+								</dashPanel>
+							</Panel>
+							<Panel Height="50">
+								<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" />
+							</Panel>
+						</Panel>
 					</StackPanel>
-				</ScrollView>
-			</Page>
-			<Page ux:Name="bell" Padding="20">
-				<WhileActive Threshold="0.5">
-					<Set tabBar.LayoutElement="bellTab" />
-				</WhileActive>
-				<Header Text="СВОДКА" />
-				<ScrollView Margin="0,50,0,0">
-					<Panel>
-						<StackLayout ItemSpacing="20" />
-						<Panel>
-							<StackPanel>
-								<dashHeader Value="Сегодня" />
-								<dashPanel>
-									<StackPanel >
-										<todayText Quantity="4" Text="Поручений на контроле">
-											<Tapped>
-												<Toggle Target="dashboardUp" />
-												<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-											</Tapped>
-										</todayText>
-										<todayText Quantity="3" Text="Документов ждут рассмотрения" />
-										<todayText Quantity="7" Text="Документов ждут согласования" />
-										<todayText Quantity="3" Text="Встреч в календаре" />
-											
-									</StackPanel>
-								</dashPanel>
-								<dashHeader Value="Завтра" Margin="0,10,0,0" />
-								<dashPanel>
-									<StackPanel>
-										<todayText Quantity="1" Text="Истекает срок у поручений" />
-									</StackPanel>
-								</dashPanel>
-							</StackPanel>
-						</Panel>
-						<Panel>
-							<StackLayout Orientation="Vertical" />
-							<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#999" Alignment="TopRight" Offset="-2,5" />
-							<dashHeader Value="Лента событий" />
-							<dashPanel Height="200">
-								<ScrollView AllowedScrollDirections="Horizontal">
-									<StackPanel>
-										<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет'" />
-										<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет'" />
-										<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотрудничестве'" />
-										<newText Time="10:03" Text="Изменено состояние в 'Предложение о сотрудничестве'"/>
-										<newText Time="10:20" Text="Изменено состояние в 'Предложение о сотрудничестве это длинное предлинное сосотояние для проверки скролла" />
-										<newText Time="09:40" Text="Завершено 'Договор о поставках оборудования'" />
-										<newText Time="22 дек" Text="Делегировано 'Договор о поставках оборудования'" />
-										<newText Time="22 дек" Text="Создано 'Договор о поставках оборудования'" />
-									</StackPanel>
-								</ScrollView>
-							</dashPanel>
-						</Panel>
-						<Panel Height="50"></Panel>
-					</Panel>
 				</ScrollView>
 			</Page>
 			<Page ux:Name="folders" Padding="20">
@@ -214,16 +220,47 @@
 				</WhileActive>
 				<Header Text="ПАПКИ" />
 				<ScrollView Margin="0,50,0,0">
-					<WrapPanel Orientation="Horizontal" Margin="10">
-						<Each Items="{items.folders}">
-							<folder Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Margin="0,0,5,5">
-								<Tapped>
-									<Toggle Target="dashboardUp" />
-									<NavigateTo Target="{folder}" NavigationContext="_listNavigation" />
-								</Tapped>
-							</folder>
-						</Each>
-					</WrapPanel>
+					<StackPanel>
+						<Panel Margin="10">
+							<StackLayout Orientation="Horizontal" />
+							<Panel>
+								<dashPanel Width="180" Height="100">
+									<!-- <Rectangle Width="3" Height="100" Color="sky" Alignment="Left" Offset="-10,0" Visibility="{newcount}" /> -->
+									<fa-folder-o Alignment="TopLeft" Color="#000" />
+									<Text Value="На синхронизацию" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
+									<Text Value="4" FontSize="30"  Alignment="BottomRight" Offset="0,7"/>
+									<Icon Alignment="BottomLeft" Offset="-10,5" >
+										<FileImageSource File="Assets/refresh.png" ux:Key="iconFile" />
+										<WhileVisible>
+									        <Spin Frequency=".2" />
+									    </WhileVisible>
+									</Icon>
+								</dashPanel>
+							</Panel>
+							<Panel>
+								<dashPanel Width="180" Height="100">
+									<!-- <Rectangle Width="3" Height="100" Color="sky" Alignment="Left" Offset="-10,0" Visibility="{newcount}" /> -->
+									<fa-folder-o Alignment="TopLeft" Color="#000" />
+									<Text Value="Черновики" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
+									<Text Value="11" FontSize="30"  Alignment="BottomRight" Offset="0,7"/>
+									<fa-pencil FontSize="22" Alignment="BottomLeft" Color="blue" />
+								</dashPanel>
+							</Panel>
+						</Panel>
+						<WrapPanel Orientation="Horizontal" Margin="10">
+							<Each Items="{items.folders}">
+								<folder Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Margin="0,0,5,5">
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="{folder}" NavigationContext="_listNavigation" />
+									</Tapped>
+								</folder>
+							</Each>
+						</WrapPanel>
+						<Panel Height="50">
+							<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" />
+						</Panel>
+					</StackPanel>
 				</ScrollView>
 			</Page>
 			<Page ux:Name="users" Padding="20">
@@ -233,7 +270,7 @@
 				<Header Text="СОТРУДНИКИ" />
 				<ScrollView Margin="0,50,0,0">
 					<Panel>
-						<StackLayout Orientation="Vertical" />
+						<StackLayout Orientation="Vertical"/>
 						<dashHeader Value="Моя команда" />
 						<StackPanel>
 							<userName User="Орлов П.С." Tasks="5" />
@@ -242,7 +279,12 @@
 							<userName User="Снегирев Ф.А." Tasks="8" />
 							<userName User="Гусев Л.С." Tasks="12" />
 						</StackPanel>
-					<Panel Height="100"></Panel>
+						<dashHeader Value="Роли" Margin="0,30,0,0" />
+						<roleName Role="Главбух" />
+						<roleName Role="Начальник траспортного цеха" />
+						<roleName Role="Сторож" />
+						<roleName Role="Секретарь" />
+						<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" Margin="30" />
 					</Panel>
 				</ScrollView>
 			</Page>
