@@ -9,8 +9,13 @@
 	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
 	
 	<PageControl>
-		<DockPanel ux:Name="add1" Background="#ccc">
-			<Panel ux:Name="templatePanel" Height="48%" Dock="Bottom">
+		<DockPanel ux:Name="add1">
+			<Panel ux:Name="templatePanel" Height="48%" Dock="Bottom" >
+				<Circle Color="#fff" Width="50" Height="50" Alignment="TopCenter" Layer="Overlay" Offset="0,-25">
+					<Clicked>
+						<Set templateGroup.Active="short" />
+					</Clicked>
+				</Circle>
 				<StateGroup ux:Name="templateGroup" Active="short">
 					<State ux:Name="full">
 			            <Change templatePanel.Height.Value="100%" Duration=".2" />
@@ -19,6 +24,7 @@
 			        <State ux:Name="short">
 			            <Change templatePanel.Height.Value="48%" Duration=".2" />
 						<Change templateScroll.IsEnabled.Value="false" Duration=".2" />
+						<!-- <Change templateScroll.RelativePositon="0" /> -->
 			        </State>
 				</StateGroup>
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
@@ -31,7 +37,7 @@
 						<Rectangle Width="100" Height="100" Color="#000">
 							
 						</Rectangle>
-						<Each Count="19">
+						<Each Count="20">
 							<Rectangle Width="100" Height="100" Color="#ccc" />
 						</Each>
 						<Rectangle Height="100" Color="#000" />
