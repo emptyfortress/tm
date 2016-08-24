@@ -20,11 +20,12 @@
 					<State ux:Name="full">
 			            <Change templatePanel.Height.Value="100%" Duration=".2" />
 						<Change templateScroll.IsEnabled.Value="true" Duration=".2" />
+						<Change templateScroll.RelativeScrollPosition.Value="0" />
 			        </State>
 			        <State ux:Name="short">
 			            <Change templatePanel.Height.Value="48%" Duration=".2" />
 						<Change templateScroll.IsEnabled.Value="false" Duration=".2" />
-						<!-- <Change templateScroll.RelativePositon="0" /> -->
+						<Change templateScroll.RelativeScrollPosition.Value="0" />
 			        </State>
 				</StateGroup>
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
