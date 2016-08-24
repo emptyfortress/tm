@@ -1,37 +1,39 @@
-<Panel  ux:Name="addPanel" Dock="Fill" Background="#BFDCF7">
+<Panel  ux:Name="addPanel" Background="#fff" Height="50%" Margin="20" Alignment="Top">
 	<JavaScript>
 		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
 		module.exports = {
 			alphabet : alphabet
 		};
 	</JavaScript>
+	<!-- <Rectangle ux:Name="addBackground" Layer="Background" Color="#fff" > -->
+	<!-- <Rectangle ux:Name="addBackground" Layer="Background" Color="#BFDCF7" Opacity=".6" >
+	</Rectangle> -->
 
-	<Translation XY="1,1" RelativeTo="Size" />
+	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
 	<DockPanel>
-		<Panel Dock="Top" Color="blue" Padding="0,20">
+		<!-- <Panel Dock="Top" Padding="0,20">
+			<Text ux:Name="whatText" Value="Новое поручение" Color="blue"  FontSize="25" Alignment="Center" Visibility="Hidden" />
 			<Text ux:Name="whoText" Value="Кому" Color="#fff"  FontSize="25" Alignment="Center" />
-			<Text ux:Name="whatText" Value="Что сделать" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
 			<Text ux:Name="whenText" Value="Срок исполнения" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
 			<Text ux:Name="sumText" Value="Summary" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
-		</Panel>
+		</Panel> -->
 		<PageControl Active="Add">
 			<Page ux:Name="Add">
-				<ActivatingAnimation>
-					<Change Target="whoText.Visibility" Value="Hidden" />
-					<Change Target="whatText.Visibility" Value="Visible" />
-					<Change Target="whenText.Visibility" Value="Hidden" />
-					<Change Target="sumText.Visibility" Value="Hidden" />
-				</ActivatingAnimation>
+				<DockLayout />
+				<Panel Dock="Top" Padding="0,20">
+					<Text Value="Новое поручение" Color="blue"  FontSize="25" Alignment="Center" />
+				</Panel>
 				<ux:Include File="addTask.ux" />
 			</Page>
+			<Page ux:Name="List">
+				<DockLayout />
+				<Panel Dock="Top" Padding="0,20">
+					<Text Value="Черновики" Color="blue"  FontSize="25" Alignment="Center" />
+				</Panel>
+				<!-- <ux:Include File="addTask.ux" /> -->
+			</Page>
 			<Page ux:Name="Who" Padding="10,0,10,0" ClipToBounds="true">
-				<ActivatingAnimation>
-					<Change Target="whoText.Visibility" Value="Visible" />
-					<Change Target="whatText.Visibility" Value="Hidden" />
-					<Change Target="whenText.Visibility" Value="Hidden" />
-					<Change Target="sumText.Visibility" Value="Hidden" />
-				</ActivatingAnimation>
 				<StackPanel>
 					<Panel ux:Name="last" Visibility="Visible" >
 						<StackPanel>
@@ -203,7 +205,7 @@
 				</Circle>
 			</Page>
 			
-			<Page ux:Name="When">
+			<!-- <Page ux:Name="When">
 				<ActivatingAnimation>
 					<Change Target="whoText.Visibility" Value="Hidden" />
 					<Change Target="whatText.Visibility" Value="Hidden" />
@@ -211,8 +213,8 @@
 					<Change Target="sumText.Visibility" Value="Hidden" />
 				</ActivatingAnimation>
 				<ux:Include File="addWhen.ux" />
-			</Page>
-			<Page ux:Name="Sum">
+			</Page> -->
+			<!-- <Page ux:Name="Sum">
 				<ActivatingAnimation>
 					<Change Target="whoText.Visibility" Value="Hidden" />
 					<Change Target="whatText.Visibility" Value="Hidden" />
@@ -220,12 +222,12 @@
 					<Change Target="sumText.Visibility" Value="Visible" />
 				</ActivatingAnimation>
 				<ux:Include File="sumAdd.ux" />
-			</Page>
+			</Page> -->
 		</PageControl>
 
 		<Panel Dock="Bottom">
 			<Panel Height="40" Width="100" Margin="20" Alignment="Center">
-				<Button Text="Далее" Color="#fff" />
+				<Button Text="Отправить" Color="blue" />
 			</Panel>
 			
 		</Panel>

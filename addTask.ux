@@ -1,4 +1,62 @@
-<Text Value="Здесь текст задания, шаблоны, диктофон, аттачи" Alignment="Center" />
+<Panel>
+<!-- <Rectangle Color="#ccc"></Rectangle> -->
 
+<ScrollView Padding="20">
+	<StackPanel>
+		<TextBox ux:Name="taskTitle" PlaceholderText="Текст поручения" PlaceholderColor="#aaa" FontSize="22" Background="#fff" Height="200" TextWrapping="Wrap" EditorAlignment="TopLeft" Alignment="Top" />
+		<Panel Margin="0,20" ux:Name="iconStack" ClipToBounds="true">
+			<StackLayout Orientation="Horizontal" ContentAlignment="Center" />
+			<Panel Width="65" Height="65">
+				<Clicked>
+					<Toggle Target="overPop1" />
+				</Clicked>
+				<WhileTrue ux:Name="overPop1" Value="false">
+					<Change overlayRec.Opacity.Value=".6" Duration=".2" Easing="CircularOut" />
+					<Change overlayRec.HitTestMode.Value="LocalBoundsAndChildren" Duration=".5" Easing="CircularIn" />
+					<Move Target="pop" Y="1" RelativeTo="ParentSize" Duration=".4" Easing="BackOut" />
+				</WhileTrue>
+				<fa-clipboard ux:Name="clip" Alignment="Center" Color="blue" FontSize="30" />
+				<Circle ux:Name="clipBg" Color="#fff" Margin="5" Opacity=".5" />
+			</Panel>
+			<Panel Width="65" Height="65">
+				<Clicked>
+					<Toggle Target="avatarActive1" />
+				</Clicked>
+				<WhileTrue ux:Name="avatarActive1">
+					<Change avatarBg.Color="blue"  />
+					<Change avatarBg.Opacity="1"  />
+					<Change avatar.Color="#fff" />
+				</WhileTrue>
+				<fa-user ux:Name="avatar" Alignment="Center" Color="blue" FontSize="30" />
+				<Circle ux:Name="avatarBg" Color="#fff" Margin="5" Opacity=".5" />
+			</Panel>
+			<Panel Width="65" Height="65">
+				<Clicked>
+					<Toggle Target="calendarActive" />
+				</Clicked>
+				<WhileTrue ux:Name="calendarActive">
+					<Change calendarBg.Color="blue"  />
+					<Change calendarBg.Opacity="1"  />
+					<Change calendar.Color="#fff" />
+				</WhileTrue>
+				<fa-calendar ux:Name="calendar" Alignment="Center" Color="blue" FontSize="30" />
+				<Circle ux:Name="calendarBg" Color="#fff" Margin="5" Opacity=".5" />
+			</Panel>
+			<Panel Width="65" Height="65">
+				<Clicked>
+					<Toggle Target="attachActive" />
+				</Clicked>
+				<WhileTrue ux:Name="attachActive">
+					<Change attachBg.Color="blue"  />
+					<Change attachBg.Opacity="1"  />
+					<Change attach.Color="#fff" />
+				</WhileTrue>
+				<fa-paperclip ux:Name="attach" Alignment="Center" Color="blue" FontSize="30" />
+				<Circle ux:Name="attachBg" Color="#fff" Margin="5" Opacity=".5" />
+			</Panel>
+		</Panel>
 
+	</StackPanel>
+</ScrollView>
+</Panel>
 

@@ -25,6 +25,10 @@
 	        <GradientStop Offset="0" Color="#013A61" />
 	    </LinearGradient>
 
+		
+		
+		
+		
 		<Panel ux:Name="plusIcon" Alignment="BottomRight" Margin="15" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
 			<SwipeGesture ux:Name="swipe" Direction="Up" Length="50" Type="Simple" />
 			<Tapped>
@@ -42,8 +46,12 @@
 			<Circle Width="50" Height="50" Color="#fff" Opacity=".5" Alignment="Center">
 			</Circle>
 		</Panel>
+		
+		<Panel ux:Name="pop" Layer="Overlay" Width="300" Height="300" Color="#fff">
+			<Translation Y="-1" RelativeTo="ParentSize" />
+		</Panel>
 
-		<ux:Include File="AddPanel.ux" />
+		<ux:Include File="AddPanel1.ux" />
 		<ux:Include File="Icons.ux" />
 		
 		<Image ux:Name="action" File="Assets/plus.png" Color="#f00" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Hidden">
@@ -59,6 +67,12 @@
 			</Swiped>
 		</Image>
 		
+		<Panel ux:Name="overlayRec" Color="#000" Opacity="0" HitTestMode="None">
+			<Clicked>
+				<!-- <Toggle Target="overPop1" /> -->
+				<!-- <Toggle Target="overPop1" /> -->
+			</Clicked>
+		</Panel>
 
 <!-- This is hamburger ******************************************** -->
 		<Panel ux:Name="ham" Margin="10,10,0,0" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft" >
@@ -245,13 +259,7 @@
 				</ScrollView>
 		</Sidebar>
 		
-		<Panel>
-			<Rectangle ux:Name="overlayRec" Layer="Background" HitTestMode="None" Color="#0003" Visibility="Hidden">
-				<Tapped>
-					
-				</Tapped>
-			</Rectangle>
-		</Panel>
+		
 		<ux:Include File="dashboard.ux" />
 		<ux:Include File="Indicators.ux" />
 		
@@ -447,6 +455,10 @@
 			</Panel>
 		</Panel>
 		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
+	
+
 	</DockPanel>
+
+	
 </App>
 

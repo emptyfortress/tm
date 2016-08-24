@@ -7,20 +7,21 @@
 		<Text Value="{Property this.Text}" FontSize="25" Color="#999" Alignment="TopCenter" />
 	</Panel>
 	<StackPanel Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
-			<Icon>
-				<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
-			</Icon>
-			<Text Value="4" Color="red" Alignment="Center" Offset="10,0" />
-			<Icon>
-				<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
-				<WhileVisible>
-			        <Spin Frequency=".2" />
-			    </WhileVisible>
-			</Icon>
-		</StackPanel>
+		<Icon>
+			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
+		</Icon>
+		<Text Value="4" Color="red" Alignment="Center" Offset="10,0" />
+		<Icon>
+			<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
+			<WhileVisible>
+		        <Spin Frequency=".2" />
+		    </WhileVisible>
+		</Icon>
+	</StackPanel>
 	
 	<DockPanel>
 		<StackPanel Dock="Bottom" Margin="10,0,50,0">
+			<Rectangle Height="1" Color="#6c7a89" />
 			<MultiLayoutPanel Height="50" ux:Name="tabBar" >
 				<GridLayout ColumnCount="3" Rows="1*"/>
 				<Panel ux:Name="tahoTab">
@@ -279,7 +280,7 @@
 							<userName User="Снегирев Ф.А." Tasks="8" />
 							<userName User="Гусев Л.С." Tasks="12" />
 						</StackPanel>
-						<dashHeader Value="Роли" Margin="0,30,0,0" />
+						<dashHeader Value="Роли / Группы / Отделы" Margin="0,30,0,0" />
 						<roleName Role="Главбух" />
 						<roleName Role="Начальник траспортного цеха" />
 						<roleName Role="Сторож" />

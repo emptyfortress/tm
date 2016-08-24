@@ -22,15 +22,17 @@
 		<Change bottomRectangle.Fill="#000" />
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
 		<Change action.Visibility="Hidden" Duration=".2" />
-		<!-- <Change overlayRec.Visibility.Value="Visible" /> -->
-		<!-- <Change overlayRec.HitTestMode="LocalBoundsAndChildren" /> -->
+		
 	</WhileTrue>
 
 	<WhileTrue ux:Name="addPageActive" >
+		<Change overlayRec.Opacity=".5" Duration=".2" Easing="CircularIn" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<!-- <Change plusIcon.Visibility="Visible" /> -->
 		<Rotate Target="plusIcon" Degrees="45" Duration=".3" />
+		<!-- <Change addBackground.Opacity.Value="0" Duration=".5" Delay=".5" DelayBack=".1"  /> -->
 		<!-- <Change plusIcon.Color="blue" Duration=".5" /> -->
-		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="Size" Duration=".5" Easing="CubicIn" />
+		<Move Target="addPanel1" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
 	</WhileTrue>
 	
@@ -56,12 +58,4 @@
 		<Change overlayRec.Color="#ccca" Duration="0.5"/>
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 	</WhileTrue>
-	<WhileTrue ux:Name="userList">
-		<Change Target="last.Visibility" Value="Hidden" />
-		<Change Target="letters.Visibility" Value="Hidden" />
-		<Change Target="searchBox.Visibility" Value="Hidden" />
-		<Change Target="changeView.Visibility" Value="Hidden" />
-		<Change Target="list.Visibility" Value="Visible" />
-	</WhileTrue>
-
 </Panel>

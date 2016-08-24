@@ -1,0 +1,31 @@
+<Panel  ux:Name="addPanel1" Margin="20">
+	<JavaScript>
+		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+		module.exports = {
+			alphabet : alphabet
+		};
+	</JavaScript>
+
+	<Translation XY="1,1" RelativeTo="ParentSize" />
+	
+	<PageControl>
+		<DockPanel>
+			<WhileTrue ux:Name="templateFull">
+				<Change templatePanel.Height.Value="100%" Duration=".3" Easing="CircularOut" />
+			</WhileTrue>
+			<Panel ux:Name="templatePanel" Background="#dedede" Dock="Bottom" Height="48%">
+				<SwipeGesture ux:Name="templateSwipe" Direction="Up" Length="100" />
+				<Swiped Source="templateSwipe">
+					<Toggle Target="templateFull" />
+				</Swiped>
+			</Panel>		
+			<Panel Background="#fff" Dock="Top" Height="50%"></Panel>		
+				
+
+		</DockPanel>
+		<Panel Background="#f00"></Panel>
+	</PageControl>
+</Panel>
+
+
+
