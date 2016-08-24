@@ -6,17 +6,50 @@
 		};
 	</JavaScript>
 
-	<Translation XY="1,1" RelativeTo="ParentSize" />
+	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
 	
 	<PageControl>
-		<DockPanel>
+		<DockPanel ux:Name="add1" Background="#ccc">
+			<Panel ux:Name="templatePanel" Height="48%" Dock="Bottom">
+				<StateGroup ux:Name="templateGroup" Active="short">
+					<State ux:Name="full">
+			            <Change templatePanel.Height.Value="100%" Duration=".2" />
+						<Change templateScroll.IsEnabled.Value="true" Duration=".2" />
+			        </State>
+			        <State ux:Name="short">
+			            <Change templatePanel.Height.Value="48%" Duration=".2" />
+						<Change templateScroll.IsEnabled.Value="false" Duration=".2" />
+			        </State>
+				</StateGroup>
+				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
+				<Swiped Source="up">
+					<Set templateGroup.Active="full" />
+				</Swiped>
+				<ScrollView ux:Name="templateScroll" IsEnabled="false"  >
+					<Panel>
+						<ColumnLayout ColumnCount="2" ItemSpacing="5" />
+						<Rectangle Width="100" Height="100" Color="#000">
+							
+						</Rectangle>
+						<Each Count="19">
+							<Rectangle Width="100" Height="100" Color="#ccc" />
+						</Each>
+						<Rectangle Height="100" Color="#000" />
+					</Panel>
+				</ScrollView>
+				<Rectangle Layer="Background" Color="#f00" />
+			</Panel>
+			<Panel Background="#fff" Dock="Top" Height="50%"></Panel>
+		</DockPanel>
+
+		<!-- <Panel>
 			<WhileTrue ux:Name="templateFull">
 				<Change templatePanel.Height.Value="100%" Duration=".3" Easing="CircularOut" />
 				<Change templateBg.Opacity.Value="1" Duration=".3" />
 				<Change templateScroll.IsEnabled.Value="true" />
 				<Change downArrow.Visibility.Value="Visible" />
 			</WhileTrue>
-			<Panel ux:Name="templatePanel" Dock="Bottom" Height="48%" HitTestMode="LocalBoundsAndChildren">
+			<Panel ux:Name="templatePanel" HitTestMode="LocalBoundsAndChildren">
 				<StackLayout />
 				<SwipeGesture ux:Name="templateSwipe" Direction="Up" Length="100" />
 				<Swiped Source="templateSwipe">
@@ -27,10 +60,22 @@
 					<Text Value="Свернуть" Alignment="CenterLeft" />
 					<Clicked>
 						<Toggle Target="templateFull" />
-						<!-- <Set downArrow.Visibility.Value="Collapsed" /> -->
+						<Set downArrow.Visibility.Value="Collapsed" />
 					</Clicked>
 				</StackPanel>
-				<ScrollView ux:Name="templateScroll" IsEnabled="false">
+				<ScrollView ux:Name="templateScroll" IsEnabled="true">
+					<StackPanel ItemSpacing="5">
+						<Each Count="20" >
+							<Panel Height="100" Padding="10">
+								<StackLayout />
+								<Text Value="Название шаблона" Margin="0,0,0,10"  />
+								<Text Value="Вид поручения" FontSize="14"  />
+								<Text Value="Исполнители" FontSize="14"  />
+								<fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" />
+								<Rectangle Layer="Background" Color="#C0DDA4" />
+							</Panel>
+						</Each>
+					</StackPanel>
 					<Panel>
 						<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 						<WhileWindowPortrait>
@@ -46,6 +91,7 @@
 								<Rectangle Layer="Background" Color="#C0DDA4" />
 							</Panel>
 						</Each>
+						<Rectangle Width="100" Height="100" Color="#000"/>
 					</Panel>
 				</ScrollView>
 
@@ -54,7 +100,10 @@
 			<Panel Background="#fff" Dock="Top" Height="50%"></Panel>		
 				
 
-		</DockPanel>
+		</Panel> -->
+
+
+
 		<DockPanel ux:Name="Drafts" Background="#fff" Padding="20">
 			<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="10">
 				<fa-inbox FontSize="20" Color="#999" Alignment="CenterLeft" />
