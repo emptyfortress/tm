@@ -6,7 +6,7 @@
 		};
 	</JavaScript>
 
-	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
+	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
 	<PageControl>
 		<DockPanel ux:Name="add1">
@@ -27,10 +27,20 @@
 						<Change templateScroll.IsEnabled.Value="false" Duration=".2" />
 						<Change templateScroll.RelativeScrollPosition.Value="0" />
 			        </State>
+			        <State ux:Name="off">
+			        	<Move Target="templatePanel" Y="1" RelativeTo="Size" Duration=".2" />
+			            <!-- <Change templatePanel.Visibility.Value="Collapsed" Duration=".2" /> -->
+						<!-- <Change templateScroll.IsEnabled.Value="false" Duration=".2" /> -->
+						<!-- <Change templateScroll.RelativeScrollPosition.Value="0" /> -->
+			        </State>
 				</StateGroup>
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
+				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
 				<Swiped Source="up">
 					<Set templateGroup.Active="full" />
+				</Swiped>
+				<Swiped Source="down">
+					<Set templateGroup.Active="off" />
 				</Swiped>
 				<ScrollView ux:Name="templateScroll" IsEnabled="false"  >
 					<Panel>
