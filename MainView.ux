@@ -51,7 +51,7 @@
 			<Translation Y="-1" RelativeTo="ParentSize" />
 		</Panel>
 
-		<ux:Include File="AddPanel1.ux" />
+		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
 		
 		<Image ux:Name="action" File="Assets/plus.png" Color="#f00" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Hidden">

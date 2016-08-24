@@ -1,239 +1,42 @@
-<Panel  ux:Name="addPanel" Background="#fff" Height="50%" Margin="20" Alignment="Top">
+<Panel  ux:Name="addPanel" Margin="20">
 	<JavaScript>
 		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
 		module.exports = {
 			alphabet : alphabet
 		};
 	</JavaScript>
-	<!-- <Rectangle ux:Name="addBackground" Layer="Background" Color="#fff" > -->
-	<!-- <Rectangle ux:Name="addBackground" Layer="Background" Color="#BFDCF7" Opacity=".6" >
-	</Rectangle> -->
 
 	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
-	<DockPanel>
-		<!-- <Panel Dock="Top" Padding="0,20">
-			<Text ux:Name="whatText" Value="Новое поручение" Color="blue"  FontSize="25" Alignment="Center" Visibility="Hidden" />
-			<Text ux:Name="whoText" Value="Кому" Color="#fff"  FontSize="25" Alignment="Center" />
-			<Text ux:Name="whenText" Value="Срок исполнения" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
-			<Text ux:Name="sumText" Value="Summary" Color="#fff"  FontSize="25" Alignment="Center" Visibility="Hidden" />
-		</Panel> -->
-		<PageControl Active="Add">
-			<Page ux:Name="Add">
-				<DockLayout />
-				<Panel Dock="Top" Padding="0,20">
-					<Text Value="Новое поручение" Color="blue"  FontSize="25" Alignment="Center" />
-				</Panel>
-				<ux:Include File="addTask.ux" />
-			</Page>
-			<Page ux:Name="List">
-				<DockLayout />
-				<Panel Dock="Top" Padding="0,20">
-					<Text Value="Черновики" Color="blue"  FontSize="25" Alignment="Center" />
-				</Panel>
-				<!-- <ux:Include File="addTask.ux" /> -->
-			</Page>
-			<Page ux:Name="Who" Padding="10,0,10,0" ClipToBounds="true">
-				<StackPanel>
-					<Panel ux:Name="last" Visibility="Visible" >
-						<StackPanel>
-							<Text Value="Последние:" Alignment="CenterLeft" Margin="0,10,20,0" />
-							<ScrollView ux:Name="lastUser" AllowedScrollDirections="Horizontal" ScrollPosition="0">
-								<StackPanel  Orientation="Horizontal" Height="65">
-									<Each Count="20">
-										<Panel Width="65" Height="65">
-											<Clicked>
-												<Toggle Target="avatarActive" />
-											</Clicked>
-											<WhileTrue ux:Name="avatarActive">
-												<Change avatarBg.Color="blue"  />
-												<Change avatarBg.Opacity="1"  />
-												<Change avatar.Color="#fff" />
-											</WhileTrue>
-											<fa-user ux:Name="avatar" Alignment="Center" Color="blue" FontSize="30" />
-											<Circle ux:Name="avatarBg" Color="#fff" Margin="5" Opacity=".5" />
-										</Panel>
-									</Each>
-								</StackPanel>
-							</ScrollView>
-							<ScrollView ux:Name="lastDept" Visibility="Collapsed" AllowedScrollDirections="Horizontal">
-								<StackPanel  Orientation="Horizontal" >
-									<Each Count="10">
-										<StackPanel Orientation="Horizontal" Margin="0,0,10,0" Height="65" Padding="10,0" >
-											<fa-briefcase Alignment="Center" Color="blue" FontSize="30" />
-											<Text Value="Роль" Alignment="CenterLeft" Margin="5,0" />
-											<Rectangle Color="#fff" Opacity=".5" Layer="Background" />
-										</StackPanel>
-									</Each>
-								</StackPanel>
-							</ScrollView>
-						</StackPanel>
-					</Panel>
-<!-- This is my switch ***********************************************************************************************-->
-					<StackPanel ux:Name="changeView" Orientation="Horizontal" Alignment="Center" >
-					    <Text Value="Сотрудники" FontSize="15" Alignment="CenterRight" />
-					    <mySwitch Margin="10,20">
-					    	<WhileTrue>
-					    		<Change scaleBg.Factor="1" Duration=".4" Easing="QuadraticOut" Delay="0.2" />
-					    		<Change searchBox.Visibility="Hidden" Delay=".2" />
-					    		<Change letters.Visibility="Collapsed" Delay=".25" />
-					    		<Change lastUser.Visibility="Collapsed" Delay=".25" />
-					    		<Change lastDept.Visibility="Visible" Delay=".25" />
-					    		<Change deptList.Visibility="Visible" Delay=".25" />
-					    	</WhileTrue>
-					    </mySwitch>
-					    <Text Value="Роли" FontSize="15" Alignment="CenterLeft" />
-					</StackPanel>
-					
-					<StackPanel ux:Name="searchBox" Orientation="Horizontal" Alignment="Center">
-						<Panel>
-							<Button Alignment="CenterRight" Text="x" Margin="5">
-								<Clicked>
-									<Set text.Value="" />
-						        </Clicked>
-							</Button>
-							<TextInput ux:Name="text" Value="Искать" Padding="5" Width="200" Height="30">
-								<WhileFocused>
-									<Change Target="search.Opacity" Value="1" Duration=".2" />
-									<Change Target="text.Width" Value="300" Duration=".2" />
-									<Change Target="text.Height" Value="40" Duration=".2" />
-								</WhileFocused>
+	<PageControl>
+		<DockPanel>
+			<WhileTrue ux:Name="templateFull">
+				<Change templatePanel.Height.Value="100%" Duration=".3" Easing="CircularOut" />
+			</WhileTrue>
+			<Panel ux:Name="templatePanel" Background="#dedede" Dock="Bottom" Height="48%">
+				<SwipeGesture ux:Name="templateSwipe" Direction="Up" Length="100" />
+				<Swiped Source="templateSwipe">
+					<Toggle Target="templateFull" />
+				</Swiped>
+			</Panel>		
+			<Panel Background="#fff" Dock="Top" Height="50%"></Panel>		
+				
 
-								<Rectangle ux:Name="search" Layer="Background" Color="#fff" Opacity="0">
-									<Stroke Width="1" Brush="#2F6A92" />
-								</Rectangle>
-						    </TextInput>
-						    <Rectangle Height="1" Color="#2F6A92" Alignment="Bottom" />
+		</DockPanel>
+		<DockPanel ux:Name="Drafts" Background="#fff" Padding="20">
+			<Text Dock="Top" Value="Мои черновики" Color="#999" FontSize="20" Alignment="Left" />
+			<ScrollView Margin="0,10,0,0">
+				<WrapPanel ItemWidth="250" ItemHeight="100">
+					<Each Count="20" >
+						<Panel Margin="5">
+							<Text Value="Это черновик" />
+							<Rectangle Layer="Background" Color="#eee" />
 						</Panel>
-						<fa_search  FontSize="15" Color="#2F6A92" Alignment="CenterLeft" Margin="10,0,0,0">
-							<Scaling X="-1"  />
-						</fa_search>
-					</StackPanel>
-
-					<ScrollView ux:Name="letters" Visibility="Visible">
-						<WrapPanel Orientation="Horizontal"  Margin="0, 20, 0, 0">
-							<Each Items="{alphabet}">
-								<Text Value="{}" Color="#2F6A92" FontSize="25" Margin="20">
-									<Clicked>
-										<Toggle Target="userList" />
-									</Clicked>
-								</Text>
-							</Each> 
-						</WrapPanel>
-					</ScrollView>
-				
-					<ScrollView ux:Name="deptList" Visibility="Collapsed">
-						<WrapPanel Orientation="Horizontal">
-							<Each Count="10">
-								<StackPanel Orientation="Horizontal" Margin="5" Height="65" Padding="10,0" >
-									<fa-briefcase Alignment="Center" Color="blue" FontSize="30" />
-									<Text Value="Роль" Alignment="CenterLeft" Margin="5,0" />
-									<Rectangle Color="#fff" Opacity=".5" Layer="Background" />
-								</StackPanel>
-							</Each>
-						</WrapPanel>
-					</ScrollView>
-				</StackPanel>
-				<ScrollView ux:Name="list" Visibility="Hidden">
-					<StackPanel Alignment="HorizontalCenter">
-						<Text Value="O" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,0,0,0"/>
-						<Each Count="5">
-							<StackPanel Orientation="Horizontal">
-								<Panel Width="65" Height="65">
-									<Clicked>
-										<Toggle Target="avatarActive" />
-									</Clicked>
-									<WhileTrue ux:Name="avatarActive">
-										<Change avatarBg.Color="blue"  />
-										<Change avatarBg.Opacity="1"  />
-										<Change avatar.Color="#fff" />
-									</WhileTrue>
-									<fa-user ux:Name="avatar" Alignment="Center" Color="blue" FontSize="30" />
-									<Circle ux:Name="avatarBg" Color="#fff" Margin="5" Opacity=".5" />
-								</Panel>
-								<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92">
-									<Clicked>
-										<Toggle Target="userList" />
-									</Clicked>
-								</Text>
-							</StackPanel>
-						</Each>
-						<Text Value="П" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,20,0,0" />
-						<Each Count="5">
-							<StackPanel Orientation="Horizontal">
-								<Panel Width="65" Height="65">
-									<Clicked>
-										<Toggle Target="avatarActive" />
-									</Clicked>
-									<WhileTrue ux:Name="avatarActive">
-										<Change avatarBg.Color="blue"  />
-										<Change avatarBg.Opacity="1"  />
-										<Change avatar.Color="#fff" />
-									</WhileTrue>
-									<fa-user ux:Name="avatar" Alignment="Center" Color="blue" FontSize="30" />
-									<Circle ux:Name="avatarBg" Color="#fff" Margin="5" Opacity=".5" />
-								</Panel>
-								<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92" Visibility="Visible" />
-							</StackPanel>
-						</Each>
-						<Text Value="Р" FontSize="40" Color="#2F6A92" Alignment="CenterLeft" Margin="20,20,0,0" />
-						<Each Count="5">
-							<StackPanel Orientation="Horizontal">
-								<Panel Width="65" Height="65">
-									<Clicked>
-										<Toggle Target="avatarActive" />
-									</Clicked>
-									<WhileTrue ux:Name="avatarActive">
-										<Change avatarBg.Color="blue"  />
-										<Change avatarBg.Opacity="1"  />
-										<Change avatar.Color="#fff" />
-									</WhileTrue>
-									<fa-user ux:Name="avatar" Alignment="Center" Color="blue" FontSize="30" />
-									<Circle ux:Name="avatarBg" Color="#fff" Margin="5" Opacity=".5" />
-								</Panel>
-								<Text Value="Орлов П.С." Alignment="CenterLeft" FontSize="20" Margin="10" Color="#2F6A92" Visibility="Visible" />
-							</StackPanel>
-						</Each>
-					</StackPanel>
-				</ScrollView>
-				
-
-<!-- This is bgCircle ********************************************************				 -->
-				<Circle ux:Name="bgCircle" Color="#97C8F4" Width="2000" Height="2000" Alignment="TopCenter" Anchor="50%">
-					<Translation Y="140" />
-					<Scaling ux:Name="scaleBg" Factor="0" />
-				</Circle>
-			</Page>
-			
-			<!-- <Page ux:Name="When">
-				<ActivatingAnimation>
-					<Change Target="whoText.Visibility" Value="Hidden" />
-					<Change Target="whatText.Visibility" Value="Hidden" />
-					<Change Target="whenText.Visibility" Value="Visible" />
-					<Change Target="sumText.Visibility" Value="Hidden" />
-				</ActivatingAnimation>
-				<ux:Include File="addWhen.ux" />
-			</Page> -->
-			<!-- <Page ux:Name="Sum">
-				<ActivatingAnimation>
-					<Change Target="whoText.Visibility" Value="Hidden" />
-					<Change Target="whatText.Visibility" Value="Hidden" />
-					<Change Target="whenText.Visibility" Value="Hidden" />
-					<Change Target="sumText.Visibility" Value="Visible" />
-				</ActivatingAnimation>
-				<ux:Include File="sumAdd.ux" />
-			</Page> -->
-		</PageControl>
-
-		<Panel Dock="Bottom">
-			<Panel Height="40" Width="100" Margin="20" Alignment="Center">
-				<Button Text="Отправить" Color="blue" />
-			</Panel>
-			
-		</Panel>
-			
-
-	</DockPanel>
+					</Each>
+				</WrapPanel>
+			</ScrollView>
+		</DockPanel>
+	</PageControl>
 </Panel>
 
 

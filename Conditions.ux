@@ -32,7 +32,7 @@
 		<Rotate Target="plusIcon" Degrees="45" Duration=".3" />
 		<!-- <Change addBackground.Opacity.Value="0" Duration=".5" Delay=".5" DelayBack=".1"  /> -->
 		<!-- <Change plusIcon.Color="blue" Duration=".5" /> -->
-		<Move Target="addPanel1" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />
+		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
 	</WhileTrue>
 	
