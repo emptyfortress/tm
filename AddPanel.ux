@@ -1,12 +1,14 @@
 <Panel  ux:Name="addPanel" Margin="20">
 	<JavaScript>
 		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+		var alphabet1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 		module.exports = {
-			alphabet : alphabet
+			alphabet : alphabet,
+			alphabet1 : alphabet1
 		};
 	</JavaScript>
 
-	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
+	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
 	<PageControl>
 		<DockPanel ux:Name="add">
@@ -98,6 +100,28 @@
 								</Each>
 							</Panel>
 							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
+							<TextInput ux:Name="text" PlaceholderColor="#ccc" Height="50" Padding="5" Width="200"  >
+						        <fa-search FontSize="20" Alignment="Center" Color="#fff" />
+						        <Rectangle ux:Name="input" Layer="Background" Color="#fff" Opacity=".3" CornerRadius="50" />
+						    </TextInput>
+						    <ScrollView AllowedScrollDirections="Horizontal" Margin="20">
+							    <StackPanel Orientation="Horizontal" ItemSpacing="10">
+							    	<Each Items="{alphabet}">
+							    		<Panel Padding="5">
+							    			<Text Value="{}" FontSize="30" Color="#999" />
+							    		</Panel>
+							    	</Each>
+							    </StackPanel>
+							 </ScrollView>
+							 <ScrollView AllowedScrollDirections="Horizontal" Margin="20,0">
+							    <StackPanel Orientation="Horizontal" ItemSpacing="10">
+							    	<Each Items="{alphabet1}">
+							    		<Panel Padding="5">
+							    			<Text Value="{}" FontSize="30" Color="#999" />
+							    		</Panel>
+							    	</Each>
+							    </StackPanel>
+							 </ScrollView>
 						</StackPanel>
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
