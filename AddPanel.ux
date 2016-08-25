@@ -59,38 +59,49 @@
 		<DockPanel ux:Name="add">
 			<StateGroup ux:Name="addGroup" Active="shortState">
 				<State ux:Name="fullState">
-		            <Change mainAddPanel.Height="0" Duration="0.3"/>
+		            <Change mainAddPanel.Height="0" Duration="0.2"/>
 		            <Change templateScroll.IsEnabled="true" Duration="0.2"/>
 		        </State>
 		        <State ux:Name="shortState">
 		            <!-- <Change  Duration="0.2"/> -->
 		        </State>
 		        <State ux:Name="offState">
-		            <!-- <Change  Duration="0.2"/> -->
+		            <Change mainAddPanel.Height="100" Duration="0.2"/>
+		            <Change templateScroll.IsEnabled="false" Duration="0.2"/>
 		        </State>
 			</StateGroup>
 			<Panel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10"></Panel>
-			<Panel>
-				<Circle Width="30" Height="30" Color="#f0f" LayoutRole="Inert" Alignment="TopCenter">
+			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
+				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
+				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
+				<Swiped Source="down">
+					<Set addGroup.Active="offState" />
+				</Swiped>
+				<Swiped Source="up">
+					<Set addGroup.Active="fullState" />
+				</Swiped>
+				<Panel Width="40" Height="40" LayoutRole="Inert" Alignment="TopCenter">
 					<Clicked>
-						<Set addGroup.Active="fullState" />
+						<Set addGroup.Active="shortState" />
 					</Clicked>
-				</Circle>
+					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
+					<Circle Color="#fff" />
+					
+				</Panel>
 				<ScrollView ux:Name="templateScroll" IsEnabled="false">
 					<Panel>
 						<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 						<WhileWindowPortrait>
 							<Change templateColumns.ColumnCount.Value="2" />
 						</WhileWindowPortrait>
-						<Each Count="20" >
-							<Panel Height="100" Padding="10">
-								<StackLayout />
-								<Text Value="Название шаблона" Margin="0,0,0,10"  />
-								<Text Value="Вид поручения" FontSize="14"  />
-								<Text Value="Исполнители" FontSize="14"  />
-								<fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" />
-								<Rectangle Layer="Background" Color="#C0DDA4" />
-							</Panel>
+						<Each Count="5" >
+							<TemplateBlock TempColor="#FFCC99" />
+						</Each>
+						<Each Count="9" >
+							<TemplateBlock TempColor="#FF7F00"/>
+						</Each>
+						<Each Count="15" >
+							<TemplateBlock TempColor="#B399FF"/>
 						</Each>
 						<fa-diamond />
 					</Panel>
