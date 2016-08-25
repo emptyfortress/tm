@@ -29,7 +29,7 @@
 		        </State>
 			</StateGroup>
 			<Panel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10"></Panel>
-			<Panel HitTestMode="LocalVisualAndChildren" Background="#0006">
+			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
 				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
 				<Swiped Source="down">
@@ -83,19 +83,28 @@
 						</Panel>
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
-						<Panel >
-							<WrapLayout Orientation="Horizontal"/>
-							<!-- <ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" /> -->
-							<WhileWindowPortrait>
-								<!-- <Change userColumns.ColumnCount.Value="2" /> -->
-							</WhileWindowPortrait>
-							<Each Count="15" >
-								<Panel Width="70" Height="65" ClipToBounds="true" Margin="10">
-									<Image File="Assets/user-icon.png" Alignment="TopCenter" />
-									<Text Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" Background="#000" />
-								</Panel>
-							</Each>
-						</Panel>
+						<StackPanel>
+							<Panel >
+								<WrapLayout Orientation="Horizontal"/>
+								<Each Count="15" >
+									<Panel Width="70" Height="65" ClipToBounds="true" Margin="10">
+										<Image File="Assets/user-icon.png" Alignment="TopCenter" />
+										<Text Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff"/>
+									</Panel>
+								</Each>
+							</Panel>
+							<Rectangle Height="1" Color="#fff" />
+							<Panel >
+								<WrapLayout Orientation="Horizontal"/>
+								<Each Count="7" >
+									<Panel Width="70" Height="65" ClipToBounds="true" Margin="10">
+										<Image File="Assets/group-icon.png" Alignment="TopCenter" />
+										<Text Value="Отдел кадров" FontSize="12" Alignment="BottomCenter" Color="#fff" />
+									</Panel>
+								</Each>
+							</Panel>
+							<Rectangle Height="1" Color="#fff" />
+						</StackPanel>
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
 						<Panel>
