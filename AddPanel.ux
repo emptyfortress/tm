@@ -45,7 +45,7 @@
 					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
 					<Circle Color="#fff" />
 				</Panel>
-				<PageControl>
+				<PageControl Active="userScroll">
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<Panel>
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
@@ -83,6 +83,21 @@
 						</Panel>
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
+						<Panel >
+							<WrapLayout Orientation="Horizontal"/>
+							<!-- <ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" /> -->
+							<WhileWindowPortrait>
+								<!-- <Change userColumns.ColumnCount.Value="2" /> -->
+							</WhileWindowPortrait>
+							<Each Count="15" >
+								<Panel Width="70" Height="65" ClipToBounds="true" Margin="10">
+									<Image File="Assets/user-icon.png" Alignment="TopCenter" />
+									<Text Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" Background="#000" />
+								</Panel>
+							</Each>
+						</Panel>
+					</ScrollView>
+					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
 						<Panel>
 							<WrapLayout Orientation="Horizontal"/>
 							<!-- <ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" /> -->
@@ -90,7 +105,6 @@
 								<!-- <Change userColumns.ColumnCount.Value="2" /> -->
 							</WhileWindowPortrait>
 							<Each Count="15" >
-								<Image File="Assets/user-icon.png" Alignment="CenterLeft" />
 							</Each>
 						</Panel>
 					</ScrollView>
