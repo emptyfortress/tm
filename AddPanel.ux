@@ -61,7 +61,7 @@
 								</TemplateBlock>
 							</Each>
 							<Each Count="15" >
-								<TemplateBlock TempColor="#ccc"/>
+								<TemplateBlock TempColor="#B399FF"/>
 							</Each>
 							<fa-diamond />
 						</Panel>
@@ -73,6 +73,11 @@
 								<Change textColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
 							<TextBlock bgColor="#666" boxText="Иванов, срочно разберись и доложи, в чем проблема" />
+							<TextBlock bgColor="#666" boxText="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." />
+							<TextBlock bgColor="#666" boxText="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." />
+							<TextBlock bgColor="#666" boxText="Подземный сток пододвигается под глетчерный апатит, что позволяет проследить соответствующий денудационный уровень." />
+							<TextBlock bgColor="#666" boxText="Туффит ослабляет слабоминерализованный эвапорит, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь." />
+							<TextBlock bgColor="#666" boxText="Пойма обедняет железистый гранит." />
 						</Panel>
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="false">
