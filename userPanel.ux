@@ -1,0 +1,23 @@
+<Panel ux:Class="userPanel" Width="70" Height="65" ClipToBounds="true" Margin="5">
+	<StateGroup ux:Name="userGroup" Active="normalState">
+        <State ux:Name="normalState">
+        </State>
+        <State ux:Name="selectedState">
+            <Change userBg.Color="#0f0" />
+            <Change fio.Color="#000" />
+        </State>
+        <State ux:Name="controlState">
+            <Change userBg.Color="#FFFF26" />
+            <Change fio.Color="#000" />
+            <Change k.Visibility="Visible" />
+        </State>
+    </StateGroup>
+	<Text ux:Name="k" Font="Bold" Value="K" Alignment="TopLeft" Visibility="Hidden" Margin="2" />
+	<Image File="Assets/user-icon.png" Alignment="TopCenter" />
+	<Text ux:Name="fio" Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" />
+	<Rectangle ux:Name="userBg" Layer="Background" />
+	
+	<Clicked>
+		<TransitionState Target="userGroup" Type="Next"/>
+	</Clicked>
+</Panel>

@@ -6,7 +6,7 @@
 		};
 	</JavaScript>
 
-	<Translation XY="1,1" RelativeTo="ParentSize" />
+	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
 	
 	<PageControl>
 		<DockPanel ux:Name="add">
@@ -87,23 +87,17 @@
 							<Panel >
 								<WrapLayout Orientation="Horizontal"/>
 								<Each Count="15" >
-									<Panel Width="70" Height="65" ClipToBounds="true" Margin="10">
-										<Image File="Assets/user-icon.png" Alignment="TopCenter" />
-										<Text Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff"/>
-									</Panel>
+									<userPanel />
 								</Each>
 							</Panel>
-							<Rectangle Height="1" Color="#fff" />
+							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
 							<Panel >
 								<WrapLayout Orientation="Horizontal"/>
 								<Each Count="7" >
-									<Panel Width="70" Height="65" ClipToBounds="true" Margin="10">
-										<Image File="Assets/group-icon.png" Alignment="TopCenter" />
-										<Text Value="Отдел кадров" FontSize="12" Alignment="BottomCenter" Color="#fff" />
-									</Panel>
+									<groupPanel />
 								</Each>
 							</Panel>
-							<Rectangle Height="1" Color="#fff" />
+							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
 						</StackPanel>
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">

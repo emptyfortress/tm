@@ -1,0 +1,22 @@
+<Panel ux:Class="groupPanel" Width="70" Height="65" ClipToBounds="true" Margin="5">
+	<StateGroup ux:Name="groupGroup" Active="normalState">
+        <State ux:Name="normalState">
+        </State>
+        <State ux:Name="selectedState">
+            <Change userBg.Color="#0f0" />
+            <Change dep.Color="#000" />
+        </State>
+       <!--  <State ux:Name="controlState">
+            <Change userBg.Color="#FFFF26" />
+            <Change fio.Color="#000" />
+            <Change k.Visibility="Visible" />
+        </State> -->
+    </StateGroup>
+	<Image File="Assets/group-icon.png" Alignment="TopCenter" />
+	<Text ux:Name="dep" Value="Отдел кадров" FontSize="12" Alignment="BottomCenter" Color="#fff" />
+	<Rectangle ux:Name="userBg" Layer="Background" />
+	
+	<Clicked>
+		<TransitionState Target="groupGroup" Type="Next"/>
+	</Clicked>
+</Panel>
