@@ -62,6 +62,7 @@
 		            <Change mainAddPanel.Height="0" Duration="0.2"/>
 		            <Change templateScroll.RelativeScrollPosition="0" />
 		            <Change templateScroll.UserScroll="true"  />
+		            <Change downArrow.Visibility.Value="Visible" Duration=".2" />
 		        </State>
 		        <State ux:Name="shortState">
 		            <Change templateScroll.RelativeScrollPosition="0" />
@@ -73,7 +74,7 @@
 		        </State>
 			</StateGroup>
 			<Panel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10"></Panel>
-			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
+			<Panel HitTestMode="LocalVisualAndChildren" Background="#0006">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
 				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
 				<Swiped Source="down">
@@ -82,13 +83,12 @@
 				<Swiped Source="up">
 					<Set addGroup.Active="fullState" />
 				</Swiped>
-				<Panel Width="40" Height="40" LayoutRole="Inert" Alignment="TopCenter">
+				<Panel ux:Name="downArrow" Width="40" Height="40" LayoutRole="Inert" Alignment="TopCenter" Visibility="Collapsed">
 					<Clicked>
 						<Set addGroup.Active="shortState" />
 					</Clicked>
 					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
 					<Circle Color="#fff" />
-					
 				</Panel>
 				<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 					<Panel>
