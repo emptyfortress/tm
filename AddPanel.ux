@@ -34,7 +34,33 @@
 		            <Change templateScroll.UserScroll="false" />
 		        </State>
 			</StateGroup>
-			<Panel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10"></Panel>
+			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10">
+				<StackPanel Orientation="Horizontal" Dock="Bottom" ItemSpacing="10">
+					<Circle ux:Name="ico1" Width="20" Height="20" Color="#ccc">
+						<Clicked>
+							<Set helperPanel.Active="templateScroll" />
+						</Clicked>
+					</Circle>
+					<Circle ux:Name="ico2" Width="20" Height="20" Color="#ccc">
+						<Clicked>
+							<Set helperPanel.Active="textScroll" />
+						</Clicked>
+					</Circle>
+					<Circle ux:Name="ico3" Width="20" Height="20" Color="#ccc">
+						<Clicked>
+							<Set helperPanel.Active="userScroll" />
+						</Clicked>
+					</Circle>
+					<Circle ux:Name="ico4" Width="20" Height="20" Color="#ccc">
+						<Clicked>
+							<Set helperPanel.Active="dateScroll" />
+						</Clicked>
+					</Circle>
+				</StackPanel>
+			</DockPanel>
+			
+
+
 			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
 				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
@@ -53,6 +79,9 @@
 				</Panel>
 				<PageControl ux:Name="helperPanel">
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
+						<WhileActive Threshold="0.5">
+							<Change ico1.Color="#f00" />
+						</WhileActive>
 						<Panel>
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 							<WhileWindowPortrait>
@@ -152,13 +181,13 @@
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
 						<Panel>
-							<WrapLayout Orientation="Horizontal"/>
+							<StackLayout Orientation="Horizontal" ItemSpacing="20" />
+							<!-- <WrapLayout Orientation="Horizontal"/> -->
 							<!-- <ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" /> -->
-							<WhileWindowPortrait>
+							<!-- <WhileWindowPortrait> -->
 								<!-- <Change userColumns.ColumnCount.Value="2" /> -->
-							</WhileWindowPortrait>
-							<Each Count="15" >
-							</Each>
+							<!-- </WhileWindowPortrait> -->
+							
 						</Panel>
 					</ScrollView>
 				</PageControl>
