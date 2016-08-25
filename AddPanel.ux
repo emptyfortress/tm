@@ -24,6 +24,10 @@
 		        <State ux:Name="shortState">
 		            <Change templateScroll.RelativeScrollPosition="0" />
 		            <Change templateScroll.UserScroll="false" />
+		            <Change textScroll.RelativeScrollPosition="0" />
+		            <Change textScroll.UserScroll="false" />
+		            <Change userScroll.RelativeScrollPosition="0" />
+		            <Change userScroll.UserScroll="false" />
 		        </State>
 		        <State ux:Name="offState">
 		            <Change mainAddPanel.Height="100" Duration="0.2"/>
@@ -47,7 +51,7 @@
 					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
 					<Circle Color="#fff" />
 				</Panel>
-				<PageControl Active="userScroll">
+				<PageControl ux:Name="helperPanel">
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<Panel>
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
@@ -86,23 +90,45 @@
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<StackPanel>
-							<Panel >
+							<Panel ux:Name="userList">
 								<WrapLayout Orientation="Horizontal"/>
 								<Each Count="15" >
 									<userPanel />
 								</Each>
 							</Panel>
 							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
-							<Panel >
+							<Panel ux:Name="groupList" >
 								<WrapLayout Orientation="Horizontal"/>
 								<Each Count="7" >
 									<groupPanel />
 								</Each>
 							</Panel>
 							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
-							<TextInput ux:Name="text" PlaceholderColor="#ccc" Height="50" Padding="5" Width="200"  >
-						        <fa-search FontSize="20" Alignment="Center" Color="#fff" />
-						        <Rectangle ux:Name="input" Layer="Background" Color="#fff" Opacity=".3" CornerRadius="50" />
+							<TextInput ux:Name="text" PlaceholderColor="#ccc" Height="50" Padding="5" Margin="20,0"   >
+						        <StateGroup ux:Name="inputGroup" Active="normal">
+						        	<State ux:Name="normal">
+						        		
+						        	</State>
+						        	<State ux:Name="active">
+						        		<Change input.Opacity.Value="1" Duration=".2" />
+						        		<Change searchIc.Color="#000" Duration=".2" />
+						        		<Change searchIc.Alignment="CenterRight" />
+						        	</State>
+						        </StateGroup>
+						        <fa-search ux:Name="searchIc" FontSize="20" Alignment="Center" Color="#fff" Margin="20,0" />
+						        <Rectangle ux:Name="input" Layer="Background" Color="#fff" Opacity="0" CornerRadius="50" />
+						        <WhileFocusWithin>
+						        	<Change addGroup.Active="fullState" />
+						        	<Change inputGroup.Active="active" />
+						        	<Change userList.Visibility.Value="Collapsed" />
+						        	<Change groupList.Visibility.Value="Collapsed" />
+						        </WhileFocusWithin>
+						        <!-- <Clicked>
+						        	<Set addGroup.Active="fullState" />
+						        	<Set inputGroup.Active="active" />
+						        	<Set userList.Visibility.Value="Collapsed" />
+						        	<Set groupList.Visibility.Value="Collapsed" />
+						        </Clicked> -->
 						    </TextInput>
 						    <ScrollView AllowedScrollDirections="Horizontal" Margin="20">
 							    <StackPanel Orientation="Horizontal" ItemSpacing="10">

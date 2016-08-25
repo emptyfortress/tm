@@ -35,6 +35,7 @@
 		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
 		<Set addGroup.Active="shortState" />
+		<Set helperPanel.Active="templateScroll" />
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="detailsActive">
