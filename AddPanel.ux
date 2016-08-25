@@ -60,14 +60,16 @@
 			<StateGroup ux:Name="addGroup" Active="shortState">
 				<State ux:Name="fullState">
 		            <Change mainAddPanel.Height="0" Duration="0.2"/>
-		            <Change templateScroll.IsEnabled="true" Duration="0.2"/>
+		            <Change templateScroll.RelativeScrollPosition="0" />
+		            <Change templateScroll.UserScroll="true"  />
 		        </State>
 		        <State ux:Name="shortState">
-		            <!-- <Change  Duration="0.2"/> -->
+		            <Change templateScroll.RelativeScrollPosition="0" />
+		            <Change templateScroll.UserScroll="false" />
 		        </State>
 		        <State ux:Name="offState">
 		            <Change mainAddPanel.Height="100" Duration="0.2"/>
-		            <Change templateScroll.IsEnabled="false" Duration="0.2"/>
+		            <Change templateScroll.UserScroll="false" />
 		        </State>
 			</StateGroup>
 			<Panel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10"></Panel>
@@ -88,7 +90,7 @@
 					<Circle Color="#fff" />
 					
 				</Panel>
-				<ScrollView ux:Name="templateScroll" IsEnabled="false">
+				<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 					<Panel>
 						<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 						<WhileWindowPortrait>
@@ -98,7 +100,11 @@
 							<TemplateBlock TempColor="#FFCC99" />
 						</Each>
 						<Each Count="9" >
-							<TemplateBlock TempColor="#FF7F00"/>
+							<TemplateBlock TempColor="#FF7F00">
+								<Clicked>
+									<DebugAction Message="ttt" />
+								</Clicked>
+							</TemplateBlock>
 						</Each>
 						<Each Count="15" >
 							<TemplateBlock TempColor="#B399FF"/>
