@@ -1,0 +1,11 @@
+<Panel ux:Class="TextBlock" Padding="10" ClipToBounds="true">
+	<float4 ux:Property="bgColor"/>
+	<string ux:Property="boxText" />
+	<!-- <StackLayout /> -->
+	<Text Value="{Property this.boxText}" Margin="0,0,0,10" Color="#fff" TextWrapping="Wrap"  />
+	<!-- <Text Value="Вид поручения" FontSize="12"  /> -->
+	<!-- <Text Value="Исполнители" FontSize="12"  /> -->
+	<!-- <Text Value="1" Color="#0003" FontSize="50" Alignment="BottomRight" Layer="Background" /> -->
+	<!-- <fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" /> -->
+	<Rectangle Layer="Background" Color="{Property this.bgColor}" />
+</Panel>

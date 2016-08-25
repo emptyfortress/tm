@@ -61,12 +61,30 @@
 								</TemplateBlock>
 							</Each>
 							<Each Count="15" >
-								<TemplateBlock TempColor="#B399FF"/>
+								<TemplateBlock TempColor="#ccc"/>
 							</Each>
 							<fa-diamond />
 						</Panel>
 					</ScrollView>
-					<Panel Color="#ccc"></Panel>
+					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="false">
+						<Panel>
+							<ColumnLayout ux:Name="textColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
+							<WhileWindowPortrait>
+								<Change textColumns.ColumnCount.Value="2" />
+							</WhileWindowPortrait>
+							<TextBlock bgColor="#666" boxText="Иванов, срочно разберись и доложи, в чем проблема" />
+						</Panel>
+					</ScrollView>
+					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="false">
+						<Panel>
+							<ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
+							<WhileWindowPortrait>
+								<Change userColumns.ColumnCount.Value="2" />
+							</WhileWindowPortrait>
+							<Each Count="5" >
+							</Each>
+						</Panel>
+					</ScrollView>
 				</PageControl>
 			</Panel>
 		</DockPanel>
