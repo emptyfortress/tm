@@ -34,7 +34,7 @@
 		<!-- <Change plusIcon.Color="blue" Duration=".5" /> -->
 		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
-		<Set templateGroup.Active="short" />
+		<Set addGroup.Active="shortState" />
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="detailsActive">

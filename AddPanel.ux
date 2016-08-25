@@ -9,117 +9,64 @@
 	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
 	<PageControl>
-		<DockPanel ux:Name="add1">
-			<Panel ux:Name="templatePanel" Height="48%" Dock="Bottom" >
-				<Circle Color="#fff" Width="50" Height="50" Alignment="TopCenter" Layer="Overlay" Offset="0,-25">
-					<Clicked>
-						<Set templateGroup.Active="short" />
-					</Clicked>
-				</Circle>
-				<StateGroup ux:Name="templateGroup" Active="short">
-					<State ux:Name="full">
-			            <Change templatePanel.Height.Value="100%" Duration=".2" />
-						<Change templateScroll.IsEnabled.Value="true" Duration=".2" />
-						<Change templateScroll.RelativeScrollPosition.Value="0" />
-			        </State>
-			        <State ux:Name="short">
-			            <Change templatePanel.Height.Value="48%" Duration=".2" />
-						<Change templateScroll.IsEnabled.Value="false" Duration=".2" />
-						<Change templateScroll.RelativeScrollPosition.Value="0" />
-			        </State>
-			        <State ux:Name="off">
-			        	<Move Target="templatePanel" Y="1" RelativeTo="Size" Duration=".2" />
-			            <!-- <Change templatePanel.Visibility.Value="Collapsed" Duration=".2" /> -->
-						<!-- <Change templateScroll.IsEnabled.Value="false" Duration=".2" /> -->
-						<!-- <Change templateScroll.RelativeScrollPosition.Value="0" /> -->
-			        </State>
-				</StateGroup>
+		<DockPanel ux:Name="add">
+			<StateGroup ux:Name="addGroup" Active="shortState">
+				<State ux:Name="fullState">
+		            <Change mainAddPanel.Height="0" Duration="0.2"/>
+		            <Change templateScroll.RelativeScrollPosition="0" />
+		            <Change templateScroll.UserScroll="true"  />
+		            <Change downArrow.Visibility.Value="Visible" Duration=".2" />
+		        </State>
+		        <State ux:Name="shortState">
+		            <Change templateScroll.RelativeScrollPosition="0" />
+		            <Change templateScroll.UserScroll="false" />
+		        </State>
+		        <State ux:Name="offState">
+		            <Change mainAddPanel.Height="100" Duration="0.2"/>
+		            <Change templateScroll.UserScroll="false" />
+		        </State>
+			</StateGroup>
+			<Panel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10"></Panel>
+			<Panel HitTestMode="LocalVisualAndChildren" Background="#0006">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
 				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
-				<Swiped Source="up">
-					<Set templateGroup.Active="full" />
-				</Swiped>
 				<Swiped Source="down">
-					<Set templateGroup.Active="off" />
+					<Set addGroup.Active="offState" />
 				</Swiped>
-				<ScrollView ux:Name="templateScroll" IsEnabled="false"  >
-					<Panel>
-						<ColumnLayout ColumnCount="2" ItemSpacing="5" />
-						<Rectangle Width="100" Height="100" Color="#000">
-							
-						</Rectangle>
-						<Each Count="20">
-							<Rectangle Width="100" Height="100" Color="#ccc" />
-						</Each>
-						<Rectangle Height="100" Color="#000" />
-					</Panel>
-				</ScrollView>
-				<Rectangle Layer="Background" Color="#f00" />
-			</Panel>
-			<Panel Background="#fff" Dock="Top" Height="50%"></Panel>
-		</DockPanel>
-
-		<!-- <Panel>
-			<WhileTrue ux:Name="templateFull">
-				<Change templatePanel.Height.Value="100%" Duration=".3" Easing="CircularOut" />
-				<Change templateBg.Opacity.Value="1" Duration=".3" />
-				<Change templateScroll.IsEnabled.Value="true" />
-				<Change downArrow.Visibility.Value="Visible" />
-			</WhileTrue>
-			<Panel ux:Name="templatePanel" HitTestMode="LocalBoundsAndChildren">
-				<StackLayout />
-				<SwipeGesture ux:Name="templateSwipe" Direction="Up" Length="100" />
-				<Swiped Source="templateSwipe">
-					<Toggle Target="templateFull" />
+				<Swiped Source="up">
+					<Set addGroup.Active="fullState" />
 				</Swiped>
-				<StackPanel ux:Name="downArrow" Orientation="Horizontal" Alignment="Center" HitTestMode="LocalVisualAndChildren" Visibility="Collapsed" >
-					<fa-angle-down FontSize="30" Color="#999" Margin="10" Alignment="CenterLeft"  />
-					<Text Value="Свернуть" Alignment="CenterLeft" />
+				<Panel ux:Name="downArrow" Width="40" Height="40" LayoutRole="Inert" Alignment="TopCenter" Visibility="Collapsed">
 					<Clicked>
-						<Toggle Target="templateFull" />
-						<Set downArrow.Visibility.Value="Collapsed" />
+						<Set addGroup.Active="shortState" />
 					</Clicked>
-				</StackPanel>
-				<ScrollView ux:Name="templateScroll" IsEnabled="true">
-					<StackPanel ItemSpacing="5">
-						<Each Count="20" >
-							<Panel Height="100" Padding="10">
-								<StackLayout />
-								<Text Value="Название шаблона" Margin="0,0,0,10"  />
-								<Text Value="Вид поручения" FontSize="14"  />
-								<Text Value="Исполнители" FontSize="14"  />
-								<fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" />
-								<Rectangle Layer="Background" Color="#C0DDA4" />
-							</Panel>
-						</Each>
-					</StackPanel>
+					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
+					<Circle Color="#fff" />
+				</Panel>
+				<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 					<Panel>
 						<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 						<WhileWindowPortrait>
 							<Change templateColumns.ColumnCount.Value="2" />
 						</WhileWindowPortrait>
-						<Each Count="20" >
-							<Panel Height="100" Padding="10">
-								<StackLayout />
-								<Text Value="Название шаблона" Margin="0,0,0,10"  />
-								<Text Value="Вид поручения" FontSize="14"  />
-								<Text Value="Исполнители" FontSize="14"  />
-								<fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" />
-								<Rectangle Layer="Background" Color="#C0DDA4" />
-							</Panel>
+						<Each Count="5" >
+							<TemplateBlock TempColor="#FFCC99" />
 						</Each>
-						<Rectangle Width="100" Height="100" Color="#000"/>
+						<Each Count="9" >
+							<TemplateBlock TempColor="#FF7F00">
+								<Clicked>
+									<DebugAction Message="ttt" />
+								</Clicked>
+							</TemplateBlock>
+						</Each>
+						<Each Count="15" >
+							<TemplateBlock TempColor="#B399FF"/>
+						</Each>
+						<fa-diamond />
 					</Panel>
 				</ScrollView>
-
-				<Rectangle ux:Name="templateBg" Layer="Background" Color="#fff" Opacity="0" />
-			</Panel>		
-			<Panel Background="#fff" Dock="Top" Height="50%"></Panel>		
-				
-
-		</Panel> -->
-
-
+			</Panel>
+		</DockPanel>
 
 		<DockPanel ux:Name="Drafts" Background="#fff" Padding="20">
 			<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="10">
