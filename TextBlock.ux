@@ -5,7 +5,7 @@
 		<Change bg.Color="#000" Duration=".1" />
 	</Clicked>
 	
-	<Text Value="{Property this.boxText}" Margin="0,0,0,10" Color="#fff" TextWrapping="Wrap"  />
+	<Text Value="{Property this.boxText}" Color="#fff" TextWrapping="Wrap"  />
 	<!-- <Text Value="Вид поручения" FontSize="12"  /> -->
 	<!-- <Text Value="Исполнители" FontSize="12"  /> -->
 	<!-- <Text Value="1" Color="#0003" FontSize="50" Alignment="BottomRight" Layer="Background" /> -->

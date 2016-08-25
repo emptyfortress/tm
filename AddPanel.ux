@@ -14,8 +14,10 @@
 				<State ux:Name="fullState">
 		            <Change mainAddPanel.Height="0" Duration="0.2"/>
 		            <Change templateScroll.RelativeScrollPosition="0" />
-		            <Change templateScroll.UserScroll="true"  />
 		            <Change downArrow.Visibility.Value="Visible" Duration=".2" />
+		            <Change templateScroll.UserScroll="true"  />
+		            <Change textScroll.UserScroll="true"  />
+		            <Change userScroll.UserScroll="true"  />
 		        </State>
 		        <State ux:Name="shortState">
 		            <Change templateScroll.RelativeScrollPosition="0" />
@@ -66,7 +68,7 @@
 							<fa-diamond />
 						</Panel>
 					</ScrollView>
-					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="false">
+					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="true">
 						<Panel>
 							<ColumnLayout ux:Name="textColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 							<WhileWindowPortrait>
@@ -80,13 +82,15 @@
 							<TextBlock bgColor="#666" boxText="Пойма обедняет железистый гранит." />
 						</Panel>
 					</ScrollView>
-					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="false">
+					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<Panel>
-							<ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
+							<WrapLayout Orientation="Horizontal"/>
+							<!-- <ColumnLayout ux:Name="userColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" /> -->
 							<WhileWindowPortrait>
-								<Change userColumns.ColumnCount.Value="2" />
+								<!-- <Change userColumns.ColumnCount.Value="2" /> -->
 							</WhileWindowPortrait>
-							<Each Count="5" >
+							<Each Count="15" >
+								<Image File="Assets/user-icon.png" Alignment="CenterLeft" />
 							</Each>
 						</Panel>
 					</ScrollView>
