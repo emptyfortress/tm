@@ -51,7 +51,7 @@
 				<Panel ux:Name="usersTab">
 					<Placeholder  Target="indicator"/>
 					<Icon>
-						<FileImageSource File="Assets/users.png" ux:Key="iconFile"/>
+						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="users" />
 						</Clicked>
@@ -208,6 +208,17 @@
 									</ScrollView>
 								</dashPanel>
 							</Panel>
+							<Panel>
+								<StackLayout Orientation="Vertical"/>
+								<dashHeader Value="Моя команда" />
+								<StackPanel>
+									<userName User="Орлов П.С." Tasks="5" />
+									<userName User="Воробьев У.С." Tasks="5" />
+									<userName User="Воронова Г.Т." Tasks="3" />
+									<userName User="Снегирев Ф.А." Tasks="8" />
+									<userName User="Гусев Л.С." Tasks="12" />
+								</StackPanel>
+							</Panel>
 							<Panel Height="50">
 								<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" />
 							</Panel>
@@ -268,25 +279,12 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="usersTab" />
 				</WhileActive>
-				<Header Text="СОТРУДНИКИ" />
+				<Header Text="29 марта" />
 				<ScrollView Margin="0,50,0,0">
-					<Panel>
-						<StackLayout Orientation="Vertical"/>
-						<dashHeader Value="Моя команда" />
-						<StackPanel>
-							<userName User="Орлов П.С." Tasks="5" />
-							<userName User="Воробьев У.С." Tasks="5" />
-							<userName User="Воронова Г.Т." Tasks="3" />
-							<userName User="Снегирев Ф.А." Tasks="8" />
-							<userName User="Гусев Л.С." Tasks="12" />
-						</StackPanel>
-						<dashHeader Value="Роли / Группы / Отделы" Margin="0,30,0,0" />
-						<roleName Role="Главбух" />
-						<roleName Role="Начальник траспортного цеха" />
-						<roleName Role="Сторож" />
-						<roleName Role="Секретарь" />
-						<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" Margin="30" />
-					</Panel>
+					<StackPanel>
+						<Text Value="Здесь будет крутой календарь" Color="#999" Alignment="Center" />
+						<fa-calendar-check-o FontSize="50" Color="#ccc" Alignment="BottomCenter" Margin="30" />
+					</StackPanel>
 				</ScrollView>
 			</Page>
 		</PageControl>
