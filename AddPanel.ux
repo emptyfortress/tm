@@ -7,7 +7,7 @@
 			alphabet1 : alphabet1
 		};
 	</JavaScript>
-
+	<JavaScript File="date.js" />
 	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
 	
 	<PageControl>
@@ -201,24 +201,87 @@
 						<WhileActive Threshold="0.5">
 							<Change ico4.Color="#f00" />
 						</WhileActive>
+						<WhileTrue ux:Name="chooseDate">
+							<Set dummy.Visibility.Value="Collapsed" />
+							<Set mainDate.Visibility.Value="Visible" />
+							<Move Target="mainDate" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut"  />
+						</WhileTrue>
 						<Panel>
 							<StackLayout ItemSpacing="0" />
 							<ScrollView AllowedScrollDirections="Horizontal">
 								<StackPanel Orientation="Horizontal">
-									<dateShortcut text="Сегодня" />
-									<dateShortcut text="Завтра" />
-									<dateShortcut text="+2 дня" />
-									<dateShortcut text="Пятница" />
-									<dateShortcut text="Понедельник" />
-									<dateShortcut text="Через неделю" />
-									<dateShortcut text="Конец месяца" />
-									<dateShortcut text="Конец квартала" />
+									<dateShortcut text="Сегодня" Clicked="{today}">
+										<Clicked>
+											<Set chooseDate.Value="true" />
+										</Clicked>
+									</dateShortcut>
+									<dateShortcut text="Завтра" Clicked="{tomorrow}" />
+									<dateShortcut text="+2 дня" Clicked="{today}" />
+									<dateShortcut text="Пятница" Clicked="{tomorrow}"/>
+									<dateShortcut text="Понедельник" Clicked="{tomorrow}" />
+									<dateShortcut text="Через неделю" Clicked="{tomorrow}" />
+									<dateShortcut text="Конец месяца" Clicked="{tomorrow}" />
+									<dateShortcut text="Конец квартала" Clicked="{tomorrow}" />
 								</StackPanel>
 							</ScrollView>
-							<Text Value="Сентябрь, 2016" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,20,0,0" />
-							<Text Value="5" Font="Light" FontSize="80" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
-							<Text Value="среда" FontSize="25" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
-							
+							<Grid ux:Name="mainDate" Columns="auto,1*,auto" Margin="10,0" Visibility="Collapsed">
+								<Translation Y="-1" RelativeTo="ParentSize" />
+								<Image File="Assets/back.png" Width="50" Color="#ccc" Alignment="VerticalCenter" Clicked="{subDay}" />
+								<StackPanel Alignment="Center" Padding="10"  Width="200">
+									<JavaScript>
+									    var Observable = require('FuseJS/Observable');
+									    var buttonText = Observable('.');
+									    var clickCount = 0;
+
+									    function onClick() {
+									        clickCount += 1;
+									        buttonText.value = 'Clicks: ' + clickCount;
+									    }
+
+									    module.exports = {
+									        buttonText: buttonText,
+									        onClick: onClick
+									    }
+									</JavaScript>
+
+
+									<SwipeGesture ux:Name="next" Direction="Right" Length="100" />
+									<!-- <SwipeGesture ux:Name="prev" Direction="Left" Length="100" />
+									<SwipeGesture ux:Name="addweek" Direction="Up" Length="100" />
+									<SwipeGesture ux:Name="subweek" Direction="Down" Length="100" /> -->
+
+									<Swiped Source="next">
+										<Set dateOfMonth.Value="{onClick}" />
+									</Swiped>
+										
+									
+									<!-- <Swiped Source="prev">
+										<Set dateOfMonth.Value="14" />
+									</Swiped>
+									<Swiped Source="addweek">
+										<Set dateOfMonth.Value="23" />
+									</Swiped>
+									<Swiped Source="subweek">
+										<Set dateOfMonth.Value="8" />
+									</Swiped> -->
+										
+									
+
+
+
+									<Text Value="{month}" FontSize="20" Color="#ccc" Alignment="Center" />
+									<Text ux:Name="dateOfMonth" Value="{buttonText}" Clicked="{addDay}" Font="Light" FontSize="80" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+									<Text Value="{day}" FontSize="25" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+									<Rectangle ux:Name="bgrec" Layer="Background" Color="#333">
+										<Stroke Width="1" Color="#ccc" />
+									</Rectangle>
+								</StackPanel>
+								<Text Value="OK" Font="Light" FontSize="30" Color="#ccc" Alignment="Center" Clicked="{addWeek}" />
+							</Grid>
+							<StackPanel ux:Name="dummy"  Margin="0,20" >
+								<fa-diamond FontSize="50" Color="#ccc"  Alignment="Center"/>
+								<Text Value="Без срока исполнения" FontSize="15" Color="#ccc" Alignment="Center" />
+							</StackPanel>
 						</Panel>
 					</ScrollView>
 				</PageControl>

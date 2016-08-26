@@ -4,8 +4,9 @@
 		<Change bg.Color="#0f0" Duration=".1" />
 	</Clicked> -->
 	<WhilePressed>
-		<!-- <Change bg.Color="#0f0" Duration=".1" /> -->
+		<Change bg.Color="#0f0" />
 	</WhilePressed>
+	
 	<Text Value="{Property this.text}" FontSize="20" Color="#ccc" Margin="5,2"/>
 	<Rectangle ux:Name="bg" Color="#000" />
 </Panel>
