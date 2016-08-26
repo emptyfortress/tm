@@ -1,5 +1,5 @@
 <Panel ux:Class="userPanel" Width="70" Height="65" ClipToBounds="true" Margin="5">
-	<StateGroup ux:Name="userGroup" Active="normalState">
+    <StateGroup ux:Name="userGroup" Active="normalState">
         <State ux:Name="normalState">
         </State>
         <State ux:Name="selectedState">
@@ -12,7 +12,10 @@
             <Change k.Visibility="Visible" />
         </State>
     </StateGroup>
-	<Text ux:Name="k" Font="Bold" Value="K" Alignment="TopLeft" Visibility="Hidden" Margin="2" />
+    <Panel ux:Name="k" Alignment="TopLeft" Visibility="Hidden" Margin="2,0">
+        <Text Font="Bold" Value="K" Alignment="Center" Color="#fff"/>
+        <Circle Width="20" Height="20" Color="#f00" Alignment="Center" />
+    </Panel>
 	<Image File="Assets/user-icon.png" Alignment="TopCenter" />
 	<Text ux:Name="fio" Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" />
 	<Rectangle ux:Name="userBg" Layer="Background" />

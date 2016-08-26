@@ -1,14 +1,14 @@
 <Panel ux:Class="TemplateBlock" Height="100" Padding="10" ClipToBounds="true">
 	<float4 ux:Property="TempColor"/>
 	<StackLayout />
-	<Clicked>
-		<Change bg1.Color="#fff" Duration=".1" />
-	</Clicked>
+	<WhilePressed>
+		<Change bg1.Color="#fff" />
+	</WhilePressed>
 	<Text Value="Название шаблона" Margin="0,0,0,10"  />
 	<Text Value="Вид поручения" FontSize="12"  />
 	<Text Value="Исполнители" FontSize="12"  />
 	
-	<Text Value="{}" Color="#0003" FontSize="60" Alignment="BottomRight" Layer="Background" />
+	<Text Value="{}" Color="#fff7" FontSize="60" Alignment="BottomRight" Layer="Background" />
 
 	<!-- <fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" /> -->
 	<Rectangle ux:Name="bg1" Layer="Background" Color="{Property this.TempColor}" />
