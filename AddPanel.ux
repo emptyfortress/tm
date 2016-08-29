@@ -20,6 +20,7 @@
 		            <Change templateScroll.UserScroll="true"  />
 		            <Change textScroll.UserScroll="true"  />
 		            <Change userScroll.UserScroll="true"  />
+		            <Change monthPanel.Visibility="Visible" />
 		        </State>
 		        <State ux:Name="shortState">
 		            <Change templateScroll.RelativeScrollPosition="0" />
@@ -128,7 +129,7 @@
 						<StackPanel>
 							<Panel ux:Name="userList">
 								<WrapLayout Orientation="Horizontal"/>
-								<Panel ux:Name="Clear" Width="70" Height="65" Opacity=".3">
+								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3">
 									<Image File="Assets/back.png" Width="50" Alignment="Top" />
 									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
 									<Clicked>
@@ -170,12 +171,6 @@
 						        	<Change userList.Visibility.Value="Collapsed" />
 						        	<Change groupList.Visibility.Value="Collapsed" />
 						        </WhileFocusWithin>
-						        <!-- <Clicked>
-						        	<Set addGroup.Active="fullState" />
-						        	<Set inputGroup.Active="active" />
-						        	<Set userList.Visibility.Value="Collapsed" />
-						        	<Set groupList.Visibility.Value="Collapsed" />
-						        </Clicked> -->
 						    </TextInput>
 						    <ScrollView AllowedScrollDirections="Horizontal" Margin="20">
 							    <StackPanel Orientation="Horizontal" ItemSpacing="10">
@@ -204,6 +199,7 @@
 						<WhileTrue ux:Name="chooseDate">
 							<Set dummy.Visibility.Value="Collapsed" />
 							<Set mainDate.Visibility.Value="Visible" />
+							<Set deadtime.Visibility.Value="Visible" />
 							<Move Target="mainDate" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut"  />
 						</WhileTrue>
 						<Panel>
@@ -224,64 +220,84 @@
 									<dateShortcut text="Конец квартала" Clicked="{tomorrow}" />
 								</StackPanel>
 							</ScrollView>
-							<Grid ux:Name="mainDate" Columns="auto,1*,auto" Margin="10,0" Visibility="Collapsed">
+							<Grid ux:Name="mainDate" Columns="1*" Margin="10,20" Visibility="Collapsed">
 								<Translation Y="-1" RelativeTo="ParentSize" />
-								<Image File="Assets/back.png" Width="50" Color="#ccc" Alignment="VerticalCenter" Clicked="{subDay}" />
-								<StackPanel Alignment="Center" Padding="10"  Width="200">
-									<JavaScript>
-									    var Observable = require('FuseJS/Observable');
-									    var buttonText = Observable('.');
-									    var clickCount = 0;
+								<StackPanel Alignment="Center" Padding="10"  Width="150">
 
-									    function onClick() {
-									        clickCount += 1;
-									        buttonText.value = 'Clicks: ' + clickCount;
-									    }
+									<Circle Width="30" Height="30" Color="#f00" Layer="Overlay" Alignment="TopLeft" Offset="-20"></Circle>
+									<Circle Width="30" Height="30" Color="#0f0" Layer="Overlay" Alignment="TopRight" Offset="20,-20"></Circle>
 
-									    module.exports = {
-									        buttonText: buttonText,
-									        onClick: onClick
-									    }
-									</JavaScript>
-
-
-									<SwipeGesture ux:Name="next" Direction="Right" Length="100" />
-									<!-- <SwipeGesture ux:Name="prev" Direction="Left" Length="100" />
-									<SwipeGesture ux:Name="addweek" Direction="Up" Length="100" />
-									<SwipeGesture ux:Name="subweek" Direction="Down" Length="100" /> -->
-
-									<Swiped Source="next">
-										<Set dateOfMonth.Value="{onClick}" />
-									</Swiped>
+									<Text Value="{month}" FontSize="16" Color="#ccc" Alignment="Center" />
+									<PageControl>
+										<StackPanel>
+											<Text Value="15" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+											<Text Value="Четверг" FontSize="22" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+										</StackPanel>
+										<StackPanel>
+											<Text Value="15" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+											<Text Value="Четверг" FontSize="22" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+										</StackPanel>
+										<StackPanel>
+											<Text Value="15" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+											<Text Value="Четверг" FontSize="22" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+										</StackPanel>
+										<StackPanel>
+											<Text Value="15" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+											<Text Value="Четверг" FontSize="22" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+										</StackPanel>
 										
-									
-									<!-- <Swiped Source="prev">
-										<Set dateOfMonth.Value="14" />
-									</Swiped>
-									<Swiped Source="addweek">
-										<Set dateOfMonth.Value="23" />
-									</Swiped>
-									<Swiped Source="subweek">
-										<Set dateOfMonth.Value="8" />
-									</Swiped> -->
 										
-									
-
-
-
-									<Text Value="{month}" FontSize="20" Color="#ccc" Alignment="Center" />
-									<Text ux:Name="dateOfMonth" Value="{buttonText}" Clicked="{addDay}" Font="Light" FontSize="80" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
-									<Text Value="{day}" FontSize="25" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+									</PageControl>
 									<Rectangle ux:Name="bgrec" Layer="Background" Color="#333">
 										<Stroke Width="1" Color="#ccc" />
 									</Rectangle>
 								</StackPanel>
-								<Text Value="OK" Font="Light" FontSize="30" Color="#ccc" Alignment="Center" Clicked="{addWeek}" />
 							</Grid>
 							<StackPanel ux:Name="dummy"  Margin="0,20" >
-								<fa-diamond FontSize="50" Color="#ccc"  Alignment="Center"/>
-								<Text Value="Без срока исполнения" FontSize="15" Color="#ccc" Alignment="Center" />
+								<fa-diamond FontSize="50" Color="#666"  Alignment="Center"/>
+								<Text Value="Без срока исполнения" FontSize="15" Color="#ccc" Alignment="Center" /> 
 							</StackPanel>
+							<StackPanel ux:Name="deadtime" Visibility="Hidden">
+								<Text Value="Время завершения 19:00" Color="#fff" Alignment="Center" />
+								<Slider Value="50" Minimum="0" Maximum="100" />
+							</StackPanel>
+							<ScrollView Margin="20">
+								<JavaScript>
+									var days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+									
+									module.exports = {
+										days : days
+									};
+								</JavaScript>
+								<WrapPanel ux:Name="monthPanel" Alignment="HorizontalCenter" Visibility="Hidden">
+									<Text ux:Class="month"  Color="#fff" ColumnSpan="7" FontSize="20" Alignment="Center" />
+									<Text ux:Class="day" FontSize="17" TextAlignment="Right" Color="#999"  />
+									<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
+										<month Value="Август" />
+										<Each Items="{days}">
+											<Panel>
+												<day Value="{}" />
+											</Panel>
+										</Each>
+									</Grid>
+									<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
+										<month Value="Сентябрь" />
+										<Each Items="{days}">
+											<Panel>
+												<day Value="{}" />
+											</Panel>
+										</Each>
+									</Grid>
+									<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
+										<month Value="Октябрь" />
+										<Each Items="{days}">
+											<Panel>
+												<day Value="{}" />
+											</Panel>
+										</Each>
+									</Grid>
+								</WrapPanel>
+							</ScrollView>
 						</Panel>
 					</ScrollView>
 				</PageControl>
