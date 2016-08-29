@@ -90,7 +90,7 @@
 								
 							</Panel>
 						</Grid>
-						<StackPanel Orientation="Horizontal" ItemSpacing="10">
+						<StackPanel ux:Name="hiddenBt" Orientation="Horizontal" ItemSpacing="10" Visibility="Hidden" Margin="0,50,0,0">
 							<Panel Padding="5" Alignment="Left">
 								<Text  Value="Сохранить" Color="#aaa"  />
 								<Rectangle Layer="Background" Color="#eee" />
@@ -98,6 +98,12 @@
 							<Panel Padding="5" Alignment="Left">
 								<Text  Value="Отправить" Color="#fff"  />
 								<Rectangle Layer="Background" Color="blue" />
+								<Clicked>
+									<Move Target="addPanel" Y="-1.5" RelativeTo="Size" Duration=".2" Easing="CircularIn" />
+									<Change addPanel.Opacity.Value="0" Duration=".4" />
+									<Change doneText.Opacity.Value="1" Duration=".5" />
+									<Toggle Target="addPageActive" Delay="2" />
+								</Clicked>
 							</Panel>
 						</StackPanel>
 					</StackPanel>
@@ -165,6 +171,8 @@
 										<Set addGroup.Active="offState" />
 										<Set hiddenGrid.Visibility.Value="Visible" Delay=".2"  />
 										<Move Target="hiddenGrid" Y="100" Duration=".2" />
+										<Set hiddenBt.Visibility.Value="Visible" Delay=".2"  />
+										<Move Target="hiddenBt" Y="100" Duration=".2" />
 										<Set taskText.Value="Всем отделам собрать данные за квартал и подготовить отчет. Механическая система преобразует кожух, даже если рамки подвеса буду ориентированы под прямым углом." />
 										<Set Target="sendButtonBg.Color" Value="blue" />
 										<Set Target="sendButton.Color" Value="#fff" />
