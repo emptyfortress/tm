@@ -1,4 +1,4 @@
-<Panel ux:Class="DocItem">
+<Panel ux:InnerClass="DocItem" ux:Name="Item">
 	<WhileTrue ux:Name="preview">
 		<Change Target="hidPanel.Visibility" Value="Visible" />
 		<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
@@ -13,10 +13,10 @@
 		<Change Target="newTitle1.Font" Value="Bold" />
 		<Change Target="newRect.Opacity" Value="0" />
 	</WhileTrue>
-	
+
 
 	<PageControl Active="task" >
-		<Page MinHeight="100" Color="#EAAF00">
+		<Page MinHeight="100" Color="#EAAF00" ux:Name="first">
 			<Clicked>
 				<NavigateTo Target="task" />
 			</Clicked>
@@ -32,8 +32,8 @@
 		<Page ux:Name="task" Color="#fff" ClipToBounds="true">
 			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#7DB9EE" Margin="0,0,10,0" Opacity="{old}">
 				<Clicked>
-					<Toggle Target="preview1" />
-  					 <Pulse Target="GrowMe"/>
+					<Toggle Target="preview1"/>
+  					<Pulse Target="GrowMe"/>
 				</Clicked>
 			</fa-bell-o>
 			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
@@ -67,6 +67,7 @@
 						<Clicked>
 							<Change greenScaling.Factor="1" Duration="0.5" Easing="CircularIn" />
 							<Change greenColor.Color="#D6EDFF" Duration="0.25" Easing="CircularIn"  />
+							<Set detailsActive.Value="true"  Delay=".5" />
 						</Clicked>
 						<Text ux:Name="newTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
 						<Text ux:Name="newTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
@@ -96,12 +97,6 @@
 						</StackPanel>
 					</Panel>
 				</StackPanel>
-				<!-- <Rectangle ux:Name="newRect" Width="3" Color="#B20000" Alignment="Left" Visibility="{new}">
-					<Clicked>
-						<Set newRect.Visibility.Value="Hidden" />
-						<Set newTitle.Font.Value="Regular" />
-					</Clicked>
-				</Rectangle> -->
 				<Circle Width="2000" Height="2000" Layer="Background">
 	                <SolidColor ux:Name="greenColor" Color="#fff" />
 	                <Scaling ux:Name="greenScaling" Factor="0" />

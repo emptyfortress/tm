@@ -88,7 +88,7 @@
 									<unreadText Quantity="15" Text="Ознакомление">
 										<Tapped>
 											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+											<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
 										</Tapped>
 									</unreadText>
 								</StackPanel>

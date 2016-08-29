@@ -42,8 +42,6 @@
 		<BringToFront Target="detailsPanel" />
 		<NavigateTo Target="detailsPanel" NavigationContext="_mainNavigation" />
 		<Set Target="foldersPanel.Visibility" Value="Collapsed" Delay=".5" />
-		<Set Target="plusIcon.Visibility" Value="Collapsed" />
-		<Set Target="action.Visibility" Value="Visible" />
 		<Set folderIndicator.Visibility="Collapsed" />
 		<Set detailIndicator.Visibility="Visible" />
 		<Set foldersActive.Value="false" />
@@ -53,6 +51,7 @@
 		<Set Target="foldersPanel.Visibility" Value="Visible"  />
 		<Set detailIndicator.Visibility="Collapsed" />
 		<Set folderIndicator.Visibility="Visible" />
+		<BringToFront Target="foldersPanel" />
 		<Set detailsActive.Value="false" />
 	</WhileTrue>
 	<WhileTrue ux:Name="subMenuVisible">
