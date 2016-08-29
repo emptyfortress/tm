@@ -8,7 +8,7 @@
 		};
 	</JavaScript>
 	<JavaScript File="date.js" />
-	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
+	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
 	<PageControl>
 		<DockPanel ux:Name="add">
@@ -57,6 +57,11 @@
 							<Set helperPanel.Active="dateScroll" />
 						</Clicked>
 					</Circle>
+					<Circle ux:Name="ico5" Width="20" Height="20" Color="#ccc">
+						<Clicked>
+							<Set helperPanel.Active="fileScroll" />
+						</Clicked>
+					</Circle>
 				</StackPanel>
 			</DockPanel>
 			
@@ -78,7 +83,7 @@
 					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
 					<Circle Color="#fff" />
 				</Panel>
-				<PageControl ux:Name="helperPanel" Active="dateScroll">
+				<PageControl ux:Name="helperPanel" >
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<WhileActive Threshold="0.5">
 							<Change ico1.Color="#f00" />
@@ -253,9 +258,12 @@
 									</Rectangle>
 								</StackPanel>
 							</Grid>
-							<StackPanel ux:Name="dummy"  Margin="0,20" >
+							<StackPanel ux:Name="dummy"  Margin="0,20" Clicked="{today}"  >
+								<Clicked>
+									<Set chooseDate.Value="true" />
+								</Clicked>
 								<fa-diamond FontSize="50" Color="#666"  Alignment="Center"/>
-								<Text Value="Без срока исполнения" FontSize="15" Color="#ccc" Alignment="Center" /> 
+								<Text Value="Срок исполнения не задан" FontSize="15" Color="#ccc" Alignment="Center" /> 
 							</StackPanel>
 							<StackPanel ux:Name="deadtime" Visibility="Hidden">
 								<Text Value="Время завершения 19:00" Color="#fff" Alignment="Center" />
@@ -299,6 +307,20 @@
 								</WrapPanel>
 							</ScrollView>
 						</Panel>
+					</ScrollView>
+					<ScrollView ux:Name="fileScroll" UserScroll="false" SnapMinTransform="true">
+						<WhileActive Threshold="0.5">
+							<Change ico5.Color="#f00" />
+						</WhileActive>
+						<StackPanel >
+							<Text Value="Вложения" FontSize="22" Color="#999" Margin="20" Alignment="Center" />
+							<Grid Columns="1*,1*,1*,1*" Width="100%">
+								<fa-picture-o FontSize="65" Color="#ccc" Alignment="Center" />
+								<fa-camera FontSize="65" Color="#ccc" Alignment="Center" />
+								<fa-paperclip FontSize="65" Color="#ccc" Alignment="Center" />
+								<fa-microphone FontSize="65" Color="#ccc" Alignment="Center" />
+							</Grid>
+						</StackPanel>
 					</ScrollView>
 				</PageControl>
 			</Panel>
