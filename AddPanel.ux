@@ -15,6 +15,7 @@
 			<StateGroup ux:Name="addGroup" Active="shortState">
 				<State ux:Name="fullState">
 		            <Change mainAddPanel.Height="0" Duration="0.2"/>
+		            <Change mainAddPanel.Visibility.Value="Collapsed" Delay=".3" />
 		            <Change templateScroll.RelativeScrollPosition="0" />
 		            <Change downArrow.Visibility.Value="Visible" Duration=".2" />
 		            <Change templateScroll.UserScroll="true"  />
@@ -36,6 +37,56 @@
 		        </State>
 			</StateGroup>
 			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10">
+				<Grid Columns="1*, auto" Dock="Top" Padding="10">
+					<StackPanel Orientation="Horizontal"  ItemSpacing="5">
+						<Circle Width="30" Height="30" Color="#fff" >
+							<Stroke Width="1" Color="#ccc" />
+							<ImageFill File="Assets/user.png" />
+						</Circle>
+						<Panel>
+							<StackLayout />
+							<Text FontSize="14" Alignment="CenterLeft">Орлов</Text>
+							<Text FontSize="14" Alignment="CenterLeft">15 сентября 18:15</Text>
+						</Panel>
+					</StackPanel>
+					<Panel Padding="5">
+						<Text ux:Name="sendButton" Value="Отправить" Color="#aaa"  />
+						<Rectangle ux:Name="sendButtonBg" Layer="Background" Color="#eee" />
+					</Panel>
+				</Grid>
+				<ScrollView >
+					<StackPanel Padding="10">
+						<TextView ux:Name="taskText" Padding="10" PlaceholderText="Текст поручения..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" ActionStyle="Send" MinHeight="100" >
+							<WhileFocused>
+								<Set helperPanel.Active="textScroll" />
+							</WhileFocused>
+						</TextView>
+						<Grid Columns="auto, 1*" CellSpacing="20">
+							<fa-user FontSize="20" Color="blue" Margin="0,0,10,0" />
+							<WrapPanel Orientation="Horizontal">
+								<Panel ux:Class="who" Margin="0,0,5,5" Padding="3">
+									<string ux:Property="Value" />
+									<Text Value="{Property this.Value}"  Color="blue" Alignment="Center" />
+									<Rectangle Layer="Background" Color="#eee" CornerRadius="20" />
+								</Panel>
+								<who Value="Снегирев Ю.Г." />
+								<who Value="Воробьев С.К." />
+								<who Value="Синичкина П.С." />
+								<who Value="Журавлев А.В." />
+							</WrapPanel>
+							<fa-angle-double-right FontSize="20" Color="blue" Margin="0,10,10,0" />
+							<Text Margin="0,10,10,0" Color="blue" Value="Параллельное исполнение"/>
+							<fa-calendar-check-o FontSize="20" Color="blue" Margin="0,0,10,0" />
+							<!-- <Text Value="Срок:" /> -->
+							<Text Color="blue" Value="28 февраля 2017   17:00" />
+							<fa-paperclip FontSize="20" Color="blue" Margin="0,0,10,0" />
+							<Panel>
+								<Text Color="blue" Value="screenshot.jpg" />
+								
+							</Panel>
+						</Grid>
+					</StackPanel>
+				</ScrollView>
 				<StackPanel Orientation="Horizontal" Dock="Bottom" ItemSpacing="30" Padding="10" Background="#eee">
 					<fa-clipboard ux:Name="ico1" FontSize="20" Color="#ccc">
 						<Clicked>
@@ -57,11 +108,12 @@
 							<Set helperPanel.Active="dateScroll" />
 						</Clicked>
 					</fa-calendar-check-o>
-					<fa-paperclip ux:Name="ico5" Width="20" FontSize="20" Color="#ccc">
+					<fa-paperclip ux:Name="ico5" FontSize="20" Color="#ccc">
 						<Clicked>
 							<Set helperPanel.Active="fileScroll" />
 						</Clicked>
 					</fa-paperclip>
+					<fa-ellipsis-v FontSize="20" Color="#ccc" Layer="Overlay" Alignment="Right" />
 				</StackPanel>
 			</DockPanel>
 			
@@ -69,10 +121,6 @@
 
 			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
-				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
-				<Swiped Source="down">
-					<Set addGroup.Active="offState" />
-				</Swiped>
 				<Swiped Source="up">
 					<Set addGroup.Active="fullState" />
 				</Swiped>
