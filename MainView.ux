@@ -53,7 +53,10 @@
 
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
-		
+		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center">
+			<fa-check FontSize="40" Color="#fff" Alignment="Center" />
+			<Text Value="Поручение отправлено" Color="#fff" FontSize="30" Alignment="Center"  />
+		</StackPanel>
 		<Image ux:Name="action" File="Assets/plus.png" Color="#f00" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Hidden">
 			<SwipeGesture ux:Name="swipe1" Direction="Up" Length="50" Type="Simple" />
 			<Tapped>
@@ -119,144 +122,144 @@
 			<Rectangle Color="#fff" Layer="Background">
 				<Stroke Width="1" Color="#ddd" />
 			</Rectangle>
-				<ScrollView Margin="0,50,0,0">
-					<StackPanel>
-						<StackPanel Margin="0,0,0,40">
-							<Circle Width="50" Height="50" Color="#fff" >
-								<Stroke Width="1" Color="#ccc" />
-								<ImageFill File="Assets/user.png" />
-							</Circle>
-							<Text FontSize="14" Alignment="Center" Color="blue">Орлов П.С.</Text>
-						</StackPanel>
-
-						<StackPanel ux:Name="dashButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
-							<Tapped>
-								<Toggle Target="menuVisible" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="taho" NavigationContext="_dashPages" />
-								<Set dashboardUp.Value="false" Delay=".5" />
-								<Set action.Visibility="Hidden" /> 
-								<Set plusIcon.Visibility="Visible" /> 
-							</Tapped>
-							<WhilePressed>
-								<Change dashButton.Background.Value="#CCE4F8" />
-							</WhilePressed>
-							<Image File="Assets/dash-icon.png" Color="blue" Alignment="CenterLeft"  />
-							<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
-						</StackPanel>
-						<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
-							<Tapped>
-								<Toggle Target="menuVisible" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folders" NavigationContext="_dashPages" />
-								<Set dashboardUp.Value="false" Delay=".5" />
-								<Set action.Visibility="Hidden" /> 
-								<Set plusIcon.Visibility="Visible" /> 
-							</Tapped>
-							<WhilePressed>
-								<Change folderButton.Background.Value="#CCE4F8" />
-							</WhilePressed>
-							<Image File="Assets/folder-open.png" Color="blue" Alignment="CenterLeft"   />
-							<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
-						</StackPanel>
-						<StackPanel ux:Name="userButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
-							<Tapped>
-								<Toggle Target="menuVisible" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="users" NavigationContext="_dashPages" />
-								<Set dashboardUp.Value="false" Delay=".5" />
-								<Set action.Visibility="Hidden" /> 
-								<Set plusIcon.Visibility="Visible" /> 
-							</Tapped>
-							<WhilePressed>
-								<Change userButton.Background.Value="#CCE4F8" />
-							</WhilePressed>
-							<Image File="Assets/users.png" Color="blue" Alignment="CenterLeft"  />
-							<Text Value="СОТРУДНИКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
-						</StackPanel>
-
-						<sideButton Text="На синхронизацию" Quantity="2" >
-							<Tapped>
-								<Set foldersActive.Value="true" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-								<Set menuVisible.Value="false" Delay=".5" />
-								<Set dashboardUp.Value="true" />
-								<Set detailIndicator.Visibility="Collapsed" />
-								<Set folderIndicator.Visibility="Visible" />
-							</Tapped>
-						</sideButton>
-						<sideButton Text="Черновики" Quantity="11" >
-							<Tapped>
-								<Set foldersActive.Value="true" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-								<Set menuVisible.Value="false" Delay=".5" />
-								<Set dashboardUp.Value="true" />
-								<Set detailIndicator.Visibility="Collapsed" />
-								<Set folderIndicator.Visibility="Visible" />
-							</Tapped>
-						</sideButton>
-						<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
-							<Tapped>
-								<Set foldersActive.Value="true" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-								<Set menuVisible.Value="false" Delay=".5" />
-								<Set dashboardUp.Value="true" />
-								<Set detailIndicator.Visibility="Collapsed" />
-								<Set folderIndicator.Visibility="Visible" />
-							</Tapped>
-						</sideButton>
-						<sideButton Text="Рассмотрение" Quantity="3" >
-							<Tapped>
-								<Set foldersActive.Value="true" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
-								<Set menuVisible.Value="false" Delay=".5" />
-								<Set dashboardUp.Value="true" />
-								<Set detailIndicator.Visibility="Collapsed" />
-								<Set folderIndicator.Visibility="Visible" />
-							</Tapped>
-						</sideButton>
-						<sideButton Text="Исполнение" Quantity="" >
-							<Tapped>
-								<Set foldersActive.Value="true" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
-								<Set menuVisible.Value="false" Delay=".5" />
-								<Set dashboardUp.Value="true" />
-								<Set detailIndicator.Visibility="Collapsed" />
-								<Set folderIndicator.Visibility="Visible" />
-							</Tapped>
-						</sideButton>
-						<sideButton Text="Ознакомление" Quantity="8" >
-							<Tapped>
-								<Set foldersActive.Value="true" />
-								<NavigateToggle Target="menu" NavigationContext="edge" />
-								<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-								<Set menuVisible.Value="false" Delay=".5" />
-								<Set dashboardUp.Value="true" />
-								<Set detailIndicator.Visibility="Collapsed" />
-								<Set folderIndicator.Visibility="Visible" />
-							</Tapped>
-						</sideButton>
-						<sideButton Text="Папка" />
-						<sideButton Text="Папка" />
-						<sideButton Text="Папка" />
-						<Rectangle Height="1" Color="blue" />
-						<Grid ColumnCount="2" Margin="0,20">
-							<StackPanel>
-								<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>
-								<Text Value="Настройки" FontSize="12" Alignment="Center" />
-							</StackPanel>
-							<StackPanel>
-								<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
-								<Text Value="Выход" FontSize="12"  Alignment="Center"  />
-							</StackPanel>
-						</Grid>
+			<ScrollView Margin="0,50,0,0">
+				<StackPanel>
+					<StackPanel Margin="0,0,0,40">
+						<Circle Width="50" Height="50" Color="#fff" >
+							<Stroke Width="1" Color="#ccc" />
+							<ImageFill File="Assets/user.png" />
+						</Circle>
+						<Text FontSize="14" Alignment="Center" Color="blue">Орлов П.С.</Text>
 					</StackPanel>
-				</ScrollView>
+
+					<StackPanel ux:Name="dashButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+						<Tapped>
+							<Toggle Target="menuVisible" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="taho" NavigationContext="_dashPages" />
+							<Set dashboardUp.Value="false" Delay=".5" />
+							<Set action.Visibility="Hidden" /> 
+							<Set plusIcon.Visibility="Visible" /> 
+						</Tapped>
+						<WhilePressed>
+							<Change dashButton.Background.Value="#CCE4F8" />
+						</WhilePressed>
+						<Image File="Assets/dash-icon.png" Color="blue" Alignment="CenterLeft"  />
+						<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
+					</StackPanel>
+					<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+						<Tapped>
+							<Toggle Target="menuVisible" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folders" NavigationContext="_dashPages" />
+							<Set dashboardUp.Value="false" Delay=".5" />
+							<Set action.Visibility="Hidden" /> 
+							<Set plusIcon.Visibility="Visible" /> 
+						</Tapped>
+						<WhilePressed>
+							<Change folderButton.Background.Value="#CCE4F8" />
+						</WhilePressed>
+						<Image File="Assets/folder-open.png" Color="blue" Alignment="CenterLeft"   />
+						<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
+					</StackPanel>
+					<StackPanel ux:Name="userButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+						<Tapped>
+							<Toggle Target="menuVisible" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="users" NavigationContext="_dashPages" />
+							<Set dashboardUp.Value="false" Delay=".5" />
+							<Set action.Visibility="Hidden" /> 
+							<Set plusIcon.Visibility="Visible" /> 
+						</Tapped>
+						<WhilePressed>
+							<Change userButton.Background.Value="#CCE4F8" />
+						</WhilePressed>
+						<Image File="Assets/users.png" Color="blue" Alignment="CenterLeft"  />
+						<Text Value="СОТРУДНИКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
+					</StackPanel>
+
+					<sideButton Text="На синхронизацию" Quantity="2" >
+						<Tapped>
+							<Set foldersActive.Value="true" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set detailIndicator.Visibility="Collapsed" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Черновики" Quantity="11" >
+						<Tapped>
+							<Set foldersActive.Value="true" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set detailIndicator.Visibility="Collapsed" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
+						<Tapped>
+							<Set foldersActive.Value="true" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set detailIndicator.Visibility="Collapsed" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Рассмотрение" Quantity="3" >
+						<Tapped>
+							<Set foldersActive.Value="true" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set detailIndicator.Visibility="Collapsed" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Исполнение" Quantity="" >
+						<Tapped>
+							<Set foldersActive.Value="true" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set detailIndicator.Visibility="Collapsed" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Ознакомление" Quantity="8" >
+						<Tapped>
+							<Set foldersActive.Value="true" />
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set detailIndicator.Visibility="Collapsed" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Папка" />
+					<sideButton Text="Папка" />
+					<sideButton Text="Папка" />
+					<Rectangle Height="1" Color="blue" />
+					<Grid ColumnCount="2" Margin="0,20">
+						<StackPanel>
+							<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>
+							<Text Value="Настройки" FontSize="12" Alignment="Center" />
+						</StackPanel>
+						<StackPanel>
+							<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
+							<Text Value="Выход" FontSize="12"  Alignment="Center"  />
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</ScrollView>
 		</Sidebar>
 		
 		
