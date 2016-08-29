@@ -8,7 +8,7 @@
 		};
 	</JavaScript>
 	<JavaScript File="date.js" />
-	<Translation XY="1,1" RelativeTo="ParentSize" />
+	<!-- <Translation XY="1,1" RelativeTo="ParentSize" /> -->
 	
 	<PageControl>
 		<DockPanel ux:Name="add">
@@ -36,32 +36,32 @@
 		        </State>
 			</StateGroup>
 			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10">
-				<StackPanel Orientation="Horizontal" Dock="Bottom" ItemSpacing="10">
-					<Circle ux:Name="ico1" Width="20" Height="20" Color="#ccc">
+				<StackPanel Orientation="Horizontal" Dock="Bottom" ItemSpacing="30" Padding="10" Background="#eee">
+					<fa-clipboard ux:Name="ico1" FontSize="20" Color="#ccc">
 						<Clicked>
 							<Set helperPanel.Active="templateScroll" />
 						</Clicked>
-					</Circle>
-					<Circle ux:Name="ico2" Width="20" Height="20" Color="#ccc">
+					</fa-clipboard>
+					<fa-font ux:Name="ico2" FontSize="20" Color="#ccc">
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
 						</Clicked>
-					</Circle>
-					<Circle ux:Name="ico3" Width="20" Height="20" Color="#ccc">
+					</fa-font>
+					<fa-user ux:Name="ico3" FontSize="20" Color="#ccc">
 						<Clicked>
 							<Set helperPanel.Active="userScroll" />
 						</Clicked>
-					</Circle>
-					<Circle ux:Name="ico4" Width="20" Height="20" Color="#ccc">
+					</fa-user>
+					<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#ccc">
 						<Clicked>
 							<Set helperPanel.Active="dateScroll" />
 						</Clicked>
-					</Circle>
-					<Circle ux:Name="ico5" Width="20" Height="20" Color="#ccc">
+					</fa-calendar-check-o>
+					<fa-paperclip ux:Name="ico5" Width="20" FontSize="20" Color="#ccc">
 						<Clicked>
 							<Set helperPanel.Active="fileScroll" />
 						</Clicked>
-					</Circle>
+					</fa-paperclip>
 				</StackPanel>
 			</DockPanel>
 			
@@ -86,7 +86,7 @@
 				<PageControl ux:Name="helperPanel" >
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<WhileActive Threshold="0.5">
-							<Change ico1.Color="#f00" />
+							<Change ico1.Color="blue" />
 						</WhileActive>
 						<Panel>
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
@@ -111,7 +111,7 @@
 					</ScrollView>
 					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico2.Color="#f00" />
+							<Change ico2.Color="blue" />
 						</WhileActive>
 						<Panel>
 							<ColumnLayout ux:Name="textColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
@@ -129,7 +129,7 @@
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico3.Color="#f00" />
+							<Change ico3.Color="blue" />
 						</WhileActive>
 						<StackPanel>
 							<Panel ux:Name="userList">
@@ -199,7 +199,7 @@
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico4.Color="#f00" />
+							<Change ico4.Color="blue" />
 						</WhileActive>
 						<WhileTrue ux:Name="chooseDate">
 							<Set dummy.Visibility.Value="Collapsed" />
@@ -310,7 +310,7 @@
 					</ScrollView>
 					<ScrollView ux:Name="fileScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico5.Color="#f00" />
+							<Change ico5.Color="blue" />
 						</WhileActive>
 						<StackPanel >
 							<Text Value="Вложения" FontSize="22" Color="#999" Margin="20" Alignment="Center" />
