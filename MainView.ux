@@ -300,17 +300,17 @@
 						<State ux:Name="blueState">
 				            <Change bookmark.Color="sky" Duration="0.2"/>
 				            <Change filterRec.Color="sky" Duration="0.2"/>
-				            <Change blueCount.Visibility.Value="Visible" />
+				            <Change blueCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				        <State ux:Name="redState">
 				            <Change bookmark.Color="red" Duration="0.2"/>
 				            <Change filterRec.Color="red" Duration="0.2"/>
-				            <Change redCount.Visibility.Value="Visible" />
+				            <Change redCount.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState">
 				        	<Change bookmark.Color="#008C23" Duration="0.2"/>
 				            <Change filterRec.Color="#008C23" Duration="0.2"/>
-				            <Change greenCount.Visibility.Value="Visible" />
+				            <Change greenCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
 
@@ -319,9 +319,9 @@
 					<DockPanel>
 						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
 							<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="0,0,0,0" >
-								<Text ux:Name="blueCount" Value="4" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
-								<Text ux:Name="redCount" Value="12" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
-								<Text ux:Name="greenCount" Value="8" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Text ux:Name="blueCount" Value="4" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="redCount" Value="12" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="greenCount" Value="8" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
 								<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="sky"/>
 								<Clicked>
 									<Toggle Target="filterActive" />
@@ -389,17 +389,17 @@
 						<State ux:Name="blueState2">
 				            <Change bookmark2.Color="sky" Duration="0.2"/>
 				            <Change filterRec2.Color="sky" Duration="0.2"/>
-				            <Change blueCount2.Visibility.Value="Visible" />
+				            <Change blueCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				        <State ux:Name="redState2">
 				            <Change bookmark2.Color="red" Duration="0.2"/>
 				            <Change filterRec2.Color="red" Duration="0.2"/>
-				            <Change redCount2.Visibility.Value="Visible" />
+				            <Change redCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				        <State ux:Name="greenState2">
 				        	<Change bookmark2.Color="#008C23" Duration="0.2"/>
 				            <Change filterRec2.Color="#008C23" Duration="0.2"/>
-				            <Change greenCount2.Visibility.Value="Visible" />
+				            <Change greenCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
 
@@ -408,9 +408,9 @@
 					<DockPanel>
 						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe2" TransformOrigin="TopLeft" >
 							<Panel ux:Name="folderPanel2" Alignment="TopLeft" Margin="0,0,0,0" >
-								<Text ux:Name="blueCount2" Value="5" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
-								<Text ux:Name="redCount2" Value="21" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
-								<Text ux:Name="greenCount2" Value="7" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Text ux:Name="blueCount2" Value="5" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="redCount2" Value="21" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="greenCount2" Value="7" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
 								<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30" Color="sky"/>
 								<Clicked>
 									<Toggle Target="filterActive2" />
