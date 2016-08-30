@@ -29,8 +29,8 @@
 			</Grid>
 		</Page>
 
-		<Page ux:Name="task" Color="#fff" ClipToBounds="true">
-			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#7DB9EE" Margin="0,0,10,0" Opacity="{old}">
+		<Page ux:Name="task"  ClipToBounds="true">
+			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
 				<Clicked>
 					<Toggle Target="preview1" />
   					 <Pulse Target="GrowMe"/>

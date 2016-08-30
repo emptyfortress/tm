@@ -292,28 +292,70 @@
 					<ExitingAnimation>
 						<Move X="1" RelativeTo="Size" />
 					</ExitingAnimation>
+					<WhileTrue ux:Name="filterActive">
+						<Change filterRec.Visibility.Value="Visible" />
+					</WhileTrue>
 					
+					<StateGroup ux:Name="filterGroup">
+						<State ux:Name="blueState">
+				            <Change bookmark.Color="sky" Duration="0.2"/>
+				            <Change filterRec.Color="sky" Duration="0.2"/>
+				            <Change blueCount.Visibility.Value="Visible" />
+				        </State>
+				        <State ux:Name="redState">
+				            <Change bookmark.Color="red" Duration="0.2"/>
+				            <Change filterRec.Color="red" Duration="0.2"/>
+				            <Change redCount.Visibility.Value="Visible" />
+				        </State>
+				        <State ux:Name="greenState">
+				        	<Change bookmark.Color="#008C23" Duration="0.2"/>
+				            <Change filterRec.Color="#008C23" Duration="0.2"/>
+				            <Change greenCount.Visibility.Value="Visible" />
+				        </State>
+					</StateGroup>
+
+					<Rectangle ux:Name="filterRec" Width="45" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="85,0,0,0" Visibility="Hidden" />
+
 					<DockPanel>
-							<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
-								<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="55,0,0,0" >
-									<Text ux:Name="folderCount" Value="4" FontSize="25" Alignment="Center" Color="#fff"/>
-									<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="sky"/>
-								</Panel>
-								<Text ux:Name="folderTitle" Value="Согласование" FontSize="20" Margin="10,15,0,0"/>
-							</StackPanel>
-							<WhileWindowSize GreaterThan="380">
-								<Change folderPanel.Margin.Value="80,0,0,0" />
-								<Change bookmark.Width.Value="45" />
-								<Change folderCount.FontSize.Value="35" />
-								<Change folderTitle.FontSize.Value="30" />
-							</WhileWindowSize>
+						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
+							<Panel ux:Name="folderPanel" Alignment="TopLeft" Margin="0,0,0,0" >
+								<Text ux:Name="blueCount" Value="4" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Text ux:Name="redCount" Value="12" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Text ux:Name="greenCount" Value="8" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="sky"/>
+								<Clicked>
+									<Toggle Target="filterActive" />
+								</Clicked>
+							</Panel>
+							<Text ux:Name="folderTitle" Value="Согласование" FontSize="20" Margin="10,15,0,0">
+								<SwipeGesture ux:Name="filterSwipe1" Direction="Left"  Length="100" />
+								<SwipeGesture ux:Name="filterSwipe" Direction="Right"  Length="100" />
+								<Swiped Source="filterSwipe">
+									<TransitionState Target="filterGroup" Type="Next"/>
+								</Swiped>
+								<Swiped Source="filterSwipe1">
+									<TransitionState Target="filterGroup" Type="Next"/>
+								</Swiped>
+							</Text>
+						</StackPanel>
+						<WhileWindowSize GreaterThan="380">
+							<Change folderPanel.Margin.Value="80,0,0,0" />
+							<Change bookmark.Width.Value="45" />
+							<Change blueCount.FontSize.Value="35" />
+							<Change redCount.FontSize.Value="35" />
+							<Change greenCount.FontSize.Value="35" />
+							<Change folderTitle.FontSize.Value="30" />
+						</WhileWindowSize>
 					</DockPanel>
 
 					<ScrollView Margin="0,80,0,0">
 
 						<ScrollingAnimation From="80" To="200">
-							<Move Target="moveMe" X="40"  Duration=".5" Easing="QuarticOut" />
+							<Move Target="moveMe" X="35"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe" Factor=".4" Duration=".5" Easing="QuadraticOut"/>
+							<Scale Target="filterRec" X=".4" Duration=".5" Easing="QuadraticOut" />
+							<Change filterRec.Margin.Value="60,0,0,0" Duration=".3" Easing="QuadraticOut" />
+
 						</ScrollingAnimation>
 
 						<StackPanel ux:Name="scroll1" ItemSpacing="120" Margin="3,100">
@@ -331,9 +373,97 @@
 						<Stroke Offset="1" Width="1" Color="#bbb" />
 					</Rectangle>
 				</Page>
-
-
+				
 				<Page ux:Name="folder2" Padding="5,0">
+					<EnteringAnimation>
+						<Move X="-1" RelativeTo="Size" />
+					</EnteringAnimation>
+					<ExitingAnimation>
+						<Move X="1" RelativeTo="Size" />
+					</ExitingAnimation>
+					<WhileTrue ux:Name="filterActive2">
+						<Change filterRec2.Visibility.Value="Visible" />
+					</WhileTrue>
+					
+					<StateGroup ux:Name="filterGroup2">
+						<State ux:Name="blueState2">
+				            <Change bookmark2.Color="sky" Duration="0.2"/>
+				            <Change filterRec2.Color="sky" Duration="0.2"/>
+				            <Change blueCount2.Visibility.Value="Visible" />
+				        </State>
+				        <State ux:Name="redState2">
+				            <Change bookmark2.Color="red" Duration="0.2"/>
+				            <Change filterRec2.Color="red" Duration="0.2"/>
+				            <Change redCount2.Visibility.Value="Visible" />
+				        </State>
+				        <State ux:Name="greenState2">
+				        	<Change bookmark2.Color="#008C23" Duration="0.2"/>
+				            <Change filterRec2.Color="#008C23" Duration="0.2"/>
+				            <Change greenCount2.Visibility.Value="Visible" />
+				        </State>
+					</StateGroup>
+
+					<Rectangle ux:Name="filterRec2" Width="45" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="85,0,0,0" Visibility="Hidden" />
+
+					<DockPanel>
+						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe2" TransformOrigin="TopLeft" >
+							<Panel ux:Name="folderPanel2" Alignment="TopLeft" Margin="0,0,0,0" >
+								<Text ux:Name="blueCount2" Value="5" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Text ux:Name="redCount2" Value="21" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Text ux:Name="greenCount2" Value="7" FontSize="25" Alignment="Center" Color="#fff" Visibility="Hidden" />
+								<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30" Color="sky"/>
+								<Clicked>
+									<Toggle Target="filterActive2" />
+								</Clicked>
+							</Panel>
+							<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" Margin="10,15,0,0">
+								<SwipeGesture ux:Name="filterSwipe12" Direction="Left"  Length="100" />
+								<SwipeGesture ux:Name="filterSwipe2" Direction="Right"  Length="100" />
+								<Swiped Source="filterSwipe2">
+									<TransitionState Target="filterGroup2" Type="Next"/>
+								</Swiped>
+								<Swiped Source="filterSwipe12">
+									<TransitionState Target="filterGroup2" Type="Next"/>
+								</Swiped>
+							</Text>
+						</StackPanel>
+						<WhileWindowSize GreaterThan="380">
+							<Change folderPanel2.Margin.Value="80,0,0,0" />
+							<Change bookmark2.Width.Value="45" />
+							<Change blueCount2.FontSize.Value="35" />
+							<Change redCount2.FontSize.Value="35" />
+							<Change greenCount2.FontSize.Value="35" />
+							<Change folderTitle2.FontSize.Value="30" />
+						</WhileWindowSize>
+					</DockPanel>
+
+					<ScrollView Margin="0,80,0,0">
+
+						<ScrollingAnimation From="80" To="200">
+							<Move Target="moveMe2" X="35"  Duration=".5" Easing="QuarticOut" />
+							<Scale Target="moveMe2" Factor=".4" Duration=".5" Easing="QuadraticOut"/>
+							<Scale Target="filterRec2" X=".4" Duration=".5" Easing="QuadraticOut" />
+							<Change filterRec2.Margin.Value="60,0,0,0" Duration=".3" Easing="QuadraticOut" />
+
+						</ScrollingAnimation>
+
+						<StackPanel ux:Name="scroll12" ItemSpacing="120" Margin="3,100">
+							<WhileWindowLandscape>
+								<Change scroll12.Margin="100" />
+							</WhileWindowLandscape>
+							<Each Items="{items.tasks}">
+								<TaskItem />
+							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
+						</StackPanel>
+					</ScrollView>
+
+					<Rectangle Color="#fff" Layer="Background">
+						<Stroke Offset="1" Width="1" Color="#bbb" />
+					</Rectangle>
+				</Page>
+
+				<!-- <Page ux:Name="folder2" Padding="5,0">
 					<EnteringAnimation>
 						<Move X="-1" RelativeTo="Size" />
 					</EnteringAnimation>
@@ -379,7 +509,7 @@
 					<Rectangle Color="#fff" Layer="Background">
 						<Stroke Offset="1" Width="1" Color="#bbb" />
 					</Rectangle>
-				</Page>
+				</Page> -->
 				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0" bookmarkColor="lightblue">
 					<StackPanel Alignment="Center" MaxWidth="60%">
 						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
