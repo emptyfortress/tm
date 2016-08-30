@@ -300,6 +300,7 @@
 					</ExitingAnimation>
 					<WhileTrue ux:Name="filterActive">
 						<Change filterRec.Visibility.Value="Visible" />
+						<Move Target="filterText" X="-1" RelativeTo="ParentSize" Duration=".4" Easing="BounceOut" />
 					</WhileTrue>
 					
 					<StateGroup ux:Name="filterGroup">
@@ -323,6 +324,7 @@
 					<Rectangle ux:Name="filterRec" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="55,0,0,0" Visibility="Hidden" />
 
 					<DockPanel>
+						<StackLayout />
 						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
 							<Panel ux:Name="zagPanel" Alignment="TopLeft" Margin="50,0,0,0" >
 								<Text ux:Name="blueCount" Value="4" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
@@ -344,6 +346,11 @@
 								</Swiped>
 							</Text>
 						</StackPanel>
+						<StackPanel ux:Name="filterText" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5">
+							<Translation X="1" RelativeTo="ParentSize" />
+							<fa-hand-o-left Alignment="Left" />
+							<Text Value="Быстрый фильтр включен" FontSize="13" Alignment="Left"  />
+						</StackPanel>
 						<WhileWindowSize GreaterThan="380">
 							<Change filterRec.Width.Value="46" />
 							<Change zagPanel.Margin.Value="50,0,0,0" />
@@ -362,6 +369,7 @@
 							<Scale Target="moveMe" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
+							<Change filterText.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
 						</ScrollingAnimation>
 						<WhileWindowSize GreaterThan="380">
 							<ScrollingAnimation From="80" To="200">
