@@ -270,7 +270,7 @@
 		<ux:Include File="TaskItem.ux" />
 
 		<Panel Dock="Fill" ux:Name="mainApp">
-			<LinearNavigation ux:Name="_mainNavigation"  />
+			<LinearNavigation ux:Name="_mainNavigation" />
 			<Panel ux:Name="foldersPanel">
 				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />
 				<SwipeNavigate SwipeDirection="Left" />
@@ -287,7 +287,14 @@
 				</Rectangle>
 
 				<Page ux:Name="folder1" Padding="5,0">
+					<EnteringAnimation>
+						<Move X="-1" RelativeTo="Size" />
+					</EnteringAnimation>
+					<ExitingAnimation>
+						<Move X="1" RelativeTo="Size" />
+					</ExitingAnimation>
 					<WhileTrue ux:Name="filterActive">
+						<Change filterText.Visibility.Value="Visible" />
 						<Change filterRec.Visibility.Value="Visible" />
 						<Move Target="filterText" X="-1" RelativeTo="ParentSize" Duration=".4" Easing="QuinticOut" />
 					</WhileTrue>
@@ -335,7 +342,7 @@
 								</Swiped>
 							</Text>
 						</StackPanel>
-						<StackPanel ux:Name="filterText" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5">
+						<StackPanel ux:Name="filterText" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Hidden">
 							<Translation X="1" RelativeTo="ParentSize" />
 							<fa-hand-o-left Alignment="Left" />
 							<Text Value="Быстрый фильтр включен" FontSize="13" Alignment="Left"  />
@@ -390,6 +397,7 @@
 					<ExitingAnimation>
 						<Move X="1" RelativeTo="Size" />
 					</ExitingAnimation>
+					
 					<WhileTrue ux:Name="filterActive2">
 						<Change filterRec2.Visibility.Value="Visible" />
 					</WhileTrue>

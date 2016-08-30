@@ -19,13 +19,13 @@
 				<Image ux:Name="bookmark" File="Assets/bookmark.png" Color="{Property this.bookmarkColor}" Width="30"/>
 			</Panel>
 			<Text ux:Name="folderTitle" Value="{Property this.Title}" FontSize="20" Margin="10,15,0,0"/>
-			<!-- <WhileWindowSize GreaterThan="380">
+			<WhileWindowSize GreaterThan="380">
 				<Change folderPanel.Margin.Value="80,0,0,0" />
 				<Change bookmark.Width.Value="45" />
 				<Change folderCount.FontSize.Value="35" />
 				<Change folderCount1.FontSize.Value="35" />
 				<Change folderTitle.FontSize.Value="30" />
-			</WhileWindowSize> -->
+			</WhileWindowSize>
 		</StackPanel>
 		<!-- <SwipeGesture ux:Name="swipe" Direction="Right" Type="Active" Length="200" />
 		<SwipingAnimation Source="swipe">
