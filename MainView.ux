@@ -515,9 +515,19 @@
 					</Panel>
 					<Panel Dock="Bottom" Alignment="BottomCenter" Height="60">
 						<StackLayout Orientation="Horizontal" ItemSpacing="20" />
-						<Image File="Assets/info.png" Height="50" Color="#ccc" />
-						<Image File="Assets/attach.png" Height="50" Color="#ccc" />
-						<Image File="Assets/tree.png" Height="50" Color="#ccc" />
+						<Image ux:Name="infoIcon" File="Assets/info.png" Height="50" Color="#ccc">
+							<Tapped>
+								<NavigateTo Target="infoPage" NavigationContext="detailNav" />
+							</Tapped>
+						</Image>
+						<Panel Height="50">
+							<Panel Alignment="BottomRight">
+								<Text Value="3" Color="#fff" Alignment="Center"/>
+								<Circle Width="18" Height="18" Color="red" Alignment="Center" Opacity=".5" />
+							</Panel>
+							<Image ux:Name="attachIcon" File="Assets/attach.png"  Color="#ccc" />
+						</Panel>
+						<Image ux:Name="treeIcon" File="Assets/tree.png" Height="50" Color="#ccc" />
 					</Panel>
 	        	
 					<ux:Include File="detailView.ux" />

@@ -1,4 +1,4 @@
-<PageControl>
+<PageControl ux:Name="detailNav">
 	<LinearNavigation ux:Name="_detailNavigation"/>
 	<SwipeNavigate SwipeDirection="Left" />
 	<LongPressed>
@@ -7,7 +7,10 @@
 	</LongPressed>
 
 
-	<detailPage ux:Name="detail0" Title="Detail">
+	<detailPage ux:Name="infoPage">
+		<ActivatingAnimation>
+			<Change infoIcon.Color.Value="blue"  />
+		</ActivatingAnimation>
 		<ScrollView>
 			<StackPanel ux:Name="info" Margin="10,80" ItemSpacing="20">
 				<WhileTrue ux:Name="info2">
@@ -15,8 +18,7 @@
 					<Change Target="bell.Visibility" Value="Collapsed" />
 				</WhileTrue>
 				
-				<Text Value="ПОДРОБНОСТИ" FontSize="25" Alignment="TopCenter" Color="#ccc" />
-				<Panel Alignment="Left">
+				<Panel Alignment="TopLeft">
 					<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
 						<Clicked>
 							<Toggle Target="info2"/>
@@ -100,14 +102,14 @@
 			</StackPanel>
 		</ScrollView>
 	</detailPage>
-	<detailPage ux:Name="detail1" Title="Detail">
+	<detailPage ux:Name="attachPage">
+		<ActivatingAnimation>
+			<Change attachIcon.Color.Value="blue"  />
+		</ActivatingAnimation>
 	</detailPage>
-	<detailPage ux:Name="detail2" Title="Detail1">
-		<Button  Height="30" Text="Back" Alignment="BottomCenter">
-			<Tapped>
-				<Set foldersActive.Value="true" />
-				<!-- <Set subMenuVisible.Value="false" /> -->
-    		</Tapped>
-		</Button>
+	<detailPage ux:Name="treePage" >
+		<ActivatingAnimation>
+			<Change treeIcon.Color.Value="blue"  />
+		</ActivatingAnimation>
 	</detailPage>
 </PageControl>
