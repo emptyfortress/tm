@@ -1,0 +1,109 @@
+<PageControl>
+	<LinearNavigation ux:Name="_detailNavigation"/>
+	<SwipeNavigate SwipeDirection="Left" />
+	<LongPressed>
+		<Toggle Target="subMenuVisible" />
+		<!-- <Toggle Target="subMenuVisible" /> -->
+	</LongPressed>
+
+
+	<detailPage ux:Name="detail0" Title="Detail">
+		<ScrollView>
+			<StackPanel ux:Name="info" Margin="10,80" ItemSpacing="20">
+				<WhileTrue ux:Name="info2">
+					<Change Target="infoPanel.Visibility" Value="Visible" />
+					<Change Target="bell.Visibility" Value="Hidden" />
+				</WhileTrue>
+				<fa-bell-o ux:Name="bell" Alignment="TopLeft" FontSize="23" Color="#008C23" Margin="0,0,10,0">
+					<Clicked>
+						<Toggle Target="info2"/>
+	  					<Pulse Target="GrowMe2"/>
+					</Clicked>
+				</fa-bell-o>
+				<Panel ux:Name="infoPanel" Layer="Overlay" Alignment="TopLeft" Visibility="Collapsed">
+					<WhileTrue ux:Name="GrowMe2">
+					   <Scale Factor="1.2" Duration="0.1"/>
+					</WhileTrue>
+					<Text Value="Иванов Г.К. добавил комментарий    23.08.2016 17:15" FontSize="12" Margin="10" />
+					<Clicked>
+						<Set infoPanel.Visibility.Value="Collapsed" />
+					</Clicked>
+					<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+				</Panel>
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<fa-file-text-o Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
+					<Text Value="Приказ" />
+					<Text Value="№ 135-К/16" Margin="30,0,0,0" />
+				</StackPanel>
+
+				<Text LineSpacing="-5" Value="О внесении изменений в учебный план и мероприятиях на 1 сентября" FontSize="30" TextWrapping="Wrap" />
+				
+				<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0">
+					Рассмотреть на заседании учебно-методической комиссии вопрос о внесении указанных ниже изменений в учебный план. Есть два подхода к решению такой масштабной задачи, как проектирование идеального интерфейса государства.
+				</Text>
+
+				<StackPanel Orientation="Horizontal" ItemSpacing="20" >
+					<StackPanel Orientation="Horizontal" Alignment="CenterLeft" ItemSpacing="5">
+						<Circle Width="50" Height="50" Color="#fff" >
+							<ImageFill File="Assets/user.png" />
+						</Circle>
+						<Text Alignment="CenterLeft" Color="blue">Орлов П.С.</Text>
+					</StackPanel>
+					<Text Value="20 августа 2016  16:20" Alignment="CenterLeft" />
+				</StackPanel>
+				<Rectangle Height="1" Color="#ddd" />
+
+				<Panel >
+					<ColumnLayout ux:Name="ispol" ColumnCount="1" />
+					<WhileWindowLandscape>
+						<Change ispol.ColumnCount="2" />
+					</WhileWindowLandscape>
+					<StackPanel>
+						<Text Value="Исполнители:" Font="Bold" Alignment="CenterLeft" />
+						<StackPanel Alignment="CenterLeft"  Offset="-10,0">
+							<StackPanel Orientation="Horizontal" Alignment="CenterLeft" ItemSpacing="5" Margin="10,3">
+								<Circle Width="50" Height="50" Color="#fff" >
+									<ImageFill File="Assets/user.jpg" />
+								</Circle>
+								<Text Alignment="CenterLeft" Color="blue">Снегирева В.И.</Text>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal" Alignment="CenterLeft" ItemSpacing="5" Margin="10,3">
+								<Circle Width="50" Height="50" Color="#fff" >
+									<ImageFill File="Assets/user-icon.png" />
+								</Circle>
+								<Text Alignment="CenterLeft" Color="blue">Синичкин Г.К.</Text>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal" Alignment="CenterLeft" ItemSpacing="5" Margin="10,3">
+								<Circle Width="50" Height="50" Color="#fff" >
+									<ImageFill File="Assets/user.png" />
+								</Circle>
+								<Text Alignment="CenterLeft" Color="blue">Перепелкин А.В.</Text>
+							</StackPanel>
+						</StackPanel>
+					</StackPanel>
+					<StackPanel>
+						<Text>lasdhf</Text>
+						<Text>hsfkahsg</Text>
+					</StackPanel>
+				</Panel>
+
+				<!-- <Each Count="20">
+					<Rectangle Height="30" Color="#ccc" />
+				</Each> -->
+				<WhileWindowLandscape>
+					<Change info.Margin.Value="80" />
+				</WhileWindowLandscape>
+			</StackPanel>
+		</ScrollView>
+	</detailPage>
+	<detailPage ux:Name="detail1" Title="Detail">
+	</detailPage>
+	<detailPage ux:Name="detail2" Title="Detail1">
+		<Button  Height="30" Text="Back" Alignment="BottomCenter">
+			<Tapped>
+				<Set foldersActive.Value="true" />
+				<!-- <Set subMenuVisible.Value="false" /> -->
+    		</Tapped>
+		</Button>
+	</detailPage>
+</PageControl>

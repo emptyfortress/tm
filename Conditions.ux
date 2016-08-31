@@ -21,7 +21,7 @@
 		<Change middleRectangle.Fill="#000" />
 		<Change bottomRectangle.Fill="#000" />
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
-		<Change action.Visibility="Hidden" Duration=".2" />
+		<!-- <Change action.Visibility="Hidden" Duration=".2" /> -->
 		
 	</WhileTrue>
 
@@ -39,6 +39,7 @@
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="detailsActive">
+		<Change ham.Visibility.Value="Hidden" />
 		<BringToFront Target="detailsPanel" />
 		<NavigateTo Target="detailsPanel" NavigationContext="_mainNavigation" />
 		<Set Target="foldersPanel.Visibility" Value="Collapsed" Delay=".5" />
@@ -55,8 +56,9 @@
 		<Set detailsActive.Value="false" />
 	</WhileTrue>
 	<WhileTrue ux:Name="subMenuVisible">
-		<!-- <Move Target="subMenu" X="-1" RelativeTo="Size" Duration=".3" Easing="CircularInOut"  /> -->
-		<Change overlayRec.Color="#ccca" Duration="0.5"/>
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="pop" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" />
 	</WhileTrue>
 </Panel>

@@ -50,6 +50,7 @@
 		
 		<Panel ux:Name="pop" Layer="Overlay" Width="300" Height="300" Color="#fff">
 			<Translation Y="-1" RelativeTo="ParentSize" />
+			<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
 		</Panel>
 
 		<ux:Include File="AddPanel.ux" />
@@ -58,25 +59,14 @@
 			<fa-check FontSize="40" Color="#fff" Alignment="Center" />
 			<Text Value="Поручение отправлено" Color="#fff" FontSize="30" Alignment="Center"  />
 		</StackPanel>
-		<Image ux:Name="action" File="Assets/plus.png" Color="#f00" Height="60" Alignment="BottomRight" Margin="0,0,10,10" Visibility="Hidden">
-			<SwipeGesture ux:Name="swipe1" Direction="Up" Length="50" Type="Simple" />
-			<Tapped>
-				<Toggle Target="addPageActive" />
-			</Tapped>
-			<LongPressed>
-				<Toggle Target="subMenuVisible" />
-			</LongPressed>
-			<Swiped Source="swipe1">
-				<Toggle Target="subMenuVisible" />
-			</Swiped>
-		</Image>
 		
 		<Panel ux:Name="overlayRec" Color="#000" Opacity="0" HitTestMode="None">
 			<Clicked>
-				<!-- <Toggle Target="overPop1" /> -->
+				<Toggle Target="subMenuVisible" /> 
 				<!-- <Toggle Target="overPop1" /> -->
 			</Clicked>
 		</Panel>
+
 
 <!-- This is hamburger ******************************************** -->
 		<Panel ux:Name="ham" Margin="10,10,0,0" Height="32" Width="32" HitTestMode="LocalBoundsAndChildren" Alignment="TopLeft" >
@@ -139,7 +129,7 @@
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="taho" NavigationContext="_dashPages" />
 							<Set dashboardUp.Value="false" Delay=".5" />
-							<Set action.Visibility="Hidden" /> 
+							<!-- <Set action.Visibility="Hidden" />  -->
 							<Set plusIcon.Visibility="Visible" /> 
 						</Tapped>
 						<WhilePressed>
@@ -154,7 +144,7 @@
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folders" NavigationContext="_dashPages" />
 							<Set dashboardUp.Value="false" Delay=".5" />
-							<Set action.Visibility="Hidden" /> 
+							<!-- <Set action.Visibility="Hidden" />  -->
 							<Set plusIcon.Visibility="Visible" /> 
 						</Tapped>
 						<WhilePressed>
@@ -169,7 +159,7 @@
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="users" NavigationContext="_dashPages" />
 							<Set dashboardUp.Value="false" Delay=".5" />
-							<Set action.Visibility="Hidden" /> 
+							<!-- <Set action.Visibility="Hidden" />  -->
 							<Set plusIcon.Visibility="Visible" /> 
 						</Tapped>
 						<WhilePressed>
@@ -269,9 +259,10 @@
 		<ux:Include File="DocItem.ux" />
 		<ux:Include File="TaskItem.ux" />
 
-		<Panel Dock="Fill" ux:Name="mainApp">
+		<Panel Dock="Fill" ux:Name="mainApp" >
 			<LinearNavigation ux:Name="_mainNavigation" />
-			<Panel ux:Name="foldersPanel">
+			<Panel ux:Name="foldersPanel" >
+				<!-- <LinearNavigation ux:Name="_listNavigation" Active="{active}" /> -->
 				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />
 				<SwipeNavigate SwipeDirection="Left" />
 
@@ -507,61 +498,24 @@
 			</Panel>
 <!-- Details panel ****************************************************************************************************************** -->
 			
-			<Panel ux:Name="detailsPanel" ClipToBounds="false" >
-				<LinearNavigation ux:Name="_detailNavigation"/>
-				<SwipeNavigate SwipeDirection="Left" />
-				
-				<Clicked>
-					<NavigateToggle Target="mainApp" NavigationContext="edge" />
-					<Set menuVisible.Value="false" />
-					<Set iconsVisible.Value="false" />
-				</Clicked>
+			<DockPanel ux:Name="detailsPanel" ClipToBounds="true" Background="#fff" Padding="10" Opacity="0">
+				<Translation Y="100"  />
 				<ActivatingAnimation>
-					<Scale Factor="1" Duration=".2" />
-					<Change detailsPanel.Opacity.Value="1" Duration=".2" />
+					<Move Y="-100" Duration=".3" Easing="QuadraticOut" />
+					<Change detailsPanel.Opacity.Value="1" Duration=".3" />
 				</ActivatingAnimation>
-				<DeactivatingAnimation>
-					<Scale Factor="0" Duration=".2" />
-					<Change detailsPanel.Opacity.Value="0" Duration=".2" />
-				</DeactivatingAnimation>	
-				
-				<!-- <Panel Layer="Overlay" >
-					<Rectangle ux:Name="overlayRec" Layer="Background" HitTestMode="None">
+					<Panel Dock="Top">
+						<StackLayout Orientation="Horizontal" ItemSpacing="5" />
+						<Image File="Assets/backk.png" Color="#000" Height="20" Alignment="CenterLeft" />
+						<Text Value="Согласование" Alignment="CenterLeft" Font="Light" FontSize="16" />
 						<Tapped>
-							<Toggle Target="subMenuVisible" />
-						</Tapped>
-					</Rectangle>
-					<Panel ux:Name="subMenu" Width="350" Height="100%" Color="#fff" Alignment="Right">
-						<Translation X="1" RelativeTo="Size" />
-					</Panel>
-				</Panel> -->
-
-	        	<detailPage ux:Name="detail0" Title="Detail">
-	        		<Button  Height="30" Text="Backkkkk" Alignment="BottomCenter">
-	        			<Tapped>
 	        				<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-	        				<!-- <Set detailsActive.Value="false"  Delay=".5" /> -->
 	        				<Set foldersActive.Value="true" Delay=".5"  />
 		        		</Tapped>
-	        		</Button>
-	        	</detailPage>
-	        	<detailPage ux:Name="detail1" Title="Detail">
-	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">
-	        			<Tapped>
-	        				<Set foldersActive.Value="true" />
-	        				<!-- <Set subMenuVisible.Value="false" /> -->
-		        		</Tapped>
-	        		</Button>
-	        	</detailPage>
-	        	<detailPage ux:Name="detail2" Title="Detail1">
-	        		<Button  Height="30" Text="Back" Alignment="BottomCenter">
-	        			<Tapped>
-	        				<Set foldersActive.Value="true" />
-	        				<!-- <Set subMenuVisible.Value="false" /> -->
-		        		</Tapped>
-	        		</Button>
-	        	</detailPage>
-			</Panel>
+					</Panel>
+	        	
+					<ux:Include File="detailView.ux" />
+			</DockPanel>
 		</Panel>
 		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 	
