@@ -513,6 +513,12 @@
 	        				<Set foldersActive.Value="true" Delay=".5"  />
 		        		</Tapped>
 					</Panel>
+					<Panel Dock="Bottom" Alignment="BottomCenter" Height="60">
+						<StackLayout Orientation="Horizontal" ItemSpacing="20" />
+						<Image File="Assets/info.png" Height="50" Color="#ccc" />
+						<Image File="Assets/attach.png" Height="50" Color="#ccc" />
+						<Image File="Assets/tree.png" Height="50" Color="#ccc" />
+					</Panel>
 	        	
 					<ux:Include File="detailView.ux" />
 			</DockPanel>

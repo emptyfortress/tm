@@ -12,23 +12,27 @@
 			<StackPanel ux:Name="info" Margin="10,80" ItemSpacing="20">
 				<WhileTrue ux:Name="info2">
 					<Change Target="infoPanel.Visibility" Value="Visible" />
-					<Change Target="bell.Visibility" Value="Hidden" />
+					<Change Target="bell.Visibility" Value="Collapsed" />
 				</WhileTrue>
-				<fa-bell-o ux:Name="bell" Alignment="TopLeft" FontSize="23" Color="#008C23" Margin="0,0,10,0">
-					<Clicked>
-						<Toggle Target="info2"/>
-	  					<Pulse Target="GrowMe2"/>
-					</Clicked>
-				</fa-bell-o>
-				<Panel ux:Name="infoPanel" Layer="Overlay" Alignment="TopLeft" Visibility="Collapsed">
-					<WhileTrue ux:Name="GrowMe2">
-					   <Scale Factor="1.2" Duration="0.1"/>
-					</WhileTrue>
-					<Text Value="Иванов Г.К. добавил комментарий    23.08.2016 17:15" FontSize="12" Margin="10" />
-					<Clicked>
-						<Set infoPanel.Visibility.Value="Collapsed" />
-					</Clicked>
-					<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+				
+				<Text Value="ПОДРОБНОСТИ" FontSize="25" Alignment="TopCenter" Color="#ccc" />
+				<Panel Alignment="Left">
+					<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
+						<Clicked>
+							<Toggle Target="info2"/>
+		  					<Pulse Target="GrowMe2"/>
+						</Clicked>
+					</fa-bell-o>
+					<Panel ux:Name="infoPanel" Visibility="Collapsed">
+						<WhileTrue ux:Name="GrowMe2">
+						   <Scale Factor="1.2" Duration="0.1"/>
+						</WhileTrue>
+						<Text Value="Иванов Г.К. добавил комментарий    23.08.2016 17:15" FontSize="12" Margin="10" Alignment="Center"/>
+						<Clicked>
+							<Set infoPanel.Visibility.Value="Collapsed" />
+						</Clicked>
+						<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+					</Panel>
 				</Panel>
 				<StackPanel Orientation="Horizontal" ItemSpacing="5">
 					<fa-file-text-o Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
