@@ -10,10 +10,11 @@
 		<Move Target="viewIcon" X=".5" Y="-.5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" />
 		<Move Target="searchIcon" X=".5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".1" />
 		<Move Target="filterIcon" X="-.5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".2" />
+		<Move Target="readPanel" Y="1.2" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" Delay=".3" />
 		<Change overRec.Opacity=".3" Duration=".5" />
 		<Change overRec.Visibility="Visible" />
 		<Change plusIcon.HitTestMode="None" />
-		<Rotate Target="plusIcon" Degrees="-135" Duration=".3" />
+		<Rotate Target="plusPlus" Degrees="-135" Duration=".3" />
 	</WhileTrue>
 
 	<WhileTrue ux:Name="menuVisible">
