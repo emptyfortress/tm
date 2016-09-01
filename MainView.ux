@@ -55,8 +55,9 @@
 		
 		<Panel ux:Name="overlayRec" Color="#000" Opacity="0" HitTestMode="None">
 			<Clicked>
-				<Toggle Target="subMenuVisible" /> 
-				<!-- <Toggle Target="overPop1" /> -->
+				<Set subMenuVisible.Value="false" /> 
+				<Set viewFilterPop.Value="false" /> 
+				<Set viewSortPop.Value="false" /> 
 			</Clicked>
 		</Panel>
 
@@ -128,7 +129,7 @@
 						<WhilePressed>
 							<Change dashButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
-						<Image File="Assets/dash-icon.png" Color="blue" Alignment="CenterLeft"  />
+						<Image File="Assets/dash-icon.png" Width="30" Color="blue" Alignment="CenterLeft"  />
 						<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 					</StackPanel>
 					<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
@@ -143,7 +144,7 @@
 						<WhilePressed>
 							<Change folderButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
-						<Image File="Assets/folder-open.png" Color="blue" Alignment="CenterLeft"   />
+						<Image File="Assets/folder-open.png" Width="30" Color="blue" Alignment="CenterLeft"   />
 						<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
 					<StackPanel ux:Name="userButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
@@ -158,11 +159,11 @@
 						<WhilePressed>
 							<Change userButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
-						<Image File="Assets/users.png" Color="blue" Alignment="CenterLeft"  />
+						<Image File="Assets/users.png" Width="35" Color="blue" Alignment="CenterLeft"  />
 						<Text Value="СОТРУДНИКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
 
-					<sideButton Text="На синхронизацию" Quantity="2" >
+					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
 						<Tapped>
 							<Set foldersActive.Value="true" />
 							<NavigateToggle Target="menu" NavigationContext="edge" />
