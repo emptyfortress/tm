@@ -57,9 +57,9 @@
 				
 				<StackPanel Margin="25,0,0,0" >
 					<StackPanel Orientation="Horizontal" ItemSpacing="5">
-						<Clicked>
+						<Tapped>
 							<Toggle Target="preview" />
-						</Clicked>
+						</Tapped>
 						<fa-file-text-o Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
 						<Text Value="{type}" />
 					</StackPanel>
@@ -73,9 +73,10 @@
 						<Text ux:Name="docTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
 					</Panel>
 					<Text Value="{description}" Font="Light" Color="#000" FontSize="14" TextAlignment="Left" TextWrapping="Wrap">
-						<Clicked>
+						<Tapped>
 							<Toggle Target="preview" />
-						</Clicked>
+						</Tapped>
+						<LongPressed></LongPressed>
 					</Text>
 					<Panel ux:Name="hidPanel" Height="0"  Visibility="Collapsed" Opacity="0" Margin="30,10,0,0">
 						<StackLayout />
