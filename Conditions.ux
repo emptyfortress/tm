@@ -29,14 +29,16 @@
 	<WhileTrue ux:Name="addPageActive" >
 		<Change overlayRec.Opacity=".7" Duration=".2" Easing="CircularIn" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<!-- <Change plusIcon.Visibility="Visible" /> -->
-		<Rotate Target="plusIcon" Degrees="45" Duration=".3" />
-		<!-- <Change addBackground.Opacity.Value="0" Duration=".5" Delay=".5" DelayBack=".1"  /> -->
-		<!-- <Change plusIcon.Color="blue" Duration=".5" /> -->
+		<Rotate Target="plusPlus" Degrees="45" Duration=".3" />
 		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />
 		<Change iconsVisible.Value="false" />
-		<Set addGroup.Active="shortState" />
 		<Set helperPanel.Active="templateScroll" />
+		<Set addGroup.Active="shortState" />
+		<Set hiddenGrid.Visibility.Value="Hidden" />
+		<Set hiddenBt.Visibility.Value="Hidden" />
+		<Set taskText.Value="" />
+		<Set Target="sendButtonBg.Color" Value="#eee" />
+		<Set Target="sendButton.Color" Value="#aaa" />
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="detailsActive">
@@ -60,6 +62,18 @@
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="pop" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" />
+		<Move Target="pop" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
+	<WhileTrue ux:Name="viewFilterPop">
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="popFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
+	<WhileTrue ux:Name="viewSortPop">
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="sortFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 </Panel>
