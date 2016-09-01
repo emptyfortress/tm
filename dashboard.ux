@@ -1,6 +1,7 @@
 <Panel ux:Name="dashboard" Background="#EAEAEA">
-	<Panel ux:Class="Icon" Width="50" Height="35" >
-	    <Image Source="{Resource iconFile}" Color="#000" Alignment="Center" />
+	<Panel ux:Class="Icon" Width="40" color="#000">
+		<float4 ux:Property="color" />
+	    <Image Source="{Resource iconFile}" Color="{Property this.color}" Alignment="Center" />
 	</Panel>
 	<Panel ux:Class="Header" Margin="0,-10,0,50">
 		<string ux:Property="Text"/>
@@ -10,7 +11,7 @@
 		<Icon>
 			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
 		</Icon>
-		<Text Value="4" Color="red" Alignment="Center" Offset="10,0" />
+		<Text Value="4" Color="red" Alignment="Center" Offset="5,0" />
 		<Icon>
 			<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 			<WhileVisible>
@@ -21,12 +22,12 @@
 	
 	<DockPanel>
 		<StackPanel Dock="Bottom" Margin="10,0,50,0">
-			<Rectangle Height="1" Color="#6c7a89" />
-			<MultiLayoutPanel Height="50" ux:Name="tabBar" >
+			<Rectangle Height="1" Color="#ccc" />
+			<MultiLayoutPanel Height="65" ux:Name="tabBar" >
 				<GridLayout ColumnCount="3" Rows="1*"/>
 				<Panel ux:Name="tahoTab">
 					<Placeholder>
-						<Rectangle ux:Name="indicator" Alignment="Top" Height="4" Fill="#6c7a89">
+						<Rectangle ux:Name="indicator" Alignment="Top" Height="6" Fill="#000">
 							<LayoutAnimation>
 								<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 							</LayoutAnimation>
@@ -60,12 +61,12 @@
 			</MultiLayoutPanel>
 		</StackPanel>
 		<PageControl ux:Name="_dashPages">
-			<Page ux:Name="taho" Padding="20">
+			<Page ux:Name="taho" Padding="20,10">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
 				<Header Text="СВОДКА" />
-				<ScrollView Margin="0,50,0,0">
+				<ScrollView Margin="0,40,0,0">
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
 						<Panel>
@@ -226,7 +227,7 @@
 					</StackPanel>
 				</ScrollView>
 			</Page>
-			<Page ux:Name="folders" Padding="20">
+			<Page ux:Name="folders" Padding="20,10">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="foldersTab" />
 				</WhileActive>
@@ -275,7 +276,7 @@
 					</StackPanel>
 				</ScrollView>
 			</Page>
-			<Page ux:Name="users" Padding="20">
+			<Page ux:Name="users" Padding="20,10">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="usersTab" />
 				</WhileActive>
@@ -284,6 +285,33 @@
 					<StackPanel>
 						<Text Value="Здесь будет крутой календарь" Color="#999" Alignment="Center" />
 						<fa-calendar-check-o FontSize="50" Color="#ccc" Alignment="BottomCenter" Margin="30" />
+
+						<StackPanel>
+						    <Rectangle ux:Name="panel" Width="100" Height="100" CornerRadius="5" Color="Teal" Alignment="Center">
+						        <LayoutAnimation>
+						            <Resize X="1" Y="1" RelativeTo="LayoutChange" Duration="0.25"/>
+						            <Move X="1" Y="1" RelativeTo="LayoutChange" Duration="0.25"/>
+						        </LayoutAnimation>
+						        <Clicked>
+						            <Set panel.Alignment="Right"/>
+						            <Set panel.Width="50"/>
+						        </Clicked>
+						    </Rectangle>
+						    <Rectangle Color="Red" CornerRadius="5" Width="100" Height="50">
+						        <Clicked>
+						            <Set panel.Alignment="Left"/>
+						            <Set panel.Width="200"/>
+						        </Clicked>
+						    </Rectangle>
+						    <Rectangle Color="Blue" CornerRadius="5" Width="100" Height="50">
+						        <Clicked>
+						            <Set panel.Alignment="Right"/>
+						            <Set panel.Width="50"/>
+						        </Clicked>
+						    </Rectangle>
+						</StackPanel>
+						
+
 					</StackPanel>
 				</ScrollView>
 			</Page>
