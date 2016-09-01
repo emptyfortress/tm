@@ -1,16 +1,42 @@
 <Panel ux:Name="iconsPanel" Visibility="Collapsed">
+	
+	<Rectangle ux:Name="readPanel" Color="#fff" Alignment="Center">
+		<Translation Y="-1.2" RelativeTo="ParentSize" />
+		<StackPanel>
+			<StackPanel ItemSpacing="5" Margin="20">
+				<fa-envelope-o Alignment="Center" />
+				<Text Value="Отметить все, как прочитанные" TextAlignment="Center" TextWrapping="Wrap" />
+			</StackPanel>
+			<Rectangle Height="1" Color="#bbb" />
+			<StackPanel ItemSpacing="5" Alignment="Center" Margin="20">
+				<fa-bell-o Alignment="Center" />
+				<Text Value="Сбросить уведомления" TextAlignment="Center" TextWrapping="Wrap" />
+			</StackPanel>
+		</StackPanel>
+		<Tapped>
+			<Toggle Target="iconsVisible" />
+		</Tapped>
+	</Rectangle>
+	
+
+
+
 	<Panel ux:Name="viewIcon" Width="200" Height="200" Alignment="BottomLeft">
-		<fa-eye Color="#000" FontSize="40" Alignment="Center">
-			<Translation XY="-4,4" RelativeTo="Size" />
-		</fa-eye>
+		<fa-filter Color="#000" FontSize="30" Alignment="Center">
+			<Translation XY="-6.8,5.2" RelativeTo="Size" />
+		</fa-filter>
 		<Circle  Fill="#fff" >
 			<Translation XY="-1,1" RelativeTo="Size" />
 			<DropShadow Angle="225" />
 		</Circle>
+		<Tapped>
+			<Toggle Target="iconsVisible" />
+			<Toggle Target="viewFilterPop" />
+		</Tapped>
 	</Panel>
 	<Panel  ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
-		<fa-search Color="#000" FontSize="40" Alignment="Center">
-			<Translation XY="-4.3,-4" RelativeTo="Size" />
+		<fa-search Color="#000" FontSize="25" Alignment="Center">
+			<Translation XY="-7,-6" RelativeTo="Size" />
 		</fa-search>
 		<Circle Fill="#fff">
 			<Translation XY="-1,-1" RelativeTo="Size" />
@@ -18,13 +44,17 @@
 		</Circle>
 	</Panel>
 	<Panel  ux:Name="filterIcon" Width="200" Height="200" Alignment="TopRight">
-		<fa-filter Color="#000" FontSize="40" Alignment="Center">
-			<Translation XY="5,-4" RelativeTo="Size" />
-		</fa-filter>
+		<fa-sort-amount-desc Color="#000" FontSize="22" Alignment="Center">
+			<Translation XY="7,-7" RelativeTo="Size" />
+		</fa-sort-amount-desc>
 		<Circle Fill="#fff">
 			<Translation XY="1,-1" RelativeTo="Size" />
 			<DropShadow  Angle="45" />
 		</Circle>
+		<Tapped>
+			<Toggle Target="iconsVisible" />
+			<Toggle Target="viewSortPop" />
+		</Tapped>
 	</Panel>
 	<Rectangle ux:Name="overRec" Color="#000" Opacity="0" Visibility="Hidden" >
 		<Clicked>
