@@ -1,9 +1,9 @@
 <Panel ux:Class="TextBlock" Padding="10" ClipToBounds="true">
 	<float4 ux:Property="bgColor"/>
 	<string ux:Property="boxText" />
-	<WhilePressed>
+	<!-- <WhilePressed>
 		<Change bg.Color="#000" />
-	</WhilePressed>
+	</WhilePressed> -->
 
 	<Text Value="{}" Color="#fff" TextWrapping="Wrap"  />
 	<Rectangle ux:Name="bg" Layer="Background" Color="{Property this.bgColor}" />
