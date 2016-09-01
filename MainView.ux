@@ -31,27 +31,20 @@
 		
 		
 		<Panel ux:Name="plusIcon" Alignment="BottomRight" Margin="15" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
-			<SwipeGesture ux:Name="swipe" Direction="Up" Length="50" Type="Simple" />
 			<Tapped>
 				<Toggle Target="addPageActive" />
 			</Tapped>
-			<LongPressed>
-				<Toggle Target="iconsVisible" />
-			</LongPressed>
-			<Swiped Source="swipe">
-				<Toggle Target="iconsVisible" />
-			</Swiped>
-
-			<Rectangle Width="30" Height="3" Color="#000" Opacity=".5" Alignment="Center" />
-			<Rectangle Width="3" Height="30" Color="#000" Opacity=".5" Alignment="Center" />
-			<Circle Width="50" Height="50" Color="#fff" Opacity=".5" Alignment="Center">
+			<Panel ux:Name="plusPlus">
+				<Rectangle Width="20" Height="3" Color="#000" Alignment="Center" />
+				<Rectangle Width="3" Height="20" Color="#000" Alignment="Center" />
+			</Panel>
+			<Circle Width="50" Height="50" Color="#fff" Opacity=".6" Alignment="Center">
+				<DropShadow  />
 			</Circle>
 		</Panel>
 		
-		<Panel ux:Name="pop" Layer="Overlay" Width="300" Height="300" Color="#fff">
-			<Translation Y="-1" RelativeTo="ParentSize" />
-			<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
-		</Panel>
+		<ux:Include File="Popups.ux" />
+		
 
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />

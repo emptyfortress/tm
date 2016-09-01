@@ -1,0 +1,14 @@
+<Panel>
+	<Panel ux:Name="pop" Layer="Overlay" Width="300" Height="300" Color="#fff">
+		<Translation Y="-1" RelativeTo="ParentSize" />
+		<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
+	</Panel>
+	<Panel ux:Name="popFilter" Layer="Overlay" Width="300" Height="300" Color="#fff">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Text Value="Здесь разнообразные фильтры" TextWrapping="Wrap" Alignment="Center" />
+	</Panel>
+	<Panel ux:Name="sortFilter" Layer="Overlay" Width="300" Height="300" Color="#fff">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
+	</Panel>
+</Panel>
