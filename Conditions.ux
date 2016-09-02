@@ -48,7 +48,6 @@
 	</WhileTrue> -->
 
 	<WhileTrue ux:Name="ViewerVisible">
-		<!-- <Change BlockColor.Color="0,0,1,0.5" Duration="0.2" Easing="QuadraticInOut"/> -->
 		<Change BlockColor.Color="#0095DA" Duration="0.2" Easing="QuadraticInOut"/>
 		<Change TheViewer.Visibility="Visible"/>
 		<PulseForward Target="ZoomTo" Direction="Backward"/>
