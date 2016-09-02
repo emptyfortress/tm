@@ -3,7 +3,7 @@
 		<float4 ux:Property="color" />
 	    <Image Source="{Resource iconFile}" Color="{Property this.color}" Alignment="Center" />
 	</Panel>
-	<Panel ux:Class="Header" Margin="0,-10,0,50">
+	<Panel ux:Class="Header" Margin="0,0,0,50">
 		<string ux:Property="Text"/>
 		<Text Value="{Property this.Text}" FontSize="25" Color="#999" Alignment="TopCenter" />
 	</Panel>
