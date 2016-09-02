@@ -249,7 +249,6 @@
 		
 		
 		<ux:Include File="dashboard.ux" />
-		<ux:Include File="Indicators.ux" />
 		<ux:Include File="DocItem.ux" />
 		<ux:Include File="TaskItem.ux" />
 
@@ -257,27 +256,36 @@
 			<!-- <LinearNavigation ux:Name="_mainNavigation" Active="foldersPanel" /> -->
 			
 			
-			<Panel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
+			<DockPanel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
 				<SolidColor Color="0,0,0,0" ux:Name="BlockColor"/>
-				<!-- <PageControl ux:Name="_detailNavigation">
-					<Page Margin="50" Color="#ccc">
-					</Page>
-				</PageControl> -->
-				<Panel>
-					<Panel ux:Name="TheViewerImage" Width="80%" Height="80%" Color="#fff">
-						<!-- <InteractiveTransform ux:Name="TheTransform"/> -->
+						<Text Value="Служебная записка" LayoutRole="Inert" FontSize="13" Alignment="TopRight" Margin="0,75,70,0" Color="sky" />
+						<Circle Width="70" LayoutRole="Inert" Height="70" Color="#fff" Alignment="TopRight" Offset="-10,35">
+							<fa-file-text-o FontSize="40" Color="sky" Alignment="Center" />
+						</Circle>
+				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0">
+						<Image File="Assets/backk.png" Color="#fff" Height="20" Alignment="CenterLeft" />
+						<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" Font="Light" FontSize="16" />
 						<Tapped>
-							<Set ViewerVisible.Value="false"/>
-						</Tapped>
-					</Panel>
-					<Timeline ux:Name="ZoomTo">
-						<Move RelativeTo="PositionOffset" Vector="1" Duration="0.3" ux:Name="ZoomToPos"
-							Easing="QuadraticInOut"/>
-						<Resize RelativeTo="Size" Vector="1" Duration="0.3" ux:Name="ZoomToSize"
-							Easing="QuadraticInOut"/>
-					</Timeline>
+	        				<Set ViewerVisible.Value="false"  />
+		        		</Tapped>
+				</StackPanel>
+				<Panel ux:Name="TheViewerCard" Margin="10,30,10,10">
+					
+
+
+
+
+					<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
 				</Panel>
-			</Panel>
+				<Timeline ux:Name="ZoomTo">
+					<Move RelativeTo="PositionOffset" Vector="1" Duration="0.3" ux:Name="ZoomToPos"
+						Easing="QuadraticInOut"/>
+					<Resize RelativeTo="Size" Vector="1" Duration="0.3" ux:Name="ZoomToSize"
+						Easing="QuadraticInOut"/>
+				</Timeline>
+			</DockPanel>
+		
+		<ux:Include File="Indicators.ux" />
 
 			<Panel ux:Name="foldersPanel" >
 				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />

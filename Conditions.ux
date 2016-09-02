@@ -48,15 +48,10 @@
 	</WhileTrue> -->
 
 	<WhileTrue ux:Name="ViewerVisible">
-		<Change BlockColor.Color="0,0.1,0.2,0.8" Duration="0.2" Easing="QuadraticInOut"/>
+		<!-- <Change BlockColor.Color="0,0,1,0.5" Duration="0.2" Easing="QuadraticInOut"/> -->
+		<Change BlockColor.Color="#0095DA" Duration="0.2" Easing="QuadraticInOut"/>
 		<Change TheViewer.Visibility="Visible"/>
-		<!-- <Change TheTrans.Vector="0" Duration="0.3" Easing="QuadraticInOut"/> -->
 		<PulseForward Target="ZoomTo" Direction="Backward"/>
-		
-		<!-- reset transform so animation gets close to target size -->
-		<!-- <Set TheZoomer.Value="1" Direction="Backward"/> -->
-		<!-- <Set ThePanner.Value="0,0" Direction="Backward"/> -->
-		<!-- <Set TheRotater.Value="0" Direction="Backward"/> -->
 	</WhileTrue>
 
 
