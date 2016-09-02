@@ -275,6 +275,9 @@
 							<Set BlockColor.Color="sky" />
 						</WhileActive>
 
+						<!-- <DocCard type="Служебная записка">
+						</DocCard> -->
+
 						<DockPanel  Margin="10,35,10,10">
 							<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
 								<Text Value="Служебная записка" FontSize="13" Alignment="TopRight"  Color="sky" Offset="-60,5" />
@@ -340,12 +343,15 @@
 							<Set BlockColor.Color="green" />
 							<Set BlockColorAttractor.Value="green" />
 						</WhileActive>
+
 					</Page>
 					<Page>
 						<WhileActive Threshold="0.5">
 							<Set BlockColor.Color="sky" />
 							<Set BlockColorAttractor.Value="sky" />
 						</WhileActive>
+						<!-- <DocCard type="Приказ">
+						</DocCard> -->
 					</Page>
 				</PageControl>
 

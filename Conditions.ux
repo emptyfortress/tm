@@ -48,6 +48,7 @@
 		<Change TheViewer.Visibility="Visible"/>
 		<PulseForward Target="ZoomTo" Direction="Backward"/>
 	</WhileTrue>
+
 	<WhileTrue ux:Name="menuVisible">
 		<Change topRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
 		<Change middleRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
