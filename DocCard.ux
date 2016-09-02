@@ -39,7 +39,7 @@
 			Рассмотреть на заседании учебно-методической комиссии вопрос о внесении указанных ниже изменений в учебный план. Есть два подхода к решению такой масштабной задачи, как проектирование идеального интерфейса государства.
 		</Text>
 		<Grid Columns="auto,auto" Margin="30,15,0,0">
-			<!-- <Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" /> -->
+			<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" />
 			<tabtext Value="Автор:" Alignment="Right" />
 			<tabtext Value="Орлов П.С." />
 			<tabtext Value="Дата:" Alignment="Right" />
