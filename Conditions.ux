@@ -41,9 +41,9 @@
 	</WhileTrue> -->
 
 	<WhileTrue ux:Name="ViewerVisible">
-		<Change topRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
+		<!-- <Change topRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
 		<Change middleRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
-		<Change bottomRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
+		<Change bottomRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" /> -->
 		<Change BlockColor.Color="sky" Duration="0.2" Easing="CircularInOut"/>
 		<Change TheViewer.Visibility="Visible"/>
 		<PulseForward Target="ZoomTo" Direction="Backward"/>
