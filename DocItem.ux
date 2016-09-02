@@ -63,12 +63,24 @@
 						<fa-file-text-o Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
 						<Text Value="{type}" />
 					</StackPanel>
-					<Panel Margin="0,15,0,5" >
+					<Panel ux:Name="selfImage" Margin="0,15,0,5" >
 						<Tapped>
+							<!-- <Set Target="TheViewerImage" Value="{DataToResource image}"/> -->
+							<Set ViewerVisible.Value="true"/>
+							
+							<!-- <Set TheTransform.ZoomFactor="1"/>
+							<Set TheTransform.Rotation="0"/>
+							<Set TheTransform.Translation="0"/> -->
+							
+							<Set ZoomToPos.RelativeNode="selfImage"/>
+							<Set ZoomToSize.RelativeNode="selfImage"/>
+							<PulseBackward Target="ZoomTo"/>
+						</Tapped>
+						<!-- <Tapped>
 							<Change greenScaling.Factor="1" Duration="0.5" Easing="CircularIn" />
 							<Change greenColor.Color="#D6EDFF" Duration="0.25" Easing="CircularIn"  />
-							<Set detailsActive.Value="true"  Delay=".5" />
-						</Tapped>
+							<Set detailsActive.Value="true"  />
+						</Tapped> -->
 						<Text ux:Name="docTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
 						<Text ux:Name="docTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
 					</Panel>

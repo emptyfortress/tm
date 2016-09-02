@@ -40,8 +40,30 @@
 		<Set Target="sendButtonBg.Color" Value="#eee" />
 		<Set Target="sendButton.Color" Value="#aaa" />
 	</WhileTrue>
-	
-	<WhileTrue ux:Name="detailsActive">
+	<!-- <WhileTrue ux:Name="detailsActive">
+		<Change detailsPanel.Visibility.Value="Visible" />
+		<Scale Target="detailsPanel" Factor="1" Duration=".5" Easing="CircularOut" />
+		<Change detailsPanel.Opacity.Value="1" Duration=".5" />
+		
+	</WhileTrue> -->
+
+	<WhileTrue ux:Name="ViewerVisible">
+		<Change BlockColor.Color="0,0.1,0.2,0.8" Duration="0.2" Easing="QuadraticInOut"/>
+		<Change TheViewer.Visibility="Visible"/>
+		<!-- <Change TheTrans.Vector="0" Duration="0.3" Easing="QuadraticInOut"/> -->
+		<PulseForward Target="ZoomTo" Direction="Backward"/>
+		
+		<!-- reset transform so animation gets close to target size -->
+		<!-- <Set TheZoomer.Value="1" Direction="Backward"/> -->
+		<!-- <Set ThePanner.Value="0,0" Direction="Backward"/> -->
+		<!-- <Set TheRotater.Value="0" Direction="Backward"/> -->
+	</WhileTrue>
+
+
+
+
+
+<!-- 	<WhileTrue ux:Name="detailsActive">
 		<Change ham.Visibility.Value="Hidden" />
 		<BringToFront Target="detailsPanel" />
 		<NavigateTo Target="detailsPanel" NavigationContext="_mainNavigation" />
@@ -49,15 +71,15 @@
 		<Set folderIndicator.Visibility="Collapsed" />
 		<Set detailIndicator.Visibility="Visible" />
 		<Set foldersActive.Value="false" />
-	</WhileTrue>
-	<WhileTrue ux:Name="foldersActive">
+	</WhileTrue> -->
+<!-- 	<WhileTrue ux:Name="foldersActive">
 		<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
 		<Set Target="foldersPanel.Visibility" Value="Visible"  />
 		<Set detailIndicator.Visibility="Collapsed" />
 		<Set folderIndicator.Visibility="Visible" />
 		<BringToFront Target="foldersPanel" />
 		<Set detailsActive.Value="false" />
-	</WhileTrue>
+	</WhileTrue> -->
 	<WhileTrue ux:Name="subMenuVisible">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />

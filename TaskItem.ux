@@ -70,7 +70,7 @@
 						<Tapped>
 							<Change greenScaling.Factor="1" Duration="0.5" Easing="CircularIn" />
 							<Change greenColor.Color="#D6EDFF" Duration="0.25" Easing="CircularIn"  />
-							<Set detailsActive.Value="true"  Delay=".5" />
+							<!-- <Set detailsActive.Value="true"  Delay=".5" /> -->
 						</Tapped>
 						<Text ux:Name="taskTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
 						<Text ux:Name="taskTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap" Color="{red}"/>

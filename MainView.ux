@@ -165,67 +165,67 @@
 
 					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
 						<Tapped>
-							<Set foldersActive.Value="true" />
+							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<Set detailIndicator.Visibility="Collapsed" />
+							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Черновики" Quantity="11" >
 						<Tapped>
-							<Set foldersActive.Value="true" />
+							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<Set detailIndicator.Visibility="Collapsed" />
+							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
 						<Tapped>
-							<Set foldersActive.Value="true" />
+							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<Set detailIndicator.Visibility="Collapsed" />
+							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Рассмотрение" Quantity="3" >
 						<Tapped>
-							<Set foldersActive.Value="true" />
+							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<Set detailIndicator.Visibility="Collapsed" />
+							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Исполнение" Quantity="" >
 						<Tapped>
-							<Set foldersActive.Value="true" />
+							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<Set detailIndicator.Visibility="Collapsed" />
+							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Ознакомление" Quantity="8" >
 						<Tapped>
-							<Set foldersActive.Value="true" />
+							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<Set detailIndicator.Visibility="Collapsed" />
+							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
@@ -254,9 +254,32 @@
 		<ux:Include File="TaskItem.ux" />
 
 		<Panel Dock="Fill" ux:Name="mainApp" >
-			<LinearNavigation ux:Name="_mainNavigation" />
+			<!-- <LinearNavigation ux:Name="_mainNavigation" Active="foldersPanel" /> -->
+			
+			
+			<Panel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
+				<SolidColor Color="0,0,0,0" ux:Name="BlockColor"/>
+				<!-- <PageControl ux:Name="_detailNavigation">
+					<Page Margin="50" Color="#ccc">
+					</Page>
+				</PageControl> -->
+				<Panel>
+					<Panel ux:Name="TheViewerImage" Width="80%" Height="80%" Color="#fff">
+						<!-- <InteractiveTransform ux:Name="TheTransform"/> -->
+						<Tapped>
+							<Set ViewerVisible.Value="false"/>
+						</Tapped>
+					</Panel>
+					<Timeline ux:Name="ZoomTo">
+						<Move RelativeTo="PositionOffset" Vector="1" Duration="0.3" ux:Name="ZoomToPos"
+							Easing="QuadraticInOut"/>
+						<Resize RelativeTo="Size" Vector="1" Duration="0.3" ux:Name="ZoomToSize"
+							Easing="QuadraticInOut"/>
+					</Timeline>
+				</Panel>
+			</Panel>
+
 			<Panel ux:Name="foldersPanel" >
-				<!-- <LinearNavigation ux:Name="_listNavigation" Active="{active}" /> -->
 				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />
 				<SwipeNavigate SwipeDirection="Left" />
 
@@ -490,9 +513,9 @@
 					</ScrollView>
 				</folderPage>
 			</Panel>
-<!-- Details panel ****************************************************************************************************************** -->
+<!-- Details panel *************************************************** -->
 			
-			<DockPanel ux:Name="detailsPanel" ClipToBounds="true" Background="#fff" Padding="10" Opacity="0">
+			<!-- <DockPanel ux:Name="detailsPanel" ClipToBounds="true" Background="#fff" Padding="10" Opacity="0">
 				<Translation Y="100"  />
 				<ActivatingAnimation>
 					<Move Y="-100" Duration=".3" Easing="QuadraticOut" />
@@ -525,7 +548,7 @@
 					</Panel>
 	        	
 					<ux:Include File="detailView.ux" />
-			</DockPanel>
+			</DockPanel> -->
 		</Panel>
 		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 	
