@@ -275,10 +275,10 @@
 							<Set BlockColor.Color="sky" />
 						</WhileActive>
 
-						<!-- <DocCard type="Служебная записка">
-						</DocCard> -->
+						<DocCard type="Служебная записка">
+						</DocCard>
 
-						<DockPanel  Margin="10,35,10,10">
+						<!-- <DockPanel  Margin="10,35,10,10">
 							<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
 								<Text Value="Служебная записка" FontSize="13" Alignment="TopRight"  Color="sky" Offset="-60,5" />
 								<Circle Width="70" Height="70" Color="#fff" Alignment="TopRight" Offset="0,-35" >
@@ -336,22 +336,23 @@
 								</Text>
 							</Panel>
 							<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
-						</DockPanel>
+						</DockPanel> -->
 					</Page>
 					<Page>
 						<WhileActive Threshold="0.5">
 							<Set BlockColor.Color="green" />
 							<Set BlockColorAttractor.Value="green" />
 						</WhileActive>
-
+						<DocCard type="Поручение">
+						</DocCard>
 					</Page>
 					<Page>
 						<WhileActive Threshold="0.5">
 							<Set BlockColor.Color="sky" />
 							<Set BlockColorAttractor.Value="sky" />
 						</WhileActive>
-						<!-- <DocCard type="Приказ">
-						</DocCard> -->
+						<DocCard type="Приказ">
+						</DocCard>
 					</Page>
 				</PageControl>
 
