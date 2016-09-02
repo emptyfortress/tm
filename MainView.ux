@@ -299,12 +299,32 @@
 						<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0">
 							Рассмотреть на заседании учебно-методической комиссии вопрос о внесении указанных ниже изменений в учебный план. Есть два подхода к решению такой масштабной задачи, как проектирование идеального интерфейса государства.
 						</Text>
+						<Grid Columns="auto,auto">
+							<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" />
+							<tabtext Value="Автор:" />
+							<tabtext Value="Орлов П.С." />
+							<tabtext Value="Дата:" />
+							<tabtext Value="23.10.2016  15:20" />
+							<tabtext Value="Дата регистрации:" />
+							<tabtext Value="23.10.2016  17:03" />
+							<tabtext Value="Номер:" />
+							<tabtext Value="135-К/16" />
+							<!-- <Text Alignment="CenterLeft" >Автор:</Text>
+							<Text Alignment="CenterLeft" Color="blue">Орлов П.С.</Text>
+							<Text Alignment="CenterLeft" >Дата:</Text>
+							<Text Alignment="CenterLeft" >23.10.2016  15:20</Text>
+							<Text Alignment="CenterLeft" >Дата регистрации:</Text>
+							<Text Alignment="CenterLeft" >23.10.2016  15:20</Text>
+							<Text Alignment="CenterLeft" >Номер:</Text>
+							<Text Alignment="CenterLeft" >135-К/16</Text> -->
+							
+						</Grid>
 					</StackPanel>
 					<Rectangle Height="2" Color="#0095DA" Margin="0,20" />
 					<Panel>
 						<Text Value="Bottom" Alignment="Center">
 							<Tapped>
-								<Set infoCard.Height.Value="100"/>
+								<Set infoCard.Height.Value="20"/>
 							</Tapped>
 						</Text>
 					</Panel>
