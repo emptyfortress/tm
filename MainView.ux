@@ -8,10 +8,14 @@
 		};
 	</JavaScript>
 	
+	
+	<!-- <SolidColor ux:Global="black" ux:Value="0,0,0,0" /> -->
+	<!-- <float4 ux:Global="white" uxBlack:Value="#fff" /> -->
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />
 	<float4 ux:Global="sky" ux:Value="#0095DA" />
 	<float4 ux:Global="red" ux:Value="#B20000" />
+	<float4 ux:Global="green" ux:Value="#7BB652" />
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
 	<Font File="Assets/fonts/Roboto-Bold.ttf" ux:Global="Bold" />
@@ -68,12 +72,12 @@
         		<NavigateToggle Target="menu" />
         		<Toggle Target="menuVisible" />
         	</Tapped>
-			<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#000">
+			<Rectangle ux:Name="topRectangle" Height="2" Width="26" Color="Black">
 				<Translation Y="-9" ux:Name="topMenuTranslation" />
 				<Rotation ux:Name="topMenuRotation" />
 			</Rectangle>
-			<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#000" />
-			<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#000">
+			<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Color="Black" />
+			<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Color="Black">
 				<Translation Y="9" ux:Name="bottomMenuTranslation" />
 				<Rotation ux:Name="bottomMenuRotation" /> 
 			</Rectangle>
@@ -253,15 +257,10 @@
 		<ux:Include File="TaskItem.ux" />
 
 		<Panel Dock="Fill" ux:Name="mainApp" >
-			<!-- <LinearNavigation ux:Name="_mainNavigation" Active="foldersPanel" /> -->
-			
-			
 			<DockPanel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
-				<SolidColor Color="0,0,0,0" ux:Name="BlockColor"/>
-				<Text Value="Служебная записка" LayoutRole="Inert" FontSize="13" Alignment="TopRight" Margin="0,75,70,0" Color="sky" />
-				<Circle Width="70" LayoutRole="Inert" Height="70" Color="#fff" Alignment="TopRight" Offset="-10,35">
-					<fa-file-text-o FontSize="40" Color="sky" Alignment="Center" />
-				</Circle>
+				<SolidColor Color="sky" ux:Name="BlockColor"/>
+				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
+
 				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0">
 					<Image File="Assets/backk.png" Color="#fff" Height="20" Alignment="CenterLeft" />
 					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" Font="Light" FontSize="16" />
@@ -269,71 +268,91 @@
         				<Set ViewerVisible.Value="false"  />
 	        		</Tapped>
 				</StackPanel>
-				<DockPanel ux:Name="TheViewerCard" Margin="10,30,10,10">
-					<!-- <StackLayout /> -->
-					<StackPanel ux:Name="infoCard" Height="50%" Dock="Top" Padding="10,30,10,10" ClipToBounds="true">
-						<Panel Alignment="TopLeft" Offset="0,-15">
-							<WhileTrue ux:Name="info2">
-								<Change Target="infoPanel.Visibility" Value="Visible" />
-								<Change Target="bell.Visibility" Value="Collapsed" />
-							</WhileTrue>
-							<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
-								<Clicked>
-									<Toggle Target="info2"/>
-				  					<Pulse Target="GrowMe2"/>
-								</Clicked>
-							</fa-bell-o>
-							<Panel ux:Name="infoPanel" Visibility="Collapsed">
-								<WhileTrue ux:Name="GrowMe2">
-								   <Scale Factor="1.2" Duration="0.1"/>
-								</WhileTrue>
-								<Text Value="Иванов Г.К. добавил комментарий    23.08.2016 17:15" FontSize="12" Margin="10" Alignment="Center"/>
-								<Clicked>
-									<Set infoPanel.Visibility.Value="Collapsed" />
-								</Clicked>
-								<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+				<PageControl ux:Name="TheViewerCard">
+					<Page>
+						<WhileActive Threshold="0.5">
+							<Set BlockColorAttractor.Value="sky" />
+							<Set BlockColor.Color="sky" />
+						</WhileActive>
+
+						<DockPanel  Margin="10,35,10,10">
+							<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
+								<Text Value="Служебная записка" FontSize="13" Alignment="TopRight"  Color="sky" Offset="-60,5" />
+								<Circle Width="70" Height="70" Color="#fff" Alignment="TopRight" Offset="0,-35" >
+									<fa-file-text-o FontSize="40" Color="sky" Alignment="Center" />
+								</Circle>
 							</Panel>
-						</Panel>
-						<Text Value="№ 135-К/16" Margin="0,10,0,0" />
-						<Text LineSpacing="-5" Value="О внесении изменений в учебный план и мероприятиях на 1 сентября" FontSize="30" TextWrapping="Wrap" />
-						<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0">
-							Рассмотреть на заседании учебно-методической комиссии вопрос о внесении указанных ниже изменений в учебный план. Есть два подхода к решению такой масштабной задачи, как проектирование идеального интерфейса государства.
-						</Text>
-						<Grid Columns="auto,auto">
-							<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" />
-							<tabtext Value="Автор:" />
-							<tabtext Value="Орлов П.С." />
-							<tabtext Value="Дата:" />
-							<tabtext Value="23.10.2016  15:20" />
-							<tabtext Value="Дата регистрации:" />
-							<tabtext Value="23.10.2016  17:03" />
-							<tabtext Value="Номер:" />
-							<tabtext Value="135-К/16" />
-							<!-- <Text Alignment="CenterLeft" >Автор:</Text>
-							<Text Alignment="CenterLeft" Color="blue">Орлов П.С.</Text>
-							<Text Alignment="CenterLeft" >Дата:</Text>
-							<Text Alignment="CenterLeft" >23.10.2016  15:20</Text>
-							<Text Alignment="CenterLeft" >Дата регистрации:</Text>
-							<Text Alignment="CenterLeft" >23.10.2016  15:20</Text>
-							<Text Alignment="CenterLeft" >Номер:</Text>
-							<Text Alignment="CenterLeft" >135-К/16</Text> -->
-							
-						</Grid>
-					</StackPanel>
-					<Rectangle Height="2" Color="#0095DA" Margin="0,20" />
-					<Panel>
-						<Text Value="Bottom" Alignment="Center">
-							<Tapped>
-								<Set infoCard.Height.Value="20"/>
-							</Tapped>
-						</Text>
-					</Panel>
+							<StackPanel ux:Name="infoCard" Height="50%" Dock="Top" Padding="10,30,10,10" ClipToBounds="true">
+								<Panel Alignment="TopLeft" Offset="0,-15">
+									<WhileTrue ux:Name="info2">
+										<Change Target="infoPanel.Visibility" Value="Visible" />
+										<Change Target="bell.Visibility" Value="Collapsed" />
+									</WhileTrue>
+									<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
+										<Clicked>
+											<Toggle Target="info2"/>
+						  					<Pulse Target="GrowMe2"/>
+										</Clicked>
+									</fa-bell-o>
+									<Panel ux:Name="infoPanel" Visibility="Collapsed">
+										<WhileTrue ux:Name="GrowMe2">
+										   <Scale Factor="1.2" Duration="0.1"/>
+										</WhileTrue>
+										<Text Value="Иванов Г.К. добавил комментарий    23.08.2016 17:15" FontSize="12" Margin="10" Alignment="Center"/>
+										<Clicked>
+											<Set infoPanel.Visibility.Value="Collapsed" />
+										</Clicked>
+										<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+									</Panel>
+								</Panel>
+								<Text Value="№ 135-К/16" Margin="0,10,0,0" />
+								<Text LineSpacing="-5" Value="О внесении изменений в учебный план и мероприятиях на 1 сентября" FontSize="25" TextWrapping="Wrap" />
+								<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0">
+									Рассмотреть на заседании учебно-методической комиссии вопрос о внесении указанных ниже изменений в учебный план. Есть два подхода к решению такой масштабной задачи, как проектирование идеального интерфейса государства.
+								</Text>
+								<Grid Columns="auto,auto" Margin="30,15,0,0">
+									<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" />
+									<tabtext Value="Автор:" Alignment="Right" />
+									<tabtext Value="Орлов П.С." />
+									<tabtext Value="Дата:" Alignment="Right" />
+									<tabtext Value="23.10.2016  15:20" />
+									<tabtext Value="Дата регистрации:" Alignment="Right" />
+									<tabtext Value="23.10.2016  17:03" />
+									<tabtext Value="Номер:" Alignment="Right" />
+									<tabtext Value="135-К/16" />
+									<tabtext Value="Контрагент:" Alignment="Right" />
+									<tabtext Value="" />
+								</Grid>
+							</StackPanel>
+							<Rectangle Height="2" Color="#0095DA" Margin="0,20" />
+							<Panel>
+								<Text Value="Bottom" Alignment="Center">
+									<Tapped>
+										<Set infoCard.Height.Value="20"/>
+									</Tapped>
+								</Text>
+							</Panel>
+							<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
+						</DockPanel>
+					</Page>
+					<Page>
+						<WhileActive Threshold="0.5">
+							<Set BlockColor.Color="green" />
+							<Set BlockColorAttractor.Value="green" />
+						</WhileActive>
+					</Page>
+					<Page>
+						<WhileActive Threshold="0.5">
+							<Set BlockColor.Color="sky" />
+							<Set BlockColorAttractor.Value="sky" />
+						</WhileActive>
+					</Page>
+				</PageControl>
 
 
 
-
-					<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
-				</DockPanel>
+				
+				
 				<Timeline ux:Name="ZoomTo">
 					<Move RelativeTo="PositionOffset" Vector="1" Duration="0.5" ux:Name="ZoomToPos"
 						Easing="QuadraticInOut"/>

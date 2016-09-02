@@ -17,14 +17,7 @@
 		<Rotate Target="plusPlus" Degrees="-135" Duration=".3" />
 	</WhileTrue>
 
-	<WhileTrue ux:Name="menuVisible">
-		<Change topRectangle.Fill="#000" />
-		<Change middleRectangle.Fill="#000" />
-		<Change bottomRectangle.Fill="#000" />
-		<Change plusIcon.Visibility="Hidden" Duration=".2" />
-		<!-- <Change action.Visibility="Hidden" Duration=".2" /> -->
-		
-	</WhileTrue>
+	
 
 	<WhileTrue ux:Name="addPageActive" >
 		<Change overlayRec.Opacity=".7" Duration=".2" Easing="CircularIn" />
@@ -48,11 +41,19 @@
 	</WhileTrue> -->
 
 	<WhileTrue ux:Name="ViewerVisible">
-		<Change BlockColor.Color="#0095DA" Duration="0.2" Easing="QuadraticInOut"/>
+		<Change topRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
+		<Change middleRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
+		<Change bottomRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
+		<Change BlockColor.Color="sky" Duration="0.2" Easing="CircularInOut"/>
 		<Change TheViewer.Visibility="Visible"/>
 		<PulseForward Target="ZoomTo" Direction="Backward"/>
 	</WhileTrue>
-
+	<WhileTrue ux:Name="menuVisible">
+		<Change topRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
+		<Change middleRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
+		<Change bottomRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
+		<Change plusIcon.Visibility="Hidden" Duration=".2" />
+	</WhileTrue>
 
 
 
