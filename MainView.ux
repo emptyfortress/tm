@@ -12,6 +12,7 @@
 	<!-- <SolidColor ux:Global="black" ux:Value="0,0,0,0" /> -->
 	<!-- <float4 ux:Global="white" uxBlack:Value="#fff" /> -->
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
+	<float4 ux:Global="pink" ux:Value="#7F00FF" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />
 	<float4 ux:Global="sky" ux:Value="#0095DA" />
 	<float4 ux:Global="red" ux:Value="#B20000" />
@@ -255,8 +256,6 @@
 		<ux:Include File="dashboard.ux" />
 		<ux:Include File="DocItem.ux" />
 		<ux:Include File="TaskItem.ux" />
-		<!-- <ux:Include File="DocCard.ux" /> -->
-
 
 		<Panel Dock="Fill" ux:Name="mainApp" >
 			<DockPanel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
@@ -271,7 +270,6 @@
 	        		</Tapped>
 				</StackPanel>
 				<PageControl ux:Name="TheViewerCard">
-					<!-- <Each Items="{items.cards}" Count="2"> -->
 					<Each Items="{items.cards}" >
 						<Page>
 							<WhileActive Threshold=".5">
@@ -282,14 +280,22 @@
 						</Page>
 					</Each>
 					<Each Items="{items.cards1}" >
-					<Page>
-						<WhileActive Threshold=".5">
-							<Set BlockColorAttractor.Value="green" />
-							<Set BlockColor.Color="green" />
-						</WhileActive>
-						<TaskCard keyColor="green" />
-								
-					</Page>
+						<Page>
+							<WhileActive Threshold=".5">
+								<Set BlockColorAttractor.Value="green" />
+								<Set BlockColor.Color="green" />
+							</WhileActive>
+							<TaskCard keyColor="green" />
+						</Page>
+					</Each>
+					<Each Items="{items.cards2}" >
+						<Page>
+							<WhileActive Threshold=".5">
+								<Set BlockColorAttractor.Value="pink" />
+								<Set BlockColor.Color="pink" />
+							</WhileActive>
+							<SoglCard keyColor="pink" />
+						</Page>
 					</Each>
 				</PageControl>
 
