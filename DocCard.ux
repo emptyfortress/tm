@@ -60,9 +60,15 @@
 						<Change fileColumns.ColumnCount.Value="2" />
 					</WhileWindowPortrait>
 					<Each Count="{files}" >
-						<Rectangle Color="#ccc" Height="50" />
+						<Rectangle Color="#ccc" Height="100" />
 					</Each>
 				</Panel>
+				<ScrollingAnimation From="10" To="500">
+					<Change infoCard.Height.Value="10" Duration=".3" />
+				</ScrollingAnimation>
+				<ScrollingAnimation From="0" To="-100">
+					<Set infoCard.Height.Value="90%" />
+				</ScrollingAnimation>
 			</ScrollView>
 		</PageControl>
 	</Panel>
