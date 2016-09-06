@@ -7,18 +7,12 @@
 			<fa-check-square-o FontSize="43" Color="{Property this.keyColor}" Alignment="Center" Offset="0,5" />
 		</Circle>
 	</Panel>
-	<StackPanel ux:Name="infoCard" Height="50%" Dock="Top" Padding="10,30,10,10" ClipToBounds="true">
+	<StackPanel ux:Name="infoCard" Dock="Top" Padding="10,30,10,10" ClipToBounds="true">
 		<Panel Alignment="TopLeft" Offset="0,-15">
 			<WhileTrue ux:Name="info2">
 				<Change Target="infoPanel.Visibility" Value="Visible" />
 				<Change Target="bell.Visibility" Value="Collapsed" />
 			</WhileTrue>
-			<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
-				<Clicked>
-					<Toggle Target="info2"/>
-  					<Pulse Target="GrowMe2"/>
-				</Clicked>
-			</fa-bell-o>
 			<Panel ux:Name="infoPanel" Visibility="Collapsed">
 				<WhileTrue ux:Name="GrowMe2">
 				   <Scale Factor="1.2" Duration="0.1"/>
@@ -29,21 +23,29 @@
 				</Clicked>
 				<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
 			</Panel>
+			<StackPanel Orientation="Horizontal" ItemSpacing="10">
+				<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23">
+					<Clicked>
+						<Toggle Target="info2"/>
+	  					<Pulse Target="GrowMe2"/>
+					</Clicked>
+				</fa-bell-o>
+				<Image File="Assets/clock.png" Alignment="CenterLeft" Width="23" Color="red" Visibility="{clock}" />
+			</StackPanel>
 		</Panel>
-		<Text Value="№ 135-К/16" Margin="0,10,0,0" />
 		<Text LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap" />
 		<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
 		<Grid Columns="auto,auto" Margin="30,15,0,0">
 			<tabtext Value="Автор:" Alignment="Right" />
 			<tabtext Value="Орлов П.С." />
-			<tabtext Value="Дата:" Alignment="Right" />
-			<tabtext Value="23.10.2016  15:20" />
-			<tabtext Value="Дата регистрации:" Alignment="Right" />
-			<tabtext Value="23.10.2016  17:03" />
-			<tabtext Value="Номер:" Alignment="Right" />
-			<tabtext Value="135-К/16" />
-			<tabtext Value="Контрагент:" Alignment="Right" />
-			<tabtext Value="" />
+			<tabtext Value="Исполнители:" Alignment="Right" />
+			<tabtext Value="{to}" />
+			<tabtext Value="Cрок исполнения:" Alignment="Right" Color="{red}" />
+			<tabtext Value="{deadline}" Color="{red}"/>
+			<tabtext Value="Контролер:" Alignment="Right" />
+			<tabtext Value="{controler}" />
+			<tabtext Value="Дата контроля:" Alignment="Right" />
+			<tabtext Value="{controldate}" />
 		</Grid>
 	</StackPanel>
 	<Rectangle Height="2" Color="{Property this.keyColor}" Margin="0,20" />

@@ -35,9 +35,9 @@
 		<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
 		<Grid Columns="auto,auto" Margin="30,15,0,0">
 			<tabtext Value="Автор:" Alignment="Right" />
-			<tabtext Value="Орлов П.С." />
+			<tabtext Value="{from}" />
 			<tabtext Value="Дата:" Alignment="Right" />
-			<tabtext Value="23.10.2016  15:20" />
+			<tabtext Value="{}" />
 			<tabtext Value="Дата регистрации:" Alignment="Right" />
 			<tabtext Value="23.10.2016  17:03" />
 			<tabtext Value="Номер:" Alignment="Right" />

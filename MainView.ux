@@ -257,7 +257,7 @@
 		<ux:Include File="DocItem.ux" />
 		<ux:Include File="TaskItem.ux" />
 
-		<Panel Dock="Fill" ux:Name="mainApp" >
+		<Panel ux:Name="mainApp" >
 			<DockPanel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
 				<SolidColor Color="sky" ux:Name="BlockColor"/>
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
