@@ -7,8 +7,7 @@
 			<fa-file-text-o FontSize="40" Color="{Property this.keyColor}" Alignment="Center" />
 		</Circle>
 	</Panel>
-	
-	<StackPanel ux:Name="infoCard" Dock="Top" Height="50%" Padding="10,30,10,10" ClipToBounds="true">
+	<StackPanel ux:Name="infoCard" Dock="Top" Height="70%" Padding="10,30,10,10" ClipToBounds="true">
 		<Panel Alignment="TopLeft" Offset="0,-15">
 			<WhileTrue ux:Name="info2">
 				<Change Target="infoPanel.Visibility" Value="Visible" />
@@ -59,15 +58,17 @@
 					<WhileWindowPortrait>
 						<Change fileColumns.ColumnCount.Value="2" />
 					</WhileWindowPortrait>
+					<Rectangle Color="#000" Height="100" />
 					<Each Count="{files}" >
 						<Rectangle Color="#ccc" Height="100" />
 					</Each>
+					<Rectangle Color="#000" Height="100" />
 				</Panel>
-				<ScrollingAnimation From="10" To="500">
-					<Change infoCard.Height.Value="10" Duration=".3" />
+				<ScrollingAnimation From="50" To="200" Range="SnapMin">
+					<Set infoCard.Height.Value="10"  />
 				</ScrollingAnimation>
-				<ScrollingAnimation From="0" To="-100">
-					<Set infoCard.Height.Value="90%" />
+				<ScrollingAnimation From="200" To="50" Range="SnapMin">
+					<Set infoCard.Height.Value="70%" />
 				</ScrollingAnimation>
 			</ScrollView>
 		</PageControl>
