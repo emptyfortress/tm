@@ -66,13 +66,17 @@
 					</Each>
 					<Rectangle Color="#000" Height="100" />
 				</Panel>
-				<ScrollingAnimation From="50" To="200" Range="SnapMin">
-					<Set infoCard.Height.Value="10"  />
+				<ScrollingAnimation From="50" To="200" Range="SnapMin" >
+					<Set infoCard.Height.Value="10"   />
 				</ScrollingAnimation>
-				<ScrollingAnimation From="200" To="50" >
+				<ScrollingAnimation From="0" To="-200" Range="SnapMin" >
+					<Set infoCard.Height.Value="70%"   />
+				</ScrollingAnimation>
+				<!-- <ScrollingAnimation From="0" To="-50" Inverse="" >
 					<Set infoCard.Height.Value="70%" />
-				</ScrollingAnimation>
+				</ScrollingAnimation> -->
 			</ScrollView>
+			<Panel Color="#f00" />
 		</PageControl>
 	</Panel>
 	<!-- <StackPanel>
