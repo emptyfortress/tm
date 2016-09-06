@@ -269,7 +269,7 @@
         				<Set ViewerVisible.Value="false"  />
 	        		</Tapped>
 				</StackPanel>
-				<PageControl ux:Name="TheViewerCard">
+				<PageControl ux:Name="TheViewerCard" ClipToBounds="false">
 					<Each Items="{items.cards}" >
 						<Page>
 							<WhileActive Threshold=".5">

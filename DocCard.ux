@@ -1,52 +1,54 @@
-<DockPanel ux:Class="DocCard" Margin="10,35,10,10" >
-	
+<DockPanel ux:Class="DocCard" Margin="10,15,10,10" >
 	<float4 ux:Property="keyColor" />
+
 	<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
 		<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{Property this.keyColor}" Offset="-60,5" />
-		<Circle Width="70" Height="70" Color="#fff" Alignment="TopRight" Offset="0,-35" >
-			<fa-file-text-o FontSize="40" Color="{Property this.keyColor}" Alignment="Center" />
+		<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
+			<fa-file-text-o FontSize="35" Color="{Property this.keyColor}" Alignment="Center" />
 		</Circle>
 	</Panel>
-	<StackPanel ux:Name="infoCard" Dock="Top" Height="70%" Padding="10,30,10,10" ClipToBounds="true">
-		<Panel Alignment="TopLeft" Offset="0,-15">
-			<WhileTrue ux:Name="info2">
-				<Change Target="infoPanel.Visibility" Value="Visible" />
-				<Change Target="bell.Visibility" Value="Collapsed" />
-			</WhileTrue>
-			<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
-				<Clicked>
-					<Toggle Target="info2"/>
-  					<Pulse Target="GrowMe2"/>
-				</Clicked>
-			</fa-bell-o>
-			<Panel ux:Name="infoPanel" Visibility="Collapsed">
-				<WhileTrue ux:Name="GrowMe2">
-				   <Scale Factor="1.2" Duration="0.1"/>
+	<ScrollView ux:Name="infoCard" MaxHeight="70%" Dock="Top">
+		<StackPanel Padding="10,30,10,10" >
+			<Panel Alignment="TopLeft" Offset="0,-15">
+				<WhileTrue ux:Name="info2">
+					<Change Target="infoPanel.Visibility" Value="Visible" />
+					<Change Target="bell.Visibility" Value="Collapsed" />
 				</WhileTrue>
-				<Text Value="{info}" FontSize="12" Margin="10" Alignment="Center"/>
-				<Clicked>
-					<Set infoPanel.Visibility.Value="Collapsed" />
-				</Clicked>
-				<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+				<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
+					<Clicked>
+						<Toggle Target="info2"/>
+	  					<Pulse Target="GrowMe2"/>
+					</Clicked>
+				</fa-bell-o>
+				<Panel ux:Name="infoPanel" Visibility="Collapsed">
+					<WhileTrue ux:Name="GrowMe2">
+					   <Scale Factor="1.2" Duration="0.1"/>
+					</WhileTrue>
+					<Text Value="{info}" FontSize="12" Margin="10" Alignment="Center"/>
+					<Clicked>
+						<Set infoPanel.Visibility.Value="Collapsed" />
+					</Clicked>
+					<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+				</Panel>
 			</Panel>
-		</Panel>
-		<Text Value="№ 135-К/16" Margin="0,10,0,0" />
-		<Text LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap" />
-		<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
-		<Grid Columns="auto,auto" Margin="30,15,0,0">
-			<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" />
-			<tabtext Value="Автор:" Alignment="Right" />
-			<tabtext Value="Орлов П.С." />
-			<tabtext Value="Дата:" Alignment="Right" />
-			<tabtext Value="23.10.2016  15:20" />
-			<tabtext Value="Дата регистрации:" Alignment="Right" />
-			<tabtext Value="23.10.2016  17:03" />
-			<tabtext Value="Номер:" Alignment="Right" />
-			<tabtext Value="135-К/16" />
-			<tabtext Value="Контрагент:" Alignment="Right" />
-			<tabtext Value="" />
-		</Grid>
-	</StackPanel>
+			<Text Value="№ 135-К/16" Margin="0,10,0,0" />
+			<Text LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap" />
+			<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
+			<Grid Columns="auto,auto" Margin="30,15,0,0">
+				<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" />
+				<tabtext Value="Автор:" Alignment="Right" />
+				<tabtext Value="Орлов П.С." />
+				<tabtext Value="Дата:" Alignment="Right" />
+				<tabtext Value="23.10.2016  15:20" />
+				<tabtext Value="Дата регистрации:" Alignment="Right" />
+				<tabtext Value="23.10.2016  17:03" />
+				<tabtext Value="Номер:" Alignment="Right" />
+				<tabtext Value="135-К/16" />
+				<tabtext Value="Контрагент:" Alignment="Right" />
+				<tabtext Value="" />
+			</Grid>
+		</StackPanel>
+	</ScrollView>
 	<Panel>
 		<Rectangle Height="2" Color="{Property this.keyColor}" Alignment="Top">
 			<Rectangle Width="30" Height="10" Color="{Property this.keyColor}" Alignment="Center" />
@@ -67,7 +69,7 @@
 				<ScrollingAnimation From="50" To="200" Range="SnapMin">
 					<Set infoCard.Height.Value="10"  />
 				</ScrollingAnimation>
-				<ScrollingAnimation From="200" To="50" Range="SnapMin">
+				<ScrollingAnimation From="200" To="50" >
 					<Set infoCard.Height.Value="70%" />
 				</ScrollingAnimation>
 			</ScrollView>
