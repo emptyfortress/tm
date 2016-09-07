@@ -120,7 +120,7 @@
 		<GridLayout ColumnCount="2" Rows="1*"/>
 		<Panel ux:Name="fileTab">
 			<Placeholder>
-				<Rectangle ux:Name="indicator1" Alignment="Top" Height="3" Fill="#000">
+				<Rectangle ux:Name="indicator1" Alignment="Top" Height="6" Fill="#000" Margin="50,0">
 					<LayoutAnimation>
 						<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 					</LayoutAnimation>
