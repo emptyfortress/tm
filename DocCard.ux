@@ -14,6 +14,7 @@
 			<Change mainTitle.FontSize="16" Duration=".3" Easing="CubicOut" />
 			<Move Target="mainTitle" Y="-20" Duration=".5" Delay=".3" Easing="CubicOut" />
 			<Move Target="down" Y="1.25" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
+			<Move Target="down1" Y="1.25" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
 		</State>
 		<State ux:Name="fileShort">
 			<Change infoCard.Height="70%" Duration=".7" Easing="QuarticInOut" />
@@ -54,7 +55,7 @@
 				</Panel>
 			</Panel>
 			
-			<Text ux:Name="number" Value="№ 135-К/16" Margin="0,10,0,20" />
+			<Text ux:Name="number" Value="{number}" Margin="0,10,0,20" />
 			<Text ux:Name="mainTitle" LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap">
 				<LayoutAnimation>
 		            <Resize X="1" Y="1" RelativeTo="LayoutChange" Duration="0.25"/>
@@ -77,13 +78,25 @@
 			</Grid>
 		</StackPanel>
 	</ScrollView>
-		
-	<PageControl ux:Name="cardHelper" Padding="10" >
+	<Rectangle Height="2" Color="{Property this.keyColor}" Alignment="Top" >
+		<!-- <Rectangle Height="6" Width="50" Color="sky" /> -->
+	</Rectangle>
+	
+	<Panel Alignment="TopCenter" Background="#000" Padding="10,0">	
+		<Text ux:Name="header" Color="#fff" Value="Вложения" Alignment="TopCenter" />
+		<Translation Y="-1" RelativeTo="Size" />
+	</Panel>
+	
+	<PageControl ux:Name="cardHelper" Padding="10">
 		
 		<Page ux:Name="filesHelper">
+			<!-- <StackLayout /> -->
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="fileTab" />
+				<Set header.Value="Вложения" />
 			</WhileActive>
+			
+			<!-- <Text Value="Вложения - 15" Alignment="TopLeft" /> -->
 
 			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
@@ -92,27 +105,58 @@
 					<Set fileState.Active="fileShort" />
 				</Tapped>
 			</Circle>
-			<ScrollView ux:Name="fileScroll" >
-				<Panel>
-					<ColumnLayout ux:Name="fileColumns" ColumnCount="4" ItemSpacing="10" ColumnSpacing="10" />
-					<WhileWindowPortrait>
-						<Change fileColumns.ColumnCount.Value="2" />
-					</WhileWindowPortrait>
-					<Rectangle ux:Name="firstFile" Color="#000" Height="100" />
-					<Each Count="{files}" >
-						<Rectangle Color="#ccc" Height="100" />
-					</Each>
-					<Rectangle Color="#000" Height="100" />
-				</Panel>
+			<ScrollView ux:Name="fileScroll">
+				<StackPanel>
+					<Panel>
+						<ColumnLayout ux:Name="fileColumns" ColumnCount="4" ItemSpacing="10" ColumnSpacing="10" />
+						<WhileWindowPortrait>
+							<Change fileColumns.ColumnCount.Value="2" />
+						</WhileWindowPortrait>
+						<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
+						<Each Count="{files}" >
+							<Panel Height="100">
+								<Panel Color="blue" Alignment="Bottom">
+									<Text Value="Основной файл" Alignment="Left" Margin="5,3,0,3" Color="#fff" FontSize="12" />
+									<Text Value="123 kB" FontSize="11" Color="#fff" Alignment="Right"  Margin="0,3,5,0" />
+								</Panel>
+								
+								<Text Value="{filename}" FontSize="16" Color="blue" Alignment="TopLeft" TextWrapping="Wrap" Margin="10,10,10,20" />
+								
+								<Rectangle Layer="Background" Color="#fff" >
+									<Stroke Width="2" Color="blue" />
+								</Rectangle>
+							</Panel>
+						</Each>
+					</Panel>
+					<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" />
+					<Text Value="Приложение к договору №1.doc" Color="blue" Margin="0,10" />
+					<Text Value="Приложение к договору №2.doc" Color="blue" Margin="0,10" />
+					<Text Value="Приложение к договору №3.doc" Color="blue" Margin="0,10" />
+				</StackPanel>
 				<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 					<Set fileState.Active="fileFull"   />
 				</ScrollingAnimation>
 			</ScrollView>
 		</Page>
-		<Page Color="#f00" ux:Name="taskHelper">
+		<Page ux:Name="taskHelper">
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="taskTab" />
+				<Set header.Value="Поручения" />
 			</WhileActive>
+			<Circle ux:Name="down1" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
+				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+				<Translation Y="-1.5" RelativeTo="Size" />
+				<Tapped>
+					<Set fileState.Active="fileShort" />
+				</Tapped>
+			</Circle>
+			<ScrollView ux:Name="taskScroll" >
+				<StackPanel ItemSpacing="10">
+					<Each Count="10">
+						<Rectangle Height="50" Color="#ccc" />
+					</Each>
+				</StackPanel>
+			</ScrollView>
 		</Page>
 	</PageControl>
 
@@ -149,16 +193,5 @@
 				</Icon> -->
 		</Panel>
 	</MultiLayoutPanel>
-	<!-- <Grid Dock="Bottom" Height="50" ColumnCount="2">
-		<StackPanel Orientation="Horizontal" ContentAlignment="Center">
-			<fa-paperclip FontSize="25" /><Text Value="(15)" Margin="5,3,0,0" />
-		</StackPanel>
-		<StackPanel Orientation="Horizontal" ContentAlignment="Center">
-			<fa-check-square-o FontSize="25"  /><Text Value="(0)" Margin="5,3,0,0" />
-		</StackPanel>
-	</Grid> -->
-
-
-
 	<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
 </DockPanel>

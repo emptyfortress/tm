@@ -1,0 +1,33 @@
+<!-- <Panel ux:Class="file" Height="100">
+	<Panel Color="blue" Alignment="Top">
+		<Text Value="Основной" Alignment="Left" Margin="20,3,0,3" Color="#fff" FontSize="12" />
+	</Panel>
+	
+	<StackPanel Orientation="Horizontal" Alignment="Center" ItemSpacing="5">
+		<fa-file-pdf-o FontSize="25" Color="blue" />
+		<Text Value="Договор с подрядчиком.pdf" FontSize="16" Color="blue" />
+	</StackPanel>
+
+
+
+	<Rectangle Layer="Background" Color="#fff" >
+		<Stroke Width="1" Color="blue" />
+	</Rectangle>
+	
+</Panel> -->
+
+<Panel ux:Class="file" Height="100" Padding="10" ClipToBounds="true">
+	<float4 ux:Property="fileColor"/>
+	<StackLayout />
+
+	<Text Value="Основной" Margin="0,0,0,10" FontSize="12" Color="#fff"  />
+	<StackPanel Orientation="Horizontal" Alignment="Left" ItemSpacing="5">
+		<fa-file-pdf-o FontSize="25" Color="#fff" />
+		<Text Value="Это имя файла.pdf" FontSize="16" Color="#fff" />
+	</StackPanel>
+
+	<Text Value="123 kB" FontSize="11" Color="#fff"  Margin="0,0,5,3" />
+
+	<!-- <fa-file-o Layer="Background" Margin="5" FontSize="50" Color="#0003" Alignment="BottomRight" /> -->
+	<Rectangle Layer="Background" Color="{Property this.fileColor}" />
+</Panel>
