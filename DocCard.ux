@@ -54,7 +54,7 @@
 				</Panel>
 			</Panel>
 			
-			<Text ux:Name="number" Value="№ 135-К/16" Margin="0,10,0,0" />
+			<Text ux:Name="number" Value="№ 135-К/16" Margin="0,10,0,20" />
 			<Text ux:Name="mainTitle" LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap">
 				<LayoutAnimation>
 		            <Resize X="1" Y="1" RelativeTo="LayoutChange" Duration="0.25"/>
@@ -78,8 +78,13 @@
 		</StackPanel>
 	</ScrollView>
 		
-	<PageControl Padding="10" >
-		<Panel >
+	<PageControl ux:Name="cardHelper" Padding="10" >
+		
+		<Page ux:Name="filesHelper">
+			<WhileActive Threshold="0.5">
+				<Set tabBar1.LayoutElement="fileTab" />
+			</WhileActive>
+
 			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
 				<Translation Y="-1.5" RelativeTo="Size" />
@@ -103,8 +108,51 @@
 					<Set fileState.Active="fileFull"   />
 				</ScrollingAnimation>
 			</ScrollView>
-		</Panel>
-		<Panel Color="#f00" />
+		</Page>
+		<Page Color="#f00" ux:Name="taskHelper">
+			<WhileActive Threshold="0.5">
+				<Set tabBar1.LayoutElement="taskTab" />
+			</WhileActive>
+		</Page>
 	</PageControl>
+
+	<MultiLayoutPanel Height="50" ux:Name="tabBar1" Dock="Bottom" >
+		<GridLayout ColumnCount="2" Rows="1*"/>
+		<Panel ux:Name="fileTab">
+			<Placeholder>
+				<Rectangle ux:Name="indicator1" Alignment="Top" Height="3" Fill="#000">
+					<LayoutAnimation>
+						<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
+					</LayoutAnimation>
+				</Rectangle>
+			</Placeholder>
+			<Icon>
+				<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
+				<Clicked>
+					<Set cardHelper.Active="filesHelper" />
+				</Clicked>
+			</Icon>
+		</Panel>
+		<Panel ux:Name="taskTab">
+			<Placeholder Target="indicator1"/>
+			<Icon>
+				<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
+				<Clicked>
+					<Set cardHelper.Active="taskHelper" />
+				</Clicked>
+			</Icon>
+		</Panel>
+	</MultiLayoutPanel>
+	<!-- <Grid Dock="Bottom" Height="50" ColumnCount="2">
+		<StackPanel Orientation="Horizontal" ContentAlignment="Center">
+			<fa-paperclip FontSize="25" /><Text Value="(15)" Margin="5,3,0,0" />
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" ContentAlignment="Center">
+			<fa-check-square-o FontSize="25"  /><Text Value="(0)" Margin="5,3,0,0" />
+		</StackPanel>
+	</Grid> -->
+
+
+
 	<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
 </DockPanel>
