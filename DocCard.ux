@@ -11,10 +11,10 @@
 			<Change description.Visibility.Value="Hidden" />
 			<Change attributes.Visibility.Value="Hidden" />
 			<Change number.Visibility.Value="Collapsed" />
-			<Change mainTitle.FontSize="16" Duration=".3" Easing="CubicOut" />
+			<Change mainTitle.FontSize="20" Duration=".3" Easing="CubicOut" />
 			<Move Target="mainTitle" Y="-20" Duration=".5" Delay=".3" Easing="CubicOut" />
-			<Move Target="down" Y="1.25" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
-			<Move Target="down1" Y="1.25" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
+			<Move Target="down" Y="1" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
+			<Move Target="down1" Y="1" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
 		</State>
 		<State ux:Name="fileShort">
 			<Change infoCard.Height="70%" Duration=".7" Easing="QuarticInOut" />
@@ -81,10 +81,12 @@
 	<Rectangle Height="2" Color="{Property this.keyColor}" Alignment="Top" >
 		<!-- <Rectangle Height="6" Width="50" Color="sky" /> -->
 	</Rectangle>
+
 	
-	<Panel Alignment="TopCenter" Background="#000" Padding="10,0">	
+	<Panel Alignment="TopCenter" Padding="10,0">	
 		<Text ux:Name="header" Color="#fff" Value="Вложения" Alignment="TopCenter" />
 		<Translation Y="-1" RelativeTo="Size" />
+		<Rectangle Layer="Background" Color="{Property this.keyColor}" />
 	</Panel>
 	
 	<PageControl ux:Name="cardHelper" Padding="10">
@@ -97,7 +99,6 @@
 			</WhileActive>
 			
 			<!-- <Text Value="Вложения - 15" Alignment="TopLeft" /> -->
-
 			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
 				<Translation Y="-1.5" RelativeTo="Size" />
@@ -105,6 +106,7 @@
 					<Set fileState.Active="fileShort" />
 				</Tapped>
 			</Circle>
+			
 			<ScrollView ux:Name="fileScroll">
 				<StackPanel>
 					<Panel>
