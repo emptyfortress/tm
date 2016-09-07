@@ -92,13 +92,11 @@
 	<PageControl ux:Name="cardHelper" Padding="10">
 		
 		<Page ux:Name="filesHelper">
-			<!-- <StackLayout /> -->
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="fileTab" />
 				<Set header.Value="Вложения" />
 			</WhileActive>
 			
-			<!-- <Text Value="Вложения - 15" Alignment="TopLeft" /> -->
 			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
 				<Translation Y="-1.5" RelativeTo="Size" />
@@ -158,6 +156,9 @@
 						<Rectangle Height="50" Color="#ccc" />
 					</Each>
 				</StackPanel>
+				<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
+					<Set fileState.Active="fileFull"   />
+				</ScrollingAnimation>
 			</ScrollView>
 		</Page>
 	</PageControl>
