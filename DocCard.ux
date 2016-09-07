@@ -64,8 +64,6 @@
 			</Grid>
 		</StackPanel>
 	</ScrollView>
-	<!-- </Panel> -->
-	
 		
 	<PageControl Padding="10">
 		<ScrollView >
