@@ -9,8 +9,6 @@
 	</JavaScript>
 	
 	
-	<!-- <SolidColor ux:Global="black" ux:Value="0,0,0,0" /> -->
-	<!-- <float4 ux:Global="white" uxBlack:Value="#fff" /> -->
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
 	<float4 ux:Global="pink" ux:Value="#7F00FF" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />

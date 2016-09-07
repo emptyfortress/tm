@@ -1,5 +1,14 @@
 <DockPanel ux:Class="DocCard" Margin="10,15,10,10" >
 	<float4 ux:Property="keyColor" />
+	<StateGroup ux:Name="fileState" Active="fileShort">
+		<State ux:Name="fileFull">
+			<Change infoCard.Height="10%" Duration=".7" Easing="QuarticInOut" />
+		</State>
+		<State ux:Name="fileShort">
+			<Change infoCard.Height="70%" Duration=".7" Easing="QuarticInOut" />
+		</State>
+	</StateGroup>
+	
 
 	<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
 		<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{Property this.keyColor}" Offset="-60,5" />
@@ -7,7 +16,7 @@
 			<fa-file-text-o FontSize="35" Color="{Property this.keyColor}" Alignment="Center" />
 		</Circle>
 	</Panel>
-	<ScrollView ux:Name="infoCard" MaxHeight="70%" Dock="Top">
+	<ScrollView ux:Name="infoCard" Height="70%" Dock="Top">
 		<StackPanel Padding="10,30,10,10" >
 			<Panel Alignment="TopLeft" Offset="0,-15">
 				<WhileTrue ux:Name="info2">
@@ -66,15 +75,12 @@
 					</Each>
 					<Rectangle Color="#000" Height="100" />
 				</Panel>
-				<ScrollingAnimation From="50" To="200" Range="SnapMin" >
-					<Set infoCard.Height.Value="10"   />
+				<ScrollingAnimation From="50" To="100" Range="SnapMin" >
+					<Set fileState.Active="fileFull"   />
 				</ScrollingAnimation>
-				<ScrollingAnimation From="0" To="-200" Range="SnapMin" >
-					<Set infoCard.Height.Value="70%"   />
+				<ScrollingAnimation From="0" To="-100" Range="SnapMin" >
+					<Set fileState.Active="fileShort"   />
 				</ScrollingAnimation>
-				<!-- <ScrollingAnimation From="0" To="-50" Inverse="" >
-					<Set infoCard.Height.Value="70%" />
-				</ScrollingAnimation> -->
 			</ScrollView>
 			<Panel Color="#f00" />
 		</PageControl>
