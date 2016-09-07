@@ -4,6 +4,16 @@
 	<StateGroup ux:Name="fileState" Active="fileShort">
 		<State ux:Name="fileFull">
 			<Change infoCard.Height="10%" Duration=".7" Easing="QuarticInOut" />
+			<BringIntoView TargetNode="firstFile" />
+			<Change type.Opacity.Value="0" Duration=".3" Easing="CubicOut" />
+			<Change bell.Visibility.Value="Collapsed" />
+			<Change infoPanel.Visibility.Value="Collapsed" />
+			<Change description.Visibility.Value="Hidden" />
+			<Change attributes.Visibility.Value="Hidden" />
+			<Change number.Visibility.Value="Collapsed" />
+			<Change mainTitle.FontSize="16" Duration=".3" Easing="CubicOut" />
+			<Move Target="mainTitle" Y="-20" Duration=".5" Delay=".3" Easing="CubicOut" />
+			<Move Target="down" Y="1.25" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
 		</State>
 		<State ux:Name="fileShort">
 			<Change infoCard.Height="70%" Duration=".7" Easing="QuarticInOut" />
@@ -19,7 +29,6 @@
 
 	<ScrollView ux:Name="infoCard" Height="70%" Dock="Top">
 		<StackPanel Padding="10,30,10,10" >
-			
 			<Panel Alignment="TopLeft" Offset="0,-15">
 				<WhileTrue ux:Name="info2">
 					<Change Target="infoPanel.Visibility" Value="Visible" />
@@ -44,12 +53,16 @@
 					<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
 				</Panel>
 			</Panel>
-				
-
-			<Text Value="№ 135-К/16" Margin="0,10,0,0" />
-			<Text LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap" />
-			<Text Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
-			<Grid Columns="auto,auto" Margin="30,15,0,0">
+			
+			<Text ux:Name="number" Value="№ 135-К/16" Margin="0,10,0,0" />
+			<Text ux:Name="mainTitle" LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap">
+				<LayoutAnimation>
+		            <Resize X="1" Y="1" RelativeTo="LayoutChange" Duration="0.25"/>
+		            <Move X="1" Y="1" RelativeTo="LayoutChange" Duration="0.25"/>
+		        </LayoutAnimation>
+			</Text>
+			<Text ux:Name="description" Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
+			<Grid ux:Name="attributes" Columns="auto,auto" Margin="30,15,0,0">
 				<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" />
 				<tabtext Value="Автор:" Alignment="Right" />
 				<tabtext Value="Орлов П.С." />
@@ -65,26 +78,32 @@
 		</StackPanel>
 	</ScrollView>
 		
-	<PageControl Padding="10">
-		<ScrollView >
-			<Panel>
-				<ColumnLayout ux:Name="fileColumns" ColumnCount="4" ItemSpacing="10" ColumnSpacing="10" />
-				<WhileWindowPortrait>
-					<Change fileColumns.ColumnCount.Value="2" />
-				</WhileWindowPortrait>
-				<Rectangle Color="#000" Height="100" />
-				<Each Count="{files}" >
-					<Rectangle Color="#ccc" Height="100" />
-				</Each>
-				<Rectangle Color="#000" Height="100" />
-			</Panel>
-			<ScrollingAnimation From="50" To="100" Range="SnapMin" >
-				<Set fileState.Active="fileFull"   />
-			</ScrollingAnimation>
-			<ScrollingAnimation From="0" To="-100" Range="SnapMin" >
-				<Set fileState.Active="fileShort"   />
-			</ScrollingAnimation>
-		</ScrollView>
+	<PageControl Padding="10" >
+		<Panel >
+			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
+				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+				<Translation Y="-1.5" RelativeTo="Size" />
+				<Tapped>
+					<Set fileState.Active="fileShort" />
+				</Tapped>
+			</Circle>
+			<ScrollView ux:Name="fileScroll" >
+				<Panel>
+					<ColumnLayout ux:Name="fileColumns" ColumnCount="4" ItemSpacing="10" ColumnSpacing="10" />
+					<WhileWindowPortrait>
+						<Change fileColumns.ColumnCount.Value="2" />
+					</WhileWindowPortrait>
+					<Rectangle ux:Name="firstFile" Color="#000" Height="100" />
+					<Each Count="{files}" >
+						<Rectangle Color="#ccc" Height="100" />
+					</Each>
+					<Rectangle Color="#000" Height="100" />
+				</Panel>
+				<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
+					<Set fileState.Active="fileFull"   />
+				</ScrollingAnimation>
+			</ScrollView>
+		</Panel>
 		<Panel Color="#f00" />
 	</PageControl>
 	<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
