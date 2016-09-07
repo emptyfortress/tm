@@ -119,28 +119,34 @@
 	<MultiLayoutPanel Height="50" ux:Name="tabBar1" Dock="Bottom" >
 		<GridLayout ColumnCount="2" Rows="1*"/>
 		<Panel ux:Name="fileTab">
-			<Placeholder>
-				<Rectangle ux:Name="indicator1" Alignment="Top" Height="6" Fill="#000" Margin="50,0">
-					<LayoutAnimation>
-						<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
-					</LayoutAnimation>
-				</Rectangle>
-			</Placeholder>
-			<Icon>
-				<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
-				<Clicked>
-					<Set cardHelper.Active="filesHelper" />
-				</Clicked>
-			</Icon>
+				<Placeholder>
+					<Rectangle ux:Name="indicator1" Alignment="Top" Height="6" Fill="#000" Margin="30,0">
+						<LayoutAnimation>
+							<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
+						</LayoutAnimation>
+					</Rectangle>
+				</Placeholder>
+				<StackPanel Orientation="Horizontal" ContentAlignment="Center" Margin="0,10,0,0">
+					<fa-paperclip FontSize="25" /><Text Value="(15)" Margin="5,3,0,0" />
+					<Clicked>
+						<Set cardHelper.Active="filesHelper" />
+					</Clicked>
+				</StackPanel>
+				<!-- <Icon>
+					<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
+				</Icon> -->
 		</Panel>
 		<Panel ux:Name="taskTab">
 			<Placeholder Target="indicator1"/>
-			<Icon>
-				<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
+			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Margin="0,10,0,0">
+				<fa-check-square-o FontSize="25"  /><Text Value="(0)" Margin="5,3,0,0" />
 				<Clicked>
 					<Set cardHelper.Active="taskHelper" />
 				</Clicked>
-			</Icon>
+			</StackPanel>
+				<!-- <Icon>
+					<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
+				</Icon> -->
 		</Panel>
 	</MultiLayoutPanel>
 	<!-- <Grid Dock="Bottom" Height="50" ColumnCount="2">
