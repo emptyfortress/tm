@@ -130,14 +130,14 @@
 							<Change fileColumns.ColumnCount.Value="2" />
 						</WhileWindowPortrait>
 						<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
-						<Each Count="{files}" >
+						<Each Items="{filename}" >
 							<Panel Height="100">
 								<Panel Color="blue" Alignment="Bottom">
 									<Text Value="Основной файл" Alignment="Left" Margin="5,3,0,3" Color="#fff" FontSize="12" />
 									<Text Value="123 kB" FontSize="11" Color="#fff" Alignment="Right"  Margin="0,3,5,0" />
 								</Panel>
 								
-								<Text Value="{filename}" FontSize="16" Color="blue" Alignment="TopLeft" TextWrapping="Wrap" Margin="10,10,10,20" />
+								<Text Value="{}" FontSize="16" Color="blue" Alignment="TopLeft" TextWrapping="Wrap" Margin="10,10,10,20" />
 								
 								<Rectangle Layer="Background" Color="#fff" >
 									<Stroke Width="2" Color="blue" />
