@@ -261,8 +261,8 @@
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
 
 				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0">
-					<Image File="Assets/backk.png" Color="#fff" Height="20" Alignment="CenterLeft" />
-					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" Font="Light" FontSize="16" />
+					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
+					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" FontSize="16" />
 					<Tapped>
         				<Set ViewerVisible.Value="false"  />
 	        		</Tapped>
