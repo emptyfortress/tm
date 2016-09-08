@@ -1,10 +1,10 @@
-<Panel ux:Class="circleDiagram"  Margin="3">
+<Panel ux:Class="circleDiagram"  >
 	<string ux:Property="Header"/>
 	<string ux:Property="Count"/>
 	<float ux:Property="End" />
 	<float4 ux:Property="BarColor"/>
 	
-	<StackPanel Alignment="Center">
+	<StackPanel Alignment="Center" ItemSpacing="4">
 		<Panel BoxSizing="Standard">
 			<Text Value="{Property this.Count}" FontSize="30" Alignment="Center" />
 			<Circle Color="#fff" Width="70" Height="70" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
@@ -16,6 +16,4 @@
 		</Panel>
 		<Text Value="{Property this.Header}" FontSize="14" Alignment="Center"/>
 	</StackPanel>
-	
-
 </Panel>
