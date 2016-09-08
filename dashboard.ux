@@ -101,7 +101,7 @@
 							<dashPanel>
 								<Grid ux:Name="taskGrid" ColumnCount="2" CellSpacing="10">
 									<PageControl>
-										<pieDiagram Header="Входящие" Count="37" End="120" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" >
+										<pieDiagram Header="Входящие" Count="37" End="120" Color1="sky" Color2="blue" Color3="green" >
 											<Tapped>
 												<Toggle Target="dashboardUp" />
 												<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
@@ -110,13 +110,13 @@
 										<StackPanel Alignment="Center">
 											<Text Value="Входящие - 37" />
 											<Rectangle Height="1" Color="#666" />
-											<legend boxColor="#ccc" Count="20" Text="на согласование" />
-											<legend boxColor="#ccc" Count="10" Text="на рассмотрение" />
-											<legend boxColor="#ccc" Count="7" Text="на исполнение" />
+											<legend boxColor="sky" Count="20" Text="на согласование" />
+											<legend boxColor="green" Count="10" Text="на рассмотрение" />
+											<legend boxColor="blue" Count="7" Text="на исполнение" />
 										</StackPanel>
 									</PageControl>
 									<PageControl>
-										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="#429AE7" Color2="#304153" Color3="#00FFFF" >
+										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="sky" Color2="green" Color3="#f00" >
 											<Tapped>
 												<Toggle Target="dashboardUp" />
 												<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
@@ -125,9 +125,9 @@
 										<StackPanel Alignment="Center">
 											<Text Value="Исходящие - 22" />
 											<Rectangle Height="1" Color="#666" />
-											<legend boxColor="#ccc" Count="15" Text="завершено в срок" />
-											<legend boxColor="#ccc" Count="6" Text="просрочено" />
-											<legend boxColor="#ccc" Count="3" Text="делегировано" />
+											<legend boxColor="sky" Count="15" Text="завершено в срок" />
+											<legend boxColor="#f00" Count="6" Text="просрочено" />
+											<legend boxColor="green" Count="3" Text="делегировано" />
 										</StackPanel>
 									</PageControl>
 								</Grid>
