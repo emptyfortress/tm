@@ -3,7 +3,7 @@
 	
 	<StateGroup ux:Name="fileState" Active="fileShort">
 		<State ux:Name="fileFull">
-			<Change infoCard.Height="10%" Duration=".7" Easing="QuarticInOut" />
+			<Change infoCard.Height="5%" Duration=".7" Easing="QuarticInOut" />
 			<BringIntoView TargetNode="firstFile" />
 			<Change type.Opacity.Value="0" Duration=".3" Easing="CubicOut" />
 			<Change bell.Visibility.Value="Collapsed" />
@@ -13,8 +13,7 @@
 			<Change number.Visibility.Value="Collapsed" />
 			<Change mainTitle.FontSize="20" Duration=".3" Easing="CubicOut" />
 			<Move Target="mainTitle" Y="-20" Duration=".5" Delay=".3" Easing="CubicOut" />
-			<Move Target="down" Y="1" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
-			<Move Target="down1" Y="1" RelativeTo="Size" Duration=".5" Delay=".3" Easing="CubicOut" />
+			<Change down.Opacity.Value="1" Duration=".5"  Easing="CircularInOut" />
 		</State>
 		<State ux:Name="fileShort">
 			<Change infoCard.Height="70%" Duration=".7" Easing="QuarticInOut" />
@@ -80,6 +79,14 @@
 	</ScrollView>
 	
 	<StackPanel Dock="Top">
+		<Circle ux:Name="down" Width="35" Height="35" Color="{Property this.keyColor}" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0">
+				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+				<Translation Y=".7" RelativeTo="Size" />
+				<Tapped>
+					<Set fileState.Active="fileShort" />
+				</Tapped>
+			</Circle>
+
 		<Rectangle Height="1" Color="{Property this.keyColor}"  />
 		<MultiLayoutPanel Height="40" ux:Name="tabBar1">
 			<GridLayout ColumnCount="2" Rows="1*"/>
@@ -108,25 +115,13 @@
 				</Icon>
 			</Panel>
 		</MultiLayoutPanel>
-
-
-		
 	</StackPanel>
 	<PageControl ux:Name="cardHelper" Padding="10">
 		
 		<Page ux:Name="filesHelper">
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="fileTab" />
-				<!-- <Set header.Value="Вложения" /> -->
 			</WhileActive>
-			
-			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
-				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-				<Translation Y="-1.5" RelativeTo="Size" />
-				<Tapped>
-					<Set fileState.Active="fileShort" />
-				</Tapped>
-			</Circle>
 			
 			<ScrollView ux:Name="fileScroll">
 				<StackPanel>
@@ -164,15 +159,7 @@
 		<Page ux:Name="taskHelper">
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="taskTab" />
-				<!-- <Set header.Value="Поручения" /> -->
 			</WhileActive>
-			<Circle ux:Name="down1" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
-				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-				<Translation Y="-1.5" RelativeTo="Size" />
-				<Tapped>
-					<Set fileState.Active="fileShort" />
-				</Tapped>
-			</Circle>
 			<ScrollView ux:Name="taskScroll" >
 				<StackPanel ItemSpacing="10">
 					<Each Count="10">
