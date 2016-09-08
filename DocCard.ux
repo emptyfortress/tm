@@ -1,6 +1,4 @@
 <DockPanel ux:Class="DocCard" Margin="10,15,10,10" >
-	<float4 ux:Property="keyColor" />
-	
 	<StateGroup ux:Name="fileState" Active="fileShort">
 		<State ux:Name="fileFull">
 			<Change infoCard.Height="8%" Duration=".6" Easing="QuarticInOut" />
@@ -21,9 +19,9 @@
 	</StateGroup>
 	
 	<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
-		<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{Property this.keyColor}" Offset="-60,5" />
+		<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
 		<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
-			<fa-file-text-o FontSize="35" Color="{Property this.keyColor}" Alignment="Center" />
+			<fa-file-text-o FontSize="35" Color="{key}" Alignment="Center" />
 		</Circle>
 	</Panel>
 	
@@ -80,18 +78,18 @@
 	
 	
 	<StackPanel Dock="Top">
-		<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{Property this.keyColor}" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
+		<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
 		<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
 		<Tapped>
 			<Set fileState.Active="fileShort" />
 		</Tapped>
 	</Circle>
-		<Rectangle Height="1" Color="{Property this.keyColor}"  />
+		<Rectangle Height="1" Color="{key}"  />
 		<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
 			<GridLayout ColumnCount="2" Rows="1*"/>
 			<Panel ux:Name="fileTab">
 					<Placeholder>
-						<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{Property this.keyColor}" Margin="30,0">
+						<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{key}" Margin="30,0">
 							<LayoutAnimation>
 								<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 							</LayoutAnimation>

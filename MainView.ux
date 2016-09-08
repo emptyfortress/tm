@@ -13,6 +13,7 @@
 	<float4 ux:Global="pink" ux:Value="#7F00FF" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />
 	<float4 ux:Global="sky" ux:Value="#0095DA" />
+	<SolidColor ux:Global="sky1" Color="#0095DA" />
 	<float4 ux:Global="red" ux:Value="#B20000" />
 	<float4 ux:Global="green" ux:Value="#7BB652" />
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
@@ -274,7 +275,7 @@
 								<Set BlockColorAttractor.Value="sky" />
 								<Set BlockColor.Color="sky" />
 							</WhileActive>
-							<DocCard keyColor="sky"  />
+							<DocCard  />
 						</Page>
 					</Each>
 					<Each Items="{items.cards1}" >
