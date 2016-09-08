@@ -33,20 +33,15 @@
 		<Set Target="sendButtonBg.Color" Value="#eee" />
 		<Set Target="sendButton.Color" Value="#aaa" />
 	</WhileTrue>
-	<!-- <WhileTrue ux:Name="detailsActive">
-		<Change detailsPanel.Visibility.Value="Visible" />
-		<Scale Target="detailsPanel" Factor="1" Duration=".5" Easing="CircularOut" />
-		<Change detailsPanel.Opacity.Value="1" Duration=".5" />
-		
-	</WhileTrue> -->
 
 	<WhileTrue ux:Name="ViewerVisible">
-		<!-- <Change topRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
-		<Change middleRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" />
-		<Change bottomRectangle.Fill="#fff" Duration=".7" Easing="CubicOut" /> -->
-		<!-- <Change BlockColor.Color="sky" Duration="0.2" Easing="CircularInOut"/> -->
 		<Change TheViewer.Visibility="Visible"/>
-		<PulseForward Target="ZoomTo" Direction="Backward"/>
+		<PulseForward Target="ZoomTo" Direction="Backward" />
+		<Set ViewerHidden.Value="false" Delay=".4" />
+	</WhileTrue>
+	<WhileTrue ux:Name="ViewerHidden">
+		<PulseForward Target="ZoomTo" Direction="Forward" />
+		<Set ViewerVisible.Value="false" Delay=".4" />
 	</WhileTrue>
 
 	<WhileTrue ux:Name="menuVisible">
@@ -56,26 +51,6 @@
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
 	</WhileTrue>
 
-
-
-
-<!-- 	<WhileTrue ux:Name="detailsActive">
-		<Change ham.Visibility.Value="Hidden" />
-		<BringToFront Target="detailsPanel" />
-		<NavigateTo Target="detailsPanel" NavigationContext="_mainNavigation" />
-		<Set Target="foldersPanel.Visibility" Value="Collapsed" Delay=".5" />
-		<Set folderIndicator.Visibility="Collapsed" />
-		<Set detailIndicator.Visibility="Visible" />
-		<Set foldersActive.Value="false" />
-	</WhileTrue> -->
-<!-- 	<WhileTrue ux:Name="foldersActive">
-		<NavigateTo Target="foldersPanel" NavigationContext="_mainNavigation" />
-		<Set Target="foldersPanel.Visibility" Value="Visible"  />
-		<Set detailIndicator.Visibility="Collapsed" />
-		<Set folderIndicator.Visibility="Visible" />
-		<BringToFront Target="foldersPanel" />
-		<Set detailsActive.Value="false" />
-	</WhileTrue> -->
 	<WhileTrue ux:Name="subMenuVisible">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />

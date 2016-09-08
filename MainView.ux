@@ -264,7 +264,7 @@
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
 					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" FontSize="16" />
 					<Tapped>
-        				<Set ViewerVisible.Value="false"  />
+        				<Toggle Target="ViewerHidden" />
 	        		</Tapped>
 				</StackPanel>
 				<PageControl ux:Name="TheViewerCard" ClipToBounds="false">
@@ -299,9 +299,9 @@
 
 				
 				<Timeline ux:Name="ZoomTo">
-					<Move RelativeTo="PositionOffset" Vector="1" Duration="0.5" ux:Name="ZoomToPos"
+					<Move RelativeTo="PositionOffset" Vector="1" Duration="0.4" ux:Name="ZoomToPos"
 						Easing="QuadraticInOut"/>
-					<Resize RelativeTo="Size" Vector="1" Duration="0.5" ux:Name="ZoomToSize"
+					<Resize RelativeTo="Size" Vector="1" Duration="0.4" ux:Name="ZoomToSize"
 						Easing="QuadraticInOut"/>
 				</Timeline>
 			</DockPanel>
