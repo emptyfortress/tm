@@ -27,7 +27,7 @@
 			<fa-file-text-o FontSize="35" Color="{Property this.keyColor}" Alignment="Center" />
 		</Circle>
 	</Panel>
-
+	
 	<ScrollView ux:Name="infoCard" Height="70%" Dock="Top">
 		<StackPanel Padding="10,30,10,10" >
 			<Panel Alignment="TopLeft" Offset="0,-15">
@@ -78,23 +78,46 @@
 			</Grid>
 		</StackPanel>
 	</ScrollView>
-	<Rectangle Height="2" Color="{Property this.keyColor}" Alignment="Top" >
-		<!-- <Rectangle Height="6" Width="50" Color="sky" /> -->
-	</Rectangle>
+	
+	<StackPanel Dock="Top">
+		<Rectangle Height="1" Color="{Property this.keyColor}"  />
+		<MultiLayoutPanel Height="40" ux:Name="tabBar1">
+			<GridLayout ColumnCount="2" Rows="1*"/>
+			<Panel ux:Name="fileTab">
+					<Placeholder>
+						<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{Property this.keyColor}" Margin="30,0">
+							<LayoutAnimation>
+								<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
+							</LayoutAnimation>
+						</Rectangle>
+					</Placeholder>
+					<Icon Height="25">
+						<FileImageSource File="Assets/attach.png"  ux:Key="iconFile"/>
+						<Clicked>
+							<Set cardHelper.Active="filesHelper" />
+						</Clicked>
+					</Icon>
+			</Panel>
+			<Panel ux:Name="taskTab">
+				<Placeholder Target="indicator1"/>
+				<Icon Height="25">
+					<FileImageSource File="Assets/tree.png" ux:Key="iconFile"/>
+					<Clicked>
+						<Set cardHelper.Active="taskHelper" />
+					</Clicked>
+				</Icon>
+			</Panel>
+		</MultiLayoutPanel>
 
-	
-	<Panel Alignment="TopCenter" Padding="10,0">	
-		<Text ux:Name="header" Color="#fff" Value="Вложения" Alignment="TopCenter" />
-		<Translation Y="-1" RelativeTo="Size" />
-		<Rectangle Layer="Background" Color="{Property this.keyColor}" />
-	</Panel>
-	
+
+		
+	</StackPanel>
 	<PageControl ux:Name="cardHelper" Padding="10">
 		
 		<Page ux:Name="filesHelper">
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="fileTab" />
-				<Set header.Value="Вложения" />
+				<!-- <Set header.Value="Вложения" /> -->
 			</WhileActive>
 			
 			<Circle ux:Name="down" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
@@ -141,7 +164,7 @@
 		<Page ux:Name="taskHelper">
 			<WhileActive Threshold="0.5">
 				<Set tabBar1.LayoutElement="taskTab" />
-				<Set header.Value="Поручения" />
+				<!-- <Set header.Value="Поручения" /> -->
 			</WhileActive>
 			<Circle ux:Name="down1" Width="40" Height="40" LayoutRole="Inert" Color="{Property this.keyColor}" Alignment="TopCenter">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
@@ -163,38 +186,6 @@
 		</Page>
 	</PageControl>
 
-	<MultiLayoutPanel Height="50" ux:Name="tabBar1" Dock="Bottom" >
-		<GridLayout ColumnCount="2" Rows="1*"/>
-		<Panel ux:Name="fileTab">
-				<Placeholder>
-					<Rectangle ux:Name="indicator1" Alignment="Top" Height="6" Fill="#000" Margin="30,0">
-						<LayoutAnimation>
-							<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
-						</LayoutAnimation>
-					</Rectangle>
-				</Placeholder>
-				<StackPanel Orientation="Horizontal" ContentAlignment="Center" Margin="0,10,0,0">
-					<fa-paperclip FontSize="25" /><Text Value="(15)" Margin="5,3,0,0" />
-					<Clicked>
-						<Set cardHelper.Active="filesHelper" />
-					</Clicked>
-				</StackPanel>
-				<!-- <Icon>
-					<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
-				</Icon> -->
-		</Panel>
-		<Panel ux:Name="taskTab">
-			<Placeholder Target="indicator1"/>
-			<StackPanel Orientation="Horizontal" ContentAlignment="Center" Margin="0,10,0,0">
-				<fa-check-square-o FontSize="25"  /><Text Value="(0)" Margin="5,3,0,0" />
-				<Clicked>
-					<Set cardHelper.Active="taskHelper" />
-				</Clicked>
-			</StackPanel>
-				<!-- <Icon>
-					<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
-				</Icon> -->
-		</Panel>
-	</MultiLayoutPanel>
+	
 	<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
 </DockPanel>
