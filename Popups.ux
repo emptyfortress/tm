@@ -15,4 +15,5 @@
 		<Translation Y="-1" RelativeTo="ParentSize" />
 		<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
+	
 </Panel>

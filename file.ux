@@ -1,4 +1,4 @@
-<StackPanel ux:Class="file">
+<StackPanel ux:InnerClass="file">
 	<WhileTrue ux:Name="detailsVisible">
 		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
 		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
@@ -16,11 +16,12 @@
 			<Image Source="xls"  Visibility="{xls}" />
 			<Image Source="txt"  Visibility="{txt}" />
 		</Panel>
-		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard"  />
+		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" />
 		<Panel HitTestMode="LocalBoundsAndChildren">
 			<fa-chevron-down ux:Name="chevron" Margin="15,0" Alignment="Center" />
 			<Tapped>
-				<Toggle Target="detailsVisible" />
+				<Toggle Target="detailsVisible" Delay=".2" />
+				<Set letterVisible.Value="false" />
 			</Tapped>
 		</Panel>
 	</Grid>
