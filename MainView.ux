@@ -247,10 +247,10 @@
 		<ux:Include File="TaskItem.ux" />
 
 		<Panel ux:Name="mainApp" >
-			<DoubleTapped>
-				<Set viewCardButton.Value="true" />
-			</DoubleTapped>
 			<DockPanel ux:Name="TheViewer" Visibility="Collapsed" HitTestMode="LocalBoundsAndChildren">
+				<DoubleTapped>
+					<Set viewCardButton.Value="true" />
+				</DoubleTapped>
 				<SolidColor Color="sky" ux:Name="BlockColor"/>
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
 
@@ -302,28 +302,29 @@
 		
 		<ux:Include File="Indicators.ux" />
 
-			<Panel ux:Name="foldersPanel" >
-				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />
-				<SwipeNavigate SwipeDirection="Left" />
+			<PageControl ux:Name="_listNavigation" Active="{active}">
+				<!-- <LinearNavigation ux:Name="_listNavigation" Active="{active}" /> -->
+				<!-- <SwipeNavigate SwipeDirection="Left" /> -->
+				<NavigationMotion Overflow="Elastic"/>
 
 				<DoubleTapped>
 					<Set iconsVisible.Value="true" />
 				</DoubleTapped>
 
-				<Rectangle ux:Name="blockRect" Layer="Overlay" Color="#fff" HitTestMode="None" Opacity="0">
+				<!-- <Rectangle ux:Name="blockRect" Layer="Overlay" Color="#fff" HitTestMode="None" Opacity="0">
 					<Tapped>
 						<NavigateToggle Target="menu" NavigationContext="edge" />
 						<Set menuVisible.Value="false" />
 					</Tapped>
-				</Rectangle>
+				</Rectangle> -->
 
 				<Page ux:Name="folder1" Padding="5,0">
-					<EnteringAnimation>
+					<!-- <EnteringAnimation>
 						<Move X="-1" RelativeTo="Size" />
 					</EnteringAnimation>
 					<ExitingAnimation>
 						<Move X="1" RelativeTo="Size" />
-					</ExitingAnimation>
+					</ExitingAnimation> -->
 					<WhileTrue ux:Name="filterActive">
 						<Change filterText.Visibility.Value="Visible" />
 						<Change filterRec.Visibility.Value="Visible" />
@@ -422,12 +423,12 @@
 				</Page>
 				
 				<Page ux:Name="folder2" Padding="5,0">
-					<EnteringAnimation>
+					<!-- <EnteringAnimation>
 						<Move X="-1" RelativeTo="Size" />
 					</EnteringAnimation>
 					<ExitingAnimation>
 						<Move X="1" RelativeTo="Size" />
-					</ExitingAnimation>
+					</ExitingAnimation> -->
 					
 					<WhileTrue ux:Name="filterActive2">
 						<Change filterRec2.Visibility.Value="Visible" />
@@ -535,7 +536,7 @@
 						</StackPanel>
 					</ScrollView>
 				</folderPage>
-			</Panel>
+			</PageControl>
 		</Panel>
 		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 	
