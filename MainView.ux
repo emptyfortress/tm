@@ -23,6 +23,7 @@
 	<FileImageSource ux:Global="pdf" File="Assets/filetype/pdf.png" />
 	<FileImageSource ux:Global="word" File="Assets/filetype/word.png" />
 	<FileImageSource ux:Global="xls" File="Assets/filetype/xls.png" />
+	<FileImageSource ux:Global="txt" File="Assets/filetype/txt.png" />
 
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
@@ -265,9 +266,6 @@
 				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0">
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
 					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" FontSize="16" />
-					<Icon color="#fff" Margin="15,0" Width="25">
-						<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
-					</Icon>
 					<Tapped>
         				<Toggle Target="ViewerHidden" />
 	        		</Tapped>

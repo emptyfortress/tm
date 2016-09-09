@@ -4,8 +4,8 @@
 			<Change infoCard.Height="8%" Duration=".6" Easing="QuarticInOut" />
 			<BringIntoView TargetNode="firstFile" />
 			<Change type.Opacity.Value="0" Duration=".3" Easing="CubicOut" />
-			<Change bell.Visibility.Value="Collapsed" />
-			<Change infoPanel.Visibility.Value="Collapsed" />
+			<Change refresh.Visibility.Value="Collapsed" />
+			<Change refresh1.Visibility.Value="Collapsed" />
 			<Change description.Visibility.Value="Hidden" />
 			<Change attributes.Visibility.Value="Hidden" />
 			<Change number.Visibility.Value="Collapsed" />
@@ -27,31 +27,35 @@
 	
 	<ScrollView ux:Name="infoCard" Height="60%" Dock="Top">
 		<StackPanel Padding="10,30,10,10" >
-			<Panel Alignment="TopLeft" Offset="0,-15">
-				<WhileTrue ux:Name="info2">
-					<Change Target="infoPanel.Visibility" Value="Visible" />
-					<Change Target="bell.Visibility" Value="Collapsed" />
-				</WhileTrue>
-
-				<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
-					<Clicked>
-						<Toggle Target="info2"/>
-	  					<Pulse Target="GrowMe2"/>
-					</Clicked>
-				</fa-bell-o>
-
-				<Panel ux:Name="infoPanel" Visibility="Collapsed">
-					<WhileTrue ux:Name="GrowMe2">
-					   <Scale Factor="1.2" Duration="0.1"/>
+			<StackPanel Alignment="TopLeft" Orientation="Horizontal" ItemSpacing="10"  Offset="0,-15">
+				<Panel ux:Name="refresh">
+					<WhileTrue ux:Name="info2">
+						<Change Target="infoPanel.Visibility" Value="Visible" />
+						<Change Target="bell.Visibility" Value="Collapsed" />
 					</WhileTrue>
-					<Text Value="{info}" FontSize="12" Margin="10" Alignment="Center"/>
-					<Clicked>
-						<Set infoPanel.Visibility.Value="Collapsed" />
-					</Clicked>
-					<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+
+					<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
+						<Clicked>
+							<Toggle Target="info2"/>
+		  					<Pulse Target="GrowMe2"/>
+						</Clicked>
+					</fa-bell-o>
+
+					<Panel ux:Name="infoPanel" Visibility="Collapsed">
+						<WhileTrue ux:Name="GrowMe2">
+						   <Scale Factor="1.2" Duration="0.1"/>
+						</WhileTrue>
+						<Text Value="{info}" FontSize="12" Margin="10" Alignment="Center"/>
+						<Clicked>
+							<Set infoPanel.Visibility.Value="Collapsed" />
+						</Clicked>
+						<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
+					</Panel>
 				</Panel>
-			</Panel>
-			
+				<Icon ux:Name="refresh1" Offset="0,-7">
+					<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
+				</Icon>
+			</StackPanel>
 			<Text ux:Name="number" Value="{number}" Margin="0,10,0,20" />
 			<Text ux:Name="mainTitle" LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap">
 				<LayoutAnimation>
@@ -61,7 +65,7 @@
 			</Text>
 			<Text ux:Name="description" Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
 			<Grid ux:Name="attributes" Columns="auto,auto" Margin="30,15,0,0">
-				<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="10,0" Value="" FontSize="12" />
+				<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="7,0" Value="" FontSize="12" />
 				<tabtext Value="Автор:" Alignment="Right" />
 				<tabtext Value="Орлов П.С." />
 				<tabtext Value="Дата:" Alignment="Right" />
@@ -79,11 +83,11 @@
 	
 	<StackPanel Dock="Top">
 		<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
-		<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-		<Tapped>
-			<Set fileState.Active="fileShort" />
-		</Tapped>
-	</Circle>
+			<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+			<Tapped>
+				<Set fileState.Active="fileShort" />
+			</Tapped>
+		</Circle>
 		<Rectangle Height="1" Color="{key}"  />
 		<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
 			<GridLayout ColumnCount="2" Rows="1*"/>
@@ -126,6 +130,7 @@
 						<ColumnLayout ux:Name="fileColumns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 						<WhileWindowPortrait>
 							<Change fileColumns.ColumnCount.Value="1" />
+							<Change file1Columns.ColumnCount.Value="1" />
 						</WhileWindowPortrait>
 						<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
 						<Each Items="{filename}" >
@@ -133,9 +138,17 @@
  						</Each>
 					</Panel>
 					<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" Visibility="{add-zag}" />
-					<Each Items="{additional}">
-						<Text Value="{}" Color="blue" Margin="0,10" />
-					</Each>
+					<Panel>
+						<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
+						<Each Items="{additional}">
+							<file />
+						</Each>
+					</Panel>
+					<Rectangle Height="1" Color="{key}" Margin="-10,20" />
+					<Grid ColumnCount="2" Margin="0,0,0,50">
+						<Text Value="Добавить файл" Color="blue" Alignment="Center"/>
+						<Text Value="Добавить отчет" Color="blue" Alignment="Center"/>
+					</Grid>
 				</StackPanel>
 				<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 					<Set fileState.Active="fileFull"   />

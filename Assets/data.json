@@ -315,43 +315,67 @@
             "num": 1,
             "pdf":"Visible",  
             "word":"Collapsed",  
-            "xls":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",  
             "text":"Договор с подрядчиком.pdf"
             },
             {
             "num": 2,
             "pdf":"Collapsed",  
             "word":"Visible",  
-            "xls":"Collapsed",   
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",    
             "text":"Приложение № 1 к договору.docx"
             },
             {
             "num": 3,
             "pdf":"Collapsed",  
             "word":"Visible",  
-            "xls":"Collapsed",   
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":".2",    
             "text":"Приложение № 2 к договору.docx"
             },
             {
             "num": 4,
             "pdf":"Collapsed",  
             "word":"Collapsed",  
-            "xls":"Visible",   
+            "xls":"Visible",
+            "txt":"Collapsed",
+            "missing":"1",    
             "text":"Смета расходов.xls"
             },
             {
             "num": 5,
             "pdf":"Collapsed",  
             "word":"Collapsed",  
-            "xls":"Visible",    
+            "xls":"Visible",
+            "txt":"Collapsed",
+            "missing":".2",     
             "text":"Прайс-лист.xls"
             }
         ],
         "additional":[
-            "Список контрагентов.txt",
-            "Переписка с менеджером.docx",
-            "КЗОТ.pdf",
-            "Война и мир.txt"
+           {
+            "num": 1,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Visible",
+            "missing":"1",    
+            "text":"Список контрагентов.txt"
+           },
+            {
+            "num": 2,
+            "pdf":"Collapsed",  
+            "word":"Visible",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",    
+            "text":"Переписка с менеджером.docx"
+           }
         ],
         "add-zag":"Visible",
         "tasks": ""
