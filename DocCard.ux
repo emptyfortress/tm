@@ -17,6 +17,11 @@
 			<Change infoCard.Height="60%" Duration=".5" Easing="QuarticInOut" />
 		</State>
 	</StateGroup>
+	<WhileTrue ux:Name="viewSign">
+		<Change sign.Height="30" Duration=".2" Easing="CircularOut" />
+		<Change sign.Opacity="1" Duration=".2" Easing="CircularOut" />
+		<Move Target="sign" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut" />
+	</WhileTrue>
 	
 	<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
 		<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
@@ -64,7 +69,33 @@
 		        </LayoutAnimation>
 			</Text>
 			<Text ux:Name="description" Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
-			<Grid ux:Name="attributes" Columns="auto,auto" Margin="30,15,0,0">
+			
+			<StackPanel Margin="0,15,0,10" ClipToBounds="true">
+				<Tapped>
+					<Toggle Target="viewSign" />
+				</Tapped>
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<fa-certificate Color="#008C23" Alignment="CenterLeft" />
+					<Text Value="Цифровая подпись" Font="Light" Color="#008C23" Alignment="CenterLeft"  />
+				</StackPanel>
+				<Panel ux:Name="sign" Height="0" Opacity="0">
+					<Translation Y="-1" RelativeTo="ParentSize" />
+					<Grid Columns="auto,auto,1*" CellSpacing="2">
+						<Panel Background="#DAEBCF">
+							<Text Value="1" Font="Light" FontSize="14" Alignment="VerticalCenter" Margin="10,0" />
+						</Panel>
+						<Panel Background="#DAEBCF">
+							<Text Value="26.10.2016   17:15" Font="Light" Alignment="VerticalCenter" FontSize="14" Margin="10,0" />
+						</Panel>
+						<Panel Background="#DAEBCF">
+							<Text Value="Воробьев П.С." Font="Light" FontSize="14" Margin="10,3" />
+						</Panel>
+					</Grid>
+				</Panel>
+			</StackPanel>
+
+
+			<Grid ux:Name="attributes" Columns="auto,auto" Margin="10,15,0,0">
 				<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="7,0" Value="" FontSize="12" />
 				<tabtext Value="Автор:" Alignment="Right" />
 				<tabtext Value="Орлов П.С." />
