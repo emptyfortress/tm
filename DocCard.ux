@@ -1,4 +1,5 @@
 <Panel ux:Class="DocCard" >
+	<ux:Include File="file.ux" />
 	<WhileTrue ux:Name="letterVisible">
 		<Move Target="letter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 		<Change letter.Opacity="1" Duration=".5" />
