@@ -19,7 +19,10 @@
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
 	<Font File="Assets/fonts/Roboto-Bold.ttf" ux:Global="Bold" />
-	
+
+	<FileImageSource ux:Global="pdf" File="Assets/filetype/pdf.png" />
+	<FileImageSource ux:Global="word" File="Assets/filetype/word.png" />
+	<FileImageSource ux:Global="xls" File="Assets/filetype/xls.png" />
 
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
@@ -127,7 +130,6 @@
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="taho" NavigationContext="_dashPages" />
 							<Set dashboardUp.Value="false" Delay=".5" />
-							<!-- <Set action.Visibility="Hidden" />  -->
 							<Set plusIcon.Visibility="Visible" /> 
 						</Tapped>
 						<WhilePressed>
@@ -142,7 +144,6 @@
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folders" NavigationContext="_dashPages" />
 							<Set dashboardUp.Value="false" Delay=".5" />
-							<!-- <Set action.Visibility="Hidden" />  -->
 							<Set plusIcon.Visibility="Visible" /> 
 						</Tapped>
 						<WhilePressed>
@@ -264,6 +265,9 @@
 				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0">
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
 					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" FontSize="16" />
+					<Icon color="#fff" Margin="15,0" Width="25">
+						<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
+					</Icon>
 					<Tapped>
         				<Toggle Target="ViewerHidden" />
 	        		</Tapped>

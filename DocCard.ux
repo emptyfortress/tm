@@ -123,27 +123,16 @@
 			<ScrollView ux:Name="fileScroll">
 				<StackPanel>
 					<Panel>
-						<ColumnLayout ux:Name="fileColumns" ColumnCount="4" ItemSpacing="10" ColumnSpacing="10" />
+						<ColumnLayout ux:Name="fileColumns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 						<WhileWindowPortrait>
-							<Change fileColumns.ColumnCount.Value="2" />
+							<Change fileColumns.ColumnCount.Value="1" />
 						</WhileWindowPortrait>
 						<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
 						<Each Items="{filename}" >
-							<Panel Height="100">
-								<Panel Color="blue" Alignment="Bottom">
-									<Text Value="Основной файл" Alignment="Left" Margin="5,3,0,3" Color="#fff" FontSize="12" />
-									<Text Value="123 kB" FontSize="11" Color="#fff" Alignment="Right"  Margin="0,3,5,0" />
-								</Panel>
-								
-								<Text Value="{}" FontSize="16" Color="blue" Alignment="TopLeft" TextWrapping="Wrap" Margin="10,10,10,20" />
-								
-								<Rectangle Layer="Background" Color="#fff" >
-									<Stroke Width="2" Color="blue" />
-								</Rectangle>
-							</Panel>
-						</Each>
+							<file />
+ 						</Each>
 					</Panel>
-					<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" />
+					<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" Visibility="{add-zag}" />
 					<Each Items="{additional}">
 						<Text Value="{}" Color="blue" Margin="0,10" />
 					</Each>
