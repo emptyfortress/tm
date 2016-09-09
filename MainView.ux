@@ -311,12 +311,12 @@
 					<Set iconsVisible.Value="true" />
 				</DoubleTapped>
 
-				<!-- <Rectangle ux:Name="blockRect" Layer="Overlay" Color="#fff" HitTestMode="None" Opacity="0">
+				<Rectangle ux:Name="blockRect" Layer="Overlay" Color="#fff" HitTestMode="None" Opacity="0">
 					<Tapped>
 						<NavigateToggle Target="menu" NavigationContext="edge" />
 						<Set menuVisible.Value="false" />
 					</Tapped>
-				</Rectangle> -->
+				</Rectangle>
 
 				<Page ux:Name="folder1" Padding="5,0">
 					<!-- <EnteringAnimation>
