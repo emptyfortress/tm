@@ -16,9 +16,7 @@
 		<Change plusIcon.HitTestMode="None" />
 		<Rotate Target="plusPlus" Degrees="-135" Duration=".3" />
 	</WhileTrue>
-
 	
-
 	<WhileTrue ux:Name="addPageActive" >
 		<Change overlayRec.Opacity=".7" Duration=".2" Easing="CircularIn" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
@@ -68,5 +66,11 @@
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="sortFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
+	<WhileTrue ux:Name="viewCardButton">
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="cardButton" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 </Panel>

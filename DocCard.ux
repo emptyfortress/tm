@@ -1,4 +1,10 @@
 <DockPanel ux:Class="DocCard" Margin="10,15,10,10" >
+	<WhileVisible>
+		<Change cardHelper.Visibility="Visible" Delay=".5" />
+		<Change cardHelper.Opacity="1" Duration=".5" Delay=".5" />
+		<!-- <Move Target="fileContainer" Y="-20" Duration=".2" Delay=".2" /> -->
+	</WhileVisible>
+
 	<StateGroup ux:Name="fileState" Active="fileShort">
 		<State ux:Name="fileFull">
 			<Change infoCard.Height="8%" Duration=".6" Easing="QuarticInOut" />
@@ -122,7 +128,7 @@
 		<Rectangle Height="1" Color="{key}"  />
 		<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
 			<GridLayout ColumnCount="2" Rows="1*"/>
-			<Panel ux:Name="fileTab">
+			<Panel ux:Name="fileTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder>
 						<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{key}" Margin="30,0">
 							<LayoutAnimation>
@@ -132,23 +138,23 @@
 					</Placeholder>
 					<Icon Height="25">
 						<FileImageSource File="Assets/attach.png"  ux:Key="iconFile"/>
-						<Clicked>
-							<Set cardHelper.Active="filesHelper" />
-						</Clicked>
 					</Icon>
+					<Clicked>
+						<Set cardHelper.Active="filesHelper" />
+					</Clicked>
 			</Panel>
-			<Panel ux:Name="taskTab">
+			<Panel ux:Name="taskTab" HitTestMode="LocalBoundsAndChildren">
 				<Placeholder Target="indicator1"/>
 				<Icon Height="25">
 					<FileImageSource File="Assets/tree.png" ux:Key="iconFile"/>
-					<Clicked>
-						<Set cardHelper.Active="taskHelper" />
-					</Clicked>
 				</Icon>
+				<Clicked>
+					<Set cardHelper.Active="taskHelper" />
+				</Clicked>
 			</Panel>
 		</MultiLayoutPanel>
 	</StackPanel>
-	<PageControl ux:Name="cardHelper" Padding="10">
+	<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden">
 		
 		<Page ux:Name="filesHelper">
 			<WhileActive Threshold="0.5">
@@ -165,7 +171,7 @@
 						</WhileWindowPortrait>
 						<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
 						<Each Items="{filename}" >
-							<file />
+							<file  />
  						</Each>
 					</Panel>
 					<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" Visibility="{add-zag}" />

@@ -15,7 +15,7 @@
 	</WhileTrue>
 
 
-	<PageControl Active="task" >
+	<PageControl ux:Name="item" Active="task" >
 		<Page MinHeight="100" Color="#EAAF00" ux:Name="first">
 			<Clicked>
 				<NavigateTo Target="task" />

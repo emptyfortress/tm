@@ -11,4 +11,8 @@
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
+	<Panel ux:Name="cardButton" Layer="Overlay" Width="300" Height="300" Color="#fff">
+		<Translation Y="-1" RelativeTo="ParentSize" />
+		<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
+	</Panel>
 </Panel>

@@ -66,6 +66,7 @@
 				<Set subMenuVisible.Value="false" /> 
 				<Set viewFilterPop.Value="false" /> 
 				<Set viewSortPop.Value="false" /> 
+				<Set viewCardButton.Value="false" /> 
 			</Clicked>
 		</Panel>
 
@@ -159,7 +160,6 @@
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="users" NavigationContext="_dashPages" />
 							<Set dashboardUp.Value="false" Delay=".5" />
-							<!-- <Set action.Visibility="Hidden" />  -->
 							<Set plusIcon.Visibility="Visible" /> 
 						</Tapped>
 						<WhilePressed>
@@ -171,67 +171,55 @@
 
 					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
 						<Tapped>
-							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Черновики" Quantity="11" >
 						<Tapped>
-							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
 						<Tapped>
-							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Рассмотрение" Quantity="3" >
 						<Tapped>
-							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Исполнение" Quantity="" >
 						<Tapped>
-							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Ознакомление" Quantity="8" >
 						<Tapped>
-							<!-- <Set foldersActive.Value="true" /> -->
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
-							<!-- <Set detailIndicator.Visibility="Collapsed" /> -->
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
@@ -259,7 +247,10 @@
 		<ux:Include File="TaskItem.ux" />
 
 		<Panel ux:Name="mainApp" >
-			<DockPanel ux:Name="TheViewer" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
+			<DoubleTapped>
+				<Set viewCardButton.Value="true" />
+			</DoubleTapped>
+			<DockPanel ux:Name="TheViewer" Visibility="Collapsed" HitTestMode="LocalBoundsAndChildren">
 				<SolidColor Color="sky" ux:Name="BlockColor"/>
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
 
@@ -315,9 +306,9 @@
 				<LinearNavigation ux:Name="_listNavigation" Active="{active}" />
 				<SwipeNavigate SwipeDirection="Left" />
 
-				<LongPressed>
+				<DoubleTapped>
 					<Set iconsVisible.Value="true" />
-				</LongPressed>
+				</DoubleTapped>
 
 				<Rectangle ux:Name="blockRect" Layer="Overlay" Color="#fff" HitTestMode="None" Opacity="0">
 					<Tapped>
