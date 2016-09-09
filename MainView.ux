@@ -319,12 +319,6 @@
 				</Rectangle>
 
 				<Page ux:Name="folder1" Padding="5,0">
-					<!-- <EnteringAnimation>
-						<Move X="-1" RelativeTo="Size" />
-					</EnteringAnimation>
-					<ExitingAnimation>
-						<Move X="1" RelativeTo="Size" />
-					</ExitingAnimation> -->
 					<WhileTrue ux:Name="filterActive">
 						<Change filterText.Visibility.Value="Visible" />
 						<Change filterRec.Visibility.Value="Visible" />
@@ -423,13 +417,6 @@
 				</Page>
 				
 				<Page ux:Name="folder2" Padding="5,0">
-					<!-- <EnteringAnimation>
-						<Move X="-1" RelativeTo="Size" />
-					</EnteringAnimation>
-					<ExitingAnimation>
-						<Move X="1" RelativeTo="Size" />
-					</ExitingAnimation> -->
-					
 					<WhileTrue ux:Name="filterActive2">
 						<Change filterRec2.Visibility.Value="Visible" />
 					</WhileTrue>

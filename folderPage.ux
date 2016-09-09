@@ -1,10 +1,4 @@
 <Page ux:Class="folderPage" Title="folder" >
-	<!-- <EnteringAnimation>
-		<Move X="-1" RelativeTo="Size" />
-	</EnteringAnimation>
-	<ExitingAnimation>
-		<Move X="1" RelativeTo="Size" />
-	</ExitingAnimation> -->
 	<string ux:Property="Title" />
 	<string ux:Property="Count" />
 	<float4 ux:Property="bookmarkColor" />
@@ -27,14 +21,7 @@
 				<Change folderTitle.FontSize.Value="30" />
 			</WhileWindowSize>
 		</StackPanel>
-		<!-- <SwipeGesture ux:Name="swipe" Direction="Right" Type="Active" Length="200" />
-		<SwipingAnimation Source="swipe">
-			<Move Target="folderCount" Y="-1" RelativeTo="ParentSize" Duration=".5" />
-			<Move Target="folderCount1" Y="1" RelativeTo="ParentSize" Duration=".5"  />
-			<Change bookmark.Color.Value="sky" Duration=".5" />
-		</SwipingAnimation> -->
 	</DockPanel>
-	
 
 	<Rectangle Color="#fff" Layer="Background">
 		<Stroke Offset="1" Width="1" Color="#bbb" />
