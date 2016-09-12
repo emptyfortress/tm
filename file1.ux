@@ -31,18 +31,17 @@
 			</Tapped>
 		</Panel>
 	</Grid>
-	<Grid ux:Name="detailPanel" Offset="0,-5" Columns="20,70,auto,1*" Padding="10" Opacity="0" Rows="0" Height="0">
+	<Grid ux:Name="detailPanel" Offset="0,-5" Columns="auto,1*" Padding="10" Opacity="0" Rows="0" Height="0" Margin="50,0,0,0">
 		<Translation Y="-1" RelativeTo="Size" />
-		<Panel></Panel>
-		<Text Value="123 kB" FontSize="13" Alignment="Left"  />
-		<Panel>
-			<Grid Columns="auto,auto" Margin="5,0,0,0">
+		<StackPanel>
+			<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
+			<Grid Columns="auto,auto">
 				<tabtext Value="Последняя синхр.:" Alignment="Right" />
 				<tabtext Value="23.10.2016  15:20" />
 			</Grid>
-		</Panel>
+		</StackPanel>
 		<Panel>
-			<Text Value="Обновить" Color="blue" Alignment="Right" />
+			<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
 		</Panel>
 	</Grid>
 		<!-- <Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
