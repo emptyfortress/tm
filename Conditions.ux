@@ -73,4 +73,5 @@
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="cardButton" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
+	
 </Panel>

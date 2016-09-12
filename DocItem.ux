@@ -13,7 +13,9 @@
 		<Change Target="docTitle1.Font" Value="Bold" />
 		<Change Target="newRect.Opacity" Value="0" />
 	</WhileTrue>
-
+	<WhileTrue ux:Name="viewQuickActions">
+		<Move Target="quickActions" X="-1" RelativeTo="Size" Duration=".2" Easing="CircularInOut"  />
+	</WhileTrue>
 	
 	<Panel Dock="Top">
 		<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
@@ -41,8 +43,52 @@
 			</Clicked>
 		</Rectangle>
 		<Rectangle ux:Name="newRect" Width="3" Color="sky" Alignment="Left" Opacity="{new}"/>
+		<Rectangle Width="35" Alignment="Right" HitTestMode="LocalBoundsAndChildren">
+			<StackLayout ItemSpacing="5" ContentAlignment="Center" />
+			<Rectangle Width="5" Height="5" Color="#ccc" />
+			<Rectangle Width="5" Height="5" Color="#ccc" />
+			<Rectangle Width="5" Height="5" Color="#ccc" />
+			
+			<Tapped>
+				<Toggle Target="viewQuickActions" />
+			</Tapped>
+
+		</Rectangle>
 		
-		<StackPanel Margin="25,0,0,0" >
+		<Panel ux:Name="quickActions" Color="#EAAF00">
+			<Grid ColumnCount="4" Width="90%" Alignment="Left">
+				<StackPanel ux:Class="quickIcon" color="#000" Alignment="Center">
+					<float4 ux:Property="color" />
+					<string ux:Property="iconSign" />
+				    <Image Source="{Resource iconFile}" MaxHeight="40" Color="{Property this.color}" Alignment="Center" Margin="10,0" />
+				    <WhileWindowLandscape>
+				    	<Text Value="{Property this.iconSign}" FontSize="12" Color="{Property this.color}" Alignment="Center" />
+				    </WhileWindowLandscape>
+				</StackPanel>
+				
+				
+				<quickIcon color="#fff" iconSign="Обновить">
+					<FileImageSource File="Assets/refresh-big.png"  ux:Key="iconFile"/>
+				</quickIcon>
+				<!-- <quickIcon color="#fff" iconSign="Прочитать">
+					<FileImageSource File="Assets/read.png"  ux:Key="iconFile"/>
+				</quickIcon> -->
+				<quickIcon color="#fff" iconSign="Спрятать">
+					<FileImageSource File="Assets/hide.png"  ux:Key="iconFile"/>
+				</quickIcon>
+				<quickIcon color="#fff" iconSign="Избранное">
+					<FileImageSource File="Assets/star1.png"  ux:Key="iconFile"/>
+				</quickIcon>
+				<quickIcon color="#fff" iconSign="Запланировать">
+					<FileImageSource File="Assets/calendar-big.png"  ux:Key="iconFile"/>
+				</quickIcon>
+			</Grid>
+
+			<Translation X="1" RelativeTo="Size" />
+
+		</Panel>
+
+		<StackPanel Margin="25,0,35,0" >
 			<StackPanel Orientation="Horizontal" ItemSpacing="5">
 				<Tapped>
 					<Toggle Target="preview" />
@@ -64,7 +110,6 @@
 				<Tapped>
 					<Toggle Target="preview" />
 				</Tapped>
-				<LongPressed></LongPressed>
 			</Text>
 			<Panel ux:Name="hidPanel" Height="0"  Visibility="Collapsed" Opacity="0" Margin="30,10,0,0">
 				<StackLayout />
@@ -86,17 +131,13 @@
 				</StackPanel>
 			</Panel>
 			
-			<StackPanel Orientation="Horizontal" Alignment="Left" Margin="0,10,0,0" >
+			<StackPanel ux:Name="attachment" Orientation="Horizontal" Alignment="Left" Margin="0,10,0,0" >
 				<Icon Height="20">
 					<FileImageSource File="Assets/attach.png"  ux:Key="iconFile"/>
 				</Icon>
 				<Text Value="5" Alignment="Left" />
 			</StackPanel>
 		</StackPanel>
-<!-- 		<Circle Width="2000" Height="2000" Layer="Background">
-            <SolidColor ux:Name="greenColor" Color="#fff" />
-            <Scaling ux:Name="greenScaling" Factor="0" />
-        </Circle> -->
 	</Panel>
 
 
