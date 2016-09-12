@@ -1,10 +1,10 @@
 <Panel ux:InnerClass="TaskItem" ux:Name="self">
 	<!-- <Rectangle Color="#eee" ux:Name="selfImage" Layer="Background" /> -->
-	<WhileTrue ux:Name="preview">
+	<!-- <WhileTrue ux:Name="preview">
 		<Change Target="hidPanel.Visibility" Value="Visible" />
 		<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
 		<Change Target="hidPanel.Height" Value="100" Duration=".3" />
-	</WhileTrue>
+	</WhileTrue> -->
 	<WhileTrue ux:Name="preview1">
 		<Change Target="hidPanel1.Visibility" Value="Visible" />
 		<Change Target="bell.Visibility" Value="Hidden" />
@@ -32,10 +32,10 @@
 
 		<Page ux:Name="task"  ClipToBounds="true">
 			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
-				<Clicked>
+				<!-- <Clicked>
 					<Toggle Target="preview1" />
   					 <Pulse Target="GrowMe"/>
-				</Clicked>
+				</Clicked> -->
 			</fa-bell-o>
 			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
 				<WhileTrue ux:Name="GrowMe">
@@ -58,9 +58,9 @@
 				
 				<StackPanel Margin="25,0,0,0" >
 					<StackPanel Orientation="Horizontal" ItemSpacing="5">
-						<Clicked>
+						<!-- <Clicked>
 							<Toggle Target="preview" />
-						</Clicked>
+						</Clicked> -->
 						<fa-check Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
 						<Text Value="{type}" />
 						<Image File="Assets/clock.png" Alignment="CenterLeft" Width="18" Color="red" Margin="20,0,0,0" Visibility="{clock}" />
@@ -76,9 +76,9 @@
 						<Text ux:Name="taskTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap" Color="{red}"/>
 					</Panel>
 					<Text Value="{description}" Font="Light" Color="#000" FontSize="14" TextAlignment="Left" TextWrapping="Wrap">
-						<Clicked>
+						<!-- <Clicked>
 							<Toggle Target="preview" />
-						</Clicked>
+						</Clicked> -->
 					</Text>
 					<Panel ux:Name="hidPanel" Height="0"  Visibility="Collapsed" Opacity="0" Margin="30,10,0,0">
 						<StackLayout />
