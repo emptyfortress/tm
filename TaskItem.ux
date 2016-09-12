@@ -32,10 +32,10 @@
 
 		<Page ux:Name="task"  ClipToBounds="true">
 			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
-				<!-- <Clicked>
+				<Clicked>
 					<Toggle Target="preview1" />
   					 <Pulse Target="GrowMe"/>
-				</Clicked> -->
+				</Clicked>
 			</fa-bell-o>
 			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
 				<WhileTrue ux:Name="GrowMe">

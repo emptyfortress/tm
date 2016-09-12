@@ -17,26 +17,26 @@
 		<Move Target="quickActions" X="-1" RelativeTo="Size" Duration=".2" Easing="CircularInOut"  />
 	</WhileTrue>
 	
-	<Panel Dock="Top">
-		<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
-			<Clicked>
-				<Toggle Target="preview1"/>
-				<Pulse Target="GrowMe"/>
-			</Clicked>
-		</fa-bell-o>
-		<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
-			<WhileTrue ux:Name="GrowMe">
-			   <Scale Factor="1.2" Duration="0.1"/>
-			</WhileTrue>
-			<Text Value="{info}" FontSize="12" Alignment="VerticalCenter" Margin="10,5" />
-			<Clicked>
-				<Set hidPanel1.Visibility.Value="Collapsed" />
-			</Clicked>
-			<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
-		</Panel>
-	</Panel>
-
 	<Panel ClipToBounds="true">
+		<Panel Dock="Top">
+			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
+				<Clicked>
+					<Toggle Target="preview1"/>
+					<Pulse Target="GrowMe"/>
+				</Clicked>
+			</fa-bell-o>
+			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
+				<WhileTrue ux:Name="GrowMe">
+				   <Scale Factor="1.2" Duration="0.1"/>
+				</WhileTrue>
+				<Text Value="{info}" FontSize="12" Alignment="VerticalCenter" Margin="10,5" />
+				<Clicked>
+					<Set hidPanel1.Visibility.Value="Collapsed" />
+				</Clicked>
+				<Rectangle Color="#B0D397" CornerRadius="30" Layer="Background" />
+			</Panel>
+		</Panel>
+
 		<Rectangle Width="15" Color="#ccc" Alignment="Left" Opacity=".2">
 			<Clicked>
 				<Toggle Target="newItem" />
@@ -52,15 +52,20 @@
 			<Tapped>
 				<Toggle Target="viewQuickActions" />
 			</Tapped>
-
+			<SwipeGesture ux:Name="actionSwipe" Direction="Left" Length="100" />
+			
+			<Swiped Source="actionSwipe">
+				<Toggle Target="viewQuickActions" />
+			</Swiped>
 		</Rectangle>
 		
 		<Panel ux:Name="quickActions" Color="#EAAF00">
-			<Grid ColumnCount="4" Width="90%" Alignment="Left">
+			
+			<Grid ColumnCount="5" Width="90%" Alignment="Left">
 				<StackPanel ux:Class="quickIcon" color="#000" Alignment="Center">
 					<float4 ux:Property="color" />
 					<string ux:Property="iconSign" />
-				    <Image Source="{Resource iconFile}" MaxHeight="40" Color="{Property this.color}" Alignment="Center" Margin="10,0" />
+				    <Image Source="{Resource iconFile}" MaxHeight="30" Color="{Property this.color}" Alignment="Center" Margin="10,0" />
 				    <WhileWindowLandscape>
 				    	<Text Value="{Property this.iconSign}" FontSize="12" Color="{Property this.color}" Alignment="Center" />
 				    </WhileWindowLandscape>
@@ -70,9 +75,9 @@
 				<quickIcon color="#fff" iconSign="Обновить">
 					<FileImageSource File="Assets/refresh-big.png"  ux:Key="iconFile"/>
 				</quickIcon>
-				<!-- <quickIcon color="#fff" iconSign="Прочитать">
-					<FileImageSource File="Assets/read.png"  ux:Key="iconFile"/>
-				</quickIcon> -->
+				<quickIcon color="#fff" iconSign="Отправить почтой">
+					<FileImageSource File="Assets/sendemail.png"  ux:Key="iconFile"/>
+				</quickIcon>
 				<quickIcon color="#fff" iconSign="Спрятать">
 					<FileImageSource File="Assets/hide.png"  ux:Key="iconFile"/>
 				</quickIcon>
@@ -83,6 +88,15 @@
 					<FileImageSource File="Assets/calendar-big.png"  ux:Key="iconFile"/>
 				</quickIcon>
 			</Grid>
+			
+			<Tapped>
+				<Set viewQuickActions.Value="false" />
+			</Tapped>
+			<SwipeGesture ux:Name="actionClose" Direction="Right" Length="100" />
+			<Swiped Source="actionClose">
+				<Toggle Target="viewQuickActions" />
+			</Swiped>
+
 
 			<Translation X="1" RelativeTo="Size" />
 
