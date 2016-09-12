@@ -245,7 +245,7 @@
 				<SolidColor Color="sky" ux:Name="BlockColor"/>
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
 
-				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0">
+				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0" HitTestMode="LocalBoundsAndChildren">
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
 					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" FontSize="16" />
 					<Tapped>
@@ -307,7 +307,7 @@
 					</Tapped>
 				</Rectangle>
 
-				<Page ux:Name="folder1" Padding="5,0">
+				<Page ux:Name="folder1" Padding="10,0">
 					<WhileTrue ux:Name="filterActive">
 						<Change filterText.Visibility.Value="Visible" />
 						<Change filterRec.Visibility.Value="Visible" />

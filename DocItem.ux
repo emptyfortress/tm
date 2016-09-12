@@ -42,7 +42,7 @@
 				<Toggle Target="newItem" />
 			</Clicked>
 		</Rectangle>
-		<Rectangle ux:Name="newRect" Width="3" Color="sky" Alignment="Left" Opacity="{new}"/>
+		<Rectangle ux:Name="newRect" Width="5" Color="sky" Alignment="Left" Opacity="{new}"/>
 		<Rectangle Width="35" Alignment="Right" HitTestMode="LocalBoundsAndChildren">
 			<StackLayout ItemSpacing="5" ContentAlignment="Center" />
 			<Rectangle Width="5" Height="5" Color="#ccc" />
@@ -71,7 +71,6 @@
 				    </WhileWindowLandscape>
 				</StackPanel>
 				
-				
 				<quickIcon color="#fff" iconSign="Обновить">
 					<FileImageSource File="Assets/refresh-big.png"  ux:Key="iconFile"/>
 				</quickIcon>
@@ -96,10 +95,7 @@
 			<Swiped Source="actionClose">
 				<Toggle Target="viewQuickActions" />
 			</Swiped>
-
-
 			<Translation X="1" RelativeTo="Size" />
-
 		</Panel>
 
 		<StackPanel Margin="25,0,35,0" >
@@ -107,8 +103,8 @@
 				<Tapped>
 					<Toggle Target="preview" />
 				</Tapped>
-				<fa-file-text-o Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
-				<Text Value="{type}" />
+				<fa-file-text-o Alignment="CenterLeft" Color="blue" FontSize="16" />
+				<Text Value="{type}" Color="blue" />
 			</StackPanel>
 			<Panel ux:Name="selfImage" Margin="0,15,0,5" >
 				<Tapped>
@@ -149,107 +145,8 @@
 				<Icon Height="20">
 					<FileImageSource File="Assets/attach.png"  ux:Key="iconFile"/>
 				</Icon>
-				<Text Value="5" Alignment="Left" />
+				<Text Value="{files}" Alignment="Left" />
 			</StackPanel>
 		</StackPanel>
 	</Panel>
-
-
-	<!-- <PageControl ux:Name="item" Active="task" >
-		<Page MinHeight="100" Color="#EAAF00" ux:Name="first">
-			<Clicked>
-				<NavigateTo Target="task" />
-			</Clicked>
-			<Grid ColumnCount="5">
-				<Image File="Assets/open-mail.png" Width="32" />
-				<Image File="Assets/open.png" Width="32" />
-				<Image File="Assets/star.png" Width="32" />
-				<Image File="Assets/task.png" Width="32"  />
-				<Image File="Assets/delegate.png" Width="32"  />
-			</Grid>
-		</Page>
-
-		<Page ux:Name="task" ClipToBounds="true">
-			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
-				<Clicked>
-					<Toggle Target="preview1"/>
-  					<Pulse Target="GrowMe"/>
-				</Clicked>
-			</fa-bell-o>
-			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
-				<WhileTrue ux:Name="GrowMe">
-				   <Scale Factor="1.2" Duration="0.1"/>
-				</WhileTrue>
-				<Text Value="{info}" FontSize="12" Margin="10" />
-				<Clicked>
-					<Set hidPanel1.Visibility.Value="Collapsed" />
-				</Clicked>
-				<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
-			</Panel>
-			<Panel ClipToBounds="true">
-
-				<Rectangle Width="15" Color="#ccc" Alignment="Left" Opacity=".2">
-					<Clicked>
-						<Toggle Target="newItem" />
-					</Clicked>
-				</Rectangle>
-				<Rectangle ux:Name="newRect" Width="3" Color="sky" Alignment="Left" Opacity="{new}"/>
-				
-				<StackPanel Margin="25,0,0,0" >
-					<StackPanel Orientation="Horizontal" ItemSpacing="5">
-						<Tapped>
-							<Toggle Target="preview" />
-						</Tapped>
-						<fa-file-text-o Alignment="CenterLeft" Color="#7DB9EE" FontSize="16" />
-						<Text Value="{type}" />
-					</StackPanel>
-					<Panel ux:Name="selfImage" Margin="0,15,0,5" >
-						<Tapped>
-							<Set ViewerVisible.Value="true"/>
-							<Set ZoomToPos.RelativeNode="selfImage"/>
-							<Set ZoomToSize.RelativeNode="selfImage"/>
-							<PulseBackward Target="ZoomTo"/>
-						</Tapped>
-						<Text ux:Name="docTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
-						<Text ux:Name="docTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
-					</Panel>
-					<Text Value="{description}" Font="Light" Color="#000" FontSize="14" TextAlignment="Left" TextWrapping="Wrap">
-						<Tapped>
-							<Toggle Target="preview" />
-						</Tapped>
-						<LongPressed></LongPressed>
-					</Text>
-					<Panel ux:Name="hidPanel" Height="0"  Visibility="Collapsed" Opacity="0" Margin="30,10,0,0">
-						<StackLayout />
-						<StackPanel Orientation="Horizontal" ItemSpacing="10">
-							<Text Value="Автор:" />
-							<Text Value="{author}"/>
-						</StackPanel>
-						<StackPanel Orientation="Horizontal" ItemSpacing="10">
-							<Text Value="Дата:" />
-							<Text Value="{date}"/>
-						</StackPanel>
-						<StackPanel Orientation="Horizontal" ItemSpacing="10">
-							<Text Value="Номер:" />
-							<Text Value="{number}"/>
-						</StackPanel>
-						<StackPanel Orientation="Horizontal" ItemSpacing="10">
-							<Text Value="Контрагент:" />
-							<Text Value="{partner}"/>
-						</StackPanel>
-					</Panel>
-				</StackPanel>
-				<Circle Width="2000" Height="2000" Layer="Background">
-	                <SolidColor ux:Name="greenColor" Color="#fff" />
-	                <Scaling ux:Name="greenScaling" Factor="0" />
-	            </Circle>
-			</Panel>
-		</Page>
-		<Page  MinHeight="100" Color="#B20000">
-			<StackPanel Orientation="Horizontal">
-				<fa-trash-o Alignment="CenterLeft" Margin="30,0,30,0" FontSize="30" Color="#fff" />
-				<Text Value="Удалить" Color="#fff" FontSize="20" Alignment="CenterLeft" />
-			</StackPanel>
-		</Page>
-	</PageControl> -->
 </DockPanel>
