@@ -192,7 +192,7 @@
 								<file />
 	 						</Each>
 						</Panel>
-						<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" Visibility="{add-zag}" />
+						<Text Value="Дополнительные файлы" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<Each Items="{additional}">
