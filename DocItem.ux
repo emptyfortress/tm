@@ -14,7 +14,6 @@
 		<Change Target="newRect.Opacity" Value="0" />
 	</WhileTrue>
 
-
 	<PageControl ux:Name="item" Active="task" >
 		<Page MinHeight="100" Color="#EAAF00" ux:Name="first">
 			<Clicked>

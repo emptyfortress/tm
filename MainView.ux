@@ -90,11 +90,6 @@
 
 <!-- this is main screen ****************************************** -->
 		<EdgeNavigation ux:Name="edge" />
-		<!-- <Sidebar Width="250" ux:Name="actionMenu" Edge="Right" Alignment="Right" Background="#f00">
-			<EnteringAnimation>
-		        <Move X="1" RelativeTo="Size" Easing="CircularIn" />
-			</EnteringAnimation>
-		</Sidebar> -->
 		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#fff">
 			<EnteringAnimation>
 		        <Move X="-1" RelativeTo="Size"  />
@@ -303,8 +298,6 @@
 		<ux:Include File="Indicators.ux" />
 
 			<PageControl ux:Name="_listNavigation" Active="{active}">
-				<!-- <LinearNavigation ux:Name="_listNavigation" Active="{active}" /> -->
-				<!-- <SwipeNavigate SwipeDirection="Left" /> -->
 				<NavigationMotion Overflow="Elastic"/>
 
 				<DoubleTapped>
