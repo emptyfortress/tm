@@ -34,7 +34,8 @@
 			<Toggle Target="viewFilterPop" />
 		</Tapped>
 	</Panel>
-	<Panel  ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
+
+	<Panel ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
 		<fa-search Color="#000" FontSize="25" Alignment="Center">
 			<Translation XY="-7,-6" RelativeTo="Size" />
 		</fa-search>
@@ -43,7 +44,7 @@
 			<DropShadow  Angle="135" />
 		</Circle>
 	</Panel>
-	<Panel  ux:Name="filterIcon" Width="200" Height="200" Alignment="TopRight">
+	<Panel ux:Name="filterIcon" Width="200" Height="200" Alignment="TopRight">
 		<fa-sort-amount-desc Color="#000" FontSize="22" Alignment="Center">
 			<Translation XY="7,-7" RelativeTo="Size" />
 		</fa-sort-amount-desc>

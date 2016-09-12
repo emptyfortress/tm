@@ -52,7 +52,7 @@
 
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
-		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center">
+		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center" HitTestMode="None">
 			<fa-check FontSize="40" Color="#fff" Alignment="Center" />
 			<Text Value="Поручение отправлено" Color="#fff" FontSize="30" Alignment="Center"  />
 		</StackPanel>
