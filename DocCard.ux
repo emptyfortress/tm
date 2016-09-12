@@ -1,5 +1,6 @@
 <Panel ux:Class="DocCard" >
 	<ux:Include File="file.ux" />
+	<ux:Include File="file1.ux" />
 	<WhileTrue ux:Name="letterVisible">
 		<Move Target="letter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 		<Change letter.Opacity="1" Duration=".5" />
@@ -20,9 +21,6 @@
 			<Change cardHelper.Visibility="Visible" Delay=".5" />
 			<Change cardHelper.Opacity="1" Duration=".5" Delay=".5" />
 		</WhileVisible>
-
-
-
 
 		<StateGroup ux:Name="fileState" Active="fileShort">
 			<State ux:Name="fileFull">
@@ -183,26 +181,22 @@
 				<ScrollView ux:Name="fileScroll">
 					<StackPanel>
 						<Panel>
-							
 							<ColumnLayout ux:Name="fileColumns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<WhileWindowPortrait>
 								<Change fileColumns.ColumnCount.Value="1" />
 								<Change file1Columns.ColumnCount.Value="1" />
 							</WhileWindowPortrait>
 							<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
+							
 							<Each Items="{filename}" >
-								<file>
-									<Tapped>
-										<Toggle Target="letterVisible" />
-									</Tapped>
-								</file>
+								<file />
 	 						</Each>
 						</Panel>
 						<Text Value="Дополнительные файлы" FontSize="18" Margin="0,20,0,0" Alignment="Center" Visibility="{add-zag}" />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<Each Items="{additional}">
-								<file />
+								<file1 />
 							</Each>
 						</Panel>
 						<Rectangle Height="1" Color="{key}" Margin="-10,20" />

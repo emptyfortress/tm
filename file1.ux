@@ -1,4 +1,4 @@
-<StackPanel ux:InnerClass="file">
+<StackPanel ux:InnerClass="file1">
 	<WhileTrue ux:Name="detailsVisible">
 		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
 		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
@@ -9,7 +9,7 @@
 
 	<Grid  Columns="30,auto, 1*,auto">
 		<Text Value="{num}" FontSize="13"  Alignment="Center" />
-		<Panel Height="45" Opacity="{missing}">
+		<Panel Height="35" Opacity="{missing}">
 			<Image Source="pdf"  Visibility="{pdf}" />
 			<Image Source="word"  Visibility="{word}" />
 			<Image Source="xls"  Visibility="{xls}" />
@@ -18,7 +18,7 @@
 				<Toggle Target="letterVisible" />
 			</Tapped>
 		</Panel>
-		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard">
+		<Text Value="{text}" FontSize="15"  Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard">
 			<Tapped>
 				<Toggle Target="letterVisible" />
 			</Tapped>
@@ -34,7 +34,7 @@
 	<Grid ux:Name="detailPanel" Offset="0,-5" Columns="20,70,auto,1*" Padding="10" Opacity="0" Rows="0" Height="0">
 		<Translation Y="-1" RelativeTo="Size" />
 		<Panel></Panel>
-		<Text Value="123 kB" FontSize="13" Font="Bold" Alignment="Left"  />
+		<Text Value="123 kB" FontSize="13" Alignment="Left"  />
 		<Panel>
 			<Grid Columns="auto,auto" Margin="5,0,0,0">
 				<tabtext Value="Последняя синхр.:" Alignment="Right" />
