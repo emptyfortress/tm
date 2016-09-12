@@ -33,10 +33,6 @@
 	        <GradientStop Offset="1" Color="#6BAAD3" />
 	        <GradientStop Offset="0" Color="#013A61" />
 	    </LinearGradient>
-
-		
-		
-		
 		
 		<Panel ux:Name="plusIcon" Alignment="BottomRight" Margin="15" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
 			<Tapped>

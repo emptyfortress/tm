@@ -7,15 +7,17 @@
 		<Change letter.Opacity="1" Duration=".5" />
 		<Change letter.HitTestMode="LocalBoundsAndChildren" />
 	</WhileTrue>
-	<Panel ux:Name="letter" Layer="Overlay" Margin="0,-40,0,0"  Opacity="0" HitTestMode="None">
+	
+	<StackPanel ux:Name="letter" Margin="0,0,0,0"  Opacity="0" HitTestMode="None" Offset="0,-50">
 		<Translation Y="1" RelativeTo="ParentSize" />
+		<Panel Height="70" Color="#fff" />
 		<Image File="Assets/Letter.jpg">
 			<Tapped>
 				<Toggle Target="letterVisible" />
 			</Tapped>
 		</Image>
 		<Rectangle Layer="Background" Color="#000" />
-	</Panel>
+	</StackPanel>
 
 	<DockPanel Margin="10,15,10,10" >
 		<WhileVisible>
