@@ -149,18 +149,12 @@
 		
 		
 		<StackPanel Dock="Top">
-			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
-				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-				<Tapped>
-					<Set fileState.Active="fileShort" />
-				</Tapped>
-			</Circle>
 			<Rectangle Height="1" Color="{key}"  />
 			<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
-				<GridLayout ColumnCount="2" Rows="1*"/>
+				<GridLayout ColumnCount="3" Rows="1*"/>
 				<Panel ux:Name="fileTab" HitTestMode="LocalBoundsAndChildren">
 						<Placeholder>
-							<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{key}" Margin="30,0">
+							<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{key}" >
 								<LayoutAnimation>
 									<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 								</LayoutAnimation>
@@ -172,6 +166,15 @@
 						<Clicked>
 							<Set cardHelper.Active="filesHelper" />
 						</Clicked>
+				</Panel>
+				<Panel ux:Name="reportTab" HitTestMode="LocalBoundsAndChildren">
+					<Placeholder Target="indicator1"/>
+					<Icon Height="25">
+						<FileImageSource File="Assets/report.png"  ux:Key="iconFile"/>
+					</Icon>
+					<Clicked>
+						<Set cardHelper.Active="reportHelper" />
+					</Clicked>
 				</Panel>
 				<Panel ux:Name="taskTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder Target="indicator1"/>
@@ -185,7 +188,15 @@
 			</MultiLayoutPanel>
 		</StackPanel>
 		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden">
-			
+			<NavigationMotion Overflow="Elastic"/>
+			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
+				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+				<Tapped>
+					<Set fileState.Active="fileShort" />
+				</Tapped>
+			</Circle>
+
+
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="fileTab" />
@@ -222,6 +233,15 @@
 						<Set fileState.Active="fileFull"   />
 					</ScrollingAnimation>
 				</ScrollView>
+			</Page>
+			<Page ux:Name="reportHelper">
+				<WhileActive Threshold="0.5">
+					<Set tabBar1.LayoutElement="reportTab" />
+				</WhileActive>
+				<Grid ColumnCount="2" Margin="0,0,0,50">
+					<Text Value="Добавить отчет" Color="blue" TextAlignment="Center" Alignment="Center" TextWrapping="Wrap"/>
+					<Text Value="Добавить файл отчета" Color="blue" TextAlignment="Center" Alignment="Center" TextWrapping="Wrap"/>
+				</Grid>
 			</Page>
 			<Page ux:Name="taskHelper">
 				<WhileActive Threshold="0.5">
