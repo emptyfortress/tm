@@ -24,7 +24,7 @@
 			</Tapped>
 		</Text>
 		<Panel HitTestMode="LocalBoundsAndChildren">
-			<fa-chevron-down ux:Name="chevron" Margin="15,0" Alignment="Center" />
+			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
 			<Tapped>
 				<Toggle Target="detailsVisible" Delay=".2" />
 				<Set letterVisible.Value="false" />

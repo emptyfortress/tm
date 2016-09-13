@@ -2,7 +2,7 @@
 	<WhileTrue ux:Name="preview">
 		<Change Target="hidPanel.Visibility" Value="Visible" />
 		<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
-		<Change Target="hidPanel.Height" Value="80" Duration=".3" />
+		<Change Target="hidPanel.Height" Value="105" Duration=".3" />
 	</WhileTrue>
 	<WhileTrue ux:Name="preview1">
 		<Change Target="hidPanel1.Visibility" Value="Visible" />
@@ -96,6 +96,7 @@
 				</Tapped>
 				<fa-check Alignment="CenterLeft" Color="blue" FontSize="16" />
 				<Text Value="{type}" Color="blue" />
+				<Image File="Assets/clock.png" Alignment="CenterLeft" Width="18" Color="red" Margin="20,0,0,0" Visibility="{clock}" />
 			</StackPanel>
 			<Panel ux:Name="selfImage" Margin="0,15,0,5" >
 				<Tapped>
@@ -116,23 +117,27 @@
 				<StackLayout />
 				<StackPanel Orientation="Horizontal" ItemSpacing="10">
 					<Text Value="Автор:" />
-					<Text Value="{author}"/>
+					<Text Value="{from}"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" ItemSpacing="10">
-					<Text Value="Дата:" />
-					<Text Value="{date}"/>
+					<Text Value="Срок исполнения:" Color="{red}"/>
+					<Text Value="{deadline}" Color="{red}"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" ItemSpacing="10">
-					<Text Value="Номер:" />
-					<Text Value="{number}"/>
+					<Text Value="Исполнители:" />
+					<Text Value="{to}"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" ItemSpacing="10">
-					<Text Value="Контрагент:" />
-					<Text Value="{partner}"/>
+					<Text Value="Контролер:" />
+					<Text Value="{controler}"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" ItemSpacing="10">
+					<Text Value="Дата контроля:" />
+					<Text Value="{controldate}"/>
 				</StackPanel>
 			</Panel>
 			
-			<StackPanel ux:Name="attachment" Orientation="Horizontal" Alignment="Left" Margin="0,10,0,0" >
+			<StackPanel ux:Name="attachment" Orientation="Horizontal" Alignment="Left" Margin="0,10,0,0" Visibility="{fil}" >
 				<Icon Height="20">
 					<FileImageSource File="Assets/attach.png"  ux:Key="iconFile"/>
 				</Icon>

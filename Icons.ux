@@ -3,14 +3,19 @@
 	<Rectangle ux:Name="readPanel" Color="#fff" Alignment="Center">
 		<Translation Y="-1.2" RelativeTo="ParentSize" />
 		<StackPanel>
-			<StackPanel ItemSpacing="5" Margin="20">
-				<fa-envelope-o Alignment="Center" />
-				<Text Value="Отметить все, как прочитанные" TextAlignment="Center" TextWrapping="Wrap" />
+			<StackPanel ItemSpacing="15" Margin="20" Orientation="Horizontal">
+				<fa-envelope-o Alignment="Left" />
+				<Text Value="Прочитать все" TextAlignment="Left" TextWrapping="Wrap" />
 			</StackPanel>
 			<Rectangle Height="1" Color="#bbb" />
-			<StackPanel ItemSpacing="5" Alignment="Center" Margin="20">
-				<fa-bell-o Alignment="Center" />
-				<Text Value="Сбросить уведомления" TextAlignment="Center" TextWrapping="Wrap" />
+			<StackPanel ItemSpacing="15" Alignment="Left" Margin="20" Orientation="Horizontal">
+				<fa-bell-o Alignment="Left" />
+				<Text Value="Сбросить уведомления" TextAlignment="Left" TextWrapping="Wrap" />
+			</StackPanel>
+			<Rectangle Height="1" Color="#bbb" />
+			<StackPanel ItemSpacing="15" Alignment="Left" Margin="20" Orientation="Horizontal">
+				<fa-eye Alignment="Left" />
+				<Text Value="Показать все" TextAlignment="Left" TextWrapping="Wrap" />
 			</StackPanel>
 		</StackPanel>
 		<Tapped>
