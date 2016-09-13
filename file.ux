@@ -44,8 +44,8 @@
 			<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
 		</Panel>
 	</Grid>
-		<!-- <Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
+		<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
 			<Stroke Width="1" Color="#ddd" />
-		</Rectangle> -->
+		</Rectangle>
 </StackPanel>
 
