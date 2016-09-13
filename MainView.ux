@@ -517,18 +517,104 @@
 
 
 
-				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0" bookmarkColor="lightblue">
+				<folderPage ux:Name="folder3" Title="Ознакомление"  Count="0" Padding="5,0" bookmarkColor="lightblue">
 					<StackPanel Alignment="Center" MaxWidth="60%">
-						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
-						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
+						<fa-diamond Alignment="Center" Color="#ddd" FontSize="50" />
+						<!-- <Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" /> -->
 					</StackPanel>
 				</folderPage>
+				
 
-				<folderPage ux:Name="folder4" Title="Ознакомление"  Count="8" Padding="5,0" bookmarkColor="red">
+				<Page ux:Name="folder4" Padding="10,0">
+					<WhileTrue ux:Name="filterActive4">
+						<Change filterText4.Visibility.Value="Visible" />
+						<Change filterRec4.Visibility.Value="Visible" />
+						<Move Target="filterText4" X="-1" RelativeTo="ParentSize" Duration=".4" Easing="QuinticOut" />
+					</WhileTrue>
+					
+					<StateGroup ux:Name="filterGroup4">
+						<State ux:Name="blueState4">
+				            <Change bookmark4.Color="sky" Duration="0.2"/>
+				            <Change filterRec4.Color="sky" Duration="0.2"/>
+				            <Change blueCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				        </State>
+				        <State ux:Name="redState4">
+				            <Change bookmark4.Color="red" Duration="0.2"/>
+				            <Change filterRec4.Color="red" Duration="0.2"/>
+				            <Change redCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
+				        </State>
+				        <State ux:Name="greenState4">
+				        	<Change bookmark4.Color="#008C23" Duration="0.2"/>
+				            <Change filterRec4.Color="#008C23" Duration="0.2"/>
+				            <Change greenCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				        </State>
+					</StateGroup>
+
+					<Rectangle ux:Name="filterRec4" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="60,0,0,0" Visibility="Hidden" />
+
+					<DockPanel>
+						<StackLayout />
+						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe4" TransformOrigin="TopLeft" >
+							<Panel ux:Name="zagPanel4" Alignment="TopLeft" Margin="50,0,0,0" >
+								<Text ux:Name="blueCount4" Value="4" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="redCount4" Value="12" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="greenCount4" Value="8" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Image ux:Name="bookmark4" File="Assets/bookmark.png" Width="30" Color="sky"/>
+								<Clicked>
+									<Toggle Target="filterActive4" />
+								</Clicked>
+							</Panel>
+							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
+								<Text ux:Name="folderTitle4" Value="Исполнение" FontSize="20">
+								</Text>
+								<Text ux:Name="total4" Value="8 поручений" FontSize="13" Color="#666" Alignment="Center" />
+								<SwipeGesture ux:Name="filterSwipe41" Direction="Left"  Length="100" />
+								<SwipeGesture ux:Name="filterSwipe4" Direction="Right"  Length="100" />
+								<Swiped Source="filterSwipe4">
+									<TransitionState Target="filterGroup2" Type="Next"/>
+								</Swiped>
+								<Swiped Source="filterSwipe41">
+									<TransitionState Target="filterGroup2" Type="Next"/>
+								</Swiped>
+							</StackPanel>
+						</StackPanel>
+						<StackPanel ux:Name="filterText4" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Hidden">
+							<Translation X="1" RelativeTo="ParentSize" />
+							<fa-hand-o-left Alignment="Left" />
+							<Text Value="Быстрый фильтр включен" FontSize="13" Alignment="Left"  />
+						</StackPanel>
+						<WhileWindowSize GreaterThan="380">
+							<Change filterRec4.Width.Value="46" />
+							<Change zagPanel4.Margin.Value="50,0,0,0" />
+							<Change bookmark4.Width.Value="45" />
+							<Change blueCount4.FontSize.Value="35" />
+							<Change redCount4.FontSize.Value="35" />
+							<Change greenCount4.FontSize.Value="35" />
+							<Change folderTitle4.FontSize.Value="30" />
+						</WhileWindowSize>
+					</DockPanel>
+
 					<ScrollView Margin="0,80,0,0">
-						<StackPanel ux:Name="scroll4" Margin="3,100" ItemSpacing="120">
+
+						<ScrollingAnimation From="80" To="200">
+							<Move Target="moveMe4" X="42"  Duration=".5" Easing="QuarticOut" />
+							<Scale Target="moveMe4" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
+							<Scale Target="filterRec4" X=".5" Duration=".5" Easing="QuadraticOut" />
+							<Change filterRec4.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
+							<Change filterText4.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
+							<Change total4.Visibility.Value="Hidden" />
+						</ScrollingAnimation>
+						<WhileWindowSize GreaterThan="380">
+							<ScrollingAnimation From="80" To="200">
+								<Change filterRec4.Margin.Value="50,0,0,0" Duration=".3" Easing="QuadraticOut" />
+								<Change total4.Visibility.Value="Hidden" />
+							</ScrollingAnimation>
+						</WhileWindowSize>
+
+
+						<StackPanel ux:Name="scroll4" ItemSpacing="120" Margin="3,100">
 							<WhileWindowLandscape>
-								<Change scroll4.Margin="100" />
+								<Change scroll4.Margin="80" />
 							</WhileWindowLandscape>
 							<Each Items="{items.tasks}">
 								<TaskItem />
@@ -536,7 +622,11 @@
 							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
 					</ScrollView>
-				</folderPage>
+
+					<Rectangle Color="#fff" Layer="Background">
+						<Stroke Offset="1" Width="1" Color="#bbb" />
+					</Rectangle>
+				</Page>
 			</PageControl>
 		</Panel>
 		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>

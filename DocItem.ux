@@ -113,8 +113,8 @@
 					<Set ZoomToSize.RelativeNode="selfImage"/>
 					<PulseBackward Target="ZoomTo"/>
 				</Tapped>
-				<Text ux:Name="docTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold" />
-				<Text ux:Name="docTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap"/>
+				<Text ux:Name="docTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold"  />
+				<Text ux:Name="docTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap" />
 			</Panel>
 			<Text Value="{description}" Font="Light" Color="#000" FontSize="14" TextAlignment="Left" TextWrapping="Wrap">
 				<Tapped>
