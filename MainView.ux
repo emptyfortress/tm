@@ -332,7 +332,7 @@
 				        </State>
 					</StateGroup>
 
-					<Rectangle ux:Name="filterRec" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="55,0,0,0" Visibility="Hidden" />
+					<Rectangle ux:Name="filterRec" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="60,0,0,0" Visibility="Hidden" />
 
 					<DockPanel>
 						<StackLayout />
@@ -346,7 +346,10 @@
 									<Toggle Target="filterActive" />
 								</Clicked>
 							</Panel>
-							<Text ux:Name="folderTitle" Value="Согласование" FontSize="20" Margin="5,15,0,0">
+							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
+								<Text ux:Name="folderTitle" Value="Согласование" FontSize="20">
+								</Text>
+								<Text ux:Name="total" Value="15 документов" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe1" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe" Direction="Right"  Length="100" />
 								<Swiped Source="filterSwipe">
@@ -355,7 +358,7 @@
 								<Swiped Source="filterSwipe1">
 									<TransitionState Target="filterGroup" Type="Next"/>
 								</Swiped>
-							</Text>
+							</StackPanel>
 						</StackPanel>
 						<StackPanel ux:Name="filterText" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Hidden">
 							<Translation X="1" RelativeTo="ParentSize" />
@@ -381,10 +384,12 @@
 							<Scale Target="filterRec" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
 							<Change filterText.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
+							<Change total.Visibility.Value="Hidden" />
 						</ScrollingAnimation>
 						<WhileWindowSize GreaterThan="380">
 							<ScrollingAnimation From="80" To="200">
 								<Change filterRec.Margin.Value="50,0,0,0" Duration=".3" Easing="QuadraticOut" />
+								<Change total.Visibility.Value="Hidden" />
 							</ScrollingAnimation>
 						</WhileWindowSize>
 
@@ -404,10 +409,14 @@
 						<Stroke Offset="1" Width="1" Color="#bbb" />
 					</Rectangle>
 				</Page>
+
 				
-				<Page ux:Name="folder2" Padding="5,0">
+				
+				<Page ux:Name="folder2" Padding="10,0">
 					<WhileTrue ux:Name="filterActive2">
+						<Change filterText2.Visibility.Value="Visible" />
 						<Change filterRec2.Visibility.Value="Visible" />
+						<Move Target="filterText2" X="-1" RelativeTo="ParentSize" Duration=".4" Easing="QuinticOut" />
 					</WhileTrue>
 					
 					<StateGroup ux:Name="filterGroup2">
@@ -428,29 +437,38 @@
 				        </State>
 					</StateGroup>
 
-					<Rectangle ux:Name="filterRec2" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="55,0,0,0" Visibility="Hidden" />
+					<Rectangle ux:Name="filterRec2" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="60,0,0,0" Visibility="Hidden" />
 
 					<DockPanel>
+						<StackLayout />
 						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe2" TransformOrigin="TopLeft" >
 							<Panel ux:Name="zagPanel2" Alignment="TopLeft" Margin="50,0,0,0" >
-								<Text ux:Name="blueCount2" Value="7" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
-								<Text ux:Name="redCount2" Value="23" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
-								<Text ux:Name="greenCount2" Value="6" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="blueCount2" Value="4" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="redCount2" Value="12" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="greenCount2" Value="8" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
 								<Image ux:Name="bookmark2" File="Assets/bookmark.png" Width="30" Color="sky"/>
 								<Clicked>
 									<Toggle Target="filterActive2" />
 								</Clicked>
 							</Panel>
-							<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" Margin="5,15,0,0">
+							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
+								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20">
+								</Text>
+								<Text ux:Name="total2" Value="20 документов" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe21" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe2" Direction="Right"  Length="100" />
-								<Swiped Source="filterSwipe2">
+								<Swiped Source="filterSwipe">
 									<TransitionState Target="filterGroup2" Type="Next"/>
 								</Swiped>
-								<Swiped Source="filterSwipe21">
+								<Swiped Source="filterSwipe1">
 									<TransitionState Target="filterGroup2" Type="Next"/>
 								</Swiped>
-							</Text>
+							</StackPanel>
+						</StackPanel>
+						<StackPanel ux:Name="filterText2" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Hidden">
+							<Translation X="1" RelativeTo="ParentSize" />
+							<fa-hand-o-left Alignment="Left" />
+							<Text Value="Быстрый фильтр включен" FontSize="13" Alignment="Left"  />
 						</StackPanel>
 						<WhileWindowSize GreaterThan="380">
 							<Change filterRec2.Width.Value="46" />
@@ -470,18 +488,23 @@
 							<Scale Target="moveMe2" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec2" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec2.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
+							<Change filterText2.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
+							<Change total2.Visibility.Value="Hidden" />
 						</ScrollingAnimation>
 						<WhileWindowSize GreaterThan="380">
 							<ScrollingAnimation From="80" To="200">
-							<Change filterRec2.Margin.Value="50,0,0,0" Duration=".3" Easing="QuadraticOut" />
-						</ScrollingAnimation>
+								<Change filterRec2.Margin.Value="50,0,0,0" Duration=".3" Easing="QuadraticOut" />
+								<Change total2.Visibility.Value="Hidden" />
+							</ScrollingAnimation>
 						</WhileWindowSize>
+
+
 						<StackPanel ux:Name="scroll2" ItemSpacing="120" Margin="3,100">
 							<WhileWindowLandscape>
 								<Change scroll2.Margin="80" />
 							</WhileWindowLandscape>
-							<Each Items="{items.tasks}">
-								<TaskItem />
+							<Each Items="{items.docs}">
+								<DocItem />
 							</Each>
 							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
 						</StackPanel>
@@ -491,6 +514,8 @@
 						<Stroke Offset="1" Width="1" Color="#bbb" />
 					</Rectangle>
 				</Page>
+
+
 
 				<folderPage ux:Name="folder3" Title="Исполнение"  Count="" Padding="5,0" bookmarkColor="lightblue">
 					<StackPanel Alignment="Center" MaxWidth="60%">
