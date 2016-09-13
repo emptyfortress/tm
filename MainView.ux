@@ -253,6 +253,7 @@
 	        		</Tapped>
 				</StackPanel>
 				<PageControl ux:Name="TheViewerCard" ClipToBounds="false">
+					<NavigationMotion Overflow="Elastic"/>
 					<Each Items="{items.cards}" >
 						<Page>
 							<WhileActive Threshold=".5">
@@ -268,16 +269,7 @@
 								<Set BlockColorAttractor.Value="green" />
 								<Set BlockColor.Color="green" />
 							</WhileActive>
-							<TaskCard keyColor="green" />
-						</Page>
-					</Each>
-					<Each Items="{items.cards2}" >
-						<Page>
-							<WhileActive Threshold=".5">
-								<Set BlockColorAttractor.Value="pink" />
-								<Set BlockColor.Color="pink" />
-							</WhileActive>
-							<SoglCard keyColor="pink" />
+							<TaskCard />
 						</Page>
 					</Each>
 				</PageControl>

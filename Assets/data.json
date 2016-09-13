@@ -327,6 +327,7 @@
         "date":"11.08.2015",
         "author":"Гордеева А.С." ,
         "old": "1",
+        "count":"1",
         "info": "Иванов Г.К. добавил комментарий    23.08.2016 17:15",
         "filename": [
             {
@@ -395,12 +396,11 @@
             "text":"Переписка с менеджером.docx"
            }
         ],
-        "add-zag":"Visible",
-        "tasks": ""
+        "add-zag":"Visible"
     },
     {
-       "type":"Входящий",
-       "key": "#0095DA",
+        "type":"Входящий",
+        "key": "#0095DA",
         "title":"Письмо о проведении аукциона",
         "description":"Для проведения аукциона или запроса котировочной цены в отдел материально-технического обеспечения требуется предоставить в электронном виде следующие документы: заявку, заполненную в соответствии с указанными в ее форме требованиями, форму цены и объема товара к заявке, два коммерческих предложения от разных организаций с подписями, печатями и датами.",
         "number":"Вх-144/15",
@@ -412,12 +412,24 @@
         "files": "1",
         "filename": ["Правила проведения аукциона.doc"],
         "add-zag":"Hidden",
-        "tasks": "3"
+        "count":"2",
+        "filename": [
+            {
+            "num": 1,
+            "pdf":"Visible",  
+            "word":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",  
+            "text":"Про аукцион подробно.pdf"
+            }],
+         "add-zag":"Collapsed"
     }
     ],
     "cards1":[
         {
         "type": "На исполнение",
+        "key": "#7BB652",
         "title": "О подготовке приказа на отпуск Ивановой",
         "description": "Подготовить проект приказа о предоставлени отпуска без сохранения заработной платы на 3 месяца",
         "to": "Гордеева",
@@ -425,10 +437,32 @@
         "from": "Орлов",
         "clock": "Collapsed",
         "controler": "Орлов",
-        "controldate": "20.01.2016"
+        "controldate": "20.01.2016",
+        "count":"3",
+        "filename": [
+            {
+            "num": 1,
+            "pdf":"Collapsed",  
+            "word":"Visible",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",  
+            "text":"Это имя файла.doc"
+            },
+            {
+            "num": 2,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Visible",
+            "txt":"Collapsed",
+            "missing":"1",    
+            "text":"Калькуляция цены.xls"
+            }],
+        "add-zag":"Collapsed"
         },
         {
         "type": "На рассмотрение",
+        "key": "#7BB652",
         "title": "Договор о совместной деятельности ООО Атмосфера",
         "description": "Вам на рассмотрение поступил новый документ",
         "to": "Орлов",
@@ -439,10 +473,42 @@
         "red": "#B20000",
         "clock": "Visible",
         "controler": "Орлов",
-        "controldate": "20.01.2016"
+        "controldate": "20.01.2016",
+        "count":"4",
+        "filename": [
+            {
+            "num": 1,
+            "pdf":"Collapsed",  
+            "word":"Visible",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",  
+            "text":"filename.doc"
+            },
+            {
+            "num": 2,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Visible",
+            "missing":"1",    
+            "text":"Readme.txt"
+            },
+            {
+            "num": 3,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Visible",
+            "missing":"1",    
+            "text":"Readme2.txt"
+            }
+        ],
+        "add-zag":"Collapsed"
         },
         {
         "type": "На подписание",
+        "key": "#7BB652",
         "title": "Заявка на оборудование",
         "description": "Вам поступило задание на подписание. Ознакомьтесь с приложенными документами и вынесите решение. ",
         "to": "Орлов",
@@ -452,12 +518,13 @@
         "info": "Изменился статус поручения",
         "clock": "Collapsed",
         "controler": "Орлов",
-        "controldate": "20.01.2016"
-        }
-    ],
-    "cards2":[
+        "controldate": "20.01.2016",
+        "count":"5",
+        "add-zag":"Collapsed"
+        },
         {
         "type": "На согласование",
+        "key": "#7BB652",
         "title": "Договор о поставках торгового оборудования",
         "description": "Вам на согласование поступил новый документ. Ознакомьтесь с документом и вынесите решение.",
         "to": "Орлов",
@@ -466,7 +533,76 @@
         "old": "1",
         "info": "В поручение добавлен документ",
         "red": "#B20000",
-        "clock": "Visible"
+        "clock": "Visible",
+        "count":"6",
+        "filename": [
+            {
+            "num": 1,
+            "pdf":"Visible",  
+            "word":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",  
+            "text":"Договор с подрядчиком.pdf"
+            },
+            {
+            "num": 2,
+            "pdf":"Collapsed",  
+            "word":"Visible",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",    
+            "text":"Приложение № 1 к договору.docx"
+            },
+            {
+            "num": 3,
+            "pdf":"Collapsed",  
+            "word":"Visible",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":".2",    
+            "text":"Приложение № 2 к договору.docx"
+            },
+            {
+            "num": 4,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Visible",
+            "txt":"Collapsed",
+            "missing":"1",    
+            "text":"Смета расходов.xls"
+            },
+            {
+            "num": 5,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Visible",
+            "txt":"Collapsed",
+            "missing":".2",     
+            "text":"Прайс-лист.xls"
+            }
+        ],
+        "additional":[
+           {
+            "num": 1,
+            "pdf":"Collapsed",  
+            "word":"Collapsed",  
+            "xls":"Collapsed",
+            "txt":"Visible",
+            "missing":"1",    
+            "text":"Список контрагентов.txt"
+           },
+            {
+            "num": 2,
+            "pdf":"Collapsed",  
+            "word":"Visible",  
+            "xls":"Collapsed",
+            "txt":"Collapsed",
+            "missing":"1",    
+            "text":"Переписка с менеджером.docx"
+           }
+        ],
+        "add-zag":"Visible"
         }
     ]
 }

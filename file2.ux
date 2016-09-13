@@ -1,0 +1,51 @@
+<StackPanel ux:InnerClass="file2">
+	<WhileTrue ux:Name="detailsVisible">
+		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
+		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
+		<Change detailPanel.Rows.Value="auto" Duration=".3" Easing="CircularIn"/>
+		<Change detailPanel.Height.Value="50" Duration=".3" Easing="CircularIn"/>
+		<Rotate Target="chevron" Degrees="180" Duration=".3" />
+	</WhileTrue>
+
+	<Grid  Columns="30,auto, 1*,auto">
+		<Text Value="{num}" FontSize="13"  Alignment="Center" />
+		<Panel Height="70" Opacity="{missing}">
+			<Image Source="pdf"  Visibility="{pdf}" />
+			<Image Source="word"  Visibility="{word}" />
+			<Image Source="xls"  Visibility="{xls}" />
+			<Image Source="txt"  Visibility="{txt}" />
+			<Tapped>
+				<Toggle Target="letterVisible" />
+			</Tapped>
+		</Panel>
+		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard">
+			<Tapped>
+				<Toggle Target="letterVisible" />
+			</Tapped>
+		</Text>
+		<Panel HitTestMode="LocalBoundsAndChildren">
+			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+			<Tapped>
+				<Toggle Target="detailsVisible" Delay=".2" />
+				<Set letterVisible.Value="false" />
+			</Tapped>
+		</Panel>
+	</Grid>
+	<Grid ux:Name="detailPanel" Offset="0,-5" Columns="auto,1*" Padding="10" Opacity="0" Rows="0" Height="0" Margin="15,0,0,0">
+		<Translation Y="-1" RelativeTo="Size" />
+		<StackPanel>
+			<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
+			<Grid Columns="auto,auto">
+				<tabtext Value="Последняя синхр.:" Alignment="Right" />
+				<tabtext Value="23.10.2016  15:20" />
+			</Grid>
+		</StackPanel>
+		<Panel>
+			<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
+		</Panel>
+	</Grid>
+		<!-- <Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
+			<Stroke Width="1" Color="#ddd" />
+		</Rectangle> -->
+</StackPanel>
+

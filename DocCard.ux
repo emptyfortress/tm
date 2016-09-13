@@ -1,7 +1,19 @@
-<Panel ux:Class="DocCard" >
+<Panel ux:Class="DocCard">
 	<ux:Include File="file.ux" />
 	<ux:Include File="file1.ux" />
+	<WhileActive>
+		<Pulse Target="showCount"/>
+	</WhileActive> 
 	
+	<StackPanel  ux:Name="Count" Alignment="TopCenter" Opacity="0" Margin="0,30,0,0" HitTestMode="None">
+		<WhileTrue ux:Name="showCount">
+			<Change Count.Opacity.Value="1" Duration=".5" />
+		</WhileTrue>
+		<Text Value="{count}" FontSize="200" Color="#000" />
+		<Rectangle Height="6" Color="#000" Margin="0,-30,0,0" />
+		<Text Value="15" FontSize="100" Color="#000" />
+	</StackPanel>
+
 	<WhileTrue ux:Name="letterVisible">
 		<Move Target="letter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 		<Change letter.Opacity="1" Duration=".5" />
@@ -21,6 +33,7 @@
 
 	<DockPanel Margin="10,15,10,10" >
 		<WhileVisible>
+			<!-- это задержка для плавной анимации открытия карточки -->
 			<Change cardHelper.Visibility="Visible" Delay=".5" />
 			<Change cardHelper.Opacity="1" Duration=".5" Delay=".5" />
 		</WhileVisible>
@@ -102,7 +115,7 @@
 					</Tapped>
 					<StackPanel Orientation="Horizontal" ItemSpacing="5">
 						<fa-certificate Color="#008C23" Alignment="CenterLeft" />
-						<Text Value="Цифровая подпись" Font="Light" Color="#008C23" Alignment="CenterLeft"  />
+						<Text Value="Электронная подпись" Font="Light" Color="#008C23" Alignment="CenterLeft"  />
 					</StackPanel>
 					<Panel ux:Name="sign" Height="0" Opacity="0">
 						<Translation Y="-1" RelativeTo="ParentSize" />
