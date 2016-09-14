@@ -43,6 +43,8 @@
 			</Clicked>
 		</Rectangle>
 		<Rectangle ux:Name="newRect" Width="5" Color="sky" Alignment="Left" Opacity="{new}"/>
+		
+		<!-- this is cebab -->
 		<Rectangle Width="35" Alignment="Right" HitTestMode="LocalBoundsAndChildren">
 			<StackLayout ItemSpacing="5" ContentAlignment="Center" />
 			<Rectangle Width="5" Height="5" Color="#ccc" />
@@ -103,7 +105,7 @@
 				<Tapped>
 					<Toggle Target="preview" />
 				</Tapped>
-				<fa-file-text-o Alignment="CenterLeft" Color="blue" FontSize="16" />
+				<Image File="Assets/card-small.png" Color="blue" />
 				<Text Value="{type}" Color="blue" />
 			</StackPanel>
 			<Panel ux:Name="selfImage" Margin="0,15,0,5" >

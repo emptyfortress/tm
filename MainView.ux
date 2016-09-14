@@ -231,7 +231,20 @@
 				</StackPanel>
 			</ScrollView>
 		</Sidebar>
-		
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+			
+			var visible = Observable("Hidden");
+			
+			function showTask(){
+				visible.value = "Visible";
+			}
+
+			module.exports = {
+				visible: visible,
+				showTask: showTask
+			}
+		</JavaScript>
 		
 		<ux:Include File="dashboard.ux" />
 		<ux:Include File="DocItem.ux" />
@@ -287,7 +300,7 @@
 
 			<PageControl ux:Name="_listNavigation" Active="{active}">
 				<NavigationMotion Overflow="Elastic"/>
-
+				
 				<DoubleTapped>
 					<Set iconsVisible.Value="true" />
 				</DoubleTapped>

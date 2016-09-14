@@ -1,4 +1,13 @@
 <Panel ux:Class="DocCard">
+	<JavaScript>
+		// var Observable = require("FuseJS/Observable");
+
+		// var showTask = "fuck";
+		// module.exports = {
+		// 	showTask: showTask
+		// }
+	</JavaScript>
+
 	<ux:Include File="file.ux" />
 	<ux:Include File="file1.ux" />
 	<WhileActive>
@@ -7,7 +16,7 @@
 	
 	<StackPanel  ux:Name="Count" Alignment="TopCenter" Opacity="0" Margin="0,30,0,0" HitTestMode="None">
 		<WhileTrue ux:Name="showCount">
-			<Change Count.Opacity.Value="1" Duration=".5" />
+			<Change Count.Opacity.Value=".3" Duration=".5" />
 		</WhileTrue>
 		<Text Value="{count}" FontSize="200" Color="#000" />
 		<Rectangle Height="6" Color="#000" Margin="0,-30,0,0" />
@@ -65,7 +74,8 @@
 		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
 			<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
-				<fa-file-text-o FontSize="35" Color="{key}" Alignment="Center" />
+				<Image File="Assets/card.png" Width="35" Color="{key}" Alignment="Center" />
+				<!-- <fa-file-text-o FontSize="35" Color="{key}" Alignment="Center" /> -->
 			</Circle>
 		</Panel>
 		
@@ -196,6 +206,7 @@
 				
 				<ScrollView ux:Name="fileScroll">
 					<StackPanel>
+						<Text Value="ФАЙЛЫ" FontSize="16" Alignment="TopCenter" />
 						<Panel>
 							<ColumnLayout ux:Name="fileColumns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<WhileWindowPortrait>
@@ -215,11 +226,10 @@
 								<file1 />
 							</Each>
 						</Panel>
-						<Rectangle Height="1" Color="{key}" Margin="-10,20" />
-						<Grid ColumnCount="2" Margin="0,0,0,50">
-							<Text Value="Добавить файл" Color="blue" Alignment="Center"/>
-							<Text Value="Добавить отчет" Color="blue" Alignment="Center"/>
-						</Grid>
+						<Rectangle Color="{key}" Padding="20,10" Alignment="HorizontalCenter" Margin="0,40">
+							<Text Value="Добавить файл" Color="#fff" Alignment="Center"/>
+						</Rectangle>
+						<Rectangle Height="50" Color="#fff" />
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 						<Set fileState.Active="fileFull"   />
@@ -232,8 +242,30 @@
 				</WhileActive>
 				<ScrollView ux:Name="taskScroll" >
 					<StackPanel ItemSpacing="10">
+						<Text Value="ПОРУЧЕНИЯ" FontSize="16" Alignment="TopCenter" />
 						<Each Count="10">
-							<Rectangle Height="50" Color="#ccc" />
+							<Panel>
+								<Grid Columns="30,auto,auto, 1*,auto">
+									<Text Value="+" FontSize="22"  Alignment="Center" />
+									<Circle Width="50" Height="50" >
+										<Stroke Width="1" Color="blue" />
+										<ImageFill File="Assets/user.png" />
+									</Circle>
+									<Text Value="Орлов В.П." FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" />
+									<Text Value="Это текст поручения" FontSize="13" Font="Light" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" />
+									
+									<Panel HitTestMode="LocalBoundsAndChildren">
+										<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+										<Tapped>
+											<!-- <Toggle Target="detailsVisible" Delay=".2" /> -->
+											<!-- <Set letterVisible.Value="false" /> -->
+										</Tapped>
+									</Panel>
+								</Grid>
+								<Rectangle Layer="Background" Color="#eee" Margin="40,7,0,7" Opacity="1" >
+									<Stroke Width="1" Color="#ddd" />
+								</Rectangle>
+							</Panel>
 						</Each>
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
