@@ -9,25 +9,17 @@
 
 	<Grid  Columns="30,auto, 1*,auto">
 		<Text Value="{num}" FontSize="13"  Alignment="Center" />
-		<Panel Height="70" Opacity="{missing}">
+		<Panel Height="70" Opacity="{missing}" Clicked="{toggleLetter}">
 			<Image Source="pdf"  Visibility="{pdf}" />
 			<Image Source="word"  Visibility="{word}" />
 			<Image Source="xls"  Visibility="{xls}" />
 			<Image Source="txt"  Visibility="{txt}" />
-			<Tapped>
-				<Toggle Target="letterVisible" />
-			</Tapped>
 		</Panel>
-		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard">
-			<Tapped>
-				<Toggle Target="letterVisible" />
-			</Tapped>
-		</Text>
+		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Clicked="{toggleLetter}" />
 		<Panel HitTestMode="LocalBoundsAndChildren">
 			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
 			<Tapped>
 				<Toggle Target="detailsVisible" Delay=".2" />
-				<Set letterVisible.Value="false" />
 			</Tapped>
 		</Panel>
 	</Grid>

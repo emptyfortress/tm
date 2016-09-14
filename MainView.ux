@@ -233,16 +233,14 @@
 		</Sidebar>
 		<JavaScript>
 			var Observable = require("FuseJS/Observable");
-			
-			var visible = Observable("Hidden");
-			
-			function showTask(){
-				visible.value = "Visible";
+			var showLetter = Observable(false);
+			function toggleLetter(){
+				showLetter.value = !showLetter.value;
 			}
 
 			module.exports = {
-				visible: visible,
-				showTask: showTask
+				showLetter: showLetter,
+				toggleLetter: toggleLetter
 			}
 		</JavaScript>
 		

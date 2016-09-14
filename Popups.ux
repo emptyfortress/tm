@@ -15,5 +15,29 @@
 		<Translation Y="-1" RelativeTo="ParentSize" />
 		<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
-	
+	<Panel ux:Name="tools" Layer="Overlay" Height="50" Alignment="Bottom">
+		<Translation Y="1" RelativeTo="Size" />
+		<Circle Width="100" Height="100" Color="#000" Alignment="BottomLeft" Offset="-50,50">
+			<fa-undo Color="#fff" FontSize="18" Alignment="TopRight" Offset="-25,20" />
+		</Circle>
+		<Rectangle Width="180" Height="50" Color="#000" Alignment="BottomCenter" CornerRadius="10,10,0,0">
+			<StackLayout Orientation="Horizontal" ItemSpacing="20" />
+			<fa-paint-brush Color="#fff" FontSize="18" Alignment="VerticalCenter" />
+			<fa-paint-brush Color="#fff" FontSize="18" Alignment="VerticalCenter" />
+			<fa-paint-brush Color="#fff" FontSize="18" Alignment="VerticalCenter" />
+			<fa-paint-brush Color="#fff" FontSize="18" Alignment="VerticalCenter" />
+		</Rectangle>
+		<Circle Width="100" Height="100" Color="#000" Alignment="BottomRight" Offset="50,50">
+			<fa-trash-o Color="#fff" FontSize="18" Alignment="TopLeft" Offset="25,20" />
+		</Circle>
+	</Panel>
+	<Panel ux:Name="letterPreview" Layer="Overlay" Margin="20" Color="#fff">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Text Value="Здесь превью файла" TextWrapping="Wrap" Alignment="Center" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleLetter}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+	</Panel>
+
 </Panel>

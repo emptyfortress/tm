@@ -73,5 +73,14 @@
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="cardButton" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
+	<!-- <WhileTrue ux:Name="showLetter"> -->
+	<WhileTrue Value="{showLetter}">
+		<Change plusIcon.Visibility.Value="Collapsed" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="letterPreview" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+		<Move Target="tools" Y="-1" RelativeTo="Size" Delay="1" Duration=".5" Easing="BackOut" EasingBack="CubicIn" />
+	</WhileTrue>
 	
 </Panel>

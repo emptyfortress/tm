@@ -14,18 +14,18 @@
 		<Text Value="15" FontSize="100" Color="#000" />
 	</StackPanel>
 
-	<WhileTrue ux:Name="letterVisible">
+	<!-- <WhileTrue ux:Name="letterVisible">
 		<Move Target="letter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 		<Change letter.Opacity="1" Duration=".5" />
 		<Change letter.HitTestMode="LocalBoundsAndChildren" />
-	</WhileTrue>
+	</WhileTrue> -->
 	
 	<StackPanel ux:Name="letter" Margin="0,0,0,0"  Opacity="0" HitTestMode="None" Offset="0,-50">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Panel Height="70" Color="#fff" />
 		<Image File="Assets/Letter.jpg">
 			<Tapped>
-				<Toggle Target="letterVisible" />
+				<!-- <Toggle Target="letterVisible" /> -->
 			</Tapped>
 		</Image>
 		<Rectangle Layer="Background" Color="#000" />
