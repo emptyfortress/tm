@@ -152,8 +152,10 @@
 					<Clicked>
 						<Set addGroup.Active="shortState" />
 					</Clicked>
-					<fa-angle-down Color="#999" FontSize="25" Alignment="Center" />
-					<Circle Color="#fff" />
+					<fa-angle-down Color="#fff" FontSize="25" Alignment="Center" />
+					<Circle Color="#333">
+						
+					</Circle>
 				</Panel>
 				<PageControl ux:Name="helperPanel" >
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
@@ -165,6 +167,18 @@
 							<WhileWindowPortrait>
 								<Change templateColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
+							<Rectangle Height="50" Color="#fff">
+								<Text Value="На ознакомление" Alignment="Center" />
+							</Rectangle>
+							<Rectangle Height="50" Color="#fff">
+								<Text Value="На исполнение" Alignment="Center" />
+							</Rectangle>
+							<Rectangle Height="50" Color="#fff">
+								<Text Value="На согласование" Alignment="Center" />
+							</Rectangle>
+							<Rectangle Height="50" Color="#fff">
+								<Text Value="На подписание" Alignment="Center" />
+							</Rectangle>
 							<Each Items="{items.count1}" >
 								<TemplateBlock TempColor="#FFD999" />
 							</Each>
