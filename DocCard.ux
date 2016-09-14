@@ -7,30 +7,13 @@
 	
 	<StackPanel  ux:Name="Count" Alignment="TopCenter" Opacity="0" Margin="0,30,0,0" HitTestMode="None">
 		<WhileTrue ux:Name="showCount">
-			<Change Count.Opacity.Value=".3" Duration=".5" />
+			<Change Count.Opacity.Value=".6" Duration=".5" />
 		</WhileTrue>
 		<Text Value="{count}" FontSize="200" Color="#000" />
 		<Rectangle Height="6" Color="#000" Margin="0,-30,0,0" />
 		<Text Value="15" FontSize="100" Color="#000" />
 	</StackPanel>
-
-	<!-- <WhileTrue ux:Name="letterVisible">
-		<Move Target="letter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
-		<Change letter.Opacity="1" Duration=".5" />
-		<Change letter.HitTestMode="LocalBoundsAndChildren" />
-	</WhileTrue> -->
 	
-	<StackPanel ux:Name="letter" Margin="0,0,0,0"  Opacity="0" HitTestMode="None" Offset="0,-50">
-		<Translation Y="1" RelativeTo="ParentSize" />
-		<Panel Height="70" Color="#fff" />
-		<Image File="Assets/Letter.jpg">
-			<Tapped>
-				<!-- <Toggle Target="letterVisible" /> -->
-			</Tapped>
-		</Image>
-		<Rectangle Layer="Background" Color="#000" />
-	</StackPanel>
-
 	<DockPanel Margin="10,15,10,10" >
 		<WhileVisible>
 			<!-- это задержка для плавной анимации открытия карточки -->
@@ -247,10 +230,6 @@
 									
 									<Panel HitTestMode="LocalBoundsAndChildren">
 										<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
-										<Tapped>
-											<!-- <Toggle Target="detailsVisible" Delay=".2" /> -->
-											<!-- <Set letterVisible.Value="false" /> -->
-										</Tapped>
 									</Panel>
 								</Grid>
 								<Rectangle Layer="Background" Color="#eee" Margin="40,7,0,7" Opacity="1" >
