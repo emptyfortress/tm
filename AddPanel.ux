@@ -10,7 +10,7 @@
 	<JavaScript File="date.js" />
 	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
-	<PageControl>
+	<PageControl ux:Name="AddDraftNavigation">
 		<DockPanel ux:Name="add">
 			<StateGroup ux:Name="addGroup" Active="shortState">
 				<State ux:Name="fullState">
@@ -94,6 +94,9 @@
 							<Panel Padding="5" Alignment="Left">
 								<Text  Value="Сохранить" Color="#aaa"  />
 								<Rectangle Layer="Background" Color="#eee" />
+								<Clicked>
+									<NavigateTo Target="Drafts" NavigationContext="AddDraftNavigation" />
+								</Clicked>
 							</Panel>
 							<Panel Padding="5" Alignment="Left">
 								<Text  Value="Отправить" Color="#fff"  />
