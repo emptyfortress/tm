@@ -382,7 +382,7 @@
 					<ScrollView Margin="0,80,0,0">
 
 						<ScrollingAnimation From="80" To="200">
-							<Move Target="moveMe" X="42"  Duration=".5" Easing="QuarticOut" />
+							<Move Target="moveMe" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
@@ -487,7 +487,7 @@
 					<ScrollView Margin="0,80,0,0">
 
 						<ScrollingAnimation From="80" To="200">
-							<Move Target="moveMe2" X="42"  Duration=".5" Easing="QuarticOut" />
+							<Move Target="moveMe2" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe2" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec2" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec2.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
@@ -600,7 +600,7 @@
 					<ScrollView Margin="0,80,0,0">
 
 						<ScrollingAnimation From="80" To="200">
-							<Move Target="moveMe4" X="42"  Duration=".5" Easing="QuarticOut" />
+							<Move Target="moveMe4" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe4" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec4" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec4.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
