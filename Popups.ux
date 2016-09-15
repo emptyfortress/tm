@@ -39,5 +39,23 @@
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
 		</Circle>
 	</Panel>
+	<Panel ux:Name="recordPop" Color="#fff" Margin="30">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleRecord}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+		<Grid Rows="1*,3*,1*" > 
+			<Image File="Assets/sound.jpg" Alignment="TopCenter" />
+			<Circle Margin="50" Color="#f00" Clicked="{toggleRecord}">
+				<Text FontSize="45" Value="1:15" Color="#fff" Alignment="Center" />
+			</Circle>
 
+			<StackPanel Orientation="Horizontal" ItemSpacing="20" Alignment="Center">
+				<Text Value="Отмена" Color="#ccc" FontSize="20" Clicked="{toggleRecord}" />
+				<Text Value="Cохранить" Color="#ccc" FontSize="20" Clicked="{toggleRecord}" />
+			</StackPanel>
+
+		</Grid>
+	</Panel>
 </Panel>

@@ -47,6 +47,24 @@
 			</Circle>
 		</Panel>
 		
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+			var showLetter = Observable(false);
+			var showRecord = Observable(false);
+			function toggleLetter(){
+				showLetter.value = !showLetter.value;
+			}
+			function toggleRecord(){
+				showRecord.value = !showRecord.value;
+			}
+			module.exports = {
+				showLetter: showLetter,
+				toggleLetter: toggleLetter,
+				showRecord: showRecord,
+				toggleRecord: toggleRecord
+			}
+		</JavaScript>
+
 		<ux:Include File="Popups.ux" />
 		
 
@@ -231,18 +249,7 @@
 				</StackPanel>
 			</ScrollView>
 		</Sidebar>
-		<JavaScript>
-			var Observable = require("FuseJS/Observable");
-			var showLetter = Observable(false);
-			function toggleLetter(){
-				showLetter.value = !showLetter.value;
-			}
-
-			module.exports = {
-				showLetter: showLetter,
-				toggleLetter: toggleLetter
-			}
-		</JavaScript>
+		
 		
 		<ux:Include File="dashboard.ux" />
 		<ux:Include File="DocItem.ux" />

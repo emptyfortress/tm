@@ -436,8 +436,12 @@
 							</Panel>
 						</ScrollView>
 						<Grid Height="50" ColumnCount="3" Dock="Bottom">
-							<fa-folder-open-o FontSize="25" Color="#fff" Alignment="Center" />
-							<fa-microphone FontSize="25" Color="#fff" Alignment="Center" />
+							<Panel>
+								<fa-folder-open-o FontSize="25" Color="#fff" Alignment="Center" />
+							</Panel>
+							<Panel  Clicked="{toggleRecord}" HitTestMode="LocalBoundsAndChildren">
+								<fa-microphone FontSize="25" Color="#fff" Alignment="Center" />
+							</Panel>
 						</Grid>
 					</DockPanel>
 				</PageControl>
