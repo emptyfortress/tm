@@ -111,37 +111,41 @@
 						</StackPanel>
 					</StackPanel>
 				</ScrollView>
-				<StackPanel Orientation="Horizontal" Dock="Bottom" ItemSpacing="30" Padding="10" Background="#eee">
-					<fa-clipboard ux:Name="ico1" FontSize="20" Color="#ccc">
+				<Grid ColumnCount="5" Dock="Bottom" >
+					<Panel HitTestMode="LocalBoundsAndChildren">
+						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="templateScroll" />
 						</Clicked>
-					</fa-clipboard>
-					<fa-font ux:Name="ico2" FontSize="20" Color="#ccc">
+					</Panel>
+					<Panel HitTestMode="LocalBoundsAndChildren">
+						<fa-font ux:Name="ico2" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
 						</Clicked>
-					</fa-font>
-					<fa-user ux:Name="ico3" FontSize="20" Color="#ccc">
+					</Panel>
+					<Panel HitTestMode="LocalBoundsAndChildren">
+						<fa-user ux:Name="ico3" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="userScroll" />
 						</Clicked>
-					</fa-user>
-					<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#ccc">
+					</Panel>
+					<Panel HitTestMode="LocalBoundsAndChildren">
+						<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="dateScroll" />
 						</Clicked>
-					</fa-calendar-check-o>
-					<fa-paperclip ux:Name="ico5" FontSize="20" Color="#ccc">
+					</Panel>
+					<Panel HitTestMode="LocalBoundsAndChildren">
+						<fa-paperclip ux:Name="ico5" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5">
+							<Rotation Degrees="-90" />
+						</fa-paperclip>
 						<Clicked>
 							<Set helperPanel.Active="fileScroll" />
 						</Clicked>
-					</fa-paperclip>
-					<fa-ellipsis-v FontSize="20" Color="#ccc" Layer="Overlay" Alignment="Right" />
-				</StackPanel>
+					</Panel>
+				</Grid>
 			</DockPanel>
-			
-
 
 			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
@@ -158,6 +162,7 @@
 					</Circle>
 				</Panel>
 				<PageControl ux:Name="helperPanel" >
+					<NavigationMotion GotoEasing="CircularInOut" Overflow="Elastic" SnapType="Easing" />
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<WhileActive Threshold="0.5">
 							<Change ico1.Color="blue" />
@@ -167,16 +172,16 @@
 							<WhileWindowPortrait>
 								<Change templateColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
-							<Rectangle Height="50" Color="#fff">
+							<Rectangle Height="40" Color="#fff">
 								<Text Value="На ознакомление" Alignment="Center" />
 							</Rectangle>
-							<Rectangle Height="50" Color="#fff">
+							<Rectangle Height="40" Color="#fff">
 								<Text Value="На исполнение" Alignment="Center" />
 							</Rectangle>
-							<Rectangle Height="50" Color="#fff">
+							<Rectangle Height="40" Color="#fff">
 								<Text Value="На согласование" Alignment="Center" />
 							</Rectangle>
-							<Rectangle Height="50" Color="#fff">
+							<Rectangle Height="40" Color="#fff">
 								<Text Value="На подписание" Alignment="Center" />
 							</Rectangle>
 							<Each Items="{items.count1}" >
