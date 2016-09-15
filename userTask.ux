@@ -1,11 +1,16 @@
 <StackPanel ux:Class="userTask">
-	<Grid ux:Name="child" Margin="0,5,0,0" Columns="30,auto,auto, 1*,auto" BoxSizing="Limit" LimitHeight="100%">
-		<WhileTrue Value="{hidden}">
-			<Change child.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
-			<Change child.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
-			<Change child.Margin="0" Duration="0.4"  Easing="CircularInOut"/>
-		</WhileTrue>
+	<Panel ux:Class="taskInfo" Height="40" Background="#eee"  BoxSizing="Limit" LimitHeight="100%" Margin="50,0,0,10" />
+	<!-- <WhileTrue Value="{hidden1}">
+		<Change taskInfo.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change taskInfo.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
+	</WhileTrue> -->
+	<WhileTrue Value="{hidden}">
+		<Change child.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change child.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
+		<Change child.Margin="0" Duration="0.4"  Easing="CircularInOut"/>
+	</WhileTrue>
 
+	<Grid ux:Name="child" Margin="0,5,0,0" Columns="30,auto,auto, 1*,auto" BoxSizing="Limit" LimitHeight="100%">
 		<Panel>
 			<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
 		</Panel>
@@ -19,16 +24,13 @@
 		<Panel HitTestMode="LocalBoundsAndChildren" Clicked="{toggleInfo}">
 			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
 		</Panel>
+		
+
+
 		<Rectangle Layer="Background" Color="#eee" Margin="50,0,0,0" Opacity="1" >
 			<Stroke Width="1" Color="#ddd" />
 		</Rectangle>
 	</Grid>
-	<Panel ux:Class="taskInfo" Height="40" Background="#eee"  BoxSizing="Limit" LimitHeight="100%" Margin="50,0,0,10">
-	</Panel>
-	<WhileTrue Value="{hidden1}">
-		<Change taskInfo.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
-		<Change taskInfo.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
-	</WhileTrue>
-	<taskInfo ux:Name="taskInfo"/>
+	<!-- <taskInfo ux:Name="taskInfo"/> -->
 	<Rectangle Width="1" Layer="Background" Color="#000" Offset="15,-20" Alignment="Left" />
 </StackPanel>
