@@ -1,0 +1,43 @@
+<StackPanel ux:Class="treeTask" >
+	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10" CellSpacing="10">
+		<Text Value="(3)" Alignment="Left" />
+		<fa-bars Alignment="Left"/>
+		<StackPanel>
+			<Text Value="Квартальный отчет по отделам отчет по отделам отчет по отделам отчет по отделам отчет по отделам отчет по отделам" Alignment="Left" TextTruncation="Standard" />
+			<Text Value="Автор: Иванов Г.С" FontSize="12" Alignment="Left" />
+		</StackPanel>
+		<Text Value="25.10.2016" Alignment="Right" />
+		<Rectangle Layer="Background" Color="#EBF5D6" Opacity="1" Width="30%" Alignment="Left" Margin="1" />
+		<Rectangle Layer="Background" Color="#fff" Opacity="1" >
+			<Stroke Width="1" Color="#97C830" />
+		</Rectangle>
+	</Grid>
+</StackPanel>
+
+
+
+
+
+
+<!-- <Panel ux:Class="treeTask">
+	<StackLayout />
+	<Grid Columns="auto,auto,auto, 1*,auto">
+		<Text Value="+" FontSize="22"  Alignment="Center" Margin="10,0,10,0" />
+		<Circle Width="50" Height="50" >
+			<Stroke Width="1" Color="blue" />
+			<ImageFill File="Assets/user.png" />
+		</Circle>
+		<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
+		<Text Value="Исполнено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
+		
+		<Panel HitTestMode="LocalBoundsAndChildren">
+			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+		</Panel>
+	</Grid>
+	<Panel>
+		<Text Value="Это текст поручения" FontSize="13" Font="Light" Alignment="Left" Margin="10,0" TextTruncation="Standard" />
+	</Panel>
+	<Rectangle Layer="Background" Color="#eee" Margin="50,0,0,0" Opacity="1" >
+		<Stroke Width="1" Color="#ddd" />
+	</Rectangle>
+</Panel> -->

@@ -165,7 +165,7 @@
 				</Panel>
 			</MultiLayoutPanel>
 		</StackPanel>
-		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden">
+		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden" Active="taskHelper">
 			<NavigationMotion Overflow="Elastic"/>
 			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
@@ -215,27 +215,10 @@
 					<Set tabBar1.LayoutElement="taskTab" />
 				</WhileActive>
 				<ScrollView ux:Name="taskScroll" >
-					<StackPanel ItemSpacing="10">
+					<StackPanel ItemSpacing="20">
 						<Text Value="ПОРУЧЕНИЯ" FontSize="16" Alignment="TopCenter" />
 						<Each Count="10">
-							<Panel>
-								<Grid Columns="30,auto,auto, 1*,auto">
-									<Text Value="+" FontSize="22"  Alignment="Center" />
-									<Circle Width="50" Height="50" >
-										<Stroke Width="1" Color="blue" />
-										<ImageFill File="Assets/user.png" />
-									</Circle>
-									<Text Value="Орлов В.П." FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" />
-									<Text Value="Это текст поручения" FontSize="13" Font="Light" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" />
-									
-									<Panel HitTestMode="LocalBoundsAndChildren">
-										<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
-									</Panel>
-								</Grid>
-								<Rectangle Layer="Background" Color="#eee" Margin="40,7,0,7" Opacity="1" >
-									<Stroke Width="1" Color="#ddd" />
-								</Rectangle>
-							</Panel>
+							<treeTask />
 						</Each>
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
