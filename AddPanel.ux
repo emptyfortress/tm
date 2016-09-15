@@ -21,6 +21,7 @@
 		            <Change templateScroll.UserScroll="true"  />
 		            <Change textScroll.UserScroll="true"  />
 		            <Change userScroll.UserScroll="true"  />
+		            <Change fileScroll.UserScroll="true"  />
 		            <Change monthPanel.Visibility="Visible" />
 		        </State>
 		        <State ux:Name="shortState">
@@ -30,6 +31,8 @@
 		            <Change textScroll.UserScroll="false" />
 		            <Change userScroll.RelativeScrollPosition="0" />
 		            <Change userScroll.UserScroll="false" />
+		            <Change fileScroll.RelativeScrollPosition="0" />
+		            <Change fileScroll.UserScroll="false" />
 		        </State>
 		        <State ux:Name="offState">
 		            <Change mainAddPanel.Height="100" Duration="0.2"/>
@@ -141,7 +144,7 @@
 							<Rotation Degrees="-90" />
 						</fa-paperclip>
 						<Clicked>
-							<Set helperPanel.Active="fileScroll" />
+							<Set helperPanel.Active="attachScroll" />
 						</Clicked>
 					</Panel>
 				</Grid>
@@ -413,20 +416,30 @@
 							</DockPanel>
 						</StackPanel>
 					</ScrollView>
-					<ScrollView ux:Name="fileScroll" UserScroll="false" SnapMinTransform="true">
+					<DockPanel ux:Name="attachScroll">
 						<WhileActive Threshold="0.5">
 							<Change ico5.Color="blue" />
 						</WhileActive>
-						<StackPanel >
-							<Text Value="Вложения" FontSize="22" Color="#999" Margin="20" Alignment="Center" />
-							<Grid Columns="1*,1*,1*,1*" Width="100%">
-								<fa-picture-o FontSize="65" Color="#ccc" Alignment="Center" />
-								<fa-camera FontSize="65" Color="#ccc" Alignment="Center" />
-								<fa-paperclip FontSize="65" Color="#ccc" Alignment="Center" />
-								<fa-microphone FontSize="65" Color="#ccc" Alignment="Center" />
-							</Grid>
-						</StackPanel>
-					</ScrollView>
+						<Rectangle Height="120" Dock="Top">
+							<fa-camera FontSize="40" Color="#fff" Alignment="TopCenter" Margin="0,20" />
+							<ImageFill File="Assets/camera-pic.jpg" StretchMode="UniformToFill" />
+						</Rectangle>
+						<ScrollView ux:Name="fileScroll" UserScroll="false"  SnapMinTransform="true" Margin="0,5">
+							<Panel>
+								<ColumnLayout ColumnCount="5" ColumnSpacing="5" ItemSpacing="5" />
+								<Each Count="45">
+									<Rectangle Height="60" Color="#666">
+										<fa-picture-o FontSize="25" Color="#fff" Alignment="Center" />
+									</Rectangle>
+									
+								</Each>
+							</Panel>
+						</ScrollView>
+						<Grid Height="50" ColumnCount="3" Dock="Bottom">
+							<fa-folder-open-o FontSize="25" Color="#fff" Alignment="Center" />
+							<fa-microphone FontSize="25" Color="#fff" Alignment="Center" />
+						</Grid>
+					</DockPanel>
 				</PageControl>
 			</Panel>
 		</DockPanel>
