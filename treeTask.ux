@@ -1,7 +1,29 @@
 <StackPanel ux:Class="treeTask" >
-	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10" CellSpacing="10">
-		<Text Value="(3)" Alignment="Left" />
-		<fa-bars Alignment="Left"/>
+	<JavaScript>
+		var Observable = require("FuseJS/Observable");
+		var hidden = Observable(true);
+		var hidden1 = Observable(true);
+		function toggleTask(){
+			hidden.value = !hidden.value;
+		}
+		function toggleInfo(){
+			hidden1.value = !hidden1.value;
+		}
+		module.exports = {
+			hidden: hidden,
+			hidden1: hidden1,
+			toggleTask: toggleTask,
+			toggleInfo: toggleInfo
+		}
+	</JavaScript>
+	
+	<LayoutAnimation>
+		<Move RelativeTo="LayoutChange" Y="1" Duration="0.6" Easing="BounceIn"/>
+	</LayoutAnimation>
+	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10" CellSpacing="10" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleTask}">
+		<fa-bars FontSize="26" Alignment="CenterLeft"/>
+		<!-- <fa-list-ol FontSize="26" Alignment="CenterLeft"/> -->
+		<Text Value="3" FontSize="24" Font="Light" Alignment="CenterLeft" />
 		<StackPanel>
 			<Text Value="Квартальный отчет по отделам отчет по отделам отчет по отделам отчет по отделам отчет по отделам отчет по отделам" Alignment="Left" TextTruncation="Standard" />
 			<Text Value="Автор: Иванов Г.С" FontSize="12" Alignment="Left" />
@@ -12,32 +34,9 @@
 			<Stroke Width="1" Color="#97C830" />
 		</Rectangle>
 	</Grid>
+	<Each Count="3">
+		<userTask />
+	</Each>
+
+
 </StackPanel>
-
-
-
-
-
-
-<!-- <Panel ux:Class="treeTask">
-	<StackLayout />
-	<Grid Columns="auto,auto,auto, 1*,auto">
-		<Text Value="+" FontSize="22"  Alignment="Center" Margin="10,0,10,0" />
-		<Circle Width="50" Height="50" >
-			<Stroke Width="1" Color="blue" />
-			<ImageFill File="Assets/user.png" />
-		</Circle>
-		<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
-		<Text Value="Исполнено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
-		
-		<Panel HitTestMode="LocalBoundsAndChildren">
-			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
-		</Panel>
-	</Grid>
-	<Panel>
-		<Text Value="Это текст поручения" FontSize="13" Font="Light" Alignment="Left" Margin="10,0" TextTruncation="Standard" />
-	</Panel>
-	<Rectangle Layer="Background" Color="#eee" Margin="50,0,0,0" Opacity="1" >
-		<Stroke Width="1" Color="#ddd" />
-	</Rectangle>
-</Panel> -->

@@ -215,9 +215,9 @@
 					<Set tabBar1.LayoutElement="taskTab" />
 				</WhileActive>
 				<ScrollView ux:Name="taskScroll" >
-					<StackPanel ItemSpacing="20">
+					<StackPanel ItemSpacing="10">
 						<Text Value="ПОРУЧЕНИЯ" FontSize="16" Alignment="TopCenter" />
-						<Each Count="10">
+						<Each Count="2">
 							<treeTask />
 						</Each>
 					</StackPanel>
