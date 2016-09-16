@@ -135,8 +135,17 @@
 		<StackPanel Dock="Top">
 			<Rectangle Height="1" Color="{key}"  />
 			<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
-				<GridLayout ColumnCount="3" Rows="1*"/>
-				<Panel ux:Name="cardTab" HitTestMode="LocalBoundsAndChildren">
+				<GridLayout ColumnCount="2" Rows="1*"/>
+				<!-- <Panel ux:Name="cardTab" HitTestMode="LocalBoundsAndChildren">
+					<Placeholder Target="indicator1"/>
+					<Icon Height="25">
+						<FileImageSource File="Assets/card.png" ux:Key="iconFile"/>
+					</Icon>
+					<Clicked>
+						<Set Helper.Active="cardHelper" />
+					</Clicked>
+				</Panel> -->
+				<Panel ux:Name="fileTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder>
 						<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{key}" >
 							<LayoutAnimation>
@@ -145,15 +154,6 @@
 						</Rectangle>
 					</Placeholder>
 					<Icon Height="25">
-						<FileImageSource File="Assets/card.png" ux:Key="iconFile"/>
-					</Icon>
-					<Clicked>
-						<Set Helper.Active="cardHelper" />
-					</Clicked>
-				</Panel>
-				<Panel ux:Name="fileTab" HitTestMode="LocalBoundsAndChildren">
-					<Placeholder Target="indicator1"/>
-					<Icon Height="25">
 						<FileImageSource File="Assets/attach.png"  ux:Key="iconFile"/>
 					</Icon>
 					<Clicked>
@@ -161,7 +161,7 @@
 					</Clicked>
 				</Panel>
 				
-				<Panel ux:Name="reportTab" HitTestMode="LocalBoundsAndChildren">
+				<!-- <Panel ux:Name="reportTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder Target="indicator1"/>
 					<Icon Height="25">
 						<FileImageSource File="Assets/report.png"  ux:Key="iconFile"/>
@@ -169,18 +169,19 @@
 					<Clicked>
 						<Set Helper.Active="reportHelper" />
 					</Clicked>
-				</Panel>
-				<!-- <Panel ux:Name="taskTab" HitTestMode="LocalBoundsAndChildren">
+				</Panel> -->
+				<Panel ux:Name="taskTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder Target="indicator1"/>
 					<Icon Height="25">
 						<FileImageSource File="Assets/tree.png" ux:Key="iconFile"/>
 					</Icon>
 					<Clicked>
-						<Set cardHelper.Active="taskHelper" />
+						<Set Helper.Active="taskHelper" />
 					</Clicked>
-				</Panel> -->
+				</Panel>
 			</MultiLayoutPanel>
 		</StackPanel>
+
 		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden">
 			<NavigationMotion Overflow="Elastic"/>
 			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
@@ -190,7 +191,7 @@
 				</Tapped>
 			</Circle>
 
-			<Page ux:Name="cardHelper" >
+			<!-- <Page ux:Name="cardHelper" >
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="cardTab" />
 				</WhileActive>
@@ -199,7 +200,6 @@
 						<Text Value="ДОКУМЕНТ" FontSize="16" Alignment="TopCenter" />
 						<StackPanel Padding="10" Margin="0,15">
 							<Text Value="Договор о совместной деятельности ООО Атмосфера" FontSize="14" Alignment="Center" />
-							<!-- <Text Value="Номер: Вх-134/54" FontSize="13"  Alignment="Left" /> -->
 							<Rectangle Layer="Background" Color="#eee" CornerRadius="30" >
 								<Stroke Width="1" Color="#ddd" />
 							</Rectangle>
@@ -208,27 +208,16 @@
 							<ColumnLayout ux:Name="fileColumns0" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<WhileWindowPortrait>
 								<Change fileColumns0.ColumnCount.Value="1" />
-								<!-- <Change file1Columns0.ColumnCount.Value="1" /> -->
 							</WhileWindowPortrait>
 							<Rectangle ux:Name="firstFile0" Color="#fff" Height="0" />
 							
 							<Each Items="{filename}" >
-								<!-- <Rectangle Height="20" Color="#ccc" Margin="10"></Rectangle> -->
 								<file2 />
 	 						</Each>
 						</Panel>
 					</StackPanel>
 				</ScrollView>
-				<!-- <Grid ColumnCount="2" >
-					<Rectangle Color="{key}" Padding="20,10" Height="40"  Alignment="HorizontalCenter" >
-						<Text Value="Добавить отчет" Color="#fff" Alignment="Center"/>
-					</Rectangle>
-					<Rectangle Color="{key}" Padding="20,10" Height="40"  Alignment="HorizontalCenter" >
-						<Text Value="Добавить файл отчета" Color="#fff" Alignment="Center"/>
-					</Rectangle>
-				</Grid> -->
-				<!-- <Rectangle Height="50" Color="#f00" /> -->
-			</Page>
+			</Page> -->
 
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
@@ -269,7 +258,8 @@
 					</ScrollingAnimation>
 				</ScrollView>
 			</Page>
-			<Page ux:Name="reportHelper">
+
+			<!-- <Page ux:Name="reportHelper">
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="reportTab" />
 				</WhileActive>
@@ -283,8 +273,8 @@
 					</Rectangle>
 				</Grid>
 				<Rectangle Height="50" Color="#fff" />
-			</Page>
-			<!-- <Page ux:Name="taskHelper">
+			</Page> -->
+			<Page ux:Name="taskHelper">
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="taskTab" />
 				</WhileActive>
@@ -302,7 +292,7 @@
 						<Set fileState.Active="fileFull"   />
 					</ScrollingAnimation>
 				</ScrollView>
-			</Page> -->
+			</Page>
 		</PageControl>
 
 		

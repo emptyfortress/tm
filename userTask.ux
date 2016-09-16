@@ -27,7 +27,7 @@
 			<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
 			<Text Value="Срок: 21.03.2016" FontSize="13" Alignment="CenterLeft" Margin="10,0,0,0" />
 		</StackPanel>
-		<Text Value="Исполнено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
+		<Text Value="Завершено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
 
 		<Rectangle Layer="Background" Color="#EBF5D6" Margin="30,0,0,0" Opacity="1" >
 			<Stroke Width="1" Color="#238C00" />

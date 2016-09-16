@@ -165,7 +165,7 @@
 				</Panel>
 			</MultiLayoutPanel>
 		</StackPanel>
-		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden" Active="taskHelper">
+		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden">
 			<NavigationMotion Overflow="Elastic"/>
 			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
