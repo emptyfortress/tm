@@ -1,30 +1,23 @@
 <StackPanel ux:Class="treeTask" >
 	<JavaScript>
 		var Observable = require("FuseJS/Observable");
-		var hidden = Observable(false);
-		var hidden1 = Observable(true);
-		function toggleTask(){
+		var hidden = Observable(true);
+		function toggleGroup(){
 			hidden.value = !hidden.value;
-		}
-		function toggleInfo(){
-			hidden1.value = !hidden1.value;
 		}
 		module.exports = {
 			hidden: hidden,
-			hidden1: hidden1,
-			toggleTask: toggleTask,
-			toggleInfo: toggleInfo
+			toggleGroup: toggleGroup
 		}
 	</JavaScript>
 	
 	<LayoutAnimation>
 		<Move RelativeTo="LayoutChange" Y="1" Duration="0.6" Easing="BounceIn"/>
 	</LayoutAnimation>
-	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10,5" CellSpacing="10" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleTask}">
+	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10,5" CellSpacing="10" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleGroup}">
 		<Text Value="{tree}" FontSize="23" Font="Light" Alignment="Center" />
 		<Panel Height="30">
 			<Image File="Assets/par.png" Color="#00661A" />
-			<!-- <Image File="Assets/posled1.png" Color="#00661A" Visibility="{posled}"/> -->
 		</Panel>
 		<StackPanel>
 			<Text Value="{title}" Alignment="Left" TextTruncation="Standard" />

@@ -51,23 +51,28 @@
 			var Observable = require("FuseJS/Observable");
 			var showLetter = Observable(false);
 			var showRecord = Observable(false);
+			var showTask = Observable(false);
 			function toggleLetter(){
 				showLetter.value = !showLetter.value;
 			}
 			function toggleRecord(){
 				showRecord.value = !showRecord.value;
 			}
+			function toggleTask(){
+				showTask.value = !showTask.value;
+			}
 			module.exports = {
 				showLetter: showLetter,
 				toggleLetter: toggleLetter,
 				showRecord: showRecord,
-				toggleRecord: toggleRecord
+				toggleRecord: toggleRecord,
+				showTask: showTask,
+				toggleTask: toggleTask
 			}
 		</JavaScript>
 
 		<ux:Include File="Popups.ux" />
 		
-
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
 		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center" HitTestMode="None">

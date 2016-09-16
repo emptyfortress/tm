@@ -33,12 +33,22 @@
 	</Panel>
 	<Panel ux:Name="letterPreview" Layer="Overlay" Margin="20" Color="#fff">
 		<Translation Y="1" RelativeTo="ParentSize" />
-		<Text Value="Здесь превью файла" TextWrapping="Wrap" Alignment="Center" />
+		<Image File="Assets/file-preview.png" Alignment="Center"/>
 		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleLetter}">
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
 		</Circle>
 	</Panel>
+
+	<Panel ux:Name="taskPreview" Layer="Overlay" Margin="20" Color="#fff">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Image File="Assets/task-preview.png" Alignment="Center" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleTask}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+	</Panel>
+
 	<Panel ux:Name="recordPop" Color="#fff" Margin="30">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleRecord}">

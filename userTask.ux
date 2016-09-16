@@ -12,11 +12,11 @@
 		<Change userTask.Padding="0" Duration="0.4"  Easing="CircularInOut"/>
 	</WhileTrue>
 
-	<Grid ux:Name="child" Margin="0,5,0,0" Columns="30,auto,auto,1*,auto" BoxSizing="Limit" LimitHeight="100%">
+	<Grid ux:Name="child" Margin="0,5,0,0" Columns="30,auto,auto,1*,auto" BoxSizing="Limit" LimitHeight="100%" Clicked="{toggleTask}">
 		<Panel>
 			<Rectangle Height="1" Color="#000" Margin="10,0,0,0" />
 		</Panel>
-		<Panel HitTestMode="LocalBoundsAndChildren" Clicked="{toggleInfo}">
+		<Panel HitTestMode="LocalBoundsAndChildren">
 			<fa-minus-square-o FontSize="25" ux:Name="chevron" Margin="3,0,15,0" Alignment="CenterLeft" />
 		</Panel>
 		<Circle Width="50" Height="50" >
@@ -37,7 +37,7 @@
 		</Rectangle>
 	</Grid>
 
-	<Panel ux:Name="child1" BoxSizing="Limit" LimitHeight="100%">
+	<Panel ux:Name="child1" BoxSizing="Limit" LimitHeight="100%" Clicked="{toggleTask}">
 		<Grid Margin="30,10,0,0" Columns="30,auto,auto,1*,auto">
 			<Panel>
 				<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
@@ -58,7 +58,7 @@
 		</Grid>
 	</Panel>
 
-	<Panel ux:Name="child2" BoxSizing="Limit" LimitHeight="100%">
+	<Panel ux:Name="child2" BoxSizing="Limit" LimitHeight="100%" Clicked="{toggleTask}">
 		<Grid Margin="30,5,0,0" Columns="30,auto,auto,1*,auto" BoxSizing="Limit" LimitHeight="100%">
 			<Panel>
 				<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
