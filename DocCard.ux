@@ -217,7 +217,7 @@
 				<ScrollView ux:Name="taskScroll" >
 					<StackPanel ItemSpacing="10">
 						<Text Value="ПОРУЧЕНИЯ" FontSize="16" Alignment="TopCenter" />
-						<Each Count="2">
+						<Each Items="{items.cards1}">
 							<treeTask />
 						</Each>
 					</StackPanel>

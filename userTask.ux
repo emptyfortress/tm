@@ -1,36 +1,86 @@
-<StackPanel ux:Class="userTask">
-	<Panel ux:Class="taskInfo" Height="40" Background="#eee"  BoxSizing="Limit" LimitHeight="100%" Margin="50,0,0,10" />
-	<!-- <WhileTrue Value="{hidden1}">
-		<Change taskInfo.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
-		<Change taskInfo.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
-	</WhileTrue> -->
+<StackPanel ux:Class="userTask" ux:Name="userTask" Padding="5">
 	<WhileTrue Value="{hidden}">
 		<Change child.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change child.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
 		<Change child.Margin="0" Duration="0.4"  Easing="CircularInOut"/>
+		<Change child1.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change child1.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
+		<Change child1.Margin="0" Duration="0.4"  Easing="CircularInOut"/>
+		<Change child2.LimitHeight="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change child2.Opacity="0" Duration="0.25"  Easing="CircularInOut"/>
+		<Change child2.Margin="0" Duration="0.4"  Easing="CircularInOut"/>
+		<Change userTask.Padding="0" Duration="0.4"  Easing="CircularInOut"/>
 	</WhileTrue>
 
-	<Grid ux:Name="child" Margin="0,5,0,0" Columns="30,auto,auto, 1*,auto" BoxSizing="Limit" LimitHeight="100%">
+	<Grid ux:Name="child" Margin="0,5,0,0" Columns="30,auto,auto,1*,auto" BoxSizing="Limit" LimitHeight="100%">
 		<Panel>
-			<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
+			<Rectangle Height="1" Color="#000" Margin="10,0,0,0" />
 		</Panel>
-		<Circle Width="40" Height="40" >
+		<Panel HitTestMode="LocalBoundsAndChildren" Clicked="{toggleInfo}">
+			<fa-minus-square-o FontSize="25" ux:Name="chevron" Margin="3,0,15,0" Alignment="CenterLeft" />
+		</Panel>
+		<Circle Width="50" Height="50" >
 			<Stroke Width="1" Color="blue" />
 			<ImageFill File="Assets/user.png" />
 		</Circle>
-		<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
+		<StackPanel Alignment="CenterLeft">
+			<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
+			<Text Value="Срок: 21.03.2016" FontSize="13" Alignment="CenterLeft" Margin="10,0,0,0" />
+		</StackPanel>
 		<Text Value="Исполнено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
-		
-		<Panel HitTestMode="LocalBoundsAndChildren" Clicked="{toggleInfo}">
-			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
-		</Panel>
-		
 
-
-		<Rectangle Layer="Background" Color="#eee" Margin="50,0,0,0" Opacity="1" >
-			<Stroke Width="1" Color="#ddd" />
+		<Rectangle Layer="Background" Color="#EBF5D6" Margin="30,0,0,0" Opacity="1" >
+			<Stroke Width="1" Color="#238C00" />
+		</Rectangle>
+		<Rectangle Layer="Background" Color="#eee" Margin="32,0,0,0" Opacity="1" Offset="3" >
+			<Stroke Width="1" Color="#238C00" />
 		</Rectangle>
 	</Grid>
-	<!-- <taskInfo ux:Name="taskInfo"/> -->
-	<Rectangle Width="1" Layer="Background" Color="#000" Offset="15,-20" Alignment="Left" />
+
+	<Panel ux:Name="child1" BoxSizing="Limit" LimitHeight="100%">
+		<Grid Margin="30,10,0,0" Columns="30,auto,auto,1*,auto">
+			<Panel>
+				<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
+				<Rectangle Width="1" Color="#000" Offset="15,-10" Alignment="Left" />
+			</Panel>
+			<Circle Width="50" Height="50"  Margin="5,0,0,0">
+				<Stroke Width="1" Color="blue" />
+				<ImageFill File="Assets/user.png" />
+			</Circle>
+			<StackPanel Alignment="CenterLeft">
+				<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
+				<Text Value="Срок: 21.03.2016" FontSize="13" Alignment="CenterLeft" Margin="10,0,0,0" />
+			</StackPanel>
+			<Text Value="Исполнено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
+			<Rectangle Layer="Background" Color="#EBF5D6" Margin="30,0,0,0" Opacity="1" >
+				<Stroke Width="1" Color="#238C00" />
+			</Rectangle>
+		</Grid>
+	</Panel>
+
+	<Panel ux:Name="child2" BoxSizing="Limit" LimitHeight="100%">
+		<Grid Margin="30,5,0,0" Columns="30,auto,auto,1*,auto" BoxSizing="Limit" LimitHeight="100%">
+			<Panel>
+				<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
+				<Rectangle Width="1" Color="#000" Offset="15,-25" Alignment="Left" />
+			</Panel>
+			<Circle Width="50" Height="50"  Margin="5,0,0,0">
+				<Stroke Width="1" Color="blue" />
+				<ImageFill File="Assets/user.png" />
+			</Circle>
+			<StackPanel Alignment="CenterLeft">
+				<Text Value="Орлов В.П." FontSize="15" Alignment="CenterLeft" Margin="10,0,0,0" />
+				<Text Value="Срок: 21.03.2016" FontSize="13" Alignment="CenterLeft" Margin="10,0,0,0" />
+			</StackPanel>
+			<Text Value="Исполнено" FontSize="15" Font="Bold" Alignment="CenterRight" Margin="10,0" TextTruncation="Standard" />
+			<Rectangle Layer="Background" Color="#EBF5D6" Margin="30,0,0,0" Opacity="1" >
+				<Stroke Width="1" Color="#238C00" />
+			</Rectangle>
+		</Grid>
+	</Panel>
+
+
+
+
+	<Rectangle Width="1" Layer="Background" Color="#000" Offset="15,-28" Alignment="Left" />
 </StackPanel>

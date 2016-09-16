@@ -1,7 +1,7 @@
 <StackPanel ux:Class="treeTask" >
 	<JavaScript>
 		var Observable = require("FuseJS/Observable");
-		var hidden = Observable(true);
+		var hidden = Observable(false);
 		var hidden1 = Observable(true);
 		function toggleTask(){
 			hidden.value = !hidden.value;
@@ -20,18 +20,21 @@
 	<LayoutAnimation>
 		<Move RelativeTo="LayoutChange" Y="1" Duration="0.6" Easing="BounceIn"/>
 	</LayoutAnimation>
-	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10" CellSpacing="10" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleTask}">
-		<fa-bars FontSize="26" Alignment="CenterLeft"/>
-		<!-- <fa-list-ol FontSize="26" Alignment="CenterLeft"/> -->
-		<Text Value="3" FontSize="24" Font="Light" Alignment="CenterLeft" />
+	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10,5" CellSpacing="10" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleTask}">
+		<Text Value="{tree}" FontSize="23" Font="Light" Alignment="Center" />
+		<Panel Height="30">
+			<Image File="Assets/par.png" Color="#00661A" />
+			<!-- <Image File="Assets/posled1.png" Color="#00661A" Visibility="{posled}"/> -->
+		</Panel>
 		<StackPanel>
-			<Text Value="Квартальный отчет по отделам отчет по отделам отчет по отделам отчет по отделам отчет по отделам отчет по отделам" Alignment="Left" TextTruncation="Standard" />
-			<Text Value="Автор: Иванов Г.С" FontSize="12" Alignment="Left" />
+			<Text Value="{title}" Alignment="Left" TextTruncation="Standard" />
+			<Text Value="{from}" FontSize="12" Alignment="Left" />
 		</StackPanel>
-		<Text Value="25.10.2016" Alignment="Right" />
-		<Rectangle Layer="Background" Color="#EBF5D6" Opacity="1" Width="30%" Alignment="Left" Margin="1" />
-		<Rectangle Layer="Background" Color="#fff" Opacity="1" >
-			<Stroke Width="1" Color="#97C830" />
+		<Text Value="{deadline}" Alignment="CenterRight" />
+		<!-- <Rectangle Layer="Background" Color="#EBF5D6" Width="{percent}" Alignment="Left" Margin="1" /> -->
+		<Rectangle Layer="Background" Color="#26FF26" Width="{percent}" Alignment="Left" Margin="1" />
+		<Rectangle Layer="Background" Color="#EBF5D6" Opacity="1" >
+			<Stroke Width="1" Color="#238C00" />
 		</Rectangle>
 	</Grid>
 	<Each Count="3">
