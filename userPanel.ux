@@ -1,26 +1,46 @@
-<Panel ux:Class="userPanel" Width="70" Height="65" ClipToBounds="true" Margin="5">
+<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
     <StateGroup ux:Name="userGroup" Active="normalState">
         <State ux:Name="normalState">
         </State>
         <State ux:Name="selectedState">
+            <Change userStroke.Color="#0f0" />
+        </State>
+        <State ux:Name="mainState">
             <Change userBg.Color="#0f0" />
             <Change fio.Color="#000" />
+            <Change m.Opacity="1" />
         </State>
         <State ux:Name="controlState">
             <Change userBg.Color="#FFFF26" />
             <Change fio.Color="#000" />
-            <Change k.Visibility="Visible" />
+            <Change k.Opacity="1" />
         </State>
     </StateGroup>
-    <Panel ux:Name="k" Alignment="TopLeft" Visibility="Hidden" Margin="2,0">
+    <Panel ux:Name="k" Alignment="TopLeft" Offset="-3,-5" Opacity="0">
         <Text Font="Bold" Value="K" Alignment="Center" Color="#fff"/>
         <Circle Width="20" Height="20" Color="#f00" Alignment="Center" />
+        <Clicked>
+            <Set userGroup.Active="controlState" />
+        </Clicked>
     </Panel>
-	<Image File="Assets/user-icon.png" Alignment="TopCenter" />
-	<Text ux:Name="fio" Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" />
-	<Rectangle ux:Name="userBg" Layer="Background" />
-	
-	<Clicked>
-		<TransitionState Target="userGroup" Type="Next"/>
-	</Clicked>
+    <Panel ux:Name="m" Alignment="TopRight" Offset="5,-3" Opacity="0">
+        <Text Font="Bold" Value="M" Alignment="Center" Color="#fff"/>
+        <Circle Width="20" Height="20" Color="#f00" Alignment="Center" />
+        <Clicked>
+            <Set userGroup.Active="mainState" />
+        </Clicked>
+    </Panel>
+	<Image File="Assets/user-icon.png" Alignment="TopCenter">
+        <Clicked>
+            <TransitionState Target="userGroup" Type="Next"/>
+        </Clicked>
+    </Image>
+    <Text ux:Name="fio" Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" >
+        <Clicked>
+            <TransitionState Target="userGroup" Type="Next"/>
+        </Clicked>
+    </Text>
+    <Rectangle ux:Name="userBg" >
+        <Stroke ux:Name="userStroke" Width="2" Color="#000" />   
+    </Rectangle>
 </Panel>
