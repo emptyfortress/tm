@@ -1,5 +1,5 @@
 <Panel ux:Class="DocCard">
-	<ux:Include File="file.ux" />
+	<!-- <ux:Include File="file.ux" /> -->
 	<ux:Include File="file1.ux" />
 	<WhileActive>
 		<Pulse Target="showCount"/>
@@ -180,22 +180,39 @@
 				
 				<ScrollView ux:Name="fileScroll">
 					<StackPanel>
-						<Text Value="ФАЙЛЫ" FontSize="16" Alignment="TopCenter" />
+						<Text Value="ВЛОЖЕНИЯ" FontSize="16" Alignment="TopCenter" />
+						
 						<Panel>
-							<ColumnLayout ux:Name="fileColumns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
-							<WhileWindowPortrait>
-								<Change fileColumns.ColumnCount.Value="1" />
-								<Change file1Columns.ColumnCount.Value="1" />
-							</WhileWindowPortrait>
-							<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
+							<ColumnLayout ux:Name="fileColumns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
+							<Rectangle ux:Name="firstFile" Color="#fff" Height="5" />
 							
-							<Each Items="{filename}" >
-								<file />
-	 						</Each>
+							<Grid  Columns="auto, 1*" CellSpacing="5">
+								<Image File="Assets/card.png" Color="#000" Width="40" />
+								<Text Value="Это название карточки документа" Alignment="CenterLeft" />
+							</Grid>
+							<StackPanel>
+								<!-- <LayoutAnimation>
+									<Move RelativeTo="LayoutChange" Y="1" Duration="0.5" Easing="CubicInOut"/>
+								</LayoutAnimation> -->
+								<Each Items="{filename}">
+									<Grid Margin="0,5,0,0" Columns="30,1*">
+										<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
+										<file />
+									</Grid>
+								</Each>
+							</StackPanel>
+							<Rectangle Width="1" Layer="Background" Color="#000" Alignment="Left" Margin="15,50,0,42" />
 						</Panel>
+						
+
+
+
 						<Text Value="Дополнительные файлы" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
+							<WhileWindowPortrait>
+								<Change file1Columns.ColumnCount.Value="1" />
+							</WhileWindowPortrait>
 							<Each Items="{additional}">
 								<file1 />
 							</Each>

@@ -1,43 +1,56 @@
-<StackPanel ux:InnerClass="file">
-	<WhileTrue ux:Name="detailsVisible">
-		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
-		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Rows.Value="auto" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Height.Value="50" Duration=".3" Easing="CircularIn"/>
-		<Rotate Target="chevron" Degrees="180" Duration=".3" />
+<StackPanel ux:Class="file">
+	<JavaScript>
+		var Observable = require("FuseJS/Observable");
+		var hide = Observable(true);
+		function toggleFile(){
+			hide.value = !hide.value;
+		}
+		module.exports = {
+			hide: hide,
+			toggleFile: toggleFile
+		}
+	</JavaScript>
+
+	<WhileTrue Value="{hide}">
+		<Change child.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<!-- <Change child.Height.Value="0" Duration="0.4" Easing="CircularInOut"/> -->
+		<Change child.Opacity.Value="0" Duration="0.25"  Easing="CircularInOut"/>
+		<!-- <Change child.Margin.Value="0" Duration="0.4"  Easing="CircularInOut"/> -->
+		<!-- <Change child.Visibility.Value="Collapsed" Duration=".2" /> -->
 	</WhileTrue>
 
-	<Grid  Columns="30,auto, 1*,auto">
-		<Text Value="{num}" FontSize="13"  Alignment="Center" />
-		<Panel Height="70" Opacity="{missing}" Clicked="{toggleLetter}">
-			<Image Source="pdf"  Visibility="{pdf}" />
-			<Image Source="word"  Visibility="{word}" />
-			<Image Source="xls"  Visibility="{xls}" />
-			<Image Source="txt"  Visibility="{txt}" />
-		</Panel>
-		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Clicked="{toggleLetter}" />
-		<Panel HitTestMode="LocalBoundsAndChildren">
-			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
-			<Tapped>
-				<Toggle Target="detailsVisible" Delay=".2" />
-			</Tapped>
-		</Panel>
-	</Grid>
-	<Grid ux:Name="detailPanel" Offset="0,-5" Columns="auto,1*" Padding="10" Opacity="0" Rows="0" Height="0" Margin="15,0,0,0">
-		<Translation Y="-1" RelativeTo="Size" />
-		<StackPanel>
-			<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
-			<Grid Columns="auto,auto">
-				<tabtext Value="Последняя синхр.:" Alignment="Right" />
-				<tabtext Value="23.10.2016  15:20" />
+	<StackPanel>
+		<Grid  Columns="30,auto, 1*,auto">
+			<Text Value="{num}" FontSize="13"  Alignment="Center" />
+			<Panel Height="65" Opacity="{missing}" Clicked="{toggleLetter}">
+				<Image Source="pdf"  Visibility="{pdf}" />
+				<Image Source="word"  Visibility="{word}" />
+				<Image Source="xls"  Visibility="{xls}" />
+				<Image Source="txt"  Visibility="{txt}" />
+			</Panel>
+			<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Clicked="{toggleLetter}" />
+			
+			<Panel HitTestMode="LocalBoundsAndChildren" Clicked="{toggleFile}">
+				<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+			</Panel>
+		</Grid>
+		<Panel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">
+			<Grid Columns="auto,1*" Padding="10">
+				<StackPanel >
+					<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
+					<Grid Columns="auto,auto">
+						<tabtext Value="Последняя синхр.:" Alignment="Right" />
+						<tabtext Value="23.10.2016  15:20" />
+					</Grid>
+				</StackPanel>
+				<Panel>
+					<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
+				</Panel>
 			</Grid>
-		</StackPanel>
-		<Panel>
-			<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
 		</Panel>
-	</Grid>
 		<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
 			<Stroke Width="1" Color="#ddd" />
 		</Rectangle>
+	</StackPanel>
 </StackPanel>
 
