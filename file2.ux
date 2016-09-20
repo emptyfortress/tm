@@ -45,12 +45,32 @@
 		</Grid>
 		<StackPanel Orientation="Horizontal" ItemSpacing="10" Margin="30,10,0,20" Alignment="CenterLeft">
 			<Text Value="Пометить файл:" FontSize="15" Alignment="CenterLeft" />
-			<Rectangle Width="40" Height="40" Color="#f00" />
-			<Rectangle Width="40" Height="40" Color="#f00" />
-			<Rectangle Width="40" Height="40" Color="#f00" />
+			<Rectangle Width="40" Height="40" Color="#D5EAA8">
+				<Clicked>
+					<Set bgRec.Color="#D5EAA8" />
+				</Clicked>
+				<Stroke Width="1" Color="#ccc" />
+			</Rectangle>
+			<Rectangle Width="40" Height="40" Color="#FFDC73">
+				<Clicked>
+					<Set bgRec.Color="#FFDC73" />
+				</Clicked>
+				<Stroke Width="1" Color="#ccc" />
+			</Rectangle>
+			<Rectangle Width="40" Height="40" Color="#FF9999">
+				<Clicked>
+					<Set bgRec.Color="#FF9999" />
+				</Clicked>
+				<Stroke Width="1" Color="#ccc" />
+			</Rectangle>
+			<Text Value="Снять метку" FontSize="15" Alignment="CenterLeft" Color="blue">
+				<Clicked>
+					<Set bgRec.Color="#eee" />
+				</Clicked>
+			</Text>
 		</StackPanel>
 	</StackPanel>
-	<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
+	<Rectangle ux:Name="bgRec" Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
 		<Stroke Width="1" Color="#ddd" />
 	</Rectangle>
 </StackPanel>
