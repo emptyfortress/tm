@@ -52,6 +52,7 @@
 			var showLetter = Observable(false);
 			var showRecord = Observable(false);
 			var showTask = Observable(false);
+			var showCard = Observable(false);
 			function toggleLetter(){
 				showLetter.value = !showLetter.value;
 			}
@@ -61,13 +62,18 @@
 			function toggleTask(){
 				showTask.value = !showTask.value;
 			}
+			function toggleCard(){
+				showCard.value = !showCard.value;
+			}
 			module.exports = {
 				showLetter: showLetter,
 				toggleLetter: toggleLetter,
 				showRecord: showRecord,
 				toggleRecord: toggleRecord,
 				showTask: showTask,
-				toggleTask: toggleTask
+				toggleTask: toggleTask,
+				showCard: showCard,
+				toggleCard: toggleCard
 			}
 		</JavaScript>
 

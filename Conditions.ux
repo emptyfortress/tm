@@ -96,5 +96,12 @@
 		<Move Target="recordPop" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 		<!-- <Move Target="tools" Y="-1" RelativeTo="Size" Delay="1" Duration=".5" Easing="BackOut" EasingBack="CubicIn" /> -->
 	</WhileTrue>
+	<WhileTrue Value="{showCard}">
+		<Change plusIcon.Visibility.Value="Collapsed" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="docPreview" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
 	
 </Panel>

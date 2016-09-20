@@ -50,6 +50,15 @@
 		</Circle>
 	</Panel>
 
+	<Panel ux:Name="docPreview" Layer="Overlay" Margin="50,100"  Color="#fff">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Image File="Assets/document.png" Alignment="Center" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleCard}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+	</Panel>
+
 	<Panel ux:Name="recordPop" Color="#fff" Margin="30">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleRecord}">

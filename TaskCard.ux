@@ -95,10 +95,6 @@
 					<Tapped>
 						<Toggle Target="viewSign" />
 					</Tapped>
-					<StackPanel Orientation="Horizontal" ItemSpacing="5">
-						<fa-certificate Color="#008C23" Alignment="CenterLeft" />
-						<Text Value="Электронная подпись" Font="Light" Color="#008C23" Alignment="CenterLeft"  />
-					</StackPanel>
 					<Panel ux:Name="sign" Height="0" Opacity="0">
 						<Translation Y="-1" RelativeTo="ParentSize" />
 						<Grid Columns="auto,auto,1*" CellSpacing="2">
@@ -183,24 +179,23 @@
 					<StackPanel>
 						<Text Value="ВЛОЖЕНИЯ" FontSize="18" Alignment="TopCenter" />
 						<Panel>
-							<ColumnLayout ux:Name="fileColumns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
-							<WhileWindowPortrait>
+							<ColumnLayout ux:Name="fileColumns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
+							<!-- <WhileWindowPortrait>
 								<Change fileColumns.ColumnCount.Value="1" />
 								<Change file1Columns.ColumnCount.Value="1" />
-							</WhileWindowPortrait>
+							</WhileWindowPortrait> -->
 							<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
-							<Grid Columns="auto,1*" CellSpacing="5" Margin="0,0,0,15" >
+							<Grid Columns="auto,1*" CellSpacing="5" Margin="0,0,0,15" Clicked="{toggleCard}">
 								<Image File="Assets/card.png" Color="#000" Width="40" />
 								<Text Value="Это название карточки документа" Alignment="CenterLeft" />
 							</Grid>
-
-
-
 							<Each Items="{filename}" >
 								<file />
 	 						</Each>
 	 						<Rectangle Width="1" Color="#000" Layer="Background" Alignment="Left" Margin="20,37,0,42"  />
 						</Panel>
+						
+
 						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />

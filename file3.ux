@@ -1,4 +1,4 @@
-<StackPanel ux:InnerClass="file3">
+<StackPanel ux:Class="file3">
 	<WhileTrue ux:Name="detailsVisible">
 		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
 		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
