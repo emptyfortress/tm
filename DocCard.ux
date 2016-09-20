@@ -1,5 +1,6 @@
 <Panel ux:Class="DocCard">
 	<!-- <ux:Include File="file.ux" /> -->
+	<ux:Include File="file2.ux" />
 	<ux:Include File="file1.ux" />
 	<WhileActive>
 		<Pulse Target="showCount"/>
@@ -186,22 +187,22 @@
 							<ColumnLayout ux:Name="fileColumns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
 							<Rectangle ux:Name="firstFile" Color="#fff" Height="5" />
 							
-							<Grid  Columns="auto, 1*" CellSpacing="5">
+							<!-- <Grid  Columns="auto, 1*" CellSpacing="5">
 								<Image File="Assets/card.png" Color="#000" Width="40" />
 								<Text Value="Это название карточки документа" Alignment="CenterLeft" />
-							</Grid>
-							<StackPanel>
+							</Grid> -->
+							<StackPanel ItemSpacing="5">
 								<!-- <LayoutAnimation>
 									<Move RelativeTo="LayoutChange" Y="1" Duration="0.5" Easing="CubicInOut"/>
 								</LayoutAnimation> -->
 								<Each Items="{filename}">
-									<Grid Margin="0,5,0,0" Columns="30,1*">
-										<Rectangle Height="1" Color="#000" Margin="15,0,0,0" />
-										<file />
-									</Grid>
+									<!-- <Grid Margin="0,5,0,0" Columns="30,1*"> -->
+										<!-- <Rectangle Height="1" Color="#000" Margin="15,0,0,0" /> -->
+										<file2 />
+									<!-- </Grid> -->
 								</Each>
 							</StackPanel>
-							<Rectangle Width="1" Layer="Background" Color="#000" Alignment="Left" Margin="15,50,0,42" />
+							<!-- <Rectangle Width="1" Layer="Background" Color="#000" Alignment="Left" Margin="15,50,0,42" /> -->
 						</Panel>
 						
 

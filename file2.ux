@@ -1,11 +1,17 @@
 <StackPanel ux:InnerClass="file2">
-	<WhileTrue ux:Name="detailsVisible">
+	<!-- <WhileTrue ux:Name="detailsVisible">
 		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
 		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
 		<Change detailPanel.Rows.Value="auto" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Height.Value="50" Duration=".3" Easing="CircularIn"/>
+		<Change detailPanel.Height.Value="100" Duration=".3" Easing="CircularIn"/>
+		<Change detailPanel.Margin.Value="15,30,0,0" Duration=".3" Easing="CircularIn"/>
 		<Rotate Target="chevron" Degrees="180" Duration=".3" />
-	</WhileTrue>
+	</WhileTrue> -->
+	
+	<WhileFalse ux:Name="detailsVisible">
+		<Change detailPanel.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
+	</WhileFalse>
 
 	<Grid  Columns="30,auto, 1*,auto">
 		<Text Value="{num}" FontSize="13"  Alignment="Center" />
@@ -23,21 +29,29 @@
 			</Tapped>
 		</Panel>
 	</Grid>
-	<Grid ux:Name="detailPanel" Offset="0,-5" Columns="auto,1*" Padding="10" Opacity="0" Rows="0" Height="0" Margin="15,0,0,0">
-		<Translation Y="-1" RelativeTo="Size" />
-		<StackPanel>
-			<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
-			<Grid Columns="auto,auto">
-				<tabtext Value="Последняя синхр.:" Alignment="Right" />
-				<tabtext Value="23.10.2016  15:20" />
-			</Grid>
+	<StackPanel ux:Name="detailPanel"  BoxSizing="Limit" LimitHeight="100%">
+		<Grid Columns="auto,1*" Padding="10" Margin="15,0">
+			<!-- <Translation Y="-1" RelativeTo="Size" /> -->
+			<StackPanel>
+				<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
+				<Grid Columns="auto,auto">
+					<tabtext Value="Последняя синхр.:" Alignment="Right" />
+					<tabtext Value="23.10.2016  15:20" />
+				</Grid>
+			</StackPanel>
+			<Panel>
+				<Text Value="Обновить" Color="blue" Alignment="BottomLeft" />
+			</Panel>
+		</Grid>
+		<StackPanel Orientation="Horizontal" ItemSpacing="10" Margin="30,10,0,20" Alignment="CenterLeft">
+			<Text Value="Пометить файл:" FontSize="15" Alignment="CenterLeft" />
+			<Rectangle Width="40" Height="40" Color="#f00" />
+			<Rectangle Width="40" Height="40" Color="#f00" />
+			<Rectangle Width="40" Height="40" Color="#f00" />
 		</StackPanel>
-		<Panel>
-			<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
-		</Panel>
-	</Grid>
-		<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
-			<Stroke Width="1" Color="#ddd" />
-		</Rectangle>
+	</StackPanel>
+	<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
+		<Stroke Width="1" Color="#ddd" />
+	</Rectangle>
 </StackPanel>
 

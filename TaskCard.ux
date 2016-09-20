@@ -1,6 +1,6 @@
 <Panel ux:Class="TaskCard">
-	<ux:Include File="file2.ux" />
-	<ux:Include File="file3.ux" />
+	<!-- <ux:Include File="file2.ux" /> -->
+	<!-- <ux:Include File="file3.ux" /> -->
 	<WhileActive>
 		<Pulse Target="showCount"/>
 	</WhileActive> 
@@ -237,14 +237,14 @@
 							
 							<Each Items="{filename}" >
 								<!-- <Rectangle Height="20" Color="#ccc" Margin="10"></Rectangle> -->
-								<file2 />
+								<!-- <file2 /> -->
 	 						</Each>
 						</Panel>
 						<Text Value="Дополнительные файлы" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<Each Items="{additional}">
-								<file3 />
+								<!-- <file3 /> -->
 							</Each>
 						</Panel>
 						<Rectangle Height="50" Color="#fff" />
