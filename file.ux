@@ -13,13 +13,10 @@
 
 	<WhileTrue Value="{hide}">
 		<Change child.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
-		<!-- <Change child.Height.Value="0" Duration="0.4" Easing="CircularInOut"/> -->
 		<Change child.Opacity.Value="0" Duration="0.25"  Easing="CircularInOut"/>
-		<!-- <Change child.Margin.Value="0" Duration="0.4"  Easing="CircularInOut"/> -->
-		<!-- <Change child.Visibility.Value="Collapsed" Duration=".2" /> -->
 	</WhileTrue>
 
-	<StackPanel>
+	<StackPanel Margin="40,0,0,0">
 		<Grid  Columns="30,auto, 1*,auto">
 			<Text Value="{num}" FontSize="13"  Alignment="Center" />
 			<Panel Height="65" Opacity="{missing}" Clicked="{toggleLetter}">
@@ -34,7 +31,7 @@
 				<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
 			</Panel>
 		</Grid>
-		<Panel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">
+		<StackPanel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">
 			<Grid Columns="auto,1*" Padding="10">
 				<StackPanel >
 					<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
@@ -44,13 +41,40 @@
 					</Grid>
 				</StackPanel>
 				<Panel>
-					<Text Value="Обновить" Color="blue" Alignment="BottomCenter" />
+					<Text Value="Обновить" Color="blue" Alignment="BottomLeft" />
 				</Panel>
 			</Grid>
-		</Panel>
-		<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
+			<StackPanel ux:Name="mark" Orientation="Horizontal" ItemSpacing="10" Margin="30,10,0,20" Alignment="CenterLeft">
+				<Text Value="Пометить файл:" FontSize="15" Alignment="CenterLeft" />
+				<Rectangle Width="40" Height="40" Color="#D5EAA8" Clicked="{toggleFile}">
+					<Clicked>
+						<Set bgRec.Color="#D5EAA8" />
+					</Clicked>
+					<Stroke Width="1" Color="#ccc" />
+				</Rectangle>
+				<Rectangle Width="40" Height="40" Color="#FFDC73" Clicked="{toggleFile}">
+					<Clicked>
+						<Set bgRec.Color="#FFDC73" />
+					</Clicked>
+					<Stroke Width="1" Color="#ccc" />
+				</Rectangle>
+				<Rectangle Width="40" Height="40" Color="#FF9999" Clicked="{toggleFile}">
+					<Clicked>
+						<Set bgRec.Color="#FF9999" />
+					</Clicked>
+					<Stroke Width="1" Color="#ccc" />
+				</Rectangle>
+				<Text Value="Снять метку" FontSize="15" Alignment="CenterLeft" Color="blue" Clicked="{toggleFile}">
+					<Clicked>
+						<Set bgRec.Color="#eee" />
+					</Clicked>
+				</Text>
+			</StackPanel>
+		</StackPanel>
+		<Rectangle ux:Name="bgRec" Layer="Background" Color="#eee" Margin="0,5" Opacity="{missing}" >
 			<Stroke Width="1" Color="#ddd" />
 		</Rectangle>
 	</StackPanel>
+	<Rectangle Height="1" Color="#000" Layer="Background" Margin="20,0"  />
 </StackPanel>
 

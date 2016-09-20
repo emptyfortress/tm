@@ -50,7 +50,6 @@
 			<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
 				<Image File="Assets/card.png" Width="35" Color="{key}" Alignment="Center" />
-				<!-- <fa-file-text-o FontSize="35" Color="{key}" Alignment="Center" /> -->
 			</Circle>
 		</Panel>
 		
@@ -219,7 +218,7 @@
 				</WhileActive>
 				<ScrollView ux:Name="taskScroll" >
 					<StackPanel ItemSpacing="10">
-						<Text Value="ПОРУЧЕНИЯ" FontSize="16" Alignment="TopCenter" />
+						<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
 						<Each Items="{items.cards1}">
 							<treeTask />
 						</Each>
