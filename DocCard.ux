@@ -168,7 +168,7 @@
 		</StackPanel>
 		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden">
 			<NavigationMotion Overflow="Elastic"/>
-			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
+			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomLeft" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
 				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
 				<Tapped>
 					<Set fileState.Active="fileShort" />
@@ -181,34 +181,19 @@
 				
 				<ScrollView ux:Name="fileScroll">
 					<StackPanel>
-						<Text Value="ВЛОЖЕНИЯ" FontSize="16" Alignment="TopCenter" />
+						<Text Value="ВЛОЖЕНИЯ" FontSize="18" Alignment="TopCenter" />
 						
 						<Panel>
 							<ColumnLayout ux:Name="fileColumns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
 							<Rectangle ux:Name="firstFile" Color="#fff" Height="5" />
-							
-							<!-- <Grid  Columns="auto, 1*" CellSpacing="5">
-								<Image File="Assets/card.png" Color="#000" Width="40" />
-								<Text Value="Это название карточки документа" Alignment="CenterLeft" />
-							</Grid> -->
 							<StackPanel ItemSpacing="5">
-								<!-- <LayoutAnimation>
-									<Move RelativeTo="LayoutChange" Y="1" Duration="0.5" Easing="CubicInOut"/>
-								</LayoutAnimation> -->
 								<Each Items="{filename}">
-									<!-- <Grid Margin="0,5,0,0" Columns="30,1*"> -->
-										<!-- <Rectangle Height="1" Color="#000" Margin="15,0,0,0" /> -->
-										<file2 />
-									<!-- </Grid> -->
+									<file2 />
 								</Each>
 							</StackPanel>
-							<!-- <Rectangle Width="1" Layer="Background" Color="#000" Alignment="Left" Margin="15,50,0,42" /> -->
 						</Panel>
-						
 
-
-
-						<Text Value="Дополнительные файлы" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
+						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<WhileWindowPortrait>

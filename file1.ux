@@ -75,7 +75,6 @@
 
 
 	<Rectangle ux:Name="bgRec" Layer="Background" Color="#fff" Margin="0,5" Opacity="{missing}" >
-		<!-- <Stroke Width="1" Color="#ddd" /> -->
 	</Rectangle>
 </StackPanel>
 
