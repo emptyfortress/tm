@@ -155,14 +155,12 @@
 				<Swiped Source="up">
 					<Set addGroup.Active="fullState" />
 				</Swiped>
-				<Panel ux:Name="downArrow" Width="40" Height="40" LayoutRole="Inert" Alignment="TopCenter" Visibility="Collapsed">
+				<Panel ux:Name="downArrow" Width="40" Height="40" LayoutRole="Inert" Alignment="BottomLeft" Visibility="Collapsed">
 					<Clicked>
 						<Set addGroup.Active="shortState" />
 					</Clicked>
 					<fa-angle-down Color="#fff" FontSize="25" Alignment="Center" />
-					<Circle Color="#333">
-						
-					</Circle>
+					<Circle Color="sky" />
 				</Panel>
 				<PageControl ux:Name="helperPanel" >
 					<NavigationMotion GotoEasing="CircularInOut" Overflow="Elastic" SnapType="Easing" />
@@ -234,8 +232,20 @@
 						</WhileActive>
 						<StackPanel>
 							<Panel ux:Name="userList">
+								<JavaScript>
+							        var Observable = require("FuseJS/Observable");
+							        var reset = Observable(true);
+							        function toggleUser(){
+							            reset.value = !reset.value;
+							        }
+							        module.exports = {
+							            reset: reset,
+							            toggleUser: toggleUser
+							        }
+							    </JavaScript>
+
 								<WrapLayout Orientation="Horizontal"/>
-								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3">
+								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{toggleUser}">
 									<Image File="Assets/back.png" Width="50" Alignment="Top" />
 									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
 									<Clicked>
@@ -435,7 +445,8 @@
 								</Each>
 							</Panel>
 						</ScrollView>
-						<Grid Height="50" ColumnCount="3" Dock="Bottom">
+						<Grid Height="50" ColumnCount="4" Dock="Bottom">
+							<Rectangle />
 							<Panel>
 								<fa-folder-open-o FontSize="25" Color="#fff" Alignment="Center" />
 							</Panel>

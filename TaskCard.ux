@@ -195,8 +195,9 @@
 	 						<Rectangle Width="1" Color="#000" Layer="Background" Alignment="Left" Margin="20,37,0,42"  />
 						</Panel>
 						
+						<file3 />
 
-						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}" />
+						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center"  />
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<Each Items="{additional}">

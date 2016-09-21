@@ -1,0 +1,73 @@
+<StackPanel ux:Class="file-small">
+
+	<WhileFalse ux:Name="detailsVisible">
+		<Change detailPanel.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change mark.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change mark.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
+	</WhileFalse>
+
+	<Grid  Columns="30,auto, 1*,auto">
+		<Text Value="{num}" FontSize="13"  Alignment="Center" />
+		<Panel Height="35" Opacity="{missing}" Clicked="{toggleLetter}">
+			<Image Source="pdf"  Visibility="{pdf}" />
+			<Image Source="word"  Visibility="{word}" />
+			<Image Source="xls"  Visibility="{xls}" />
+			<Image Source="txt"  Visibility="{txt}" />
+		</Panel>
+		<Text Value="{text}" FontSize="15"  Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Clicked="{toggleLetter}" />
+		<Panel HitTestMode="LocalBoundsAndChildren">
+			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+			<Tapped>
+				<Toggle Target="detailsVisible" Delay=".2" />
+			</Tapped>
+		</Panel>
+	</Grid>
+	<Grid ux:Name="detailPanel" Columns="auto,1*" Padding="10" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">
+		<StackPanel>
+			<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
+			<Grid Columns="auto,auto">
+				<tabtext Value="Последняя синхр.:" Alignment="Right" />
+				<tabtext Value="23.10.2016  15:20" />
+			</Grid>
+		</StackPanel>
+		<Panel>
+			<Text Value="Обновить" Color="blue" Alignment="CenterLeft" />
+		</Panel>
+	</Grid>
+	<StackPanel ux:Name="mark" Orientation="Horizontal" ItemSpacing="10" Margin="30,10,0,20" Alignment="CenterLeft" BoxSizing="Limit" LimitHeight="100%">
+		<Text Value="Пометить файл:" FontSize="15" Alignment="CenterLeft" />
+		<Rectangle Width="40" Height="40" Color="#D5EAA8">
+			<Clicked>
+				<Set bgRec.Color="#D5EAA8" />
+				<Toggle Target="detailsVisible" />
+			</Clicked>
+			<Stroke Width="1" Color="#ccc" />
+		</Rectangle>
+		<Rectangle Width="40" Height="40" Color="#FFDC73">
+			<Clicked>
+				<Set bgRec.Color="#FFDC73" />
+				<Toggle Target="detailsVisible" />
+			</Clicked>
+			<Stroke Width="1" Color="#ccc" />
+		</Rectangle>
+		<Rectangle Width="40" Height="40" Color="#FF9999">
+			<Clicked>
+				<Set bgRec.Color="#FF9999" />
+				<Toggle Target="detailsVisible" />
+			</Clicked>
+			<Stroke Width="1" Color="#ccc" />
+		</Rectangle>
+		<Text Value="Снять метку" FontSize="15" Alignment="CenterLeft" Color="blue">
+			<Clicked>
+				<Set bgRec.Color="#fff" />
+				<Toggle Target="detailsVisible" />
+			</Clicked>
+		</Text>
+	</StackPanel>
+
+
+	<Rectangle ux:Name="bgRec" Layer="Background" Color="#fff" Margin="0,5" Opacity="{missing}" >
+	</Rectangle>
+</StackPanel>
+

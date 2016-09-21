@@ -1,6 +1,15 @@
 <Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
+    
+    <WhileTrue Value="{reset}">
+        <Set userGroup.Active="normalState" />
+    </WhileTrue>
+
     <StateGroup ux:Name="userGroup" Active="normalState">
         <State ux:Name="normalState">
+            <Change userBg.Color="#000" />
+            <Change userStroke.Color="#000" />
+            <Change m.Opacity="0" />
+            <Change k.Opacity="0" />
         </State>
         <State ux:Name="selectedState">
             <Change userStroke.Color="#0f0" />
@@ -24,7 +33,7 @@
         </Clicked>
     </Panel>
     <Panel ux:Name="m" Alignment="TopRight" Offset="5,-3" Opacity="0">
-        <Text Font="Bold" Value="M" Alignment="Center" Color="#fff"/>
+        <Text Font="Bold" Value="О" Alignment="Center" Color="#fff"/>
         <Circle Width="20" Height="20" Color="#f00" Alignment="Center" />
         <Clicked>
             <Set userGroup.Active="mainState" />
