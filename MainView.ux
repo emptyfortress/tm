@@ -185,8 +185,8 @@
 						<WhilePressed>
 							<Change userButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
-						<Image File="Assets/users.png" Width="35" Color="blue" Alignment="CenterLeft"  />
-						<Text Value="СОТРУДНИКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
+						<Image File="Assets/cal.png" Width="35" Color="blue" Alignment="CenterLeft"  />
+						<Text Value="КАЛЕНДАРЬ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
 
 					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
@@ -211,6 +211,7 @@
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+							<Set ViewerVisible.Value="false" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
 							<Set folderIndicator.Visibility="Visible" />
@@ -220,6 +221,7 @@
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
+							<Set ViewerVisible.Value="false" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
 							<Set folderIndicator.Visibility="Visible" />
@@ -229,6 +231,7 @@
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
+							<Set ViewerVisible.Value="false" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
 							<Set folderIndicator.Visibility="Visible" />
@@ -238,6 +241,7 @@
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+							<Set ViewerVisible.Value="false" />
 							<Set menuVisible.Value="false" Delay=".5" />
 							<Set dashboardUp.Value="true" />
 							<Set folderIndicator.Visibility="Visible" />
