@@ -1,4 +1,4 @@
-<StackPanel ux:Class="userName" Background="#fff">
+<StackPanel ux:Class="userName">
 	<Grid CellSpacing="5" Columns="auto,1*,auto" Margin="10,5">
 		<string ux:Property="User"/>
 		<string ux:Property="Tasks"/>
@@ -6,5 +6,6 @@
 		<Text Value="{Property this.User}"  Color="#666" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  />
 	</Grid>
-	<Rectangle Height="1" Color="#cecece" />
+	<Rectangle Height="1" Color="#fff" />
+	<Rectangle Layer="Background" Color="#fff" Opacity=".6" />
 </StackPanel>

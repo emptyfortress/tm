@@ -10,13 +10,13 @@
 		<Text Value="{Property this.Count}" FontSize="30" Alignment="Center" />
 		<Text Value="{Property this.Header}" FontSize="12" Alignment="Center" Offset="0, -5"/>
 	</StackPanel>
-	<Circle Color="#fff" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
+	<Circle StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
 		<Stroke Width="10" Color="{Property this.Color1}" />
 	</Circle>
-	<Circle Color="#fff" StartAngleDegrees="{Property this.End}" EndAngleDegrees="200">
+	<Circle StartAngleDegrees="{Property this.End}" EndAngleDegrees="200">
 		<Stroke Width="10" Color="{Property this.Color2}" />
 	</Circle>
-	<Circle Color="#fff" StartAngleDegrees="200" EndAngleDegrees="270">
+	<Circle StartAngleDegrees="200" EndAngleDegrees="270">
 		<Stroke Width="10" Color="{Property this.Color3}" />
 	</Circle>
 </Panel>

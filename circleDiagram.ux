@@ -7,11 +7,11 @@
 	<StackPanel Alignment="Center" ItemSpacing="4">
 		<Panel BoxSizing="Standard">
 			<Text Value="{Property this.Count}" FontSize="30" Alignment="Center" />
-			<Circle Color="#fff" Width="70" Height="70" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
+			<Circle Width="70" Height="70" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
 				<Stroke Width="5" Color="{Property this.BarColor}" />
 			</Circle>
-			<Circle Color="#fff">
-				<Stroke Width="5" Color="#eee" />
+			<Circle>
+				<Stroke Width="5" Color="#fff" />
 			</Circle>
 		</Panel>
 		<Text Value="{Property this.Header}" FontSize="14" Alignment="Center"/>

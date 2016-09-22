@@ -1,12 +1,13 @@
 <StackPanel ux:Class="unreadText">
-	<Grid Columns="auto,auto,1*,auto" Background="#fff">
+	<Grid Columns="auto,auto,1*,auto">
 		<string ux:Property="Text"/>
 		<string ux:Property="Quantity"/>
 		
-		<Rectangle Width="3" Height="100%" Color="sky" />
+		<Rectangle Width="3" Height="100%" Color="#fff" />
 		<fa-folder-o Alignment="Left" Margin="10" Color="#000" />
-		<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap" Alignment="CenterLeft"/>
+		<Text Value="{Property this.Text}" TextWrapping="Wrap" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Quantity}" FontSize="26" Color="#000" Alignment="CenterRight" Margin="0,0,10,0"  />
 	</Grid>
-	<Rectangle Height="1" Color="#cecece" />
+	<Rectangle Height="1" Color="#fff" />
+	<Rectangle Layer="Background" Color="#fff" Opacity=".6" />
 </StackPanel>
