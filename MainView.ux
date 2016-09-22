@@ -139,7 +139,6 @@
 				<Move Target="mainApp" Y="-80" Duration=".3" />
 				<Scale Target="mainApp" Factor=".5" Duration=".3" />
 				<Change blockRect.HitTestMode="LocalBoundsAndChildren" />
-				<!-- <Change dashScroll.ScrollPosition.Value="0" /> -->
 			</ActivatingAnimation>
 			<DeactivatingAnimation>
 				<BringIntoView TargetNode="logo" />
@@ -269,9 +268,9 @@
 						<Image File="Assets/help.png" Width="20" Color="blue" Alignment="CenterLeft"   />
 						<Text Value="Справка" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
-					<StackPanel Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+					<StackPanel Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10"  Clicked="{toggleAbout}">
 						<Image File="Assets/info.png" Width="20" Color="blue" Alignment="CenterLeft"   />
-						<Text Value="О программе" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" Clicked="{toggleAbout}" />
+						<Text Value="О программе" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 						</Tapped>
