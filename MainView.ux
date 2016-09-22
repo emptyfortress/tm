@@ -139,19 +139,24 @@
 				<Move Target="mainApp" Y="-80" Duration=".3" />
 				<Scale Target="mainApp" Factor=".5" Duration=".3" />
 				<Change blockRect.HitTestMode="LocalBoundsAndChildren" />
+				<!-- <Change dashScroll.ScrollPosition.Value="0" /> -->
 			</ActivatingAnimation>
+			<DeactivatingAnimation>
+				<BringIntoView TargetNode="logo" />
+			</DeactivatingAnimation>
 			<Rectangle Color="#fff" Layer="Background">
 				<Stroke Width="1" Color="#ddd" />
 			</Rectangle>
-			<ScrollView Margin="0,50,0,0">
+			
+			<Circle Width="37" Height="37" Color="#fff" Alignment="TopRight" Margin="10" >
+				<Stroke Width="1" Color="#ccc" />
+				<ImageFill File="Assets/user.png" />
+			</Circle>
+
+			<ScrollView ux:Name="dashScroll" Margin="0,70,0,0" >
 				<StackPanel>
-					<StackPanel Margin="0,0,0,40">
-						<Circle Width="50" Height="50" Color="#fff" >
-							<Stroke Width="1" Color="#ccc" />
-							<ImageFill File="Assets/user.png" />
-						</Circle>
-						<Text FontSize="14" Alignment="Center" Color="blue">Орлов П.С.</Text>
-					</StackPanel>
+					<Image ux:Name="logo" File="Assets/alrosa.png" Width="120" Margin="0,10,0,40" />
+
 
 					<StackPanel ux:Name="dashButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 						<Tapped>
