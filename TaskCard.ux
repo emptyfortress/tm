@@ -201,7 +201,7 @@
 						<Panel>
 							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
 							<Each Items="{additional}">
-								<!-- <file3 /> -->
+								<!-- <file /> -->
 							</Each>
 						</Panel>
 						<Rectangle Height="50" Color="#fff" />

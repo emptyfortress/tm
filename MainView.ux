@@ -53,6 +53,7 @@
 			var showRecord = Observable(false);
 			var showTask = Observable(false);
 			var showCard = Observable(false);
+			var showAbout = Observable(false);
 			function toggleLetter(){
 				showLetter.value = !showLetter.value;
 			}
@@ -65,6 +66,9 @@
 			function toggleCard(){
 				showCard.value = !showCard.value;
 			}
+			function toggleAbout(){
+				showAbout.value = !showAbout.value;
+			}
 			module.exports = {
 				showLetter: showLetter,
 				toggleLetter: toggleLetter,
@@ -73,7 +77,10 @@
 				showTask: showTask,
 				toggleTask: toggleTask,
 				showCard: showCard,
-				toggleCard: toggleCard
+				toggleCard: toggleCard,
+				showAbout: showAbout,
+				toggleAbout: toggleAbout
+
 			}
 		</JavaScript>
 
@@ -160,6 +167,7 @@
 						<Image File="Assets/dash-icon.png" Width="30" Color="blue" Alignment="CenterLeft"  />
 						<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 					</StackPanel>
+					
 					<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 						<Tapped>
 							<Toggle Target="menuVisible" />
@@ -189,24 +197,6 @@
 						<Text Value="КАЛЕНДАРЬ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
 
-					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
-						<Tapped>
-							<NavigateToggle Target="menu" NavigationContext="edge" />
-							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-							<Set menuVisible.Value="false" Delay=".5" />
-							<Set dashboardUp.Value="true" />
-							<Set folderIndicator.Visibility="Visible" />
-						</Tapped>
-					</sideButton>
-					<sideButton Text="Черновики" Quantity="11" >
-						<Tapped>
-							<NavigateToggle Target="menu" NavigationContext="edge" />
-							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-							<Set menuVisible.Value="false" Delay=".5" />
-							<Set dashboardUp.Value="true" />
-							<Set folderIndicator.Visibility="Visible" />
-						</Tapped>
-					</sideButton>
 					<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
@@ -250,7 +240,40 @@
 					<sideButton Text="Папка" />
 					<sideButton Text="Папка" />
 					<sideButton Text="Папка" />
-					<Rectangle Height="1" Color="blue" />
+
+					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
+						<Tapped>
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					<sideButton Text="Черновики" Quantity="11" >
+						<Tapped>
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
+					
+					<StackPanel Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10" Margin="0,30,0,0">
+						<Image File="Assets/help.png" Width="20" Color="blue" Alignment="CenterLeft"   />
+						<Text Value="Справка" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
+					</StackPanel>
+					<StackPanel Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+						<Image File="Assets/info.png" Width="20" Color="blue" Alignment="CenterLeft"   />
+						<Text Value="О программе" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" Clicked="{toggleAbout}" />
+						<Tapped>
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+						</Tapped>
+					</StackPanel>
+
+					<Rectangle Height="15"/>
+					<Rectangle Height="1" Color="blue"  />
 					<Grid ColumnCount="2" Margin="0,20">
 						<StackPanel>
 							<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>

@@ -11,7 +11,7 @@
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
-	<Panel ux:Name="cardButton" Layer="Overlay" Width="420" Height="420" Color="#fff">
+	<Panel ux:Name="cardButton" Layer="Overlay" Width="400" Height="400" Color="#fff">
 		<Translation Y="-1" RelativeTo="ParentSize" />
 		<Image File="Assets/task-buttons.png" Alignment="Center"/>
 		<Tapped>
@@ -57,6 +57,10 @@
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
 		</Circle>
+	</Panel>
+
+	<Panel ux:Name="aboutPop" Layer="Overlay" Alignment="Center" Color="#fff" Opacity="0" Visibility="Collapsed" Clicked="{toggleAbout}">
+		<Image File="Assets/about.png" Alignment="Center"  />
 	</Panel>
 
 	<Panel ux:Name="recordPop" Color="#fff" Margin="30">
