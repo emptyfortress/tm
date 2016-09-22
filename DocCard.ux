@@ -199,7 +199,8 @@
 								<Change file1Columns.ColumnCount.Value="1" />
 							</WhileWindowPortrait>
 							<Each Items="{additional}">
-								<file1 />
+								<fileSmall />
+								<!-- <file1 /> -->
 							</Each>
 						</Panel>
 						<Rectangle Color="{key}" Padding="20,10" Alignment="HorizontalCenter" Margin="0,40">

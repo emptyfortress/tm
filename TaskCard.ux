@@ -178,7 +178,7 @@
 				<ScrollView ux:Name="fileScroll">
 					<StackPanel>
 						<Text Value="ВЛОЖЕНИЯ" FontSize="18" Alignment="TopCenter" />
-						<Panel>
+						<Panel Visibility="{card-visibility}">
 							<ColumnLayout ux:Name="fileColumns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
 							<!-- <WhileWindowPortrait>
 								<Change fileColumns.ColumnCount.Value="1" />
@@ -197,18 +197,15 @@
 						
 						<file3 />
 
-						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center"  />
+						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}"  />
 						<Panel>
-							<ColumnLayout ux:Name="file1Columns" ColumnCount="2" ItemSpacing="10" ColumnSpacing="10" />
+							<ColumnLayout ux:Name="file1Columns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
 							<Each Items="{additional}">
-								<!-- <file /> -->
+								<fileSmall />
 							</Each>
 						</Panel>
-						<Rectangle Height="50" Color="#fff" />
-						<Rectangle Color="{key}" Padding="20,10"  Alignment="HorizontalCenter" >
-							<Text Value="Добавить файл" Color="#fff" Alignment="Center"/>
-						</Rectangle>
-						<Rectangle Height="50" Color="#fff" />
+						
+						<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" Margin="0,50" />
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 						<Set fileState.Active="fileFull"   />
