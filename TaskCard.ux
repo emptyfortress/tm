@@ -1,6 +1,4 @@
 <Panel ux:Class="TaskCard">
-	<!-- <ux:Include File="file2.ux" /> -->
-	<!-- <ux:Include File="file3.ux" /> -->
 	<WhileActive>
 		<Pulse Target="showCount"/>
 	</WhileActive> 

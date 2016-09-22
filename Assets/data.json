@@ -451,7 +451,8 @@
             "word":"Visible",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":"1",  
+            "missing":"1",
+            "miss-color": "#eee",  
             "text":"Это имя файла.doc"
             },
             {
@@ -460,7 +461,8 @@
             "word":"Collapsed",  
             "xls":"Visible",
             "txt":"Collapsed",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",     
             "text":"Калькуляция цены.xls"
             }
         ],
@@ -472,7 +474,8 @@
             "word":"Collapsed",  
             "xls":"Collapsed",
             "txt":"Visible",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",     
             "text":"Список контрагентов.txt"
            },
             {
@@ -481,7 +484,8 @@
             "word":"Visible",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",     
             "text":"Переписка с менеджером.docx"
            }
         ],
@@ -514,7 +518,8 @@
             "word":"Visible",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":"1",  
+            "missing":"1",
+            "miss-color": "#eee",   
             "text":"filename.doc"
             },
             {
@@ -523,7 +528,8 @@
             "word":"Collapsed",  
             "xls":"Collapsed",
             "txt":"Visible",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",     
             "text":"Readme.txt"
             },
             {
@@ -532,7 +538,8 @@
             "word":"Collapsed",  
             "xls":"Collapsed",
             "txt":"Visible",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",     
             "text":"Readme2.txt"
             }
         ],
@@ -584,7 +591,8 @@
             "word":"Collapsed",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":"1",  
+            "missing":"1",
+            "miss-color": "#eee",  
             "text":"Договор с подрядчиком.pdf"
             },
             {
@@ -593,7 +601,8 @@
             "word":"Visible",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",   
             "text":"Приложение № 1 к договору.docx"
             },
             {
@@ -602,7 +611,8 @@
             "word":"Visible",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":".2",    
+            "missing":".2",
+            "miss-color": "#FCFCFC",    
             "text":"Приложение № 2 к договору.docx"
             },
             {
@@ -611,7 +621,8 @@
             "word":"Collapsed",  
             "xls":"Visible",
             "txt":"Collapsed",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",    
             "text":"Смета расходов.xls"
             },
             {
@@ -620,7 +631,8 @@
             "word":"Collapsed",  
             "xls":"Visible",
             "txt":"Collapsed",
-            "missing":".2",     
+            "missing":".2",
+            "miss-color": "#FCFCFC",     
             "text":"Прайс-лист.xls"
             }
         ],
@@ -631,7 +643,8 @@
             "word":"Collapsed",  
             "xls":"Collapsed",
             "txt":"Visible",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",     
             "text":"Список контрагентов.txt"
            },
             {
@@ -640,7 +653,8 @@
             "word":"Visible",  
             "xls":"Collapsed",
             "txt":"Collapsed",
-            "missing":"1",    
+            "missing":"1",
+            "miss-color": "#eee",    
             "text":"Переписка с менеджером.docx"
            }
         ],

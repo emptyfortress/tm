@@ -1,11 +1,4 @@
 <StackPanel ux:InnerClass="file1">
-	<!-- <WhileTrue ux:Name="detailsVisible">
-		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
-		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Rows.Value="auto" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Height.Value="50" Duration=".3" Easing="CircularIn"/>
-		<Rotate Target="chevron" Degrees="180" Duration=".3" />
-	</WhileTrue> -->
 	<WhileFalse ux:Name="detailsVisible">
 		<Change detailPanel.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>

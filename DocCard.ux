@@ -1,5 +1,4 @@
 <Panel ux:Class="DocCard">
-	<!-- <ux:Include File="file.ux" /> -->
 	<ux:Include File="file2.ux" />
 	<ux:Include File="file1.ux" />
 	<WhileActive>

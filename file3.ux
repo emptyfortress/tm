@@ -14,14 +14,8 @@
 	<WhileTrue Value="{hide}">
 		<Change child.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change child.Opacity.Value="0" Duration="0.25"  Easing="CircularInOut"/>
+		<Rotate Target="chevron" Degrees="-180" Duration=".25" Easing="CircularInOut" />
 	</WhileTrue>
-	<!-- <WhileTrue ux:Name="detailsVisible">
-		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
-		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Rows.Value="auto" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Height.Value="50" Duration=".3" Easing="CircularIn"/>
-		<Rotate Target="chevron" Degrees="180" Duration=".3" />
-	</WhileTrue> -->
 
 	<StackPanel>
 		<Grid  Columns="30,auto, 1*,auto">
@@ -35,7 +29,9 @@
 			<Text Value="Имя файла имя файла.pdf" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Clicked="{toggleLetter}" />
 			
 			<Panel HitTestMode="LocalBoundsAndChildren" Clicked="{toggleFile}">
-				<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+				<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" >
+					<Rotation Degrees="180" />
+				</fa-angle-down>
 			</Panel>
 		</Grid>
 		<StackPanel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">

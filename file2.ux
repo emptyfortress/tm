@@ -1,16 +1,8 @@
 <StackPanel ux:InnerClass="file2">
-	<!-- <WhileTrue ux:Name="detailsVisible">
-		<Move Target="detailPanel" Y="1" RelativeTo="Size" Duration=".3" Easing="CircularIn"  />
-		<Change detailPanel.Opacity.Value="1" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Rows.Value="auto" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Height.Value="100" Duration=".3" Easing="CircularIn"/>
-		<Change detailPanel.Margin.Value="15,30,0,0" Duration=".3" Easing="CircularIn"/>
-		<Rotate Target="chevron" Degrees="180" Duration=".3" />
-	</WhileTrue> -->
-	
 	<WhileFalse ux:Name="detailsVisible">
 		<Change detailPanel.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Rotate Target="chevron" Degrees="-180" Duration=".25" Easing="CircularInOut" />
 	</WhileFalse>
 
 	<Grid  Columns="30,auto, 1*,auto">
@@ -23,7 +15,9 @@
 		</Panel>
 		<Text Value="{text}" FontSize="15" Font="Bold" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Clicked="{toggleLetter}" />
 		<Panel HitTestMode="LocalBoundsAndChildren">
-			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" />
+			<fa-angle-down FontSize="25" ux:Name="chevron" Margin="15,0" Alignment="Center" >
+				<Rotation Degrees="180" />
+			</fa-angle-down>
 			<Tapped>
 				<Toggle Target="detailsVisible" Delay=".2" />
 			</Tapped>
