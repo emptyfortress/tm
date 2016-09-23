@@ -12,7 +12,7 @@
 		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
 	<Panel ux:Name="cardButton" Layer="Overlay" Width="400" Height="400" Color="#fff">
-		<Translation Y="-1" RelativeTo="ParentSize" />
+		<Translation Y="-1.5" RelativeTo="ParentSize" />
 		<Image File="Assets/task-buttons.png" Alignment="Center"/>
 		<Tapped>
 			<Toggle Target="viewCardButton" />
