@@ -6,6 +6,6 @@
 		<Text Value="{Property this.User}"  Color="#666" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  />
 	</Grid>
-	<Rectangle Height="1" Color="#fff" />
+	<Rectangle Height="1" Color="#ccc" />
 	<Rectangle Layer="Background" Color="#fff" Opacity=".6" />
 </StackPanel>

@@ -1,18 +1,18 @@
-<Panel ux:Name="dashboard" Background="#eaeaea">
+<Panel ux:Name="dashboard" Background="#EAEAEA">
 	<Panel ux:Class="Icon" Width="40" color="#000">
 		<float4 ux:Property="color" />
 	    <Image Source="{Resource iconFile}" Color="{Property this.color}" Alignment="Center" />
 	</Panel>
 	<Panel ux:Class="Header" Margin="0,0,0,50">
 		<string ux:Property="Text"/>
-		<Text Value="{Property this.Text}" FontSize="25" Color="#000" Alignment="TopCenter" />
+		<Text Value="{Property this.Text}" FontSize="25" Color="#999" Alignment="TopCenter" />
 	</Panel>
 	<StackPanel Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
-		<Icon color="#fff">
+		<Icon>
 			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
 		</Icon>
-		<Text Value="4" Color="#f00" Alignment="Center" Offset="5,0" />
-		<Icon color="#fff">
+		<Text Value="4" Color="red" Alignment="Center" Offset="5,0" />
+		<Icon>
 			<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 			<WhileVisible>
 		        <Spin Frequency=".2" />
@@ -68,13 +68,13 @@
 				<Header Text="СВОДКА" />
 				<ScrollView Margin="0,40,0,0">
 					<StackPanel ItemSpacing="50">
-						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#fff" Value="head">
-							<DropShadow />
+						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head">
+							<!-- <DropShadow /> -->
 						</Text>
 						<Panel>
 							<StackPanel>
 								<dashHeader Value="Новое" />
-								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#fff" Alignment="TopRight" Offset="-2,5" />
+								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
 								<StackPanel >
 									<unreadText Quantity="3" Text="Согласование">
 										<Tapped>
@@ -194,7 +194,7 @@
 							</Panel>
 							<Panel>
 								<StackLayout Orientation="Vertical" />
-								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#fff" Alignment="TopRight" Offset="-2,5" />
+								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
 								<dashHeader Value="Лента событий" />
 								<dashPanel Height="200">
 									<ScrollView AllowedScrollDirections="Horizontal">
@@ -319,5 +319,5 @@
 			</Page>
 		</PageControl>
 	</DockPanel>
-	<Image File="Assets/bg/06.jpg"  Layer="Background" StretchMode="Fill"  />
+	<!-- <Image File="Assets/bg/06.jpg"  Layer="Background" StretchMode="Fill"  /> -->
 </Panel>
