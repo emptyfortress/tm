@@ -1,6 +1,6 @@
 <StackPanel ux:Class="newText" Orientation="Horizontal" Margin="5" ItemSpacing="10" ClipToBounds="true">
 	<string ux:Property="Text"/>
 	<string ux:Property="Time"/>
-	<Text Value="{Property this.Time}" Color="#000" Alignment="CenterLeft" Width="55"  />
-	<Text Value="{Property this.Text}" Color="#666"  Alignment="CenterLeft" TextTruncation="Standard" />
+	<Text Value="{Property this.Time}"  Alignment="CenterLeft" Width="55"  />
+	<Text Value="{Property this.Text}"  Alignment="CenterLeft" TextTruncation="Standard" />
 </StackPanel>

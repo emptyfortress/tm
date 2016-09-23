@@ -5,7 +5,7 @@
 	</Panel>
 	<Panel ux:Class="Header" Margin="0,0,0,50">
 		<string ux:Property="Text"/>
-		<Text Value="{Property this.Text}" FontSize="25" Color="#999" Alignment="TopCenter" />
+		<Text Value="{Property this.Text}" FontSize="25" Color="#fff" Alignment="TopCenter" />
 	</Panel>
 	<StackPanel Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
 		<Icon>
@@ -27,13 +27,13 @@
 				<GridLayout ColumnCount="3" Rows="1*"/>
 				<Panel ux:Name="tahoTab">
 					<Placeholder>
-						<Rectangle ux:Name="indicator" Alignment="Top" Height="6" Fill="#000">
+						<Rectangle ux:Name="indicator" Alignment="Top" Height="6" Fill="#fff">
 							<LayoutAnimation>
 								<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 							</LayoutAnimation>
 						</Rectangle>
 					</Placeholder>
-					<Icon>
+					<Icon color="#fff">
 						<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="taho" />
@@ -42,7 +42,7 @@
 				</Panel>
 				<Panel ux:Name="foldersTab">
 					<Placeholder  Target="indicator"/>
-					<Icon>
+					<Icon color="#fff">
 						<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="folders" />
@@ -51,7 +51,7 @@
 				</Panel>
 				<Panel ux:Name="usersTab">
 					<Placeholder  Target="indicator"/>
-					<Icon>
+					<Icon color="#fff">
 						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="users" />
@@ -369,5 +369,5 @@
 			</Page>
 		</PageControl>
 	</DockPanel>
-	<!-- <Image File="Assets/bg/06.jpg"  Layer="Background" StretchMode="Fill"  /> -->
+	<Image File="Assets/bg/sova.jpg"  Layer="Background" StretchMode="UniformToFill" Opacity="1" />
 </Panel>

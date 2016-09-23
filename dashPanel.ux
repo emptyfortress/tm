@@ -1,6 +1,6 @@
 <Panel ux:Class="dashPanel" Margin="0,0,5,5" Padding="10" >
 	<!-- <DropShadow Distance="1" Size="2" Angle="135"  /> -->
-	<Rectangle Color="#fff" Layer="Background" Opacity=".6">
+	<Rectangle Color="#fff" Layer="Background" Opacity=".7">
 		<Stroke Width="1" Color="#ddd" />
 	</Rectangle>
 </Panel>

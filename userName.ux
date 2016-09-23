@@ -4,7 +4,7 @@
 		<string ux:Property="Tasks"/>
 		<Size ux:Property="Load"/>
 		<Image File="Assets/user-icon.png" Width="30" Alignment="CenterLeft" />
-		<Text Value="{Property this.User}"  Color="#666" Alignment="CenterLeft"/>
+		<Text Value="{Property this.User}"  Color="#000" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  />
 	</Grid>
 	<Rectangle Height="1" Color="#ccc" />
