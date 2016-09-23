@@ -329,6 +329,7 @@
         "old": "1",
         "count":"1",
         "info": "Иванов Г.К. добавил комментарий    23.08.2016 17:15",
+        "status": "На согласовании",
         "filename": [
             {
             "num": 1,
@@ -413,6 +414,7 @@
         "filename": ["Правила проведения аукциона.doc"],
         "add-zag":"Hidden",
         "count":"2",
+        "status": "На рассмотрении",
         "filename": [
             {
             "num": 1,
@@ -444,6 +446,7 @@
         "posled":"Collapsed",
         "card-visibility": "Visible",
         "percent": "66%",
+        "status": "В работе",
         "filename": [
             {
             "num": 1,
@@ -511,6 +514,7 @@
         "posled":"Visible",
         "card-visibility": "Visible",
         "percent": "100%",
+        "status": "Исполнено",
         "filename": [
             {
             "num": 1,
@@ -564,6 +568,7 @@
         "posled":"Collapsed",
         "card-visibility": "Collapsed",
         "percent": "15%",
+        "status": "Исполнено",
         "add-zag":"Collapsed"
         },
         {
@@ -584,6 +589,7 @@
         "posled":"Collapsed",
         "card-visibility": "Visible",
         "percent": "90%",
+        "status": "В работе",
         "filename": [
             {
             "num": 1,

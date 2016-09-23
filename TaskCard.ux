@@ -43,10 +43,15 @@
 		</WhileTrue>
 		
 		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
+			<Rectangle Alignment="BottomRight" Padding="5,2">
+				<Rotation Degrees="-7" />
+				<Translation Y="-10" />
+				<Text Value="{status}" FontSize="15" Font="Light" Color="#7F00FF" Alignment="Center"  />
+				<Stroke Width="1" Color="#7F00FF" />
+			</Rectangle>
 			<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,3" />
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
 				<Image File="Assets/task.png" Width="35" Color="{key}" Alignment="Center" />
-				<!-- <fa-check-square-o FontSize="35" Color="{key}" Alignment="Center" Offset="0,4" /> -->
 			</Circle>
 		</Panel>
 		
