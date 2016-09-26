@@ -136,28 +136,28 @@
 							</dashPanel>
 							<WrapPanel>
 								<dashPanel>
-									<circleDiagram Header="Просрочено" Count="4" End="30" BarColor="#f00" />
+									<circleDiagram Header="Просрочено" Count="4" Total="12" End="30" BarColor="#f00" />
 									<Tapped>
 										<Toggle Target="dashboardUp" />
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 									</Tapped>
 								</dashPanel>
 								<dashPanel>
-									<circleDiagram Header="Делегировано" Count="6" End="70" BarColor="#777777" />
+									<circleDiagram Header="Делегировано" Count="6" Total="15" End="70" BarColor="#777777" />
 									<Tapped>
 										<Toggle Target="dashboardUp" />
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 									</Tapped>
 								</dashPanel>
 								<dashPanel>
-									<circleDiagram Header="В работе" Count="12" End="130" BarColor="#777777" />
+									<circleDiagram Header="В работе" Count="12" Total="21" End="130" BarColor="#777777" />
 									<Tapped>
 										<Toggle Target="dashboardUp" />
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 									</Tapped>
 								</dashPanel>
 								<dashPanel>
-									<circleDiagram Header="Контроль" Count="8" End="90" BarColor="#777777" />
+									<circleDiagram Header="Контроль" Count="8" Total="16" End="90" BarColor="#777777" />
 									<Tapped>
 										<Toggle Target="dashboardUp" />
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
