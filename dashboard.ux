@@ -69,7 +69,6 @@
 				<ScrollView Margin="0,40,0,0">
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head">
-							<!-- <DropShadow /> -->
 						</Text>
 						<Panel>
 							<StackPanel>
@@ -97,9 +96,11 @@
 								</StackPanel>
 							</StackPanel>
 						</Panel>
-						<Panel>
+						
+						<Panel  Margin="0,20,0,0">
 							<StackLayout Orientation="Vertical" />
 							<dashHeader Value="Поручения" />
+
 							<dashPanel>
 								<Grid ux:Name="taskGrid" ColumnCount="2" CellSpacing="10">
 									<PageControl>
@@ -163,9 +164,12 @@
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 									</Tapped>
 								</dashPanel>
+								<!-- <dashPanel Clicked="{storageToggle}">
+									<storageDiagram Count="67" End="147" BarColor="sky" Header="Данные" />
+								</dashPanel> -->
 							</WrapPanel>
 						</Panel>
-						<Panel>
+						<Panel  Margin="0,20,0,0">
 							<StackLayout ItemSpacing="20" />
 							<Panel>
 								<StackPanel>
@@ -192,13 +196,17 @@
 									</dashPanel>
 								</StackPanel>
 							</Panel>
-							<Panel>
+							<Panel  Margin="0,20,0,0">
 								<StackLayout Orientation="Vertical" />
 								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
 								<dashHeader Value="Лента событий" />
 								<dashPanel Height="200">
 									<ScrollView AllowedScrollDirections="Horizontal">
 										<StackPanel>
+											<Tapped>
+												<Toggle Target="dashboardUp" />
+												<Set ViewerVisible.Value="true" />
+											</Tapped>
 											<newText Time="11:01" Text="Добавлен комментарий в 'Подготовить отчет'" />
 											<newText Time="10:20" Text="Вам выдано поручение 'Подготовить отчет'" />
 											<newText Time="10:15" Text="Изменено состояние в 'Предложение о сотрудничестве'" />
@@ -211,16 +219,58 @@
 									</ScrollView>
 								</dashPanel>
 							</Panel>
-							<Panel>
+							<Panel  Margin="0,20,0,0">
 								<StackLayout Orientation="Vertical"/>
-								<dashHeader Value="Моя команда" />
+								<dashHeader Value="Нагрузка в команде" />
 								<StackPanel>
-									<userName User="Орлов П.С." Tasks="5" />
-									<userName User="Воробьев У.С." Tasks="5" />
-									<userName User="Воронова Г.Т." Tasks="3" />
-									<userName User="Снегирев Ф.А." Tasks="8" />
-									<userName User="Гусев Л.С." Tasks="12" />
+									<userName User="Орлов П.С." Tasks="5" Load="35%" />
+									<userName User="Воробьев У.С." Tasks="5" Load="35%" />
+									<userName User="Воронова Г.Т." Tasks="3" Load="20%" />
+									<userName User="Снегирев Ф.А." Tasks="8" Load="82%" />
+									<userName User="Гусев Л.С." Tasks="12" Load="100%" />
 								</StackPanel>
+							</Panel>
+							<Panel Margin="0,20,0,0">
+								<StackLayout Orientation="Vertical"/>
+								<dashHeader Value="Хранилище" />
+								<WhileFalse ux:Name="showStorage">
+									<Change storagePanel.Alignment="Left" Duration="0.4" Easing="CircularInOut" />
+									<Change storageDetails.Opacity.Value="0" Duration="0.4" Easing="CircularInOut" />
+									<Change storageDetails.Visibility.Value="Collapsed"  />
+								</WhileFalse>
+								<WhileTrue ux:Name="calculate" Value="false">
+							        <Change calcCircle.Opacity.Value="1" Duration=".6" Easing="CircularInOut" />
+							    </WhileTrue>
+								<dashPanel ux:Name="storagePanel" Padding="20,10" >
+									<Grid Columns="auto,1*">
+										<storageDiagram Count="67" End="147" BarColor="sky" Header="Данные" HitTestMode="LocalBoundsAndChildren">
+											<Clicked>
+												<Toggle Target="showStorage" />
+												<Pulse Target="calculate" />
+											</Clicked>
+										</storageDiagram>
+										<Panel ux:Name="storageDetails" Margin="20,0,0,0" Alignment="TopCenter">
+											<StackLayout />
+											<Circle ux:Name="calcCircle" Alignment="TopCenter" Layer="Overlay" Width="50" Height="50" Opacity="0" StartAngleDegrees="0" EndAngleDegrees="300" Offset="0,20">
+												<Stroke Width="4" Color="sky" />
+												<WhileVisible>
+													<Spin Frequency="1" />
+												</WhileVisible>
+											</Circle>
+											<Grid ux:Name="storageGrid" Columns="auto,auto">
+												<tabtext Value="Объем:" Alignment="Right" />
+												<tabtext Value="5 Гб" />
+												<tabtext Value="Всего занято:" Alignment="Right" />
+												<tabtext Value="3.43 Гб" />
+												<tabtext Value="Избранное:" Alignment="Right" />
+												<tabtext Value="1.8 Гб" />
+												<tabtext Value="Файлы:" Alignment="Right" />
+												<tabtext Value="2 Гб" />
+											</Grid>
+											<Text Value="Настроить" Alignment="Center" Color="blue" Margin="0,20,0,0" />
+										</Panel>
+									</Grid>
+								</dashPanel>
 							</Panel>
 							<Panel Height="50">
 								<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" />

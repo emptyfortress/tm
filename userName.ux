@@ -2,10 +2,17 @@
 	<Grid CellSpacing="5" Columns="auto,1*,auto" Margin="10,5">
 		<string ux:Property="User"/>
 		<string ux:Property="Tasks"/>
+		<Size ux:Property="Load"/>
 		<Image File="Assets/user-icon.png" Width="30" Alignment="CenterLeft" />
 		<Text Value="{Property this.User}"  Color="#666" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  />
 	</Grid>
 	<Rectangle Height="1" Color="#ccc" />
+	<Rectangle Layer="Background" Color="#BFDFFF" Opacity="1" Width="{Property this.Load}" Alignment="Left">
+		<LinearGradient StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#fff" />
+        <GradientStop Offset="1" Color="#BFDFFF" />
+    </LinearGradient>
+	</Rectangle>
 	<Rectangle Layer="Background" Color="#fff" Opacity=".6" />
 </StackPanel>

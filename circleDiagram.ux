@@ -10,7 +10,7 @@
 			<Panel>
 				<Text Value="{Property this.Count}" FontSize="30" Alignment="Center" Offset="0,-7" />
 				<Text Value="{Property this.Total}" FontSize="16" Alignment="Center" Offset="0,18" />
-				<Rectangle Height="1" Width="40" Color="#999" Offset="0,5" />
+				<Rectangle Height="1" Width="40" Color="#999" Offset="0,7" />
 			</Panel>
 			<Circle Width="70" Height="70" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
 				<Stroke Width="5" Color="{Property this.BarColor}" />
