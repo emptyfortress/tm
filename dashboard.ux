@@ -70,7 +70,7 @@
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head">
 						</Text>
-						<Panel>
+						<Panel Margin="0,20,0,0">
 							<StackPanel>
 								<dashHeader Value="Новое" />
 								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
