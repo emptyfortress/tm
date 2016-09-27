@@ -113,5 +113,12 @@
 		<Change aboutPop.Opacity.Value="1" Duration=".3" />
 		<!-- <Move Target="aboutPop" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" /> -->
 	</WhileTrue>
+	<WhileTrue Value="{showReport}">
+		<Change plusIcon.Visibility.Value="Collapsed" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="reportPreview" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
 	
 </Panel>

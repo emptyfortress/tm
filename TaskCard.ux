@@ -23,6 +23,7 @@
 			<State ux:Name="fileFull">
 				<Change infoCard.Height="8%" Duration=".6" Easing="QuarticInOut" />
 				<BringIntoView TargetNode="firstFile" />
+				<Change checkPanel.Visibility.Value="Collapsed" Duration=".3" />
 				<Change type.Opacity.Value="0" Duration=".3" Easing="CubicOut" />
 				<Change refresh.Visibility.Value="Collapsed" />
 				<Change refresh1.Visibility.Value="Collapsed" />
@@ -130,8 +131,11 @@
 			</StackPanel>
 		</ScrollView>
 		
-		
 		<StackPanel Dock="Top">
+			<Panel ux:Name="checkPanel" Alignment="TopRight" Width="75" Clicked="{toggleReport}" Visibility="{report}">
+				<fa-check FontSize="35" Color="#fff" Alignment="BottomRight" />
+				<Image File="Assets/corner.png" />
+			</Panel>	
 			<Rectangle Height="1" Color="{key}"  />
 			<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
 				<GridLayout ColumnCount="2" Rows="1*"/>
@@ -236,7 +240,6 @@
 			</Page>
 		</PageControl>
 
-		
 		<Rectangle Layer="Background" Color="#fff" CornerRadius="7" />
 	</DockPanel>
 </Panel>

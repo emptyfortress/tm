@@ -49,7 +49,26 @@
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
 		</Circle>
 	</Panel>
+	
+	<Panel ux:Name="reportPreview" Layer="Overlay" Width="400" Alignment="Center">
+		<Translation Y="1" RelativeTo="ParentSize" />
 
+
+		<StackLayout ItemSpacing="10" />
+		<StackPanel Color="#fff" Padding="10">
+			<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" LayoutRole="Inert" Clicked="{toggleReport}">
+				<Translation XY=".5, -.5" RelativeTo="Size" /> 
+				<Stroke Width="3" Color="#fff" />
+				<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+			</Circle>
+			<Text FontSize="25" Value="Отчет"  Alignment="TopCenter" />
+			<Text Value="Работа выполнена!" Alignment="Center"  Margin="0,20,0,0" />
+		</StackPanel>
+		<StackPanel Color="#fff" Padding="10">
+			<Text FontSize="20" Value="Файл отчета"  Alignment="TopCenter" />
+			<Image File="Assets/report-text.png" Alignment="Center" />
+		</StackPanel>
+	</Panel>
 	<Panel ux:Name="docPreview" Layer="Overlay" Margin="50,100"  Color="#fff">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Image File="Assets/document.png" Alignment="Center" />

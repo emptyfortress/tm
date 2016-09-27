@@ -362,12 +362,9 @@
 						        </Clicked>
 						    </Rectangle>
 						</StackPanel>
-						
-
 					</StackPanel>
 				</ScrollView>
 			</Page>
 		</PageControl>
 	</DockPanel>
-	<!-- <Image File="Assets/bg/06.jpg"  Layer="Background" StretchMode="Fill"  /> -->
 </Panel>

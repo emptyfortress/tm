@@ -447,6 +447,7 @@
         "card-visibility": "Visible",
         "percent": "66%",
         "status": "В работе",
+        "report": "Hidden",
         "filename": [
             {
             "num": 1,
@@ -515,6 +516,7 @@
         "card-visibility": "Visible",
         "percent": "100%",
         "status": "Исполнено",
+        "report": "Visible",
         "filename": [
             {
             "num": 1,
@@ -569,6 +571,7 @@
         "card-visibility": "Collapsed",
         "percent": "15%",
         "status": "Исполнено",
+        "report": "Visible",
         "add-zag":"Collapsed"
         },
         {
@@ -590,6 +593,7 @@
         "card-visibility": "Visible",
         "percent": "90%",
         "status": "В работе",
+        "report": "Hidden",
         "filename": [
             {
             "num": 1,
