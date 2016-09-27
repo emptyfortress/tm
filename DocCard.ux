@@ -46,7 +46,7 @@
 		</WhileTrue>
 		
 		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
-			<Rectangle Alignment="BottomRight" Padding="5,2">
+			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2">
 				<Rotation Degrees="-7" />
 				<Translation Y="-10" />
 				<Text Value="{status}" FontSize="15" Font="Light" Color="#7F00FF" Alignment="Center"  />
@@ -103,7 +103,7 @@
 						<Toggle Target="viewSign" />
 					</Tapped>
 					<StackPanel Orientation="Horizontal" ItemSpacing="5">
-						<fa-certificate Color="#008C23" Alignment="CenterLeft" />
+						<fa-certificate Color="#008C23" FontSize="25" Alignment="CenterLeft" />
 						<Text Value="Электронная подпись" Font="Light" Color="#008C23" Alignment="CenterLeft"  />
 					</StackPanel>
 					<Panel ux:Name="sign" Height="0" Opacity="0">
@@ -122,6 +122,10 @@
 					</Panel>
 				</StackPanel>
 
+				<StackPanel ux:Name="listPanel" Orientation="Horizontal" Clicked="{toggleList}" Visibility="{list}">
+					<Image File="Assets/list.png" Color="#008C23" Width="25" Alignment="CenterLeft" />
+					<Text Value="Лист согласования" Color="#008C23" Font="Light" Alignment="CenterLeft" />
+				</StackPanel>
 
 				<Grid ux:Name="attributes" Columns="auto,auto" Margin="10,15,0,0">
 					<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="7,0" Value="" FontSize="12" />
@@ -136,7 +140,11 @@
 					<tabtext Value="Контрагент:" Alignment="Right" />
 					<tabtext Value="" />
 				</Grid>
+				<Panel Height="100" />
 			</StackPanel>
+			<ScrollingAnimation From="10" To="100">
+				<Change statusMessage.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
+			</ScrollingAnimation>
 		</ScrollView>
 		
 		

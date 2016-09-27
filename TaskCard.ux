@@ -44,7 +44,7 @@
 		</WhileTrue>
 		
 		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
-			<Rectangle Alignment="BottomRight" Padding="5,2">
+			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2">
 				<Rotation Degrees="-7" />
 				<Translation Y="-10" />
 				<Text Value="{status}" FontSize="15" Font="Light" Color="#7F00FF" Alignment="Center"  />
@@ -128,7 +128,11 @@
 					<tabtext Value="Дата контроля:" Alignment="Right" />
 					<tabtext Value="{controldate}" />
 				</Grid>
+				<Panel Height="100" />
 			</StackPanel>
+			<ScrollingAnimation From="10" To="100">
+				<Change statusMessage.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
+			</ScrollingAnimation>
 		</ScrollView>
 		
 		<StackPanel Dock="Top">

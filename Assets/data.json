@@ -330,6 +330,7 @@
         "count":"1",
         "info": "Иванов Г.К. добавил комментарий    23.08.2016 17:15",
         "status": "На согласовании",
+        "list": "Visible",
         "filename": [
             {
             "num": 1,
@@ -415,6 +416,7 @@
         "add-zag":"Hidden",
         "count":"2",
         "status": "На рассмотрении",
+        "list": "Collapsed",
         "filename": [
             {
             "num": 1,

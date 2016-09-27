@@ -50,7 +50,7 @@
 		</Circle>
 	</Panel>
 	
-	<Panel ux:Name="reportPreview" Layer="Overlay" Width="400" Alignment="Center">
+	<Panel ux:Name="reportPreview" Layer="Overlay" Width="350" Alignment="Center">
 		<Translation Y="1" RelativeTo="ParentSize" />
 
 
@@ -98,7 +98,138 @@
 				<Text Value="Отмена" Color="#ccc" FontSize="20" Clicked="{toggleRecord}" />
 				<Text Value="Cохранить" Color="#ccc" FontSize="20" Clicked="{toggleRecord}" />
 			</StackPanel>
-
 		</Grid>
+	</Panel>
+	<Panel ux:Name="listPreview" Layer="Overlay" Margin="20"  Color="#fff">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleList}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+		<ScrollView >
+			<StackPanel Margin="10">
+				<Text Value="Лист согласования" FontSize="22" Alignment="TopCenter" Margin="0,50,0,20" />
+				<Text ux:Class="gridtext" Value="" FontSize="15" TextWrapping="Wrap" Alignment="TopLeft"  TextAlignment="Left" />
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#D5EAA8" Padding="5,10">
+						<gridtext Value="1" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Орлов Г.С." />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Согласовано с замечаниями"  />
+					</Panel>
+				</Grid>
+							
+				<Panel Margin="0,0,0,10" Padding="5" Visibility="Visible" ColumnSpan="4">
+					<Text Value="Лёсс последовательно переносит мозаичный песок. Усадка нейтрализует амфифильный показатель адсорбируемости натрия. В лабораторных условиях было установлено, что суглинок нейтрализует удельный гончарный дренаж. В условиях очагового земледелия краснозём вызывает удельный капилляр." Font="Light" FontSize="13" TextWrapping="Wrap" />
+					<Rectangle Layer="Background" Color="#D5EAA8" Opacity=".3" CornerRadius="0,0,10,10"></Rectangle>
+				</Panel>
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#D5EAA8" Padding="5,10">
+						<gridtext Value="2" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Гусев К.М." />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Согласовано"  />
+					</Panel>
+				</Grid>
+
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#D5EAA8" Padding="5,10">
+						<gridtext Value="3" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Уткин П.Г." />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Согласовано"  />
+					</Panel>
+				</Grid>
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#D5EAA8" Padding="5,10">
+						<gridtext Value="4" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Лебедев А.А." />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Согласовано"  />
+					</Panel>
+				</Grid>
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#D5EAA8" Padding="5,10">
+						<gridtext Value="5" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Журавлев П.П." />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Согласовано с замечаниями"  />
+					</Panel>
+				</Grid>
+				<Panel Margin="0,0,0,10" Padding="5" Visibility="Visible" ColumnSpan="4">
+					<Text Value="В условиях очагового земледелия краснозём вызывает удельный капилляр." Font="Light" FontSize="13" TextWrapping="Wrap" />
+					<Rectangle Layer="Background" Color="#D5EAA8" Opacity=".3" CornerRadius="0,0,10,10"></Rectangle>
+				</Panel>
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#FFC6C6" Padding="5,10">
+						<gridtext Value="6" />
+					</Panel>
+					<Panel Color="#FFC6C6" Padding="5,10">
+					<gridtext Value="Синицына К.А." />
+					</Panel>
+					<Panel Color="#FFC6C6" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#FFC6C6" Padding="5,10">
+					<gridtext Value="Отклонено"  />
+					</Panel>
+				</Grid>
+				<Panel Margin="0,0,0,10" Padding="5" Visibility="Visible" ColumnSpan="4">
+					<Text Value="Цены на поставку занижены." Font="Light" FontSize="13" TextWrapping="Wrap" />
+					<Rectangle Layer="Background" Color="#FFC6C6" Opacity=".3" CornerRadius="0,0,10,10"></Rectangle>
+				</Panel>
+				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
+					<Panel Color="#D5EAA8" Padding="5,10">
+						<gridtext Value="7" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Лебедев А.Н." />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="12.09.16" />
+					</Panel>
+					<Panel Color="#D5EAA8" Padding="5,10">
+					<gridtext Value="Согласовано"  />
+					</Panel>
+				</Grid>
+				<Text Value="Закрыть" FontSize="20" Color="#ccc" Alignment="HorizontalCenter" Margin="0,50" Clicked="{toggleList}" />
+				
+
+
+			</StackPanel>
+		</ScrollView>
+
+
+
 	</Panel>
 </Panel>
