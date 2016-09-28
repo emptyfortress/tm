@@ -1,49 +1,48 @@
 var Observable = require('FuseJS/Observable');
-var date = Observable(':');
+var date = Observable('15');
 var day = Observable('');
-var month = Observable('');
-var clickCount = 0;
+var month = Observable('Сентябрь, 2016');
+var clickCount = Observable('0');
 var index = 0;
 var weekNames = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
 var arrayLength = weekNames.length;
+var chooseDate = Observable(false);
+
+function closeDate() {
+    chooseDate.value = false;
+}
 
 function today() {
     clickCount = 15;
-    index = 3;
+    index = 0;
     date.value = clickCount;
     day.value = weekNames[index];
-    month.value = "Август, 2016";
+    month.value = "Сентябрь, 2016";
+    chooseDate.value = true;
 }
 function tomorrow() {
     clickCount = 16;
-    index = 4;
+    index = 1;
     date.value = clickCount;
     day.value = weekNames[index];
-    month.value = "Август, 2016"
+    month.value = "Сентябрь, 2016";
+    chooseDate.value = true;
 }
 
 function addDay() {
 	clickCount += 1;
 	date.value = clickCount;
-	index += 1;
+	index = 3;
 	day.value = weekNames[index];
-
-}
-function ad() {
-	clickCount = clickCount +1;
+    chooseDate.value = true;
 }
 
-function subDay() {
-    clickCount -= 1;
-    date.value = clickCount;
-    index -= 1;
-	day.value = weekNames[index];
-}
 function addWeek() {
     clickCount += 7;
     date.value = clickCount;
     index = index + 7;
 	day.value = weekNames[index];
+    chooseDate.value = true;
 }
 function subWeek() {
     clickCount -= 7;
@@ -56,6 +55,7 @@ function addMonth() {
     date.value = clickCount;
     index = index + 2;
 	day.value = weekNames[index];
+    chooseDate.value = true;
 }
 function subMonth() {
     clickCount += 30;
@@ -66,7 +66,6 @@ function subMonth() {
 
 module.exports = {
     clickCount: clickCount,
-    ad: ad,
     today: today,
     tomorrow: tomorrow,
     date: date,
@@ -74,9 +73,10 @@ module.exports = {
     weekNames: weekNames,
     month: month,
     addDay: addDay,
-    subDay: subDay,
     addWeek: addWeek,
     subWeek: subWeek,
     addMonth: addMonth,
-    subMonth: subMonth
+    subMonth: subMonth,
+    chooseDate: chooseDate,
+    closeDate: closeDate
 };

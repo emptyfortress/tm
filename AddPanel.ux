@@ -1,10 +1,43 @@
 <Panel  ux:Name="addPanel" Margin="20">
 	<JavaScript>
+		var Observable = require('FuseJS/Observable');
 		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
 		var alphabet1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+		
+		var type = Observable('');
+		var showType = Observable(false);
+		var colorActive = Observable(false);
+		function setType() {
+		    type.value = 'На ознакомление';
+		    showType.value = !showType.value;
+		    colorActive.value = !colorActive.value;
+ 		}
+		function setType1() {
+		    type.value = "На исполнение";
+		    showType.value = !showType.value;
+		    colorActive.value = !colorActive.value;
+		}
+		function setType2() {
+		    type.value = "На согласование";
+		    showType.value = !showType.value;
+		    colorActive.value = !colorActive.value;
+		}
+		function setType3() {
+		    type.value = "На подписание";
+		    showType.value = !showType.value;
+		    colorActive.value = !colorActive.value;
+		}
+
 		module.exports = {
 			alphabet : alphabet,
-			alphabet1 : alphabet1
+			alphabet1 : alphabet1,
+			type: type,
+			colorActive: colorActive,
+			showType: showType,
+			setType: setType,
+			setType1: setType1,
+			setType2: setType2,
+			setType3: setType3
 		};
 	</JavaScript>
 	<JavaScript File="date.js" />
@@ -64,12 +97,29 @@
 					</Panel>
 				</Grid>
 				<ScrollView >
+					<WhileTrue Value="{showType}">
+						<Change taskType.LimitHeight="100%" Duration=".5" Easing="QuadraticOut"  />
+						<Change taskType.Opacity="1" Duration=".5" Easing="QuadraticOut"  />
+					</WhileTrue>
+					<WhileTrue ux:Name="showUser">
+						<Change taskUser.LimitHeight="100%" Duration=".5" Easing="QuadraticOut"  />
+						<Change taskUser.Opacity="1" Duration=".5" Easing="QuadraticOut"  />
+					</WhileTrue>
 					<StackPanel Padding="10">
-						<TextView ux:Name="taskText" Padding="10" FontSize="20" PlaceholderText="Текст поручения..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" ActionStyle="Send" MinHeight="100" Margin="0,0,0,20" >
-							<WhileFocused>
+
+						<Text ux:Name="taskType" Value="{type}" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" />
+
+						<TextView ux:Name="taskText" Padding="10" FontSize="20" PlaceholderText="Текст поручения..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" MinHeight="100" Margin="0,0,0,20">
+							<Clicked>
 								<Set helperPanel.Active="textScroll" />
-							</WhileFocused>
+							</Clicked>
 						</TextView>
+
+						<Text ux:Name="taskUser" Value="Исполнители: Снегирев" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" />
+						
+
+
+
 						<Grid ux:Name="hiddenGrid" Columns="auto, 1*" CellSpacing="20" Visibility="Hidden">
 							<fa-user FontSize="20" Color="blue" Margin="0,0,10,0" />
 							<WrapPanel Orientation="Horizontal">
@@ -90,7 +140,6 @@
 							<fa-paperclip FontSize="20" Color="blue" Margin="0,0,10,0" />
 							<Panel>
 								<Text Color="blue" Value="screenshot.jpg" />
-								
 							</Panel>
 						</Grid>
 						<StackPanel ux:Name="hiddenBt" Orientation="Horizontal" ItemSpacing="10" Visibility="Hidden" Margin="0,50,0,0">
@@ -151,6 +200,9 @@
 			</DockPanel>
 
 			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
+
+
+
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
 				<Swiped Source="up">
 					<Set addGroup.Active="fullState" />
@@ -173,18 +225,31 @@
 							<WhileWindowPortrait>
 								<Change templateColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
-							<Rectangle Height="40" Color="#fff">
-								<Text Value="На ознакомление" Alignment="Center" />
-							</Rectangle>
-							<Rectangle Height="40" Color="#fff">
-								<Text Value="На исполнение" Alignment="Center" />
-							</Rectangle>
-							<Rectangle Height="40" Color="#fff">
-								<Text Value="На согласование" Alignment="Center" />
-							</Rectangle>
-							<Rectangle Height="40" Color="#fff">
-								<Text Value="На подписание" Alignment="Center" />
-							</Rectangle>
+							
+							<Panel ux:Class="typeButton" Height="40">
+								<string ux:Property="Value" />
+								<Text ux:Name="btText" Value="{Property this.Value}" Alignment="Center" Color="#fff" />
+								<Rectangle ux:Name="btBg" Layer="Background" Color="#666" />
+								<StateGroup ux:Name="typeGroup" Active="normalState">
+        							<State ux:Name="normalState">
+        								<Change btBg.Color="#666" />
+        								<Change btText.Color="#fff" />
+        							</State>
+        							<State ux:Name="activeState">
+        								<Change btBg.Color="#0f0" />
+        								<Change btText.Color="#000" />
+        							</State>
+								</StateGroup>
+								<Clicked>
+						            <TransitionState Target="typeGroup" Type="Next"/>
+						        </Clicked>
+							</Panel>
+
+							<typeButton Value="На ознакомление" Clicked="{setType}" />
+							<typeButton Value="На исполнение" Clicked="{setType1}"/>
+							<typeButton Value="На согласование" Clicked="{setType2}"/>
+							<typeButton Value="На подписание" Clicked="{setType3}"/>
+
 							<Each Items="{items.count1}" >
 								<TemplateBlock TempColor="#FFD999" />
 							</Each>
@@ -217,8 +282,27 @@
 							<WhileWindowPortrait>
 								<Change textColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
+							<TextBlock bgColor="#666" boxText="Иванов, срочно разберись и доложи, в чем проблема" >
+								<Clicked>
+										<Set taskText.Value="Иванов, срочно разберись и доложи, в чем проблема" />
+									</Clicked>
+							</TextBlock>
+							<TextBlock bgColor="#666" boxText="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." >
+								<Clicked>
+										<Set taskText.Value="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." />
+									</Clicked>
+							</TextBlock>
+							<TextBlock bgColor="#666" boxText="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." >
+								<Clicked>
+										<Set taskText.Value="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." />
+									</Clicked>
+							</TextBlock>
 							<Each Items="{items.texts}">
-								<TextBlock bgColor="#666" boxText="{}" />
+								<TextBlock bgColor="#666" boxText="{}" >
+									<Clicked>
+										<Set taskText.Value="Нормально работают только первые три блока..." />
+									</Clicked>
+								</TextBlock>
 							</Each>
 							<Panel>
 								<fa-diamond Color="#ccc" FontSize="30" Alignment="Center" Margin="0,30"  />
@@ -256,6 +340,7 @@
 									<userPanel>
 										<Clicked>
 											<Set Clear.Opacity="1" />
+											<Toggle Target="showUser" />
 										</Clicked>
 									</userPanel>
 								</Each>
@@ -312,7 +397,7 @@
 						<WhileActive Threshold="0.5">
 							<Change ico4.Color="blue" />
 						</WhileActive>
-						<WhileTrue ux:Name="chooseDate">
+						<WhileTrue Value="{chooseDate}">
 							<Change dummy.Visibility.Value="Collapsed" />
 							<Change mainDate.Visibility.Value="Visible" />
 							<Change deadtime.Visibility.Value="Visible" />
@@ -323,36 +408,32 @@
 								<StackPanel Dock="Top">
 									<ScrollView AllowedScrollDirections="Horizontal">
 										<StackPanel Orientation="Horizontal">
-											<dateShortcut text="Сегодня" Clicked="{today}">
-												<Clicked>
-													<Set chooseDate.Value="true" />
-												</Clicked>
-											</dateShortcut>
+											<dateShortcut text="Сегодня" Clicked="{today}" />
 											<dateShortcut text="Завтра" Clicked="{tomorrow}" />
-											<dateShortcut text="+2 дня" Clicked="{today}" />
-											<dateShortcut text="Пятница" Clicked="{tomorrow}"/>
-											<dateShortcut text="Понедельник" Clicked="{tomorrow}" />
-											<dateShortcut text="Через неделю" Clicked="{tomorrow}" />
-											<dateShortcut text="Конец месяца" Clicked="{tomorrow}" />
-											<dateShortcut text="Конец квартала" Clicked="{tomorrow}" />
+											<dateShortcut text="+2 дня" Clicked="{addDay}" />
+											<dateShortcut text="Пятница" Clicked="{addDay}"/>
+											<dateShortcut text="Понедельник" Clicked="{today}" />
+											<dateShortcut text="Через неделю" Clicked="{addWeek}" />
+											<dateShortcut text="Конец месяца" Clicked="{addMonth}" />
+											<dateShortcut text="Конец квартала" Clicked="{addMonth}" />
 										</StackPanel>
 									</ScrollView>
 									<Grid ux:Name="mainDate" Columns="1*" Margin="10,20" Visibility="Collapsed">
 										<Translation Y="-1" RelativeTo="ParentSize" />
 										<StackPanel Alignment="Center" Padding="10"  Width="150">
 
-											<Circle Width="30" Height="30" Color="red" Layer="Overlay" Alignment="TopLeft" Offset="-20">
-												<Clicked>
-													<Set chooseDate.Value="false" />
-												</Clicked>
+											<Circle Width="30" Height="30" Color="red" Layer="Overlay" Alignment="TopLeft" Offset="-20" Clicked="{closeDate}">
+												<fa-times Color="#fff" Alignment="Center" />
 											</Circle>
-											<Circle Width="30" Height="30" Color="#0f0" Layer="Overlay" Alignment="TopRight" Offset="20,-20"></Circle>
+											<Circle Width="30" Height="30" Color="#0f0" Layer="Overlay" Alignment="TopRight" Offset="20,-20">
+												<fa-check Color="#000" Alignment="Center" />
+											</Circle>
 
 											<Text Value="{month}" FontSize="16" Color="#ccc" Alignment="Center" />
 											<PageControl>
 												<StackPanel>
-													<Text Value="15" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
-													<Text Value="Четверг" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
+													<Text Value="{date}" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+													<Text Value="{day}" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
 												</StackPanel>
 												<StackPanel>
 													<Text Value="16" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
@@ -375,15 +456,22 @@
 										</StackPanel>
 									</Grid>
 									<StackPanel ux:Name="dummy"  Margin="0,20" Clicked="{today}"  >
-										<Clicked>
-											<Set chooseDate.Value="true" />
-										</Clicked>
 										<fa-diamond FontSize="50" Color="#666"  Alignment="Center"/>
 										<Text Value="Срок исполнения не задан" FontSize="15" Color="#ccc" Alignment="Center" /> 
 									</StackPanel>
 									<StackPanel ux:Name="deadtime" Visibility="Hidden">
-										<Text Value="Время завершения 19:00" Color="#fff" Alignment="Center" />
-										<Slider Value="50" Minimum="0" Maximum="100" />
+										<JavaScript>
+											var Observable = require('FuseJS/Observable');
+											var deadTime = Observable(19);
+											var sliderText = Observable(function() { return "Время завершения: " + Math.round(deadTime.value)+ ":00"; });
+											module.exports = {
+												deadTime: deadTime,
+												sliderText: sliderText
+											}
+										</JavaScript>
+										<Text Value="{sliderText}" Color="#fff" Alignment="Center" />
+										<DataBinding Target="time.Value" Key="deadTime" />
+										<Slider ux:Name="time" Value="19" Minimum="0" Maximum="24" />
 									</StackPanel>
 								</StackPanel>
 								<ScrollView ux:Name="monthPanel" Visibility="Hidden">
