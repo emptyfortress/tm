@@ -1,22 +1,32 @@
-<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
+<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5" Clicked="{reset}">
+<!-- <Panel ux:Class="userPanel" Width="70" Height="65" Margin="5" > -->
     
     <WhileTrue Value="{reset}">
         <Set userGroup.Active="normalState" />
+        <Set mainGroup.Active="restState" />
     </WhileTrue>
 
     <StateGroup ux:Name="userGroup" Active="normalState">
         <State ux:Name="normalState">
             <Change userBg.Color="#000" />
-            <Change userStroke.Color="#000" />
             <Change m.Opacity="0" />
             <Change k.Opacity="0" />
         </State>
         <State ux:Name="selectedState">
-            <Change userStroke.Color="#0f0" />
+            <Change userBg.Color="#0f0" />
+            <Change fio.Color="#000" />
+        </State>
+    </StateGroup>
+    
+    <StateGroup ux:Name="mainGroup" Active="restState">
+         <State ux:Name="restState">
+            <Change userBg.Color="#000" />
+            <Change userStroke.Color="#000" />
+            <Change m.Opacity="0" />
+            <Change k.Opacity="0" />
         </State>
         <State ux:Name="mainState">
             <Change userBg.Color="#0f0" />
-            <Change fio.Color="#000" />
             <Change m.Opacity="1" />
         </State>
         <State ux:Name="controlState">
@@ -29,21 +39,18 @@
         <Text Font="Bold" Value="K" Alignment="Center" Color="#fff"/>
         <Circle Width="20" Height="20" Color="#f00" Alignment="Center" />
         <Clicked>
-            <Set userGroup.Active="controlState" />
+            <!-- <Set userGroup.Active="controlState" /> -->
         </Clicked>
     </Panel>
     <Panel ux:Name="m" Alignment="TopRight" Offset="5,-3" Opacity="0">
         <Text Font="Bold" Value="О" Alignment="Center" Color="#fff"/>
         <Circle Width="20" Height="20" Color="#f00" Alignment="Center" />
         <Clicked>
-            <Set userGroup.Active="mainState" />
+            <!-- <Set userGroup.Active="mainState" /> -->
         </Clicked>
     </Panel>
-	<Image File="Assets/user-icon.png" Alignment="TopCenter">
-        <Clicked>
-            <TransitionState Target="userGroup" Type="Next"/>
-        </Clicked>
-    </Image>
+	<Image File="Assets/user-icon.png" Alignment="TopCenter" />
+       
     <Text ux:Name="fio" Value="Снегирев" FontSize="12" Alignment="BottomCenter" Color="#fff" >
         <Clicked>
             <TransitionState Target="userGroup" Type="Next"/>
@@ -52,4 +59,11 @@
     <Rectangle ux:Name="userBg" >
         <Stroke ux:Name="userStroke" Width="2" Color="#000" />   
     </Rectangle>
+    
+     <Clicked>
+        <TransitionState Target="userGroup" Type="Next"/>
+    </Clicked>
+    <!-- <LongPressed>
+        <Set userStroke.Color="#0f0" />
+    </LongPressed> -->
 </Panel>

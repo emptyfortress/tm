@@ -27,7 +27,6 @@
 		<Set addGroup.Active="shortState" />
 		<Set hiddenGrid.Visibility.Value="Hidden" />
 		<Set hiddenBt.Visibility.Value="Hidden" />
-		<Set taskText.Value="" />
 		<Set Target="sendButtonBg.Color" Value="#eee" />
 		<Set Target="sendButton.Color" Value="#aaa" />
 	</WhileTrue>

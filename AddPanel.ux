@@ -1,4 +1,4 @@
-<Panel  ux:Name="addPanel" Margin="20">
+<Panel  ux:Name="addPanel" Margin="10">
 	<JavaScript>
 		var Observable = require('FuseJS/Observable');
 		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
@@ -72,7 +72,8 @@
 		            <Change templateScroll.UserScroll="false" />
 		        </State>
 			</StateGroup>
-			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff" Margin="0,0,0,10">
+			
+			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff">
 				<Grid Columns="1*, auto" Dock="Top" Padding="10">
 					<StackPanel Orientation="Horizontal"  ItemSpacing="5">
 						<Circle Width="30" Height="30" Color="#fff" >
@@ -163,40 +164,57 @@
 						</StackPanel>
 					</StackPanel>
 				</ScrollView>
-				<Grid ColumnCount="5" Dock="Bottom" >
-					<Panel HitTestMode="LocalBoundsAndChildren">
+				
+				
+				<MultiLayoutPanel ux:Name="helperBar" Dock="Bottom" Color="#000" Padding="0,10" >
+					<GridLayout ColumnCount="5" Rows="1*"/>
+
+				<!-- <Grid ColumnCount="5" Dock="Bottom" Color="#000" Padding="0,10"> -->
+					<Panel ux:Name="templTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="templateScroll" />
 						</Clicked>
+						<Placeholder>
+							<Circle ux:Name="indic" Alignment="Top" Height="40" Width="40" Fill="#ccc">
+								<LayoutAnimation>
+									<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
+								</LayoutAnimation>
+							</Circle>
+						</Placeholder>
 					</Panel>
-					<Panel HitTestMode="LocalBoundsAndChildren">
+					<Panel ux:Name="textTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-font ux:Name="ico2" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
 						</Clicked>
+						<Placeholder Target="indic"/>
 					</Panel>
-					<Panel HitTestMode="LocalBoundsAndChildren">
+					<Panel ux:Name="userTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-user ux:Name="ico3" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="userScroll" />
 						</Clicked>
+						<Placeholder Target="indic"/>
 					</Panel>
-					<Panel HitTestMode="LocalBoundsAndChildren">
+					<Panel ux:Name="dateTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="dateScroll" />
 						</Clicked>
+						<Placeholder Target="indic"/>
 					</Panel>
-					<Panel HitTestMode="LocalBoundsAndChildren">
+					<Panel ux:Name="attachTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-paperclip ux:Name="ico5" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5">
 							<Rotation Degrees="-90" />
 						</fa-paperclip>
 						<Clicked>
 							<Set helperPanel.Active="attachScroll" />
 						</Clicked>
+						<Placeholder Target="indic"/>
 					</Panel>
-				</Grid>
+				</MultiLayoutPanel>
+				<!-- </Grid> -->
 			</DockPanel>
 
 			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
@@ -214,11 +232,14 @@
 					<fa-angle-down Color="#fff" FontSize="25" Alignment="Center" />
 					<Circle Color="sky" />
 				</Panel>
+				
+
 				<PageControl ux:Name="helperPanel" >
 					<NavigationMotion GotoEasing="CircularInOut" Overflow="Elastic" SnapType="Easing" />
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<WhileActive Threshold="0.5">
-							<Change ico1.Color="blue" />
+							<Set helperBar.LayoutElement="templTab" />
+							<Change ico1.Color="#000" />
 						</WhileActive>
 						<Panel>
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
@@ -275,7 +296,8 @@
 					</ScrollView>
 					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico2.Color="blue" />
+							<Change ico2.Color="#000" />
+							<Set helperBar.LayoutElement="textTab" />
 						</WhileActive>
 						<Panel>
 							<ColumnLayout ux:Name="textColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
@@ -312,28 +334,30 @@
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico3.Color="blue" />
+							<Change ico3.Color="#000" />
+							<Set helperBar.LayoutElement="userTab" />
 						</WhileActive>
 						<StackPanel>
 							<Panel ux:Name="userList">
 								<JavaScript>
 							        var Observable = require("FuseJS/Observable");
-							        var reset = Observable(true);
-							        function toggleUser(){
+							        var reset = Observable(false);
+							        function resetUser(){
 							            reset.value = !reset.value;
 							        }
 							        module.exports = {
 							            reset: reset,
-							            toggleUser: toggleUser
+							            resetUser: resetUser
 							        }
 							    </JavaScript>
 
 								<WrapLayout Orientation="Horizontal"/>
-								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{toggleUser}">
+								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{resetUser}">
 									<Image File="Assets/back.png" Width="50" Alignment="Top" />
 									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
 									<Clicked>
 										<Set Clear.Opacity=".3" />
+										<Toggle Target="showUser" />
 									</Clicked>
 								</Panel>
 								<Each Count="15" >
@@ -395,7 +419,8 @@
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico4.Color="blue" />
+							<Change ico4.Color="#000" />
+							<Set helperBar.LayoutElement="dateTab" />
 						</WhileActive>
 						<WhileTrue Value="{chooseDate}">
 							<Change dummy.Visibility.Value="Collapsed" />
@@ -516,7 +541,8 @@
 					</ScrollView>
 					<DockPanel ux:Name="attachScroll">
 						<WhileActive Threshold="0.5">
-							<Change ico5.Color="blue" />
+							<Change ico5.Color="#000" />
+							<Set helperBar.LayoutElement="attachTab" />
 						</WhileActive>
 						<Rectangle Height="120" Dock="Top">
 							<fa-camera FontSize="40" Color="#fff" Alignment="TopCenter" Margin="0,20" />

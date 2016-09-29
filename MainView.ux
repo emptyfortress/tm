@@ -19,11 +19,13 @@
 	<Font File="Assets/fonts/Roboto-Light.ttf" ux:Global="Light" />
 	<Font File="Assets/fonts/Roboto-Regular.ttf" ux:Global="Regular" />
 	<Font File="Assets/fonts/Roboto-Bold.ttf" ux:Global="Bold" />
+	<Font File="Assets/fonts/fontawesome-webfont.ttf" ux:Global="fa" />
 
 	<FileImageSource ux:Global="pdf" File="Assets/filetype/pdf.png" />
 	<FileImageSource ux:Global="word" File="Assets/filetype/word.png" />
 	<FileImageSource ux:Global="xls" File="Assets/filetype/xls.png" />
 	<FileImageSource ux:Global="txt" File="Assets/filetype/txt.png" />
+	<ux:Include File="awesome.ux" />
 
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
