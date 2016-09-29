@@ -1,44 +1,15 @@
 <Panel  ux:Name="addPanel" Margin="10">
 	<JavaScript>
-		var Observable = require('FuseJS/Observable');
-		var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
-		var alphabet1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-		
-		var type = Observable('');
-		var showType = Observable(false);
-		var colorActive = Observable(false);
-		function setType() {
-		    type.value = 'На ознакомление';
-		    showType.value = !showType.value;
-		    colorActive.value = !colorActive.value;
- 		}
-		function setType1() {
-		    type.value = "На исполнение";
-		    showType.value = !showType.value;
-		    colorActive.value = !colorActive.value;
-		}
-		function setType2() {
-		    type.value = "На согласование";
-		    showType.value = !showType.value;
-		    colorActive.value = !colorActive.value;
-		}
-		function setType3() {
-		    type.value = "На подписание";
-		    showType.value = !showType.value;
-		    colorActive.value = !colorActive.value;
-		}
+		var Observable = require("FuseJS/Observable")
+		exports.type = Observable('');
+		exports.values = Observable()
 
-		module.exports = {
-			alphabet : alphabet,
-			alphabet1 : alphabet1,
-			type: type,
-			colorActive: colorActive,
-			showType: showType,
-			setType: setType,
-			setType1: setType1,
-			setType2: setType2,
-			setType3: setType3
-		};
+	    exports.list = Observable()
+	    exports.values.onValueChanged( module, function() {
+	        exports.list.value = exports.values.toArray().join(", ")
+	    })
+		
+
 	</JavaScript>
 	<JavaScript File="date.js" />
 	<Translation XY="1,1" RelativeTo="ParentSize" />
@@ -73,7 +44,7 @@
 		        </State>
 			</StateGroup>
 			
-			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="50%" Background="#fff">
+			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="60%" Background="#fff">
 				<Grid Columns="1*, auto" Dock="Top" Padding="10">
 					<StackPanel Orientation="Horizontal"  ItemSpacing="5">
 						<Circle Width="30" Height="30" Color="#fff" >
@@ -98,25 +69,29 @@
 					</Panel>
 				</Grid>
 				<ScrollView >
-					<WhileTrue Value="{showType}">
+					<!-- <WhileTrue ux:Name="showType">
 						<Change taskType.LimitHeight="100%" Duration=".5" Easing="QuadraticOut"  />
 						<Change taskType.Opacity="1" Duration=".5" Easing="QuadraticOut"  />
-					</WhileTrue>
-					<WhileTrue ux:Name="showUser">
+					</WhileTrue> -->
+					
+					<!-- <WhileTrue ux:Name="showUser">
 						<Change taskUser.LimitHeight="100%" Duration=".5" Easing="QuadraticOut"  />
 						<Change taskUser.Opacity="1" Duration=".5" Easing="QuadraticOut"  />
-					</WhileTrue>
+					</WhileTrue> -->
+
+
 					<StackPanel Padding="10">
 
-						<Text ux:Name="taskType" Value="{type}" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" />
-
+						<!-- <Text ux:Name="taskType" Value="{type}" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" /> -->
+						<Text ux:Name="taskType" Value="{type}" Margin="10,0,0,0" Color="blue"/>
+						
 						<TextView ux:Name="taskText" Padding="10" FontSize="20" PlaceholderText="Текст поручения..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" MinHeight="100" Margin="0,0,0,20">
 							<Clicked>
 								<Set helperPanel.Active="textScroll" />
 							</Clicked>
 						</TextView>
-
-						<Text ux:Name="taskUser" Value="Исполнители: Снегирев" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" />
+						<Text ux:Name="usersList" Value="{list}" Margin="10" Color="blue" />
+						<!-- <Text ux:Name="taskUser" Value="Исполнители: Снегирев" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" /> -->
 						
 
 
@@ -169,11 +144,11 @@
 				<MultiLayoutPanel ux:Name="helperBar" Dock="Bottom" Color="#000" Padding="0,10" >
 					<GridLayout ColumnCount="5" Rows="1*"/>
 
-				<!-- <Grid ColumnCount="5" Dock="Bottom" Color="#000" Padding="0,10"> -->
 					<Panel ux:Name="templTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="templateScroll" />
+							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder>
 							<Circle ux:Name="indic" Alignment="Top" Height="40" Width="40" Fill="#ccc">
@@ -187,6 +162,7 @@
 						<fa-font ux:Name="ico2" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
+							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
@@ -194,6 +170,7 @@
 						<fa-user ux:Name="ico3" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="userScroll" />
+							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
@@ -201,6 +178,7 @@
 						<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="dateScroll" />
+							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
@@ -210,11 +188,11 @@
 						</fa-paperclip>
 						<Clicked>
 							<Set helperPanel.Active="attachScroll" />
+							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
 				</MultiLayoutPanel>
-				<!-- </Grid> -->
 			</DockPanel>
 
 			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
@@ -242,40 +220,40 @@
 							<Change ico1.Color="#000" />
 						</WhileActive>
 						<Panel>
+							
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 							<WhileWindowPortrait>
 								<Change templateColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
 							
+							<Selection Value="{type}" MaxCount="1"/>
+							
 							<Panel ux:Class="typeButton" Height="40">
 								<string ux:Property="Value" />
+								<Selectable Value="{Property this.Value}"/>
+
 								<Text ux:Name="btText" Value="{Property this.Value}" Alignment="Center" Color="#fff" />
 								<Rectangle ux:Name="btBg" Layer="Background" Color="#666" />
-								<StateGroup ux:Name="typeGroup" Active="normalState">
-        							<State ux:Name="normalState">
-        								<Change btBg.Color="#666" />
-        								<Change btText.Color="#fff" />
-        							</State>
-        							<State ux:Name="activeState">
-        								<Change btBg.Color="#0f0" />
-        								<Change btText.Color="#000" />
-        							</State>
-								</StateGroup>
-								<Clicked>
-						            <TransitionState Target="typeGroup" Type="Next"/>
-						        </Clicked>
+
+								<WhileSelected>
+									<Change btBg.Color="#0f0" />
+    								<Change btText.Color="#000" />
+								</WhileSelected>
+								<Tapped>
+									<ToggleSelection/>
+								</Tapped>
+								<Selected>
+									<Scale Factor="1.1" Duration="0.2" />
+								</Selected>
 							</Panel>
 
-							<typeButton Value="На ознакомление" Clicked="{setType}" />
-							<typeButton Value="На исполнение" Clicked="{setType1}"/>
-							<typeButton Value="На согласование" Clicked="{setType2}"/>
-							<typeButton Value="На подписание" Clicked="{setType3}"/>
+							<typeButton Value="На ознакомление" />
+							<typeButton Value="На исполнение" />
+							<typeButton Value="На согласование" />
+							<typeButton Value="На подписание" />
 
-							<Each Items="{items.count1}" >
-								<TemplateBlock TempColor="#FFD999" />
-							</Each>
-							<Each Items="{items.count2}" >
-								<TemplateBlock TempColor="#FFAE5E" >
+							<Each Items="{items.count}" >
+								<TemplateBlock >
 									<Clicked>
 										<Set addGroup.Active="offState" />
 										<Set hiddenGrid.Visibility.Value="Visible" Delay=".2"  />
@@ -287,9 +265,6 @@
 										<Set Target="sendButton.Color" Value="#fff" />
 									</Clicked>
 								</TemplateBlock>
-							</Each>
-							<Each Items="{items.count3}" >
-								<TemplateBlock TempColor="#FF952B" />
 							</Each>
 							<fa-diamond Color="#ccc" FontSize="30" Alignment="Center" Margin="0,30"  />
 						</Panel>
@@ -339,35 +314,37 @@
 						</WhileActive>
 						<StackPanel>
 							<Panel ux:Name="userList">
-								<JavaScript>
-							        var Observable = require("FuseJS/Observable");
-							        var reset = Observable(false);
-							        function resetUser(){
-							            reset.value = !reset.value;
-							        }
-							        module.exports = {
-							            reset: reset,
-							            resetUser: resetUser
-							        }
-							    </JavaScript>
-
 								<WrapLayout Orientation="Horizontal"/>
-								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{resetUser}">
+								<Selection Values="{values}"/>
+								
+								<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
+								    <string ux:Property="Label"/>
+
+								    <Selectable Value="{Property this.Label}"/>
+								    <Image File="Assets/user-icon.png" Alignment="TopCenter" />
+    								<Text ux:Name="fio" Value="{Property this.Label}" FontSize="12" Alignment="BottomCenter" Color="#fff" />
+
+
+								    <WhileSelected>
+								        <Change this.Color="#0f0"/>
+								        <Change fio.Color="#000"/>
+								    </WhileSelected>
+								    <Tapped>
+								        <ToggleSelection />
+								    </Tapped>
+								</Panel>
+								
+								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{reset}">
 									<Image File="Assets/back.png" Width="50" Alignment="Top" />
 									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
-									<Clicked>
-										<Set Clear.Opacity=".3" />
-										<Toggle Target="showUser" />
-									</Clicked>
 								</Panel>
-								<Each Count="15" >
-									<userPanel>
-										<Clicked>
-											<Set Clear.Opacity="1" />
-											<Toggle Target="showUser" />
-										</Clicked>
-									</userPanel>
-								</Each>
+
+
+							    <userPanel Label="Снегирев" />
+							    <userPanel Label="Воробьев" />
+							    <userPanel Label="Уткин" />
+							    <userPanel Label="Синицына" />
+							    <userPanel Label="Лебедева" />
 							</Panel>
 							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
 							<Panel ux:Name="groupList" >
