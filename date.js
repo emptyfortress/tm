@@ -7,9 +7,13 @@ var index = 0;
 var weekNames = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
 var arrayLength = weekNames.length;
 var chooseDate = Observable(false);
+var showDeadline = Observable(false);
 
 function closeDate() {
     chooseDate.value = false;
+    showDeadline.value = false;
+    clickCount = 15;
+    index = 0;
 }
 
 function today() {
@@ -29,26 +33,12 @@ function tomorrow() {
     chooseDate.value = true;
 }
 
-function addDay() {
-	clickCount += 1;
-	date.value = clickCount;
-	index = 3;
-	day.value = weekNames[index];
-    chooseDate.value = true;
-}
-
 function addWeek() {
     clickCount += 7;
     date.value = clickCount;
     index = index + 7;
 	day.value = weekNames[index];
     chooseDate.value = true;
-}
-function subWeek() {
-    clickCount -= 7;
-    date.value = clickCount;
-    index = index - 7;
-	day.value = weekNames[index];
 }
 function addMonth() {
     clickCount += 30;
@@ -57,11 +47,8 @@ function addMonth() {
 	day.value = weekNames[index];
     chooseDate.value = true;
 }
-function subMonth() {
-    clickCount += 30;
-    date.value = clickCount;
-    index = index -2;
-	day.value = weekNames[index];
+function showDate() {
+    showDeadline.value = true;
 }
 
 module.exports = {
@@ -72,11 +59,10 @@ module.exports = {
     day: day,
     weekNames: weekNames,
     month: month,
-    addDay: addDay,
     addWeek: addWeek,
-    subWeek: subWeek,
     addMonth: addMonth,
-    subMonth: subMonth,
     chooseDate: chooseDate,
-    closeDate: closeDate
+    closeDate: closeDate,
+    showDate: showDate,
+    showDeadline: showDeadline
 };

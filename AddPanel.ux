@@ -87,11 +87,15 @@
 								<Set helperPanel.Active="textScroll" />
 							</Clicked>
 						</TextView>
-						
+						<WhileTrue Value="{showDeadline}">
+							<Change deadline.Visibility="Visible" />
+						</WhileTrue>
+
 						<Label ux:Name="usersList" Value="{list}" Margin="10" />
 						<Label ux:Name="main" Value="Ответственный: Лебедева" Margin="10"  Visibility="Hidden"/>
 						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017" Margin="10" Visibility="Hidden" />
-						<Label ux:Name="deadline" Value="{deadline}" Margin="10" />
+						
+						<Label ux:Name="deadline" Value="Срок исполнения: 25.12.2016  19:00" Margin="10" Visibility="Hidden"/>
 						
 
 
@@ -388,24 +392,6 @@
 						        </WhileFocusWithin>
 						    </TextInput>
 
-						    <!-- <ScrollView AllowedScrollDirections="Horizontal" Margin="20">
-							    <StackPanel Orientation="Horizontal" ItemSpacing="10">
-							    	<Each Items="{alphabet}">
-							    		<Panel Padding="5">
-							    			<Text Value="{}" FontSize="30" Color="#999" />
-							    		</Panel>
-							    	</Each>
-							    </StackPanel>
-							 </ScrollView>
-							 <ScrollView AllowedScrollDirections="Horizontal" Margin="20,0">
-							    <StackPanel Orientation="Horizontal" ItemSpacing="10">
-							    	<Each Items="{alphabet1}">
-							    		<Panel Padding="5">
-							    			<Text Value="{}" FontSize="30" Color="#999" />
-							    		</Panel>
-							    	</Each>
-							    </StackPanel>
-							 </ScrollView> -->
 						</StackPanel>
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">
@@ -426,8 +412,8 @@
 										<StackPanel Orientation="Horizontal">
 											<dateShortcut text="Сегодня" Clicked="{today}" />
 											<dateShortcut text="Завтра" Clicked="{tomorrow}" />
-											<dateShortcut text="+2 дня" Clicked="{addDay}" />
-											<dateShortcut text="Пятница" Clicked="{addDay}"/>
+											<dateShortcut text="+2 дня" Clicked="{addWeek}" />
+											<dateShortcut text="Пятница" Clicked="{addWeek}"/>
 											<dateShortcut text="Понедельник" Clicked="{today}" />
 											<dateShortcut text="Через неделю" Clicked="{addWeek}" />
 											<dateShortcut text="Конец месяца" Clicked="{addMonth}" />
@@ -441,26 +427,26 @@
 											<Circle Width="30" Height="30" Color="red" Layer="Overlay" Alignment="TopLeft" Offset="-20" Clicked="{closeDate}">
 												<fa-times Color="#fff" Alignment="Center" />
 											</Circle>
-											<Circle Width="30" Height="30" Color="#0f0" Layer="Overlay" Alignment="TopRight" Offset="20,-20">
+											<Circle Width="30" Height="30" Color="#0f0" Layer="Overlay" Alignment="TopRight" Offset="20,-20" Clicked="{showDate}">
 												<fa-check Color="#000" Alignment="Center" />
 											</Circle>
 
 											<Text Value="{month}" FontSize="16" Color="#ccc" Alignment="Center" />
 											<PageControl>
 												<StackPanel>
-													<Text Value="{date}" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+													<Text Value="{date}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
 													<Text Value="{day}" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
 												</StackPanel>
 												<StackPanel>
-													<Text Value="16" Clicked="{addDay}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
+													<Text Value="16" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
 													<Text Value="Пятница" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
 												</StackPanel>
 												<StackPanel>
-													<Text Value="17" Clicked="{addDay}" Font="Light" FontSize="60" Color="#f00" Alignment="Center" Margin="0,-5,0,0" />
+													<Text Value="17" Font="Light" FontSize="60" Color="#f00" Alignment="Center" Margin="0,-5,0,0" />
 													<Text Value="Суббота" FontSize="20" Color="#f00" Alignment="Center" Margin="0,-10,0,0" />
 												</StackPanel>
 												<StackPanel>
-													<Text Value="18" Clicked="{addDay}" Font="Light" FontSize="60" Color="#f00" Alignment="Center" Margin="0,-5,0,0" />
+													<Text Value="18" Font="Light" FontSize="60" Color="#f00" Alignment="Center" Margin="0,-5,0,0" />
 													<Text Value="Воскресенье" FontSize="20" Color="#f00" Alignment="Center" Margin="0,-10,0,0" />
 												</StackPanel>
 												
