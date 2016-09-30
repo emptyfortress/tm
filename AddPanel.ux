@@ -8,7 +8,8 @@
 	    exports.values.onValueChanged( module, function() {
 	        exports.list.value = exports.values.toArray().join(", ")
 	    })
-		
+
+
 	</JavaScript>
 	<JavaScript File="date.js" />
 	<Translation XY="1,1" RelativeTo="ParentSize" />
@@ -42,7 +43,6 @@
 		            <Change templateScroll.UserScroll="false" />
 		        </State>
 			</StateGroup>
-			
 			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="60%" Background="#fff">
 				<Grid Columns="1*, auto" Dock="Top" Padding="10">
 					<StackPanel Orientation="Horizontal"  ItemSpacing="5">
@@ -68,29 +68,30 @@
 					</Panel>
 				</Grid>
 				<ScrollView >
-					<!-- <WhileTrue ux:Name="showType">
-						<Change taskType.LimitHeight="100%" Duration=".5" Easing="QuadraticOut"  />
-						<Change taskType.Opacity="1" Duration=".5" Easing="QuadraticOut"  />
-					</WhileTrue> -->
-					
-					<!-- <WhileTrue ux:Name="showUser">
-						<Change taskUser.LimitHeight="100%" Duration=".5" Easing="QuadraticOut"  />
-						<Change taskUser.Opacity="1" Duration=".5" Easing="QuadraticOut"  />
-					</WhileTrue> -->
-
-
+					<Panel ux:Class="who" Margin="0,0,5,5" Padding="3">
+						<string ux:Property="Value" />
+						<Text Value="{Property this.Value}"  Color="blue" Alignment="Center" />
+						<Rectangle Layer="Background" Color="#eee" CornerRadius="20" />
+					</Panel>
 					<StackPanel Padding="10">
-
-						<!-- <Text ux:Name="taskType" Value="{type}" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" /> -->
-						<Text ux:Name="taskType" Value="{type}" Margin="10,0,0,0" Color="blue"/>
+						<Text ux:Class="Label" TextWrapping="Wrap" ClipToBounds="true" Color="blue">
+							<LayoutAnimation>
+				                <Resize Vector="1" RelativeTo="SizeChange" Duration="0.3"/>
+				            </LayoutAnimation>
+						</Text>
+						<Label ux:Name="taskType" Value="{type}" Margin="10,0,0,0" />
+							
 						
 						<TextView ux:Name="taskText" Padding="10" FontSize="20" PlaceholderText="Текст поручения..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" MinHeight="100" Margin="0,0,0,20">
 							<Clicked>
 								<Set helperPanel.Active="textScroll" />
 							</Clicked>
 						</TextView>
-						<Text ux:Name="usersList" Value="{list}" Margin="10" Color="blue" />
-						<!-- <Text ux:Name="taskUser" Value="Исполнители: Снегирев" Margin="10" Color="blue" BoxSizing="Limit" LimitHeight="0" Opacity="0" /> -->
+						
+						<Label ux:Name="usersList" Value="{list}" Margin="10" />
+						<Label ux:Name="main" Value="Ответственный: Лебедева" Margin="10"  Visibility="Hidden"/>
+						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017" Margin="10" Visibility="Hidden" />
+						<Label ux:Name="deadline" Value="{deadline}" Margin="10" />
 						
 
 
@@ -98,11 +99,6 @@
 						<Grid ux:Name="hiddenGrid" Columns="auto, 1*" CellSpacing="20" Visibility="Hidden">
 							<fa-user FontSize="20" Color="blue" Margin="0,0,10,0" />
 							<WrapPanel Orientation="Horizontal">
-								<Panel ux:Class="who" Margin="0,0,5,5" Padding="3">
-									<string ux:Property="Value" />
-									<Text Value="{Property this.Value}"  Color="blue" Alignment="Center" />
-									<Rectangle Layer="Background" Color="#eee" CornerRadius="20" />
-								</Panel>
 								<who Value="Снегирев Ю.Г." />
 								<who Value="Воробьев С.К." />
 								<who Value="Синичкина П.С." />
@@ -312,18 +308,16 @@
 							<Set helperBar.LayoutElement="userTab" />
 						</WhileActive>
 						<StackPanel>
-							<Panel ux:Name="userList">
+							<Panel ux:Name="userList" >
 								<WrapLayout Orientation="Horizontal"/>
 								<Selection Values="{values}"/>
 								
 								<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
 								    <string ux:Property="Label"/>
-
 								    <Selectable Value="{Property this.Label}"/>
+
 								    <Image File="Assets/user-icon.png" Alignment="TopCenter" />
     								<Text ux:Name="fio" Value="{Property this.Label}" FontSize="12" Alignment="BottomCenter" Color="#fff" />
-
-
 								    <WhileSelected>
 								        <Change this.Color="#0f0"/>
 								        <Change fio.Color="#000"/>
@@ -331,19 +325,39 @@
 								    <Tapped>
 								        <ToggleSelection />
 								    </Tapped>
+								    <LongPressed>
+								    	<Callback Handler="{toggleMainUser}"/>
+								    </LongPressed>
+								    
 								</Panel>
 								
 								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{reset}">
 									<Image File="Assets/back.png" Width="50" Alignment="Top" />
 									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
 								</Panel>
-
-
-							    <userPanel Label="Снегирев" />
+						    	<userPanel Label="Снегирев" />
 							    <userPanel Label="Воробьев" />
 							    <userPanel Label="Уткин" />
 							    <userPanel Label="Синицына" />
-							    <userPanel Label="Лебедева" />
+							    <Panel>
+							    	<WhileTrue Value="{userMain}">
+										<Change main.Visibility="Visible" />
+										<Change cont.Visibility="Visible" />
+										<Change contrU.Visibility="Visible" />
+										<Change mainU.Visibility="Visible" />
+										<Change userStroke.Color="#0f0" />
+									</WhileTrue>
+							    	<Circle ux:Name="contrU" Width="20" Height="20" Color="#f00" Alignment="TopRight" Visibility="Hidden">
+										<Text Value="K" Alignment="Center" Color="#fff" />
+									</Circle>
+									<Circle ux:Name="mainU" Width="20" Height="20" Color="#FFFF00" Alignment="TopLeft" Visibility="Hidden">
+										<Text Value="O" Alignment="Center" Color="#000" />
+									</Circle>
+							    	<userPanel Label="Лебедева" />
+							    	<Rectangle ux:Name="bgUser" Layer="Background" Color="#000">
+								    	<Stroke ux:Name="userStroke" Width="1" Color="#000" />
+								    </Rectangle>
+							    </Panel>
 							</Panel>
 							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
 							<Panel ux:Name="groupList" >
@@ -373,7 +387,8 @@
 						        	<Change groupList.Visibility.Value="Collapsed" />
 						        </WhileFocusWithin>
 						    </TextInput>
-						    <ScrollView AllowedScrollDirections="Horizontal" Margin="20">
+
+						    <!-- <ScrollView AllowedScrollDirections="Horizontal" Margin="20">
 							    <StackPanel Orientation="Horizontal" ItemSpacing="10">
 							    	<Each Items="{alphabet}">
 							    		<Panel Padding="5">
@@ -390,7 +405,7 @@
 							    		</Panel>
 							    	</Each>
 							    </StackPanel>
-							 </ScrollView>
+							 </ScrollView> -->
 						</StackPanel>
 					</ScrollView>
 					<ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true">

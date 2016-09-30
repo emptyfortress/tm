@@ -232,4 +232,24 @@
 
 
 	</Panel>
+	
+	<Panel ux:Name="MainUserPreview" Layer="Overlay" Alignment="Center" Color="#fff">
+		<Translation Y="-1" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleMainUser}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+		<StackPanel ItemSpacing="20" Margin="30">
+			<Text FontSize="16" Value="Ответственный исполнитель" Alignment="HorizontalCenter" Clicked="{setMain}" />
+			<Rectangle Height="1" Color="#ccc" Margin="-30,0" />
+			<Text FontSize="16" Value="Контролер" Alignment="HorizontalCenter" Clicked="{setMain}"/>
+			<Rectangle Height="1" Color="#ccc" Margin="-30,0" />
+			<Text FontSize="16" Value="Сбросить" Alignment="HorizontalCenter" Clicked="{resetMain}"/>
+		</StackPanel>
+
+	</Panel>
+	
+
+	<Panel ux:Name="overlayRec1" Color="#000" Opacity="0" HitTestMode="None" Clicked="{toggleMainUser}">
+	</Panel>
 </Panel>

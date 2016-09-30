@@ -129,5 +129,12 @@
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="listPreview" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
+	<WhileTrue Value="{showMainUser}">
+		<!-- <Change plusIcon.Visibility.Value="Collapsed" /> -->
+		<Change overlayRec1.Visibility="Visible" />
+		<Change overlayRec1.Opacity=".5" Duration=".5" />
+		<Change overlayRec1.HitTestMode="LocalBoundsAndChildren" />
+		<Move Target="MainUserPreview" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
 	
 </Panel>
