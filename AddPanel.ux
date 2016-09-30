@@ -3,13 +3,12 @@
 		var Observable = require("FuseJS/Observable")
 		exports.type = Observable('');
 		exports.values = Observable()
-
+		
 	    exports.list = Observable()
 	    exports.values.onValueChanged( module, function() {
 	        exports.list.value = exports.values.toArray().join(", ")
 	    })
 		
-
 	</JavaScript>
 	<JavaScript File="date.js" />
 	<Translation XY="1,1" RelativeTo="ParentSize" />
@@ -472,8 +471,7 @@
 											}
 										</JavaScript>
 										<Text Value="{sliderText}" Color="#fff" Alignment="Center" />
-										<DataBinding Target="time.Value" Key="deadTime" />
-										<Slider ux:Name="time" Value="19" Minimum="0" Maximum="24" />
+										<Slider ux:Name="time" Value="{deadTime}" Minimum="0" Maximum="24" />
 									</StackPanel>
 								</StackPanel>
 								<ScrollView ux:Name="monthPanel" Visibility="Hidden">
