@@ -30,8 +30,14 @@
 		<Set Target="sendButtonBg.Color" Value="#eee" />
 		<Set Target="sendButton.Color" Value="#aaa" />
 		<Set taskText.Value="" />
+		<Set attachList.Value="" />
 		<Set taskType.Value="" />
 		<Set usersList.Value="" />
+		<Set main.Visibility="Collapsed" />
+		<Set cont.Visibility="Collapsed" />
+		<Set deadline.Visibility="Collapsed" />
+		<!-- <Set parentCard.Visibility="Collapsed" /> -->
+		<!-- <Set parentAttach.Visibility="Collapsed" /> -->
 	</WhileTrue>
 
 	<WhileTrue ux:Name="ViewerVisible">
