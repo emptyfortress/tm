@@ -44,7 +44,7 @@
 				<Rectangle Width="20" Height="3" Color="#000" Alignment="Center" />
 				<Rectangle Width="3" Height="20" Color="#000" Alignment="Center" />
 			</Panel>
-			<Circle Width="50" Height="50" Color="#fff" Opacity=".6" Alignment="Center">
+			<Circle ux:Name="plusCircle" Width="50" Height="50" Color="#fff" Opacity=".6" Alignment="Center">
 				<DropShadow  />
 			</Circle>
 		</Panel>

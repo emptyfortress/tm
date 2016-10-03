@@ -65,4 +65,4 @@ module.exports = {
     closeDate: closeDate,
     showDate: showDate,
     showDeadline: showDeadline
-};
+}
