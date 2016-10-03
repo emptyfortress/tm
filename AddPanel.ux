@@ -394,10 +394,8 @@
 						        	<Change groupList.Visibility.Value="Collapsed" />
 						        </WhileFocusWithin>
 						    </TextInput>
-
 						</StackPanel>
 					</ScrollView>
-					<!-- <ScrollView ux:Name="dateScroll" UserScroll="false" SnapMinTransform="true"> -->
 					<DockPanel ux:Name="dateScroll">
 						<WhileActive Threshold="0.5">
 							<Change ico4.Color="#000" />
@@ -485,53 +483,25 @@
 								</WhileWindowPortrait>
 								<JavaScript>
 									var days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+									var month = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 									
 									module.exports = {
-										days : days
+										days : days,
+										month: month
 									};
 								</JavaScript>
 								<Text ux:Class="month"  Color="#fff" ColumnSpan="7" FontSize="20" Alignment="Center" />
 								<Text ux:Class="day" FontSize="17" TextAlignment="Right" Color="#999"  />
-								<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
-									<month Value="Август" />
-									<Each Items="{days}">
-										<Panel>
-											<day Value="{}" />
-										</Panel>
-									</Each>
-								</Grid>
-								<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
-									<month Value="Сентябрь" />
-									<Each Items="{days}">
-										<Panel>
-											<day Value="{}" />
-										</Panel>
-									</Each>
-								</Grid>
-								<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
-									<month Value="Октябрь" />
-									<Each Items="{days}">
-										<Panel>
-											<day Value="{}" />
-										</Panel>
-									</Each>
-								</Grid>
-								<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
-									<month Value="Ноябрь" />
-									<Each Items="{days}">
-										<Panel>
-											<day Value="{}" />
-										</Panel>
-									</Each>
-								</Grid>
-								<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
-									<month Value="Декабрь" />
-									<Each Items="{days}">
-										<Panel>
-											<day Value="{}" />
-										</Panel>
-									</Each>
-								</Grid>
+								<Each Items="{month}">
+									<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
+										<month Value="{}" />
+										<Each Items="{days}">
+											<Panel>
+												<day Value="{}" />
+											</Panel>
+										</Each>
+									</Grid>
+								</Each>
 							</Panel>
 						</ScrollView>
 					</DockPanel>
@@ -551,7 +521,6 @@
 									<Rectangle Height="60" Color="#666">
 										<fa-picture-o FontSize="25" Color="#fff" Alignment="Center" />
 									</Rectangle>
-									
 								</Each>
 							</Panel>
 						</ScrollView>
