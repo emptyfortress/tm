@@ -98,6 +98,8 @@
 						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017" Margin="10" Visibility="Collapsed" />
 						
 						<Label ux:Name="deadline" Value="Срок исполнения: 25.12.2016  19:00" Margin="10" Visibility="Collapsed"/>
+						<Label ux:Name="parentCard" Value="Родительская карточка: Письмо о проведении аукциона " Margin="10" Visibility="Collapsed"/>
+						<Label ux:Name="parentAttach" Value="Вложения: Договор с подрядчиком.pdf, Приложение к договору.docx, Смета расходов.xls" Margin="10" Visibility="Collapsed"/>
 						
 
 

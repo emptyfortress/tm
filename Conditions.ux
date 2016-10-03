@@ -40,6 +40,8 @@
 		<Set ViewerHidden.Value="false" Delay=".4" />
 		<Change plusCircle.Color="#f00" />
 		<Change typeCard.Visibility="Visible" />
+		<Change parentCard.Visibility="Visible" />
+		<Change parentAttach.Visibility="Visible" />
 	</WhileTrue>
 	<WhileTrue ux:Name="ViewerHidden">
 		<PulseForward Target="ZoomTo" Direction="Forward" />
