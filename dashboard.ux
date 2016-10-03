@@ -68,29 +68,28 @@
 				<Header Text="СВОДКА" />
 				<ScrollView Margin="0,40,0,0">
 					<StackPanel ItemSpacing="50">
-						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head">
-						</Text>
+						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
 						<Panel Margin="0,20,0,0">
 							<StackPanel>
 								<dashHeader Value="Новое" />
 								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
 								<StackPanel >
-									<unreadText Quantity="3" Text="Согласование">
+									<unreadText Quantity="3" Text="Мои документы">
 										<Tapped>
 											<Toggle Target="dashboardUp" />
 											<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 										</Tapped>
 									</unreadText>
-									<unreadText Quantity="8" Text="Рассмотрение">
-										<Tapped>
-											<Toggle Target="dashboardUp" />
-											<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
-										</Tapped>
-									</unreadText>
-									<unreadText Quantity="15" Text="Ознакомление">
+									<unreadText Quantity="15" Text="Входящие">
 										<Tapped>
 											<Toggle Target="dashboardUp" />
 											<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+										</Tapped>
+									</unreadText>
+									<unreadText Quantity="2" Text="Исходящие">
+										<Tapped>
+											<Toggle Target="dashboardUp" />
+											<!-- <NavigateTo Target="folder5" NavigationContext="_listNavigation" /> -->
 										</Tapped>
 									</unreadText>
 								</StackPanel>
@@ -290,7 +289,6 @@
 							<StackLayout Orientation="Horizontal" />
 							<Panel>
 								<dashPanel Width="180" Height="100">
-									<!-- <Rectangle Width="3" Height="100" Color="sky" Alignment="Left" Offset="-10,0" Visibility="{newcount}" /> -->
 									<fa-folder-o Alignment="TopLeft" Color="#000" />
 									<Text Value="На синхронизацию" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
 									<Text Value="4" FontSize="30"  Alignment="BottomRight" Offset="0,7"/>
@@ -304,7 +302,6 @@
 							</Panel>
 							<Panel>
 								<dashPanel Width="180" Height="100">
-									<!-- <Rectangle Width="3" Height="100" Color="sky" Alignment="Left" Offset="-10,0" Visibility="{newcount}" /> -->
 									<fa-folder-o Alignment="TopLeft" Color="#000" />
 									<Text Value="Черновики" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
 									<Text Value="11" FontSize="30"  Alignment="BottomRight" Offset="0,7"/>

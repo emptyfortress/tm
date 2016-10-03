@@ -157,7 +157,7 @@
 		<EdgeNavigation ux:Name="edge" />
 		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#fff">
 			<EnteringAnimation>
-		        <Move X="-1" RelativeTo="Size"  />
+		        <Move X="-1.2" RelativeTo="Size"  />
 		    </EnteringAnimation>
 			<ActivatingAnimation>
 				<!-- Change to cross out -->
@@ -176,9 +176,6 @@
 			<DeactivatingAnimation>
 				<BringIntoView TargetNode="logo" />
 			</DeactivatingAnimation>
-			<Rectangle Color="#fff" Layer="Background">
-				<Stroke Width="1" Color="#ddd" />
-			</Rectangle>
 			
 			<Circle Width="37" Height="37" Color="#fff" Alignment="TopRight" Margin="10" >
 				<Stroke Width="1" Color="#ccc" />
@@ -234,7 +231,7 @@
 						<Text Value="КАЛЕНДАРЬ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
 
-					<sideButton Text="Согласование" Quantity="4" Margin="0,30,0,0" >
+					<sideButton Text="Мои документы" Quantity="3" Margin="0,30,0,0" >
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
@@ -244,7 +241,7 @@
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
-					<sideButton Text="Рассмотрение" Quantity="3" >
+					<sideButton Text="Рассмотрение" Quantity="" >
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder2" NavigationContext="_listNavigation" />
@@ -254,7 +251,7 @@
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
-					<sideButton Text="Исполнение" Quantity="" >
+					<sideButton Text="Ознакомление" Quantity="" >
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder3" NavigationContext="_listNavigation" />
@@ -264,7 +261,7 @@
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
-					<sideButton Text="Ознакомление" Quantity="8" >
+					<sideButton Text="Входящие" Quantity="15" >
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
 							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
@@ -274,9 +271,16 @@
 							<Set folderIndicator.Visibility="Visible" />
 						</Tapped>
 					</sideButton>
-					<sideButton Text="Папка" />
-					<sideButton Text="Папка" />
-					<sideButton Text="Папка" />
+					<sideButton Text="Исходящие" Quantity="2" >
+						<Tapped>
+							<NavigateToggle Target="menu" NavigationContext="edge" />
+							<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+							<Set ViewerVisible.Value="false" />
+							<Set menuVisible.Value="false" Delay=".5" />
+							<Set dashboardUp.Value="true" />
+							<Set folderIndicator.Visibility="Visible" />
+						</Tapped>
+					</sideButton>
 
 					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
 						<Tapped>
@@ -323,6 +327,9 @@
 					</Grid>
 				</StackPanel>
 			</ScrollView>
+			<Rectangle Layer="Background" Color="#fff">
+				<Shadow Angle="180"  />
+			</Rectangle>
 		</Sidebar>
 		
 		
@@ -340,7 +347,7 @@
 
 				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0" HitTestMode="LocalBoundsAndChildren">
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
-					<Text Value="Согласование" Color="#fff" Alignment="CenterLeft" FontSize="16" />
+					<Text Value="Мои документы" Color="#fff" Alignment="CenterLeft" FontSize="16" />
 					<Tapped>
         				<Toggle Target="ViewerHidden" />
 	        		</Tapped>
@@ -432,8 +439,7 @@
 								</Clicked>
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
-								<Text ux:Name="folderTitle" Value="Согласование" FontSize="20">
-								</Text>
+								<Text ux:Name="folderTitle" Value="Мои документы" FontSize="20" />
 								<Text ux:Name="total" Value="15 документов" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe1" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe" Direction="Right"  Length="100" />
@@ -537,8 +543,7 @@
 								</Clicked>
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
-								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20">
-								</Text>
+								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" />
 								<Text ux:Name="total2" Value="20 документов" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe21" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe2" Direction="Right"  Length="100" />
@@ -605,7 +610,7 @@
 				<folderPage ux:Name="folder3" Title="Ознакомление"  Count="0" Padding="5,0" bookmarkColor="lightblue">
 					<StackPanel Alignment="Center" MaxWidth="60%">
 						<fa-diamond Alignment="Center" Color="#ddd" FontSize="50" />
-						<!-- <Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" /> -->
+						<Text Value="Список пуст" FontSize="20" Alignment="Center" Color="#ddd" />
 					</StackPanel>
 				</folderPage>
 				
@@ -650,7 +655,7 @@
 								</Clicked>
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
-								<Text ux:Name="folderTitle4" Value="Исполнение" FontSize="20">
+								<Text ux:Name="folderTitle4" Value="Входящие" FontSize="20">
 								</Text>
 								<Text ux:Name="total4" Value="8 поручений" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe41" Direction="Left"  Length="100" />
