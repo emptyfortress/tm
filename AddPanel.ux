@@ -1,12 +1,18 @@
 <Panel  ux:Name="addPanel" Margin="10">
 	<JavaScript>
 		var Observable = require("FuseJS/Observable")
-		exports.type = Observable('');
+		exports.type = Observable('')
+		exports.attach = Observable('')
 		exports.values = Observable()
+		exports.values1 = Observable()
 		
 	    exports.list = Observable()
+	    exports.attach = Observable()
 	    exports.values.onValueChanged( module, function() {
 	        exports.list.value = "Исполнители: " + exports.values.toArray().join(", ")
+	    })
+	    exports.values1.onValueChanged( module, function() {
+	        exports.attach.value = "Вложения: " +  exports.values1.toArray().join(", ")
 	    })
 
 
@@ -98,6 +104,7 @@
 						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017"  Visibility="Collapsed" />
 						
 						<Label ux:Name="deadline" Value="Срок исполнения: 25.12.2016  19:00"  Visibility="Collapsed"/>
+						<Label Value="{attach}" />
 						<Label ux:Name="parentCard" Value="Родительская карточка: Письмо о проведении аукциона "  Visibility="Collapsed"/>
 						<Label ux:Name="parentAttach" Value="Вложения: Договор с подрядчиком.pdf, Приложение к договору.docx, Смета расходов.xls" Visibility="Collapsed"/>
 						
@@ -516,13 +523,70 @@
 						</Rectangle>
 						<ScrollView ux:Name="fileScroll" UserScroll="false"  SnapMinTransform="true" Margin="0,5">
 							<Panel>
+								<JavaScript>
+									var pic = ['pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg','pic5.jpg','pic6.jpg','pic7.jpg','pic8.jpg','pic9.jpg','pic10.jpg','pic11.jpg','pic12.jpg','pic13.jpg','pic14.jpg','pic15.jpg','pic16.jpg','pic17.jpg','pic18.jpg','pic19.jpg','pic20.jpg','pic21.jpg','pic22.jpg','pic23.jpg','pic24.jpg','pic25.jpg','pic26.jpg','pic27.jpg','pic28.jpg','pic29.jpg','pic30.jpg','pic31.jpg','pic32.jpg','pic33.jpg','pic34.jpg','pic35.jpg','pic36.jpg','pic37.jpg','pic38.jpg','pic39.jpg','pic40.jpg','pic41.jpg','pic42.jpg','pic43.jpg','pic44.jpg','pi45.jpg','pic46.jpg','pic47.jpg','pic48.jpg']
+									module.exports = {
+										pic: pic
+									}
+								</JavaScript>
+								<Rectangle ux:Class="attachRec" Height="60" Color="#666">
+									<string ux:Property="Value"/>
+									<Selectable Value="{Property this.Value}"/>
+									<Text Value="{Property this.Value}" Visibility="Hidden" />
+									<fa-picture-o ux:Name="imgPic" FontSize="25" Color="#fff" Alignment="Center" />
+									<WhileSelected>
+										<Change this.Color="#0f0" />
+										<Change imgPic.Color="#000" />
+									</WhileSelected>
+									<Tapped>
+										<ToggleSelection/>
+									</Tapped>
+									<Selected>
+										<Scale Factor="1.1" Duration="0.2" />
+									</Selected>
+								</Rectangle>
+
+								<Selection Values="{values1}"/>
 								<ColumnLayout ColumnCount="5" ColumnSpacing="5" ItemSpacing="5" />
-								<Each Count="45">
-									<Rectangle Height="60" Color="#666">
-										<fa-picture-o FontSize="25" Color="#fff" Alignment="Center" />
-									</Rectangle>
+								<Each Items="{pic}">
+									<attachRec Value="{}"  />
 								</Each>
 							</Panel>
+
+
+
+							<!-- <Selection Value="{type}" MaxCount="1"/>
+							
+							<Panel ux:Class="typeButton" Height="40">
+								<string ux:Property="Value" />
+								<Selectable Value="{Property this.Value}"/>
+
+								<Text ux:Name="btText" Value="{Property this.Value}" Alignment="Center" Color="#fff" />
+								<Rectangle ux:Name="btBg" Layer="Background" Color="#666" />
+
+								<WhileSelected>
+									<Change btBg.Color="#0f0" />
+    								<Change btText.Color="#000" />
+								</WhileSelected>
+								<Tapped>
+									<ToggleSelection/>
+								</Tapped>
+								<Selected>
+									<Scale Factor="1.1" Duration="0.2" />
+								</Selected>
+							</Panel> -->
+
+
+
+
+
+
+
+
+
+
+
+
 						</ScrollView>
 						<Grid Height="50" ColumnCount="4" Dock="Bottom">
 							<Rectangle />
