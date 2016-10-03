@@ -39,6 +39,7 @@
 		<PulseForward Target="ZoomTo" Direction="Backward" />
 		<Set ViewerHidden.Value="false" Delay=".4" />
 		<Change plusCircle.Color="#f00" />
+		<Change typeCard.Visibility="Visible" />
 	</WhileTrue>
 	<WhileTrue ux:Name="ViewerHidden">
 		<PulseForward Target="ZoomTo" Direction="Forward" />
