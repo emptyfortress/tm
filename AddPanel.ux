@@ -80,6 +80,7 @@
 				            </LayoutAnimation>
 						</Text>
 						<Label ux:Name="typeCard" Value="Связанное поручение" Margin="10,0,0,0" Visibility="Collapsed" />
+						<Label ux:Name="taskType1" Value="На исполнение" Margin="10,0,0,0" Visibility="Collapsed" />
 						<Label ux:Name="taskType" Value="{type}" Margin="10,0,0,0" />
 							
 						
@@ -93,10 +94,10 @@
 						</WhileTrue>
 
 						<Label ux:Name="usersList" Value="{list}" Margin="10" />
-						<Label ux:Name="main" Value="Ответственный: Лебедева" Margin="10"  Visibility="Hidden"/>
-						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017" Margin="10" Visibility="Hidden" />
+						<Label ux:Name="main" Value="Ответственный: Лебедева" Margin="10"  Visibility="Collapsed"/>
+						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017" Margin="10" Visibility="Collapsed" />
 						
-						<Label ux:Name="deadline" Value="Срок исполнения: 25.12.2016  19:00" Margin="10" Visibility="Hidden"/>
+						<Label ux:Name="deadline" Value="Срок исполнения: 25.12.2016  19:00" Margin="10" Visibility="Collapsed"/>
 						
 
 
@@ -257,9 +258,8 @@
 									<Clicked>
 										<Set addGroup.Active="offState" />
 										<Set hiddenGrid.Visibility.Value="Visible" Delay=".2"  />
-										<Move Target="hiddenGrid" Y="100" Duration=".2" />
+										<Set taskType1.Visibility.Value="Visible" Delay=".2"  />
 										<Set hiddenBt.Visibility.Value="Visible" Delay=".2"  />
-										<Move Target="hiddenBt" Y="100" Duration=".2" />
 										<Set taskText.Value="Всем отделам собрать данные за квартал и подготовить отчет. Механическая система преобразует кожух, даже если рамки подвеса буду ориентированы под прямым углом." />
 										<Set Target="sendButtonBg.Color" Value="blue" />
 										<Set Target="sendButton.Color" Value="#fff" />
