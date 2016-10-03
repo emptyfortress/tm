@@ -14,5 +14,5 @@
         <GradientStop Offset="1" Color="#BFDFFF" />
     </LinearGradient>
 	</Rectangle>
-	<Rectangle Layer="Background" Color="#fff" Opacity=".6" />
+	<Rectangle Layer="Background" Color="#fff" />
 </StackPanel>

@@ -408,8 +408,8 @@
 					
 					<StateGroup ux:Name="filterGroup">
 						<State ux:Name="blueState">
-				            <Change bookmark.Color="sky" Duration="0.2"/>
-				            <Change filterRec.Color="sky" Duration="0.2"/>
+				            <Change bookmark.Color="#7F00FF" Duration="0.2"/>
+				            <Change filterRec.Color="#7F00FF" Duration="0.2"/>
 				            <Change blueCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				        <State ux:Name="redState">
@@ -512,8 +512,8 @@
 					
 					<StateGroup ux:Name="filterGroup2">
 						<State ux:Name="blueState2">
-				            <Change bookmark2.Color="sky" Duration="0.2"/>
-				            <Change filterRec2.Color="sky" Duration="0.2"/>
+				            <Change bookmark2.Color="#7F00FF" Duration="0.2"/>
+				            <Change filterRec2.Color="#7F00FF" Duration="0.2"/>
 				            <Change blueCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				        <State ux:Name="redState2">
@@ -624,8 +624,8 @@
 					
 					<StateGroup ux:Name="filterGroup4">
 						<State ux:Name="blueState4">
-				            <Change bookmark4.Color="sky" Duration="0.2"/>
-				            <Change filterRec4.Color="sky" Duration="0.2"/>
+				            <Change bookmark4.Color="#7F00FF" Duration="0.2"/>
+				            <Change filterRec4.Color="#7F00FF" Duration="0.2"/>
 				            <Change blueCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				        <State ux:Name="redState4">
@@ -661,10 +661,10 @@
 								<SwipeGesture ux:Name="filterSwipe41" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe4" Direction="Right"  Length="100" />
 								<Swiped Source="filterSwipe4">
-									<TransitionState Target="filterGroup2" Type="Next"/>
+									<TransitionState Target="filterGroup4" Type="Next"/>
 								</Swiped>
 								<Swiped Source="filterSwipe41">
-									<TransitionState Target="filterGroup2" Type="Next"/>
+									<TransitionState Target="filterGroup4" Type="Next"/>
 								</Swiped>
 							</StackPanel>
 						</StackPanel>
@@ -707,6 +707,110 @@
 								<Change scroll4.Margin="80" />
 							</WhileWindowLandscape>
 							<Each Items="{items.tasks}">
+								<TaskItem />
+							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />
+						</StackPanel>
+					</ScrollView>
+
+					<Rectangle Color="#fff" Layer="Background">
+						<Stroke Offset="1" Width="1" Color="#bbb" />
+					</Rectangle>
+				</Page>
+
+
+				<Page ux:Name="folder5" Padding="10,0">
+					<WhileTrue ux:Name="filterActive5">
+						<Change filterText5.Visibility.Value="Visible" />
+						<Change filterRec5.Visibility.Value="Visible" />
+						<Move Target="filterText5" X="-1" RelativeTo="ParentSize" Duration=".4" Easing="QuinticOut" />
+					</WhileTrue>
+					
+					<StateGroup ux:Name="filterGroup5">
+						<State ux:Name="blueState5">
+				            <Change bookmark5.Color="#7F00FF" Duration="0.2"/>
+				            <Change filterRec5.Color="#7F00FF" Duration="0.2"/>
+				            <Change blueCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				        </State>
+				        <State ux:Name="redState5">
+				            <Change bookmark5.Color="red" Duration="0.2"/>
+				            <Change filterRec5.Color="red" Duration="0.2"/>
+				            <Change redCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
+				        </State>
+				        <State ux:Name="greenState5">
+				        	<Change bookmark5.Color="#008C23" Duration="0.2"/>
+				            <Change filterRec5.Color="#008C23" Duration="0.2"/>
+				            <Change greenCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				        </State>
+					</StateGroup>
+
+					<Rectangle ux:Name="filterRec5" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="60,0,0,0" Visibility="Hidden" />
+
+					<DockPanel>
+						<StackLayout />
+						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe5" TransformOrigin="TopLeft" >
+							<Panel ux:Name="zagPanel5" Alignment="TopLeft" Margin="50,0,0,0" >
+								<Text ux:Name="blueCount5" Value="2" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="redCount5" Value="3" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="greenCount5" Value="5" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Image ux:Name="bookmark5" File="Assets/bookmark.png" Width="30" Color="sky"/>
+								<Clicked>
+									<Toggle Target="filterActive5" />
+								</Clicked>
+							</Panel>
+							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
+								<Text ux:Name="folderTitle5" Value="Исходящие" FontSize="20">
+								</Text>
+								<Text ux:Name="total5" Value="9 поручений" FontSize="13" Color="#666" Alignment="Center" />
+								<SwipeGesture ux:Name="filterSwipe51" Direction="Left"  Length="100" />
+								<SwipeGesture ux:Name="filterSwipe5" Direction="Right"  Length="100" />
+								<Swiped Source="filterSwipe5">
+									<TransitionState Target="filterGroup5" Type="Next"/>
+								</Swiped>
+								<Swiped Source="filterSwipe51">
+									<TransitionState Target="filterGroup5" Type="Next"/>
+								</Swiped>
+							</StackPanel>
+						</StackPanel>
+						<StackPanel ux:Name="filterText5" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Hidden">
+							<Translation X="1" RelativeTo="ParentSize" />
+							<fa-arrow-left Alignment="Left" />
+							<Text Value="Быстрый фильтр включен" FontSize="13" Alignment="Left"  />
+						</StackPanel>
+						<WhileWindowSize GreaterThan="380">
+							<Change filterRec5.Width.Value="46" />
+							<Change zagPanel5.Margin.Value="50,0,0,0" />
+							<Change bookmark5.Width.Value="45" />
+							<Change blueCount5.FontSize.Value="35" />
+							<Change redCount5.FontSize.Value="35" />
+							<Change greenCount5.FontSize.Value="35" />
+							<Change folderTitle5.FontSize.Value="30" />
+						</WhileWindowSize>
+					</DockPanel>
+
+					<ScrollView Margin="0,80,0,0">
+
+						<ScrollingAnimation From="80" To="200">
+							<Move Target="moveMe5" X="31"  Duration=".5" Easing="QuarticOut" />
+							<Scale Target="moveMe5" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
+							<Scale Target="filterRec5" X=".5" Duration=".5" Easing="QuadraticOut" />
+							<Change filterRec5.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
+							<Change filterText5.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
+							<Change total5.Visibility.Value="Hidden" />
+						</ScrollingAnimation>
+						<WhileWindowSize GreaterThan="380">
+							<ScrollingAnimation From="80" To="200">
+								<Change filterRec5.Margin.Value="50,0,0,0" Duration=".3" Easing="QuadraticOut" />
+								<Change total5.Visibility.Value="Hidden" />
+							</ScrollingAnimation>
+						</WhileWindowSize>
+
+
+						<StackPanel ux:Name="scroll5" ItemSpacing="120" Margin="3,100">
+							<WhileWindowLandscape>
+								<Change scroll5.Margin="80" />
+							</WhileWindowLandscape>
+							<Each Items="{items.tasks1}">
 								<TaskItem />
 							</Each>
 							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" />

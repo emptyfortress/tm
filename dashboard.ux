@@ -89,7 +89,7 @@
 									<unreadText Quantity="2" Text="Исходящие">
 										<Tapped>
 											<Toggle Target="dashboardUp" />
-											<!-- <NavigateTo Target="folder5" NavigationContext="_listNavigation" /> -->
+											<NavigateTo Target="folder5" NavigationContext="_listNavigation" />
 										</Tapped>
 									</unreadText>
 								</StackPanel>
@@ -103,11 +103,11 @@
 							<dashPanel>
 								<Grid ux:Name="taskGrid" ColumnCount="2" CellSpacing="10">
 									<PageControl>
+										<Tapped>
+											<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+											<Toggle Target="dashboardUp" />
+										</Tapped>
 										<pieDiagram Header="Входящие" Count="37" End="120" Color1="sky" Color2="blue" Color3="green" >
-											<Tapped>
-												<Toggle Target="dashboardUp" />
-												<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-											</Tapped>
 										</pieDiagram>
 										<StackPanel Alignment="Center">
 											<Text Value="Входящие - 37" />
@@ -118,11 +118,11 @@
 										</StackPanel>
 									</PageControl>
 									<PageControl>
+										<Tapped>
+											<NavigateTo Target="folder5" NavigationContext="_listNavigation" />
+											<Toggle Target="dashboardUp" />
+										</Tapped>
 										<pieDiagram Header="Исходящие" Count="22" End="300" Color1="sky" Color2="green" Color3="#f00" >
-											<Tapped>
-												<Toggle Target="dashboardUp" />
-												<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-											</Tapped>
 										</pieDiagram>
 										<StackPanel Alignment="Center">
 											<Text Value="Исходящие - 22" />
@@ -291,12 +291,9 @@
 								<dashPanel Width="180" Height="100">
 									<fa-folder-o Alignment="TopLeft" Color="#000" />
 									<Text Value="На синхронизацию" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
-									<Text Value="4" FontSize="30"  Alignment="BottomRight" Offset="0,7"/>
-									<Icon Alignment="BottomLeft" Offset="-10,5" >
+									<Text Value="4" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
+									<Icon Alignment="BottomRight" Offset="10" >
 										<FileImageSource File="Assets/refresh.png" ux:Key="iconFile" />
-										<WhileVisible>
-									        <Spin Frequency=".2" />
-									    </WhileVisible>
 									</Icon>
 								</dashPanel>
 							</Panel>
@@ -304,8 +301,8 @@
 								<dashPanel Width="180" Height="100">
 									<fa-folder-o Alignment="TopLeft" Color="#000" />
 									<Text Value="Черновики" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
-									<Text Value="11" FontSize="30"  Alignment="BottomRight" Offset="0,7"/>
-									<fa-pencil FontSize="22" Alignment="BottomLeft" Color="blue" />
+									<Text Value="11" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
+									<!-- <fa-pencil FontSize="22" Alignment="BottomLeft" Color="blue" /> -->
 								</dashPanel>
 							</Panel>
 						</Panel>
