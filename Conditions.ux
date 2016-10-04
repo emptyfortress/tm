@@ -61,12 +61,12 @@
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
 	</WhileTrue>
 
-	<WhileTrue ux:Name="subMenuVisible">
+	<!-- <WhileTrue ux:Name="subMenuVisible">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="pop" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
-	</WhileTrue>
+	</WhileTrue> -->
 	<WhileTrue ux:Name="viewFilterPop">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
@@ -79,11 +79,18 @@
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="sortFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
-	<WhileTrue ux:Name="viewCardButton">
+<!-- 	<WhileTrue ux:Name="viewCardButton">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="cardButton" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue> -->
+	<WhileTrue Value="{viewComplete}">
+		<Change overlayRec.Opacity=".5" Duration=".5" />
+		<Change overlayRec.Visibility="Visible" />
+		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Change plusIcon.Visibility="Hidden" Duration=".2" />
+		<Move Target="cardButton1" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 	<WhileTrue Value="{showLetter}">
 		<Change plusIcon.Visibility.Value="Collapsed" />

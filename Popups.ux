@@ -1,8 +1,4 @@
 <Panel>
-	<Panel ux:Name="pop" Layer="Overlay" Width="300" Height="300" Color="#fff">
-		<Translation Y="-1" RelativeTo="ParentSize" />
-		<Text Value="Здесь кнопки действий над карточкой" TextWrapping="Wrap" Alignment="Center" />
-	</Panel>
 	<Panel ux:Name="popFilter" Layer="Overlay" Width="300" Height="300" Color="#fff">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Text Value="Здесь разнообразные фильтры" TextWrapping="Wrap" Alignment="Center" />
@@ -11,13 +7,25 @@
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
-	<Panel ux:Name="cardButton" Layer="Overlay" Width="400" Height="400" Color="#fff">
+	<Panel ux:Name="cardButton1" Layer="Overlay" Alignment="Center">
 		<Translation Y="-1.5" RelativeTo="ParentSize" />
-		<Image File="Assets/task-buttons.png" Alignment="Center"/>
-		<Tapped>
-			<Toggle Target="viewCardButton" />
-		</Tapped>
+		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" Clicked="{completeOff}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+		<Panel ux:Class="cardBt" Padding="15">
+			<string ux:Property="Value" />
+			<Text Value="{Property Value}" FontSize="18" Alignment="Center" Color="blue" />
+			<Rectangle Layer="Background" Color="#fff" />
+		</Panel>
+		<StackPanel ItemSpacing="3">
+			<cardBt Value="Согласовать" Clicked="{completeOff}" />
+			<cardBt Value="Согласовать c замечаниями" />
+			<cardBt Value="Делегировать" Clicked="{completeOff}" />
+			<cardBt Value="Отклонить" Clicked="{completeOff}" />
+		</StackPanel>
 	</Panel>
+
 	<Panel ux:Name="tools" Layer="Overlay" Height="50" Alignment="Bottom">
 		<Translation Y="1" RelativeTo="Size" />
 		<Circle Width="100" Height="100" Color="#000" Alignment="BottomLeft" Offset="-50,50">
@@ -223,14 +231,8 @@
 					</Panel>
 				</Grid>
 				<Text Value="Закрыть" FontSize="20" Color="#ccc" Alignment="HorizontalCenter" Margin="0,50" Clicked="{toggleList}" />
-				
-
-
 			</StackPanel>
 		</ScrollView>
-
-
-
 	</Panel>
 	
 	<Panel ux:Name="MainUserPreview" Layer="Overlay" Alignment="Center" Color="#fff">

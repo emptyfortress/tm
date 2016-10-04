@@ -95,7 +95,6 @@
 					<Toggle Target="preview" />
 				</Tapped>
 				<Image File="Assets/task-small.png" Color="blue" />
-				<!-- <fa-check Alignment="CenterLeft" Color="blue" FontSize="16" /> -->
 				<Text Value="{type}" Color="blue" />
 				<Image File="Assets/clock.png" Alignment="CenterLeft" Width="18" Color="red" Margin="20,0,0,0" Visibility="{clock}" />
 			</StackPanel>

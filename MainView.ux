@@ -59,6 +59,9 @@
 			var showReport = Observable(false);
 			var showList = Observable(false);
 			var showMainUser = Observable(false);
+			var userMain = Observable(false);
+			var viewComplete = Observable(false);
+
 			function toggleLetter(){
 				showLetter.value = !showLetter.value;
 			}
@@ -83,18 +86,23 @@
 			function toggleMainUser(){
 				showMainUser.value = !showMainUser.value;
 			}
-			 var userMain = Observable(false);
-			
-			function setMain() {
+			function setMain(){
 				userMain.value = true;
 				showMainUser.value = false;
 			}
-			function resetMain() {
+			function resetMain(){
 				userMain.value = false;
 				showMainUser.value = false;
 			}
+			function toggleComplete(){
+				viewComplete.value = !viewComplete.value;
+			}
+			function completeOff(){
+				viewComplete.value = false;
+			}
 
 			module.exports = {
+				viewComplete: viewComplete,
 				resetMain: resetMain,
 				userMain: userMain,
 				setMain: setMain,
@@ -113,7 +121,9 @@
 				showList: showList,
 				toggleList: toggleList,
 				showMainUser: showMainUser,
-				toggleMainUser: toggleMainUser
+				toggleMainUser: toggleMainUser,
+				toggleComplete: toggleComplete,
+				completeOff: completeOff
 			}
 		</JavaScript>
 
@@ -128,10 +138,9 @@
 		
 		<Panel ux:Name="overlayRec" Color="#000" Opacity="0" HitTestMode="None">
 			<Clicked>
-				<Set subMenuVisible.Value="false" /> 
 				<Set viewFilterPop.Value="false" /> 
-				<Set viewSortPop.Value="false" /> 
-				<Set viewCardButton.Value="false" /> 
+				<Set viewSortPop.Value="false" />
+				<Callback Handler="{completeOff}" /> 
 			</Clicked>
 		</Panel>
 
@@ -340,29 +349,20 @@
 		<Panel ux:Name="mainApp" >
 			<DockPanel ux:Name="TheViewer" Visibility="Collapsed" HitTestMode="LocalBoundsAndChildren">
 				<DoubleTapped>
-					<Set viewCardButton.Value="true" />
+					<Callback Handler="{toggleComplete}" />
 				</DoubleTapped>
-				<SolidColor Color="sky" ux:Name="BlockColor"/>
-				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="sky" />
+				<SolidColor Color="green" ux:Name="BlockColor"/>
+				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="green" />
 
 				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0" HitTestMode="LocalBoundsAndChildren">
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
-					<Text Value="Мои документы" Color="#fff" Alignment="CenterLeft" FontSize="16" />
+					<Text Value="Входящие" Color="#fff" Alignment="CenterLeft" FontSize="20" />
 					<Tapped>
         				<Toggle Target="ViewerHidden" />
 	        		</Tapped>
 				</StackPanel>
 				<PageControl ux:Name="TheViewerCard" ClipToBounds="false">
 					<NavigationMotion Overflow="Elastic"/>
-					<Each Items="{items.cards}" >
-						<Page>
-							<WhileActive Threshold=".5">
-								<Set BlockColorAttractor.Value="sky" />
-								<Set BlockColor.Color="sky" />
-							</WhileActive>
-							<DocCard  />
-						</Page>
-					</Each>
 					<Each Items="{items.cards1}" >
 						<Page>
 							<WhileActive Threshold=".5">
@@ -370,6 +370,15 @@
 								<Set BlockColor.Color="green" />
 							</WhileActive>
 							<TaskCard />
+						</Page>
+					</Each>
+					<Each Items="{items.cards}" >
+						<Page>
+							<WhileActive Threshold=".5">
+								<Set BlockColorAttractor.Value="sky" />
+								<Set BlockColor.Color="sky" />
+							</WhileActive>
+							<DocCard  />
 						</Page>
 					</Each>
 				</PageControl>

@@ -42,21 +42,21 @@
 				<Set bgRec.Color="#D5EAA8" />
 				<Toggle Target="detailsVisible" />
 			</Clicked>
-			<Stroke Width="1" Color="#ccc" />
+			<Stroke Width="1" Color="#fff" />
 		</Rectangle>
 		<Rectangle Width="40" Height="40" Color="#FFDC73">
 			<Clicked>
 				<Set bgRec.Color="#FFDC73" />
 				<Toggle Target="detailsVisible" />
 			</Clicked>
-			<Stroke Width="1" Color="#ccc" />
+			<Stroke Width="1" Color="#fff" />
 		</Rectangle>
 		<Rectangle Width="40" Height="40" Color="#FF9999">
 			<Clicked>
 				<Set bgRec.Color="#FF9999" />
 				<Toggle Target="detailsVisible" />
 			</Clicked>
-			<Stroke Width="1" Color="#ccc" />
+			<Stroke Width="1" Color="#fff" />
 		</Rectangle>
 		<Text Value="Снять метку" FontSize="15" Alignment="CenterLeft" Color="blue">
 			<Clicked>

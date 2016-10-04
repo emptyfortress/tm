@@ -43,8 +43,8 @@
 			<Move Target="sign" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut" />
 		</WhileTrue>
 		
-		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
-			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2">
+		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay" Clicked="{toggleComplete}">
+			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2" >
 				<Rotation Degrees="-7" />
 				<Translation Y="-10" />
 				<Text Value="{status}" FontSize="15" Font="Light" Color="#FF00FF" Alignment="Center"  />
@@ -114,11 +114,15 @@
 						</Grid>
 					</Panel>
 				</StackPanel>
-
+				
+				<StackPanel ux:Name="listPanel" Orientation="Horizontal" Clicked="{toggleList}" Visibility="{list}">
+					<Image File="Assets/list.png" Color="#008C23" Width="25" Alignment="CenterLeft" />
+					<Text Value="Лист согласования" Color="#008C23" Font="Light" Alignment="CenterLeft" />
+				</StackPanel>
 
 				<Grid ux:Name="attributes" Columns="auto,auto" Margin="10,15,0,0">
 					<tabtext Value="Автор:" Alignment="Right" />
-					<tabtext Value="Орлов П.С." />
+					<tabtext Value="{from}" />
 					<tabtext Value="Исполнители:" Alignment="Right" />
 					<tabtext Value="{to}" />
 					<tabtext Value="Cрок исполнения:" Alignment="Right" Color="{red}" />
@@ -198,7 +202,7 @@
 							<Rectangle ux:Name="firstFile" Color="#fff" Height="0" />
 							<Grid Columns="auto,1*" CellSpacing="5" Margin="0,0,0,15" Clicked="{toggleCard}">
 								<Image File="Assets/card.png" Color="#000" Width="40" />
-								<Text Value="Это название карточки документа" Alignment="CenterLeft" />
+								<Text Value="{cardTitle}" Alignment="CenterLeft" />
 							</Grid>
 							<Each Items="{filename}" >
 								<file />
