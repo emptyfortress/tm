@@ -16,7 +16,7 @@
 				<NavigateTo Target="decisions" NavigationContext="cardBtNav" />
 			</Clicked>
 		</Circle>
-		<Panel ux:Class="cardBt" Padding="17">
+		<Panel ux:Class="cardBt" Padding="16">
 			<string ux:Property="Value" />
 			<Text Value="{Property Value}" FontSize="18" Alignment="Center" Color="blue" />
 			<Rectangle Layer="Background" Color="#fff" />
