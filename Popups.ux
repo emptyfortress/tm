@@ -12,18 +12,48 @@
 		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" Clicked="{completeOff}">
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+			<Clicked>
+				<NavigateTo Target="decisions" NavigationContext="cardBtNav" />
+			</Clicked>
 		</Circle>
-		<Panel ux:Class="cardBt" Padding="15">
+		<Panel ux:Class="cardBt" Padding="17">
 			<string ux:Property="Value" />
 			<Text Value="{Property Value}" FontSize="18" Alignment="Center" Color="blue" />
 			<Rectangle Layer="Background" Color="#fff" />
 		</Panel>
-		<StackPanel ItemSpacing="3">
-			<cardBt Value="Согласовать" Clicked="{completeOff}" />
-			<cardBt Value="Согласовать c замечаниями" />
-			<cardBt Value="Делегировать" Clicked="{completeOff}" />
-			<cardBt Value="Отклонить" Clicked="{completeOff}" />
-		</StackPanel>
+		<PageControl ux:Name="cardBtNav" Interaction="None">
+			<StackPanel ux:Name="decisions" ItemSpacing="3">
+				<cardBt Value="Согласовать" Clicked="{completeOff}" />
+				<cardBt Value="Согласовать c замечаниями">
+					<Clicked>
+						<NavigateTo Target="commentForm" NavigationContext="cardBtNav" />
+					</Clicked>
+				</cardBt>
+				<cardBt Value="Делегировать" Clicked="{completeOff}" />
+				<cardBt Value="Отклонить" Clicked="{completeOff}" />
+			</StackPanel>
+			<Panel ux:Name="commentForm" Color="#fff" Padding="20">
+				<StackLayout />
+				<Text Value="Согласовать с замечаниями" Alignment="TopCenter" FontSize="20" />
+				<TextView Padding="10" FontSize="18" PlaceholderText="Ваши замечания..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" MinHeight="100" Margin="0,10,0,25">
+					<Rectangle Layer="Background">
+						<Stroke Width="1" Color="#ccc" />
+					</Rectangle>
+				</TextView>
+				<StackPanel Orientation="Horizontal" ItemSpacing="20" Alignment="Center">
+					<Text Value="Отмена" Color="#ccc" FontSize="20" Clicked="{completeOff1}">
+						<Clicked>
+							<NavigateTo Target="decisions" NavigationContext="cardBtNav"/>
+						</Clicked>
+					</Text>
+					<Text Value="Cохранить" Color="#ccc" FontSize="20" Clicked="{completeOff}">
+						<Clicked>
+							<NavigateTo Target="decisions" NavigationContext="cardBtNav"/>
+						</Clicked>
+					</Text>
+				</StackPanel>
+			</Panel>
+		</PageControl>
 	</Panel>
 
 	<Panel ux:Name="tools" Layer="Overlay" Height="50" Alignment="Bottom">
@@ -123,13 +153,13 @@
 						<gridtext Value="1" />
 					</Panel>
 					<Panel Color="#D5EAA8" Padding="5,10">
-					<gridtext Value="Орлов Г.С." />
+						<gridtext Value="Орлов Г.С." />
 					</Panel>
 					<Panel Color="#D5EAA8" Padding="5,10">
-					<gridtext Value="12.09.16" />
+						<gridtext Value="12.09.16" />
 					</Panel>
 					<Panel Color="#D5EAA8" Padding="5,10">
-					<gridtext Value="Согласовано с замечаниями"  />
+						<gridtext Value="Согласовано с замечаниями"  />
 					</Panel>
 				</Grid>
 							
