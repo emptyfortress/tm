@@ -326,25 +326,6 @@
 								<WrapLayout Orientation="Horizontal"/>
 								<Selection Values="{values}"/>
 								
-								<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
-								    <string ux:Property="Label"/>
-								    <Selectable Value="{Property this.Label}"/>
-
-								    <Image File="Assets/user-icon.png" Alignment="TopCenter" />
-    								<Text ux:Name="fio" Value="{Property this.Label}" FontSize="12" Alignment="BottomCenter" Color="#fff" />
-								    <WhileSelected>
-								        <Change this.Color="#0f0"/>
-								        <Change fio.Color="#000"/>
-								    </WhileSelected>
-								    <Tapped>
-								        <ToggleSelection />
-								    </Tapped>
-								    <LongPressed>
-								    	<Callback Handler="{toggleMainUser}"/>
-								    </LongPressed>
-								    
-								</Panel>
-								
 								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{reset}">
 									<Image File="Assets/back.png" Width="50" Alignment="Top" />
 									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
