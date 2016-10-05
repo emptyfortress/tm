@@ -239,14 +239,33 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="commentTab" />
 				</WhileActive>
-				<StackPanel>
-					<Text Value="КОММЕНТАРИИ" FontSize="18" Alignment="TopRight" />
+					<Panel ux:Class="comment">
+						<Grid Columns="auto, 1*" Alignment="Top">
+							<Circle Width="37" Height="37" Color="#fff" Alignment="Top" Margin="10,0" >
+								<Stroke Width="1" Color="#ccc" />
+								<ImageFill File="Assets/user.png" />
+							</Circle>
+							<StackPanel ItemSpacing="5">
+								<StackPanel Orientation="Horizontal" ItemSpacing="20">
+									<Text Value="Орлов П.К." FontSize="13" Alignment="Left" />
+									<Text Value="23 августа 2016  15:10" FontSize="13" Font="Light" Alignment="Left" />
+								</StackPanel>
+								<Text Value="Маховик устойчив. Точность курса, несмотря на некоторую погрешность, перманентно трансформирует устойчивый ньютонометр. " Alignment="Left" Font="Light" TextWrapping="Wrap" />
+							</StackPanel>
+						</Grid>
+					</Panel>
+
 					<ScrollView>
-						<StackPanel>
-							
+						<StackPanel ItemSpacing="20">
+							<Text Value="КОММЕНТАРИИ" FontSize="18" Alignment="TopRight"  />
+							<Each Count="15">
+								<comment />
+							</Each>
 						</StackPanel>
+						<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
+							<Set fileState.Active="fileFull"   />
+						</ScrollingAnimation>
 					</ScrollView>
-				</StackPanel>
 			</Page>
 
 		</PageControl>
