@@ -224,17 +224,11 @@
 					<Set tabBar1.LayoutElement="taskTab" />
 				</WhileActive>
 				<ScrollView ux:Name="taskScroll" >
-					<StackPanel>
+					<StackPanel ItemSpacing="5">
 						<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
-						<StackPanel ItemSpacing="10">
-							<Each Count="10">
-								<Panel>
-									<Rectangle Layer="Background" Color="#eee" Margin="0,5" Opacity="1" >
-										<Stroke Width="1" Color="#ddd" />
-									</Rectangle>
-								</Panel>
+							<Each Items="{items.cards1}" >
+								<treeTask />
 							</Each>
-						</StackPanel>
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 						<Set fileState.Active="fileFull"   />

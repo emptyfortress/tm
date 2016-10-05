@@ -14,7 +14,7 @@
 		<Change overRec.Opacity=".3" Duration=".5" />
 		<Change overRec.Visibility="Visible" />
 		<Change plusIcon.HitTestMode="None" />
-		<Rotate Target="plusPlus" Degrees="-135" Duration=".3" />
+		<!-- <Rotate Target="plusPlus" Degrees="-135" Duration=".3" /> -->
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="addPageActive" >
@@ -71,7 +71,7 @@
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="popFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+		<!-- <Move Target="popFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" /> -->
 	</WhileTrue>
 	<WhileTrue ux:Name="viewSortPop">
 		<Change overlayRec.Opacity=".5" Duration=".5" />

@@ -1,26 +1,56 @@
 <Panel>
-	<Panel ux:Name="popFilter" Layer="Overlay" Width="300" Height="300" Color="#fff">
-		<Translation Y="1" RelativeTo="ParentSize" />
-		<Text Value="Здесь разнообразные фильтры" TextWrapping="Wrap" Alignment="Center" />
+	<Panel ux:Class="cardBt" Padding="16">
+		<string ux:Property="Value" />
+		<Text Value="{Property Value}" FontSize="18" Alignment="Center" Color="blue" />
+		<Rectangle Layer="Background" Color="#fff" />
 	</Panel>
+	
+	<Panel ux:Name="readPanel" Alignment="Center"  Width="300" Height="300" >
+		<Translation Y="-1.2" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+			<Clicked>
+				<Toggle Target="iconsVisible" />
+				<Set iconPages.Active="readAll" />
+			</Clicked>
+		</Circle>
+		<PageControl ux:Name="iconPages" Active="readAll">
+			<Panel ux:Name="sort" Color="#fff" Width="300" Height="300" >
+				<Text Value="Здесь сортировка списков" Alignment="Center" TextWrapping="Wrap" />
+			</Panel>
+			<StackPanel ItemSpacing="3" ux:Name="readAll">
+				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="15,0,0,0">
+					<fa-envelope-o Alignment="CenterLeft" />
+					<cardBt Value="Прочитать все" Alignment="CenterLeft" />
+				</StackPanel>
+				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="15,0,0,0">
+					<fa-bell-o Alignment="CenterLeft" />
+					<cardBt Value="Сбросить уведомления" Alignment="CenterLeft" />
+				</StackPanel>
+				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="15,0,0,0">
+					<fa-eye Alignment="CenterLeft" />
+					<cardBt Value="Показать все" Alignment="CenterLeft" />
+				</StackPanel>
+			</StackPanel>
+			<Panel ux:Name="filters" Color="#fff" Width="300" Height="300" >
+				<Text Value="Здесь настройки фильтрации списков" Alignment="Center" TextWrapping="Wrap" />
+			</Panel>
+		</PageControl>
+	</Panel>
+
 	<Panel ux:Name="sortFilter" Layer="Overlay" Width="300" Height="300" Color="#fff">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
+
 	<Panel ux:Name="cardButton1" Layer="Overlay" Alignment="Center">
 		<Translation Y="-1.5" RelativeTo="ParentSize" />
 		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" Clicked="{completeOff}">
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
-			<Clicked>
-				<NavigateTo Target="decisions" NavigationContext="cardBtNav" />
-			</Clicked>
 		</Circle>
-		<Panel ux:Class="cardBt" Padding="16">
-			<string ux:Property="Value" />
-			<Text Value="{Property Value}" FontSize="18" Alignment="Center" Color="blue" />
-			<Rectangle Layer="Background" Color="#fff" />
-		</Panel>
+		
 		<PageControl ux:Name="cardBtNav" Interaction="None">
 			<StackPanel ux:Name="decisions" ItemSpacing="3">
 				<cardBt Value="Согласовать" Clicked="{completeOff}" />

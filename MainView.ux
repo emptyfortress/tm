@@ -30,6 +30,7 @@
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
 		<BottomBarBackground Dock="Bottom"/>
+		<!-- <Rectangle ux:Name="loader" Height="5" Color="#0f0" Dock="Top" /> -->
 		<ux:Include File="Conditions.ux" />
 		<LinearGradient StartPoint="1,1" EndPoint="0,0">
 	        <GradientStop Offset="1" Color="#6BAAD3" />

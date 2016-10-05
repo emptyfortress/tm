@@ -1,27 +1,6 @@
 <Panel ux:Name="iconsPanel" Visibility="Collapsed">
 	
-	<Rectangle ux:Name="readPanel" Color="#fff" Alignment="Center">
-		<Translation Y="-1.2" RelativeTo="ParentSize" />
-		<StackPanel>
-			<StackPanel ItemSpacing="15" Margin="20" Orientation="Horizontal">
-				<fa-envelope-o Alignment="Left" />
-				<Text Value="Прочитать все" TextAlignment="Left" TextWrapping="Wrap" />
-			</StackPanel>
-			<Rectangle Height="1" Color="#bbb" />
-			<StackPanel ItemSpacing="15" Alignment="Left" Margin="20" Orientation="Horizontal">
-				<fa-bell-o Alignment="Left" />
-				<Text Value="Сбросить уведомления" TextAlignment="Left" TextWrapping="Wrap" />
-			</StackPanel>
-			<Rectangle Height="1" Color="#bbb" />
-			<StackPanel ItemSpacing="15" Alignment="Left" Margin="20" Orientation="Horizontal">
-				<fa-eye Alignment="Left" />
-				<Text Value="Показать все" TextAlignment="Left" TextWrapping="Wrap" />
-			</StackPanel>
-		</StackPanel>
-		<Tapped>
-			<Toggle Target="iconsVisible" />
-		</Tapped>
-	</Rectangle>
+	
 	
 
 
@@ -35,11 +14,9 @@
 			<DropShadow Angle="225" />
 		</Circle>
 		<Tapped>
-			<Toggle Target="iconsVisible" />
-			<Toggle Target="viewFilterPop" />
+			<NavigateTo Target="filters" NavigationContext="iconPages" />
 		</Tapped>
 	</Panel>
-
 	<Panel ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
 		<fa-search Color="#000" FontSize="25" Alignment="Center">
 			<Translation XY="-7,-6" RelativeTo="Size" />
@@ -58,8 +35,7 @@
 			<DropShadow  Angle="45" />
 		</Circle>
 		<Tapped>
-			<Toggle Target="iconsVisible" />
-			<Toggle Target="viewSortPop" />
+			<NavigateTo Target="sort" NavigationContext="iconPages" />
 		</Tapped>
 	</Panel>
 	<Rectangle ux:Name="overRec" Color="#000" Opacity="0" Visibility="Hidden" >
