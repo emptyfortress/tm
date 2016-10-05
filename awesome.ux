@@ -13,6 +13,7 @@
   <Text ux:Class="fa_chevron_down" Font="fa">&#xf078;</Text>
   <Text ux:Class="fa_clipboard" Font="fa">&#xf0ea;</Text>
   <Text ux:Class="fa_cog" Font="fa">&#xf013;</Text>
+  <Text ux:Class="fa_comment_o" Font="fa">&#xf0e5;</Text>
   <Text ux:Class="fa_diamond" Font="fa">&#xf219;</Text>
   <Text ux:Class="fa_envelope_o" Font="fa">&#xf003;</Text>
   <Text ux:Class="fa_exclamation_triangle" Font="fa">&#xf071;</Text>
