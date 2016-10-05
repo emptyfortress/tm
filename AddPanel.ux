@@ -85,7 +85,7 @@
 				                <Resize Vector="1" RelativeTo="SizeChange" Duration="0.3"/>
 				            </LayoutAnimation>
 						</Text>
-						<Label ux:Name="typeCard" Value="Связанное поручение" Margin="10,0,0,0" Visibility="Collapsed" />
+						<Label ux:Name="typeCard" Value="Дочернее поручение" Margin="10,0,0,0" Visibility="Collapsed" />
 						<Label ux:Name="taskType1" Value="На исполнение" Margin="10,0,0,0" Visibility="Collapsed" />
 						<Label ux:Name="taskType" Value="{type}" Margin="10,0,0,0" />
 							

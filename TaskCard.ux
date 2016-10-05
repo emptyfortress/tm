@@ -239,12 +239,14 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="commentTab" />
 				</WhileActive>
-				<ScrollView>
-					<StackPanel>
-						<Text Value="КОММЕНТАРИИ" FontSize="18" Alignment="TopRight" />
-						<StackPanel></StackPanel>
-					</StackPanel>
-				</ScrollView>
+				<StackPanel>
+					<Text Value="КОММЕНТАРИИ" FontSize="18" Alignment="TopRight" />
+					<ScrollView>
+						<StackPanel>
+							
+						</StackPanel>
+					</ScrollView>
+				</StackPanel>
 			</Page>
 
 		</PageControl>
