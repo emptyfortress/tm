@@ -19,11 +19,11 @@
 			<Change Helper.Opacity="1" Duration=".5" Delay=".5" />
 		</WhileVisible>
 		<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="#000" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-25">
-				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-				<Tapped>
-					<Set fileState.Active="fileShort" />
-				</Tapped>
-			</Circle>
+			<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+			<Tapped>
+				<Set fileState.Active="fileShort" />
+			</Tapped>
+		</Circle>
 		<StateGroup ux:Name="fileState" Active="fileShort">
 			<State ux:Name="fileFull">
 				<Change down.Opacity.Value="1" Duration=".5"  Easing="CircularInOut" />

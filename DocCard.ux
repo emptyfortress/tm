@@ -1,6 +1,4 @@
 <Panel ux:Class="DocCard">
-	<!-- <ux:Include File="file2.ux" /> -->
-	<!-- <ux:Include File="file1.ux" /> -->
 	<WhileActive>
 		<Pulse Target="showCount"/>
 	</WhileActive> 
@@ -20,39 +18,44 @@
 			<Change cardHelper.Visibility="Visible" Delay=".5" />
 			<Change cardHelper.Opacity="1" Duration=".5" Delay=".5" />
 		</WhileVisible>
-
+		<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="#000" Alignment="TopCenter" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-25">
+			<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
+			<Tapped>
+				<Set fileState.Active="fileShort" />
+			</Tapped>
+		</Circle>
 		<StateGroup ux:Name="fileState" Active="fileShort">
 			<State ux:Name="fileFull">
+				<Change down.Opacity.Value="1" Duration=".5"  Easing="CircularInOut" />
 				<Change infoCard.Height="8%" Duration=".6" Easing="QuarticInOut" />
 				<BringIntoView TargetNode="firstFile" />
-				<Change type.Opacity.Value="0" Duration=".3" Easing="CubicOut" />
+				<Change number.Visibility.Value="Collapsed" />
 				<Change refresh.Visibility.Value="Collapsed" />
 				<Change refresh1.Visibility.Value="Collapsed" />
-				<Change description.Visibility.Value="Hidden" />
-				<Change attributes.Visibility.Value="Hidden" />
-				<Change number.Visibility.Value="Collapsed" />
+				<Change listPanel.Visibility.Value="Collapsed" />
+				<Change statusMessage.Visibility.Value="Collapsed" />
+				<Change description.Visibility.Value="Collapsed" />
+				<Change attributes.Visibility.Value="Collapsed" />
 				<Change mainTitle.FontSize="20" Duration=".3" Easing="CubicOut" />
-				<Move Target="mainTitle" Y="-20" Duration=".5" Delay=".3" Easing="CubicOut" />
-				<Change down.Opacity.Value="1" Duration=".5"  Easing="CircularInOut" />
+				<Move Target="mainTitle" Y="-15" Duration=".5" Delay=".3" Easing="CubicOut" />
 			</State>
 			<State ux:Name="fileShort">
 				<Change infoCard.Height="60%" Duration=".5" Easing="QuarticInOut" />
 			</State>
 		</StateGroup>
+
 		<WhileTrue ux:Name="viewSign">
 			<Change sign.Height="30" Duration=".2" Easing="CircularOut" />
 			<Change sign.Opacity="1" Duration=".2" Easing="CircularOut" />
 			<Move Target="sign" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut" />
 		</WhileTrue>
 		
-		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay">
-			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2">
+		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay" Clicked="{toggleComplete}">
+			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2" >
 				<Rotation Degrees="-7" />
 				<Translation Y="-10" />
-				<!-- <Text Value="{status}" FontSize="15" Font="Light" Color="#7F00FF" Alignment="Center"  /> -->
-				<Text Value="{status}" FontSize="15" Font="Light" Color="##FF00FF" Alignment="Center"  />
-				<!-- <Stroke Width="1" Color="#7F00FF" /> -->
-				<Stroke Width="1" Color="##FF00FF" />
+				<Text Value="{status}" FontSize="15" Font="Light" Color="#FF00FF" Alignment="Center"  />
+				<Stroke Width="1" Color="#FF00FF" />
 			</Rectangle>
 			<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
@@ -151,12 +154,11 @@
 		
 		
 		<StackPanel Dock="Top">
-			<Rectangle Height="1" Color="{key}"  />
 			<MultiLayoutPanel Height="40" ux:Name="tabBar1" >
 				<GridLayout ColumnCount="2" Rows="1*"/>
 				<Panel ux:Name="fileTab" HitTestMode="LocalBoundsAndChildren">
 						<Placeholder>
-							<Rectangle ux:Name="indicator1" Alignment="Top" Height="5" Color="{key}" >
+							<Rectangle ux:Name="indicator1" Alignment="Bottom" Height="5" Color="{key}" >
 								<LayoutAnimation>
 									<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 								</LayoutAnimation>
@@ -179,15 +181,12 @@
 					</Clicked>
 				</Panel>
 			</MultiLayoutPanel>
+			<Rectangle Layer="Background" Color="#fff">
+				<Shadow Angle="90" Size="5"   />
+			</Rectangle>
 		</StackPanel>
 		<PageControl ux:Name="cardHelper" Padding="10" Visibility="Hidden">
 			<NavigationMotion Overflow="Elastic"/>
-			<Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomLeft" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
-				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-				<Tapped>
-					<Set fileState.Active="fileShort" />
-				</Tapped>
-			</Circle>
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="fileTab" />
@@ -195,7 +194,7 @@
 				
 				<ScrollView ux:Name="fileScroll">
 					<StackPanel>
-						<Text Value="ВЛОЖЕНИЯ" FontSize="18" Alignment="TopCenter" />
+						<Text Value="ВЛОЖЕНИЯ" FontSize="18" Alignment="TopLeft" />
 						
 						<Panel>
 							<ColumnLayout ux:Name="fileColumns" ColumnCount="1" ItemSpacing="10" ColumnSpacing="10" />
@@ -215,12 +214,8 @@
 							</WhileWindowPortrait>
 							<Each Items="{additional}">
 								<fileSmall />
-								<!-- <file1 /> -->
 							</Each>
 						</Panel>
-						<Rectangle Color="{key}" Padding="20,10" Alignment="HorizontalCenter" Margin="0,40">
-							<Text Value="Добавить файл" Color="#fff" Alignment="Center"/>
-						</Rectangle>
 						<Rectangle Height="50" Color="#fff" />
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
@@ -234,7 +229,7 @@
 				</WhileActive>
 				<ScrollView ux:Name="taskScroll" >
 					<StackPanel ItemSpacing="10">
-						<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
+						<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopRight" />
 						<Each Items="{items.cards1}">
 							<treeTask />
 						</Each>

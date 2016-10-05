@@ -354,7 +354,7 @@
 				<SolidColor Color="green" ux:Name="BlockColor"/>
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="green" />
 
-				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0" HitTestMode="LocalBoundsAndChildren">
+				<StackPanel Dock="Top" Orientation="Horizontal" ItemSpacing="5" Margin="60,15,0,0" HitTestMode="LocalBoundsAndChildren" Alignment="Left">
 					<Image File="Assets/backk.png" Color="#fff" Height="21" Alignment="CenterLeft" />
 					<Text Value="Входящие" Color="#fff" Alignment="CenterLeft" FontSize="20" />
 					<Tapped>
