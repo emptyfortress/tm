@@ -1,4 +1,4 @@
-<StackPanel ux:InnerClass="file2">
+<StackPanel ux:Class="file2">
 	<WhileFalse ux:Name="detailsVisible">
 		<Change detailPanel.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
