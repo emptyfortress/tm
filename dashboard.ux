@@ -217,12 +217,12 @@
 							</Panel>
 							<Panel  Margin="0,20,0,0">
 								<StackLayout Orientation="Vertical"/>
-								<dashHeader Value="Нагрузка в команде" />
+								<dashHeader Value="Моя команда" />
 								<StackPanel>
 									<userName User="Орлов П.С." Tasks="5" Load="35%" />
 									<userName User="Воробьев У.С." Tasks="5" Load="35%" />
 									<userName User="Воронова Г.Т." Tasks="3" Load="20%" />
-									<userName User="Снегирев Ф.А." Tasks="8" Load="82%" />
+									<userName User="Снегирев Ф.А." Tasks="8" Load="82%" Suck="33%" />
 									<userName User="Гусев Л.С." Tasks="12" Load="100%" />
 								</StackPanel>
 							</Panel>

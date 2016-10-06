@@ -161,14 +161,4 @@
 		<Pulse Target="showLoader" />
 		<Callback Handler="{loader}" />
 	</WhileTrue>
-	
-	<!-- <Timeline ux:Name="timeline">
-        <Change Target="rect.Width">
-            <Keyframe Value="10" Time="0.3"/>
-            <Keyframe Value="100" Time="0.6"/>
-        </Change>
-        <Change color.Color="#0f0" Duration="0.3" Delay="0.3"/>
-    </Timeline> -->
-
-
 </Panel>
