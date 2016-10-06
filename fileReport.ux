@@ -1,0 +1,10 @@
+<StackPanel ux:Class="fileReport" Color="#fff" Padding="5" Clicked="{toggleLetter}">
+	<Grid  Columns="30,auto, 1*">
+		<Text Value="1" FontSize="13"  Alignment="Center" />
+		<Panel Height="35">
+			<Image Source="pdf"  />
+		</Panel>
+		<Text Value="Отчетный доклад.pdf" Alignment="CenterLeft" Margin="10,0" TextTruncation="Standard" Color="blue"/>
+	</Grid>
+</StackPanel>
+

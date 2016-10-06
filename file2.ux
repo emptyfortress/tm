@@ -2,6 +2,7 @@
 	<WhileFalse ux:Name="detailsVisible">
 		<Change detailPanel.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change detailPanel.Visibility="Collapsed" />
 		<Rotate Target="chevron" Degrees="-180" Duration=".25" Easing="CircularInOut" />
 	</WhileFalse>
 

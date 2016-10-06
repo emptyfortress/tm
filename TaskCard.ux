@@ -89,7 +89,7 @@
 						<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 					</Icon>
 				</StackPanel>
-				<Rectangle ux:Name="reportBt" Color="#D5EAA8" Alignment="Center" CornerRadius="30" Visibility="{report}" Clicked="{toggleReport}">
+				<Rectangle ux:Name="reportBt" Color="#D5EAA8" Alignment="Center" CornerRadius="30" Visibility="{report}" Clicked="{toggleReport}" Offset="0,-5">
 					<Text Value="Отчет исполнителя" Color="#00661A" Alignment="Center" Margin="20,5" />
 					<Stroke Width="1" Color="#00661A" />
 				</Rectangle>
@@ -169,14 +169,6 @@
 
 		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden">
 			<NavigationMotion Overflow="Elastic"/>
-			<!-- <Circle ux:Name="down" Width="35" Height="35" Layer="Overlay" Color="{key}" Alignment="BottomLeft" HitTestMode="LocalBoundsAndChildren" Opacity="0" Offset="0,-8">
-				<fa-chevron-down FontSize="23" Color="#fff" Alignment="Center" />
-				<Tapped>
-					<Set fileState.Active="fileShort" />
-				</Tapped>
-			</Circle> -->
-
-
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="fileTab" />
@@ -201,8 +193,9 @@
 	 						</Each>
 	 						<Rectangle Width="1" Color="#000" Layer="Background" Alignment="Left" Margin="20,37,0,42"  />
 						</Panel>
-						
+
 						<file3 />
+							
 
 						<Text Value="ДОПОЛНИТЕЛЬНО" FontSize="18" Margin="0,40,0,20" Alignment="Center" Visibility="{add-zag}"  />
 						<Panel>

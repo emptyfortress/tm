@@ -5,6 +5,8 @@
 		<Change detailPanel.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change mark.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change mark.Opacity.Value="0" Duration="0.4" Easing="CircularInOut"/>
+		<Change mark.Visibility="Collapsed" />
+		<Change detailPanel.Visibility="Collapsed" />
 	</WhileFalse>
 
 	<Grid  Columns="30,auto, 1*,auto">

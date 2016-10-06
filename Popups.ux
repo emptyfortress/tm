@@ -36,7 +36,6 @@
 					<fa-refresh Alignment="CenterLeft" />
 					<cardBt Value="Синхронизировать папку" Alignment="CenterLeft" />
 					<Clicked>
-						<!-- <Callback Handler="" /> -->
 						<Toggle Target="iconsVisible" />
 						<Pulse Target="showLoader" Delay=".3" />
 					</Clicked>
@@ -130,25 +129,6 @@
 		</Circle>
 	</Panel>
 	
-	<Panel ux:Name="reportPreview" Layer="Overlay" Width="350" Alignment="Center">
-		<Translation Y="1" RelativeTo="ParentSize" />
-
-
-		<StackLayout ItemSpacing="10" />
-		<StackPanel Color="#fff" Padding="10">
-			<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" LayoutRole="Inert" Clicked="{toggleReport}">
-				<Translation XY=".5, -.5" RelativeTo="Size" /> 
-				<Stroke Width="3" Color="#fff" />
-				<fa-times Color="#fff" FontSize="25" Alignment="Center" />
-			</Circle>
-			<Text FontSize="25" Value="Отчет"  Alignment="TopCenter" />
-			<Text Value="Работа выполнена!" Alignment="Center"  Margin="0,20,0,0" />
-		</StackPanel>
-		<StackPanel Color="#fff" Padding="10">
-			<Text FontSize="20" Value="Файл отчета"  Alignment="TopCenter" />
-			<Image File="Assets/report-text.png" Alignment="Center" />
-		</StackPanel>
-	</Panel>
 	<Panel ux:Name="docPreview" Layer="Overlay" Margin="50,100"  Color="#fff">
 		<Translation Y="1" RelativeTo="ParentSize" />
 		<Image File="Assets/document.png" Alignment="Center" />
@@ -156,6 +136,32 @@
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
 		</Circle>
+	</Panel>
+
+	<Panel ux:Name="reportPreview" Layer="Overlay" Margin="20,0" Alignment="Center">
+		<Translation Y="1" RelativeTo="ParentSize" />
+		<StackLayout ItemSpacing="10" />
+			<StackPanel Color="#fff" Padding="10">
+				<Circle Width="40" Height="40" Color="#000" Alignment="Top" LayoutRole="Inert" Offset="0,-60" Clicked="{toggleReport}">
+					<Stroke Width="3" Color="#fff" />
+					<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+				</Circle>
+				<Text FontSize="23" Value="Отчет о работе" Alignment="TopCenter" />
+				
+				<Text Value="Маховик устойчив. Точность курса, несмотря на некоторую погрешность, перманентно трансформирует устойчивый ньютонометр. " Alignment="Left" Font="Light" TextWrapping="Wrap" />
+
+				<StackPanel Orientation="Horizontal" Alignment="Left" Margin="0,15,0,0">
+					<Circle Width="37" Height="37" Color="#fff" Margin="10,0" Alignment="CenterLeft">
+						<Stroke Width="1" Color="#ccc" />
+						<ImageFill File="Assets/user.png" />
+					</Circle>
+					<Text Value="Орлов П.К." FontSize="13" Alignment="CenterLeft" />
+					<Text Value="23 августа 2016  15:10" FontSize="13" Font="Light" Alignment="CenterLeft" Margin="30,0,0,0" />
+				</StackPanel>
+			</StackPanel>
+			<cardReport />
+			<fileReport />
+			<fileReport />
 	</Panel>
 
 	<Panel ux:Name="aboutPop" Layer="Overlay" Alignment="Center" Color="#fff" Opacity="0" Visibility="Collapsed" Clicked="{toggleAbout}">
