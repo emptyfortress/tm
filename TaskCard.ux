@@ -85,7 +85,7 @@
 							<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".6" />
 						</Panel>
 					</Panel>
-					<Icon ux:Name="refresh1" Offset="0,-7">
+					<Icon ux:Name="refresh1" Offset="0,-7" Clicked="{loader}">
 						<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 					</Icon>
 				</StackPanel>

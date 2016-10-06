@@ -33,10 +33,12 @@
   <Text ux:Class="fa_paperclip" Font="fa">&#xf0c6;</Text>
   <Text ux:Class="fa_file_picture_o" Font="fa">&#xf1c5;</Text>
   <Text ux:Class="fa_pencil" Font="fa">&#xf040;</Text>
+  <Text ux:Class="fa_refresh" Font="fa">&#xf021;</Text>
   <Text ux:Class="fa_search" Font="fa">&#xf002;</Text>
   <Text ux:Class="fa_square_o" Font="fa">&#xf096;</Text>
   <Text ux:Class="fa_sign_out" Font="fa">&#xf08b;</Text>
   <Text ux:Class="fa_sort_amount_desc" Font="fa">&#xf161;</Text>
+  <Text ux:Class="fa_thumbs_o_up" Font="fa">&#xf087;</Text>
   <Text ux:Class="fa_times" Font="fa">&#xf00d;</Text>
   <Text ux:Class="fa_trash" Font="fa">&#xf1f8;</Text>
   <Text ux:Class="fa_trash_o" Font="fa">&#xf014;</Text>

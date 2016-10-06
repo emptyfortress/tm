@@ -1,0 +1,11 @@
+<Panel ux:Class="ProgressBar" ux:Name="_progressBar" MinHeight="5">
+    <double ux:Property="Progress" />
+    <Timeline InitialProgress="0" TargetProgress="{Property _progressBar.Progress}" >
+        <Change Target="_bar.Width" Value="100" Easing="QuadraticInOut" />
+    </Timeline>
+    <Rectangle>
+        <Rectangle Width="0%" ux:Name="_bar" Alignment="Left" >
+            <SolidColor Color="#0f0" />
+        </Rectangle>
+    </Rectangle>
+</Panel>

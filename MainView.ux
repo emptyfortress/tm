@@ -29,8 +29,15 @@
 
 	<DockPanel>
 		<StatusBarBackground Dock="Top"/>
+		
+		<StackPanel ux:Name="loaderPanel" Background="#000" Dock="Top" Height="0" LimitHeight="100%" Opacity="0" ClipToBounds="true">
+            <ProgressBar ux:Name="_progressBar" />
+            <Text Value="Идет синхронизация, обновляем данные"  Color="#fff" Alignment="BottomCenter" />
+        </StackPanel>
+
+
+
 		<BottomBarBackground Dock="Bottom"/>
-		<!-- <Rectangle ux:Name="loader" Height="5" Color="#0f0" Dock="Top" /> -->
 		<ux:Include File="Conditions.ux" />
 		<LinearGradient StartPoint="1,1" EndPoint="0,0">
 	        <GradientStop Offset="1" Color="#6BAAD3" />
@@ -62,6 +69,7 @@
 			var showMainUser = Observable(false);
 			var userMain = Observable(false);
 			var viewComplete = Observable(false);
+			var viewLoader = Observable(false);
 
 			function toggleLetter(){
 				showLetter.value = !showLetter.value;
@@ -101,8 +109,11 @@
 			function completeOff(){
 				viewComplete.value = false;
 			}
-
+			function loader(){
+				viewLoader.value = !viewLoader.value;
+			}
 			module.exports = {
+				viewLoader: viewLoader,
 				viewComplete: viewComplete,
 				resetMain: resetMain,
 				userMain: userMain,
@@ -124,7 +135,8 @@
 				showMainUser: showMainUser,
 				toggleMainUser: toggleMainUser,
 				toggleComplete: toggleComplete,
-				completeOff: completeOff
+				completeOff: completeOff,
+				loader: loader
 			}
 		</JavaScript>
 
@@ -135,6 +147,10 @@
 		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center" HitTestMode="None">
 			<fa-check FontSize="40" Color="#fff" Alignment="Center" />
 			<Text Value="Поручение отправлено" Color="#fff" FontSize="30" Alignment="Center"  />
+		</StackPanel>
+		<StackPanel ux:Name="sendText" Opacity="0" Alignment="Center" HitTestMode="None">
+			<fa-thumbs-o-up FontSize="40" Color="#fff" Alignment="Center" />
+			<Text Value="Ура! Согласовано!" Color="#fff" FontSize="30" Alignment="Center"  />
 		</StackPanel>
 		
 		<Panel ux:Name="overlayRec" Color="#000" Opacity="0" HitTestMode="None">
