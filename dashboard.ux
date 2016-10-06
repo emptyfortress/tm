@@ -166,9 +166,6 @@
 										<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
 									</Tapped>
 								</dashPanel>
-								<!-- <dashPanel Clicked="{storageToggle}">
-									<storageDiagram Count="67" End="147" BarColor="sky" Header="Данные" />
-								</dashPanel> -->
 							</WrapPanel>
 						</Panel>
 						<Panel  Margin="0,20,0,0">
@@ -289,7 +286,7 @@
 				<ScrollView Margin="0,50,0,0">
 					<StackPanel>
 						<Panel Margin="10">
-							<StackLayout Orientation="Horizontal" />
+							<WrapLayout Orientation="Horizontal" />
 							<Panel>
 								<dashPanel Width="180" Height="100">
 									<fa-folder-o Alignment="TopLeft" Color="#000" />
@@ -305,11 +302,19 @@
 									<fa-folder-o Alignment="TopLeft" Color="#000" />
 									<Text Value="Черновики" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
 									<Text Value="11" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
-									<!-- <fa-pencil FontSize="22" Alignment="BottomLeft" Color="blue" /> -->
+									<fa-pencil FontSize="22" Alignment="BottomRight"  />
+								</dashPanel>
+							</Panel>
+							<Panel>
+								<dashPanel Width="180" Height="100">
+									<fa-folder-o Alignment="TopLeft" Color="#000" />
+									<Text Value="Избранное" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
+									<Text Value="6" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
+									<fa-star-o FontSize="22" Alignment="BottomRight" />
 								</dashPanel>
 							</Panel>
 						</Panel>
-						<WrapPanel Orientation="Horizontal" Margin="10">
+						<WrapPanel Orientation="Horizontal" Margin="10,30,10,0">
 							<Each Items="{items.folders}">
 								<folder Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Margin="0,0,5,5">
 									<Tapped>
