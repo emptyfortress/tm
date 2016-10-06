@@ -12,17 +12,14 @@
 			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
 		</Icon>
 		<Text Value="4" Color="red" Alignment="Center" Offset="5,0" />
-		<Icon Clicked="{toggleLoader}" HitTestMode="LocalBoundsAndChildren">
+		<Icon HitTestMode="LocalBoundsAndChildren" Clicked="{loader}">
 			<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 			<WhileVisible>
 		        <Spin Frequency=".2" />
 		    </WhileVisible>
-		    <Clicked>
-		    	<Pulse Target="showLoader" />
-		    </Clicked>
 		</Icon>
 	</StackPanel>
-	
+
 	<DockPanel>
 		<StackPanel Dock="Bottom" Margin="10,0,50,0">
 			<Rectangle Height="1" Color="#fff" />

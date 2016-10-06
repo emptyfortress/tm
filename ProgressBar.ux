@@ -5,7 +5,7 @@
     </Timeline>
     <Rectangle>
         <Rectangle Width="0%" ux:Name="_bar" Alignment="Left" >
-            <SolidColor Color="#0f0" />
+            <SolidColor ux:Name="_barColor" Color="#0f0" />
         </Rectangle>
     </Rectangle>
 </Panel>
