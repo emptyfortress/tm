@@ -14,7 +14,6 @@
 	<WhileTrue Value="{hide}">
 		<Change child.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change child.Opacity.Value="0" Duration="0.25"  Easing="CircularInOut"/>
-		<Change child.Visibility="Collapsed" />
 		<Rotate Target="chevron" Degrees="-180" Duration=".25" Easing="CircularInOut" />
 	</WhileTrue>
 
