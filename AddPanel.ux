@@ -90,7 +90,10 @@
 						<Label ux:Name="taskType" Value="{type}" Margin="10,0,0,0" />
 							
 						
-						<TextView ux:Name="taskText" Padding="10" FontSize="20" PlaceholderText="Текст поручения..." PlaceholderColor="#ccc" TextAlignment="Left" TextWrapping="Wrap" MinHeight="50" Margin="0,0,0,5">
+						<TextView ux:Name="taskText" Padding="10" FontSize="20" TextAlignment="Left" TextWrapping="Wrap" MinHeight="50" Margin="0,0,0,5">
+							<WhileString Test="IsEmpty">
+								<Text Color="#ccc">Текст поручения...</Text>
+							</WhileString>
 							<Clicked>
 								<Set helperPanel.Active="textScroll" />
 							</Clicked>
