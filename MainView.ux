@@ -76,9 +76,9 @@
 		    				<PageControl Active="contents">
 								<Page>
 									<ActivatingAnimation>
-										<Change discardText.Opacity="1"  />
-										<Change trash.Opacity="1"  />
-										<Change trash.FontSize="30" />
+										<Change discardText.Opacity="1" Easing="ExponentialOut" />
+										<Change trash.Opacity="1" Easing="ExponentialOut" />
+										<Change trash.FontSize="30" Easing="ExponentialOut" />
 										<Change background.Opacity="1" Easing="ExponentialOut" />
 									</ActivatingAnimation>
 									<WhileActive>
@@ -99,9 +99,9 @@
 								</Page>
 								<Page>
 									<ActivatingAnimation>
-										<Change discardText1.Opacity="1"  />
-										<Change trash1.Opacity="1"  />
-										<Change trash1.FontSize="30" />
+										<Change discardText1.Opacity="1" Easing="ExponentialOut" />
+										<Change trash1.Opacity="1" Easing="ExponentialOut" />
+										<Change trash1.FontSize="30" Easing="ExponentialOut" />
 										<Change background.Opacity="1" Easing="ExponentialOut" />
 									</ActivatingAnimation>
 									<WhileActive>
