@@ -1,9 +1,26 @@
 <App Background="#ccccccff">
 	<JavaScript>
-		// var Observable = require('FuseJS/Observable');
+		var Observable = require('FuseJS/Observable');
 		var Bundle = require("FuseJS/Bundle");
 		var items = JSON.parse(Bundle.readSync("Assets/data.json"));
+		function syncTask(title, operation) {
+				this.title = title;
+				this.operation = operation;
+			}
+		
+		var synctasks = Observable(
+			new syncTask("Письмо о проведении аукциона", "Согласовано"),
+			new syncTask("О рабочих программах 16-17", "Комментарий"),
+			new syncTask("Ознакомиться с приказом", "Создано"),
+			new syncTask("О подготовке приказа на отпуск Ивановой", "Завершено с комментарием")
+		);
+		function removeTask(title) {
+				synctasks.remove(title.data);
+			}
+
 		module.exports = {
+			synctasks: synctasks,
+			removeTask: removeTask,
 			items: items
 		};
 	</JavaScript>
@@ -34,9 +51,94 @@
             <ProgressBar ux:Name="_progressBar" />
             <Text Value="Идет синхронизация, обновляем данные"  Color="#fff" Alignment="BottomCenter" />
         </StackPanel>
+<!-- **************************************************************************************************** -->
+		
 
-
-
+		<DockPanel ux:Name="syncPanel" Dock="Top" Height="0" LimitHeight="100%" ClipToBounds="true" Padding="10">
+			<StackLayout ItemSpacing="15" />
+			<LinearGradient StartPoint="1,1" EndPoint="0,0">
+		        <GradientStop Offset="0" Color="#6BAAD3" />
+		        <GradientStop Offset="1" Color="#013A61" />
+		    </LinearGradient>
+		    <Panel Dock="Top">
+			    <StackPanel Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="10">
+			    	<fa-cloud-upload FontSize="27" Alignment="CenterLeft" Color="#fff" />
+			    	<Text Value="На синхронизацию (4)" FontSize="18" Alignment="CenterLeft" Color="#fff" />
+			    </StackPanel>
+				<Rectangle Color="#0f0" Alignment="TopRight" Clicked="{loader}">
+			    	<Text Value="Старт" Alignment="Center" Margin="5,2"   />
+			    </Rectangle>
+			</Panel>
+		    <ScrollView>
+		    	<StackPanel ItemSpacing="2">
+		    		<Each Items="{synctasks}">
+		    			<Panel>
+		    				<PageControl Active="contents">
+								<Page>
+									<ActivatingAnimation>
+										<Change discardText.Opacity="1"  />
+										<Change trash.Opacity="1"  />
+										<Change trash.FontSize="30" />
+										<Change background.Opacity="1" Easing="ExponentialOut" />
+									</ActivatingAnimation>
+									<WhileActive>
+										<Callback Handler="{removeTask}" />
+									</WhileActive>
+								</Page>
+		    					<Page ux:Name="contents">
+					    			<StackPanel ItemSpacing="2" Padding="10" >
+										<Text Value="{title}" Color="#fff" Alignment="Left" Font="Bold" />
+										<Text Value="{operation}" Color="#fff" Alignment="Left" />
+										<Rectangle Layer="Background" Color="#fff" Opacity=".2" />
+										<Tapped>
+											<Set showSync.Value="false"/>
+											<Set dashboardUp.Value="true" Delay=".4" />
+											<Set ViewerVisible.Value="true" Delay=".4"/>
+										</Tapped>
+									</StackPanel>
+								</Page>
+								<Page>
+									<ActivatingAnimation>
+										<Change discardText1.Opacity="1"  />
+										<Change trash1.Opacity="1"  />
+										<Change trash1.FontSize="30" />
+										<Change background.Opacity="1" Easing="ExponentialOut" />
+									</ActivatingAnimation>
+									<WhileActive>
+										<Callback Handler="{removeTask}" />
+									</WhileActive>
+								</Page>
+							</PageControl>
+							<Panel>
+								<StackPanel Orientation="Horizontal" Alignment="Left">
+									<fa-trash-o ux:Name="trash"  Color="#fff" Alignment="CenterLeft" Opacity="0" Margin="20,0,5,0" />
+									<Text ux:Name="discardText" Value="Отменить" Alignment="CenterLeft" TextColor="#fff" FontSize="17" Opacity="0" />
+								</StackPanel>
+								<StackPanel Orientation="Horizontal" Alignment="Right">
+									<Text ux:Name="discardText1" Value="Отменить" Alignment="CenterRight" TextColor="#fff" FontSize="17" Opacity="0" />
+									<fa-trash-o ux:Name="trash1"  Color="#fff" Alignment="CenterRight" Opacity="0" Margin="5,0,20,0" />
+								</StackPanel>
+							</Panel>
+							<Rectangle>
+								<SolidColor ux:Name="background" Color="red" Opacity="0" />
+							</Rectangle>
+							<RemovingAnimation>
+								<Move RelativeTo="Size" Y="-1" Duration="0.6" Easing="CircularInOut" />
+							</RemovingAnimation>
+							<LayoutAnimation>
+								<Move RelativeTo="LayoutChange" Y="1" Duration="0.6" Easing="CircularInOut" />
+							</LayoutAnimation>
+						</Panel>
+		    		</Each>
+		    	</StackPanel>
+		    </ScrollView>
+		    <fa_angle-up Color="#fff" FontSize="40" Alignment="BottomCenter">
+		    	<Tapped>
+		    		<Set showSync.Value="false" />
+		    	</Tapped>
+		    </fa_angle-up>
+		</DockPanel>
+<!-- ***************************************************************************************************** -->
 		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
 		<LinearGradient StartPoint="1,1" EndPoint="0,0">
@@ -112,6 +214,7 @@
 			function loader(){
 				viewLoader.value = !viewLoader.value;
 			}
+
 			module.exports = {
 				viewLoader: viewLoader,
 				viewComplete: viewComplete,
@@ -144,7 +247,7 @@
 		
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
-		
+
 		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center" HitTestMode="None">
 			<fa-check FontSize="40" Color="#fff" Alignment="Center" />
 			<Text Value="Поручение отправлено" Color="#fff" FontSize="30" Alignment="Center"  />
@@ -213,7 +316,6 @@
 			<ScrollView ux:Name="dashScroll" Margin="0,70,0,0" >
 				<StackPanel>
 					<Image ux:Name="logo" File="Assets/alrosa.png" Width="120" Margin="0,10,0,40" />
-
 
 					<StackPanel ux:Name="dashButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 						<Tapped>
@@ -313,10 +415,7 @@
 					<sideButton Text="На синхронизацию" Quantity="2"  Margin="0,30,0,0">
 						<Tapped>
 							<NavigateToggle Target="menu" NavigationContext="edge" />
-							<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-							<Set menuVisible.Value="false" Delay=".5" />
-							<Set dashboardUp.Value="true" />
-							<Set folderIndicator.Visibility="Visible" />
+							<Toggle Target="showSync" /> 
 						</Tapped>
 					</sideButton>
 					<sideButton Text="Черновики" Quantity="11" >

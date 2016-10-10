@@ -10,11 +10,10 @@
 		<Move Target="viewIcon" X=".5" Y="-.5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" />
 		<Move Target="searchIcon" X=".5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".1" />
 		<Move Target="filterIcon" X="-.5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".2" />
-		<Move Target="readPanel" Y="1.2" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" Delay=".3" />
+		<Move Target="readPanel" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" Delay=".3" />
 		<Change overRec.Opacity=".3" Duration=".5" />
 		<Change overRec.Visibility="Visible" />
 		<Change plusIcon.HitTestMode="None" />
-		<!-- <Rotate Target="plusPlus" Degrees="-135" Duration=".3" /> -->
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="addPageActive" >
@@ -36,15 +35,12 @@
 		<Set main.Visibility="Collapsed" />
 		<Set cont.Visibility="Collapsed" />
 		<Set deadline.Visibility="Collapsed" />
-		<!-- <Set parentCard.Visibility="Collapsed" /> -->
-		<!-- <Set parentAttach.Visibility="Collapsed" /> -->
 	</WhileTrue>
 
 	<WhileTrue ux:Name="ViewerVisible">
 		<Change TheViewer.Visibility="Visible"/>
 		<PulseForward Target="ZoomTo" Direction="Backward" />
 		<Set ViewerHidden.Value="false" Delay=".4" />
-		<!-- <Change plusCircle.Color="#f00" /> -->
 		<Change typeCard.Visibility="Visible" />
 		<Change parentCard.Visibility="Visible" />
 		<Change parentAttach.Visibility="Visible" />
@@ -61,17 +57,10 @@
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
 	</WhileTrue>
 
-	<!-- <WhileTrue ux:Name="subMenuVisible">
-		<Change overlayRec.Opacity=".5" Duration=".5" />
-		<Change overlayRec.Visibility="Visible" />
-		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="pop" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
-	</WhileTrue> -->
 	<WhileTrue ux:Name="viewFilterPop">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<!-- <Move Target="popFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" /> -->
 	</WhileTrue>
 	<WhileTrue ux:Name="viewSortPop">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
@@ -79,12 +68,6 @@
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="sortFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
-<!-- 	<WhileTrue ux:Name="viewCardButton">
-		<Change overlayRec.Opacity=".5" Duration=".5" />
-		<Change overlayRec.Visibility="Visible" />
-		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="cardButton" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
-	</WhileTrue> -->
 	<WhileTrue Value="{viewComplete}">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
@@ -112,8 +95,7 @@
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="recordPop" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
-		<!-- <Move Target="tools" Y="-1" RelativeTo="Size" Delay="1" Duration=".5" Easing="BackOut" EasingBack="CubicIn" /> -->
+		<Move Target="recordPop" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 	<WhileTrue Value="{showCard}">
 		<Change plusIcon.Visibility.Value="Collapsed" />
@@ -136,14 +118,14 @@
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="reportPreview" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+		<Move Target="reportPreview" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 	<WhileTrue Value="{showList}">
 		<Change plusIcon.Visibility.Value="Collapsed" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-		<Move Target="listPreview" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+		<Move Target="listPreview" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 	<WhileTrue Value="{showMainUser}">
 		<Change overlayRec1.Visibility="Visible" />
@@ -160,5 +142,8 @@
 	<WhileTrue Value="{viewLoader}">
 		<Pulse Target="showLoader" />
 		<Callback Handler="{loader}" />
+	</WhileTrue>
+	<WhileTrue ux:Name="showSync">
+		<Change syncPanel.Height.Value="370" Duration=".4" Easing="CircularOut" />
 	</WhileTrue>
 </Panel>

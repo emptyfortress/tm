@@ -60,12 +60,16 @@
 				</Panel>
 			</MultiLayoutPanel>
 		</StackPanel>
-		<PageControl ux:Name="_dashPages">
+		<PageControl ux:Name="_dashPages" Active="taho">
 			<Page ux:Name="taho" Padding="20,10">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
-				<Header Text="СВОДКА" />
+				<Header Text="СВОДКА">
+					<Tapped>
+			    		<Set showSync.Value="false" />
+			    	</Tapped>
+				</Header>
 				<ScrollView Margin="0,40,0,0">
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
@@ -279,7 +283,11 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="foldersTab" />
 				</WhileActive>
-				<Header Text="ПАПКИ" />
+				<Header Text="ПАПКИ">
+					<Tapped>
+			    		<Set showSync.Value="false" />
+			    	</Tapped>
+				</Header>
 				<ScrollView Margin="0,50,0,0">
 					<StackPanel>
 						<Panel Margin="10">
@@ -292,6 +300,9 @@
 									<Icon Alignment="BottomRight" Offset="10" >
 										<FileImageSource File="Assets/refresh.png" ux:Key="iconFile" />
 									</Icon>
+									<Tapped>
+										<Toggle Target="showSync" />
+									</Tapped>
 								</dashPanel>
 							</Panel>
 							<Panel>
