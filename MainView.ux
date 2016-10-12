@@ -26,6 +26,9 @@
 	</JavaScript>
 	
 	
+	<float4 ux:Global="inProgress" ux:Value="#BFDFFF" />
+	<float4 ux:Global="done" ux:Value="#D5EAA8" />
+	<float4 ux:Global="overdue" ux:Value="#FFC6C6" />
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
 	<float4 ux:Global="pink" ux:Value="#7F00FF" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />

@@ -2,6 +2,7 @@
   <Text ux:Class="fa_angle_down" Font="fa">&#xf107;</Text>
   <Text ux:Class="fa_angle_up" Font="fa">&#xf106;</Text>
   <Text ux:Class="fa_arrow_left" Font="fa">&#xf060;</Text>
+  <Text ux:Class="fa_arrow_up" Font="fa">&#xf062;</Text>
   <Text ux:Class="fa_angle_double_right" Font="fa">&#xf101;</Text>
   <Text ux:Class="fa_bell_o" Font="fa">&#xf0a2;</Text>
   <Text ux:Class="fa_briefcase" Font="fa">&#xf0b1;</Text>
@@ -18,6 +19,7 @@
   <Text ux:Class="fa_comment_o" Font="fa">&#xf0e5;</Text>
   <Text ux:Class="fa_diamond" Font="fa">&#xf219;</Text>
   <Text ux:Class="fa_envelope_o" Font="fa">&#xf003;</Text>
+  <Text ux:Class="fa_ellipsis_h" Font="fa">&#xf141;</Text>
   <Text ux:Class="fa_exclamation_triangle" Font="fa">&#xf071;</Text>
   <Text ux:Class="fa_eye" Font="fa">&#xf06e;</Text>
   <Text ux:Class="fa_file_o" Font="fa">&#xf016;</Text>
@@ -33,6 +35,7 @@
   <Text ux:Class="fa_paint_brush" Font="fa">&#xf1fc;</Text>
   <Text ux:Class="fa_picture_o" Font="fa">&#xf03e;</Text>
   <Text ux:Class="fa_paperclip" Font="fa">&#xf0c6;</Text>
+  <Text ux:Class="fa_plus_square" Font="fa">&#xf0fe;</Text>
   <Text ux:Class="fa_file_picture_o" Font="fa">&#xf1c5;</Text>
   <Text ux:Class="fa_pencil" Font="fa">&#xf040;</Text>
   <Text ux:Class="fa_refresh" Font="fa">&#xf021;</Text>

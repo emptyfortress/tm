@@ -167,7 +167,7 @@
 			</Rectangle>
 		</StackPanel>
 
-		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden">
+		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden" Active="taskHelper">
 			<NavigationMotion Overflow="Elastic"/>
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
@@ -219,9 +219,15 @@
 				<ScrollView ux:Name="taskScroll" >
 					<StackPanel ItemSpacing="5">
 						<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
-							<Each Items="{items.cards1}" >
-								<treeTask />
-							</Each>
+						<StackPanel Orientation="Horizontal" Margin="0,0,0,15" ItemSpacing="10" >
+							<fa-arrow-up />
+							<fa-ellipsis-h Margin="-5,7,0,0" />
+						</StackPanel>
+						<Text Value="Орлов: Договор о поставках торгового оборудования" Alignment="Left" />	
+						<Rectangle Height="1" Color="#ccc" />
+							
+							<ux:Include File="flow.ux" />
+							
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 						<Set fileState.Active="fileFull"   />

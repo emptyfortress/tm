@@ -1,0 +1,106 @@
+<Panel Margin="5,0,0,0">
+	
+	
+	<StackLayout />
+		
+	<JavaScript>
+		var dots = [
+			{plus: 1, statusColor: '#D5EAA8', childs:[1,2]},
+			{plus: 1, statusColor: '#FFC6C6', childs:[1,2]},
+			{plus: 1, statusColor: '#BFDFFF', childs:[1,2]},
+			{plus: 1, statusColor: '#BFDFFF', childs:[1,2]}
+		]
+		
+		
+		module.exports = {
+			dots: dots
+		}
+	</JavaScript>
+
+	<StackPanel ux:Class="dotItem" Orientation="Horizontal" ItemSpacing="5"  Margin="0,0,0,30">
+		<float4 ux:Property="StatusColor" />
+		<Visibility ux:Property="SecondLevel" />
+		<Panel>
+			<Circle Width="20" Height="20" Color="{Property StatusColor}" Margin="5" Alignment="TopLeft" />
+		</Panel>
+		<StackPanel Margin="0,5,0,0" Alignment="TopLeft">
+			<Text Value="Воробьев: Подготовить отчет о работе" />
+			<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" Visibility="{Property SecondLevel}" />
+		</StackPanel>
+	</StackPanel>
+
+	
+	<StackPanel ux:Class="childItem" ItemSpacing="5" Margin="0,0,0,20">
+		<Rectangle ux:Name="bgRec" Width="1" Color="#ddd" Layer="Background" Opacity="0" Alignment="Left" Margin="15,30,0,10" />
+		<StackPanel Orientation="Horizontal" ItemSpacing="5" Margin="0,0,0,5">
+			<float4 ux:Property="StatusColor" />
+			<WhileTrue ux:Name="showChild">
+				<Change plusVert.Opacity="0" Duration=".2" />
+				<Change t1.Height="80" Duration=".2" Easing="CircularOut" />
+				<Change t1.Opacity="1" Duration=".2" Easing="CircularOut" />
+				<Move Target="t1" Y="1" RelativeTo="Size" Duration=".2" Easing="CubicOut" />
+				<Change bgRec.Opacity="1" Duration=".2" />
+			</WhileTrue>
+			<Panel Alignment="TopLeft" Width="30" Height="30" HitTestMode="LocalBoundsAndChildren">
+				<Rectangle ux:Name="plusVert" Width="2" Height="8" Alignment="Center" Color="#000" Opacity="{plus}" />
+				<Rectangle Height="2" Width="8" Alignment="Center" Color="#000" />
+				<Circle Width="20" Height="20" Color="{Property StatusColor}"  />
+				<Tapped>
+					<Toggle Target="showChild" />
+				</Tapped>
+			</Panel>
+
+			<StackPanel Alignment="TopLeft" Margin="0,5,0,0">
+				<Text Value="Воробьев: Подготовить отчет о работе" />
+				<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" />
+			</StackPanel>
+		</StackPanel>
+
+
+
+
+		<StackPanel ux:Name="t1" Margin="25,10,0,5" Height="0" LimitHeight="100%" Opacity="0">
+			<Translation Y="-1" RelativeTo="Size" />
+			<StackPanel Orientation="Horizontal" ItemSpacing="5" >
+				<float4 ux:Property="StatusColor1" />
+				<WhileTrue ux:Name="showChild1">
+					<Change plusVert1.Opacity="0" Duration=".2" />
+					<Change bgRec1.Opacity="1" Duration=".2" />
+					<Change t1.Height="90" Duration=".2" />
+					<Change t2.Height="95" Duration=".2" />
+					<Change t2.Opacity="1" Duration=".2" />
+					<Move Target="t2" Y="1" RelativeTo="Size" Duration=".2" />
+				</WhileTrue>
+				<Panel Alignment="TopLeft" Width="30" Height="30">
+					<Rectangle ux:Name="plusVert1" Width="2" Height="8" Alignment="Center" Color="#000" />
+					<Rectangle Height="2" Width="8" Alignment="Center" Color="#000" />
+					<Circle Width="20" Height="20" Color="{Property StatusColor}"  />
+					<Tapped>
+						<Toggle Target="showChild1" />
+					</Tapped>
+				</Panel>
+
+				<StackPanel Margin="0,5,0,0" Alignment="TopLeft">
+					<Text Value="Воробьев: Подготовить отчет о работе" />
+					<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" Visibility="Collapsed" />
+				</StackPanel>
+			</StackPanel>
+				
+			<StackPanel ux:Name="t2" Margin="35,5,0,5" Height="0" LimitHeight="100%" Opacity="0" >
+				<Translation Y="-1" RelativeTo="Size" />
+				<Rectangle ux:Name="bgRec1" Width="1" Color="#ddd" Layer="Background" Opacity="0" Alignment="Left" Margin="-20,0,0,10" />
+				<Rectangle Height="40" Color="#ddd" Margin="0,0,0,0" />
+				<Rectangle Height="40" Color="#ddd" Margin="0,5,0,0" />
+			</StackPanel>
+
+			<dotItem StatusColor="done" SecondLevel="Collapsed" />
+		</StackPanel>
+	</StackPanel>
+
+
+	<childItem StatusColor="inProgress" />
+	<dotItem StatusColor="overdue"  />
+	<childItem StatusColor="done" />
+	<childItem StatusColor="done" />
+
+</Panel>

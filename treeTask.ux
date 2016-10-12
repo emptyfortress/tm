@@ -11,9 +11,9 @@
 		}
 	</JavaScript>
 	
-	<LayoutAnimation>
+	<!-- <LayoutAnimation>
 		<Move RelativeTo="LayoutChange" Y="1" Duration="0.5" Easing="CubicInOut"/>
-	</LayoutAnimation>
+	</LayoutAnimation> -->
 	<Grid Columns="auto,auto,1*,auto" MaxHeight="50" Padding="10,5" CellSpacing="10" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleGroup}">
 		<Text Value="{tree}" FontSize="23" Font="Light" Alignment="Center" />
 		<Panel Height="30">
@@ -27,7 +27,7 @@
 		<!-- <Rectangle Layer="Background" Color="#EBF5D6" Width="{percent}" Alignment="Left" Margin="1" /> -->
 		<Rectangle Layer="Background" Color="#26FF26" Width="{percent}" Alignment="Left" Margin="1" />
 		<Rectangle Layer="Background" Color="#EBF5D6" Opacity="1" >
-			<Stroke Width="1" Color="#238C00" />
+			<!-- <Stroke Width="1" Color="#238C00" /> -->
 		</Rectangle>
 	</Grid>
 	<Each Count="3">
