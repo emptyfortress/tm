@@ -146,4 +146,5 @@
 	<WhileTrue ux:Name="showSync">
 		<Change syncPanel.Height.Value="370" Duration=".4" Easing="CircularOut" />
 	</WhileTrue>
+	
 </Panel>

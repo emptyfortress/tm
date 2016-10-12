@@ -3,30 +3,50 @@
 	
 	<StackLayout />
 		
+
 	<JavaScript>
-		var dots = [
-			{plus: 1, statusColor: '#D5EAA8', childs:[1,2]},
-			{plus: 1, statusColor: '#FFC6C6', childs:[1,2]},
-			{plus: 1, statusColor: '#BFDFFF', childs:[1,2]},
-			{plus: 1, statusColor: '#BFDFFF', childs:[1,2]}
-		]
-		
-		
+		var Observable = require('FuseJS/Observable');
+		var dotPreview = Observable(false);
+
+		function toggleDotPreview(){
+			dotPreview.value = !dotPreview.value;
+		}
 		module.exports = {
-			dots: dots
+			dotPreview: dotPreview,
+			toggleDotPreview: toggleDotPreview
 		}
 	</JavaScript>
-
-	<StackPanel ux:Class="dotItem" Orientation="Horizontal" ItemSpacing="5"  Margin="0,0,0,30">
+	<StackPanel ux:Class="dotItem" Orientation="Horizontal" ItemSpacing="5"  Margin="0,0,0,30" >
+		<WhileTrue Value="{dotPreview}">
+			<Change info.Opacity="1" Duration=".2" />
+			<Move Target="info" Y="1" RelativeTo="Size" Duration=".2" />
+		</WhileTrue>
 		<float4 ux:Property="StatusColor" />
 		<Visibility ux:Property="SecondLevel" />
 		<Panel>
 			<Circle Width="20" Height="20" Color="{Property StatusColor}" Margin="5" Alignment="TopLeft" />
 		</Panel>
-		<StackPanel Margin="0,5,0,0" Alignment="TopLeft">
+		<StackPanel Margin="0,5,0,0" Alignment="TopLeft"  Clicked="{toggleDotPreview}">
 			<Text Value="Воробьев: Подготовить отчет о работе" />
 			<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" Visibility="{Property SecondLevel}" />
 		</StackPanel>
+		<Panel ux:Name="info" Width="300" Height="150" Layer="Overlay" Alignment="Center" Color="#fff" Opacity="0" Clicked="{toggleDotPreview}" Padding="10" >
+			<StackLayout />
+			<Translation Y="-1" RelativeTo="Size" />
+			<Shadow />
+			<Text Value="Подготовить отчет о работе" FontSize="18" Alignment="Left" />
+			<Rectangle Height="1" Color="#ccc" />
+			<Text Value="Исполнитель: Воробьев А.П." Alignment="Left" />
+			<Text Value="Срок: 04.12.16" Alignment="Left" />
+			<Text Value="Статус: Исполнено" Alignment="Left" />
+			<Rectangle Color="#eee" Padding="10">
+				<Text Value="Перейти в карточку" Alignment="Center" />
+			</Rectangle>
+
+
+		</Panel>
+		
+
 	</StackPanel>
 
 	
@@ -56,10 +76,7 @@
 			</StackPanel>
 		</StackPanel>
 
-
-
-
-		<StackPanel ux:Name="t1" Margin="25,10,0,5" Height="0" LimitHeight="100%" Opacity="0">
+		<StackPanel ux:Name="t1" Margin="25,10,0,5" Height="0" LimitHeight="100%" Opacity="0" HitTestMode="None">
 			<Translation Y="-1" RelativeTo="Size" />
 			<StackPanel Orientation="Horizontal" ItemSpacing="5" >
 				<float4 ux:Property="StatusColor1" />
@@ -95,6 +112,10 @@
 
 			<dotItem StatusColor="done" SecondLevel="Collapsed" />
 		</StackPanel>
+		<Rectangle ux:Name="info1" Width="300" Height="100" Layer="Overlay" Alignment="Center" Color="#fff" Opacity="0" HitTestMode="None" >
+			<Translation Y="-1" RelativeTo="Size" />
+			<Shadow />
+		</Rectangle>
 	</StackPanel>
 
 
@@ -102,5 +123,6 @@
 	<dotItem StatusColor="overdue"  />
 	<childItem StatusColor="done" />
 	<childItem StatusColor="done" />
+
 
 </Panel>
