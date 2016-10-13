@@ -64,6 +64,9 @@
 		</Panel>
 
 		<ScrollView ux:Name="infoCard" Height="60%" Dock="Top">
+			<DoubleTapped>
+				<Callback Handler="{toggleComplete}" />
+			</DoubleTapped>
 			<StackPanel Padding="10,30,10,10" >
 				<StackPanel Alignment="TopLeft" Orientation="Horizontal" ItemSpacing="10"  Offset="0,-15">
 					<Panel ux:Name="refresh">

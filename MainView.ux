@@ -26,9 +26,9 @@
 	</JavaScript>
 	
 	
-	<float4 ux:Global="inProgress" ux:Value="#BFDFFF" />
-	<float4 ux:Global="done" ux:Value="#D5EAA8" />
-	<float4 ux:Global="overdue" ux:Value="#FFC6C6" />
+	<float4 ux:Global="inProgress" ux:Value="#79BCFF" />
+	<float4 ux:Global="done" ux:Value="#B5DB66" />
+	<float4 ux:Global="overdue" ux:Value="#FF8C8C" />
 	<float4 ux:Global="blue" ux:Value="#2F6A92" />
 	<float4 ux:Global="pink" ux:Value="#7F00FF" />
 	<float4 ux:Global="lightblue" ux:Value="#CCE4F8" />
@@ -470,9 +470,7 @@
 
 		<Panel ux:Name="mainApp" >
 			<DockPanel ux:Name="TheViewer" Visibility="Collapsed" HitTestMode="LocalBoundsAndChildren">
-				<DoubleTapped>
-					<Callback Handler="{toggleComplete}" />
-				</DoubleTapped>
+				
 				<SolidColor Color="green" ux:Name="BlockColor"/>
 				<Attractor ux:Name="BlockColorAttractor" Target="BlockColor.Color" Value="green" />
 

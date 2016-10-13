@@ -59,6 +59,9 @@
 		</Panel>
 		
 		<ScrollView ux:Name="infoCard" Height="60%" Dock="Top">
+			<DoubleTapped>
+				<Callback Handler="{toggleComplete}" />
+			</DoubleTapped>
 			<StackPanel Padding="10,30,10,10" >
 				<StackPanel Alignment="TopLeft" Orientation="Horizontal" ItemSpacing="10"  Offset="0,-15">
 					<Panel ux:Name="refresh">
@@ -167,7 +170,7 @@
 			</Rectangle>
 		</StackPanel>
 
-		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden" Active="taskHelper">
+		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden" >
 			<NavigationMotion Overflow="Elastic"/>
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
@@ -242,6 +245,7 @@
 								<comment />
 								<Rectangle Height="20" />
 							</Each>
+							<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" Margin="0,50" />
 						</StackPanel>
 						<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 							<Set fileState.Active="fileFull"   />

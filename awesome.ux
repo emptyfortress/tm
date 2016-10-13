@@ -30,6 +30,8 @@
   <Text ux:Class="fa_font" Font="fa">&#xf031;</Text>
   <Text ux:Class="fa_filter" Font="fa">&#xf0b0;</Text>
   <Text ux:Class="fa_inbox" Font="fa">&#xf01c;</Text>
+  <Text ux:Class="fa_home" Font="fa">&#xf015;</Text>
+  <Text ux:Class="fa_level_up" Font="fa">&#xf148;</Text>
   <Text ux:Class="fa_microphone" Font="fa">&#xf130;</Text>
   <Text ux:Class="fa_minus_square" Font="fa">&#xf146;</Text>
   <Text ux:Class="fa_minus_square_o" Font="fa">&#xf147;</Text>
