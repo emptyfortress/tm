@@ -1,128 +1,109 @@
-<Panel Margin="5,0,0,0">
-	
-	
-	<StackLayout />
-		
-
+<Panel>
 	<JavaScript>
 		var Observable = require('FuseJS/Observable');
-		var dotPreview = Observable(false);
+		var treePreview = Observable(false);
 
-		function toggleDotPreview(){
-			dotPreview.value = !dotPreview.value;
+		function toggleTreePreview(){
+			treePreview.value = !treePreview.value;
 		}
 		module.exports = {
-			dotPreview: dotPreview,
-			toggleDotPreview: toggleDotPreview
+			treePreview: treePreview,
+			toggleTreePreview: toggleTreePreview
 		}
 	</JavaScript>
-	<StackPanel ux:Class="dotItem" Orientation="Horizontal" ItemSpacing="5"  Margin="0,0,0,30" >
-		<WhileTrue Value="{dotPreview}">
-			<Change info.Opacity="1" Duration=".2" />
-			<Move Target="info" Y="1" RelativeTo="Size" Duration=".2" />
-		</WhileTrue>
-		<float4 ux:Property="StatusColor" />
-		<Visibility ux:Property="SecondLevel" />
-		<Panel>
-			<Circle Width="20" Height="20" Color="{Property StatusColor}" Margin="5" Alignment="TopLeft" />
-		</Panel>
-		<StackPanel Margin="0,5,0,0" Alignment="TopLeft"  Clicked="{toggleDotPreview}">
-			<Text Value="Воробьев: Подготовить отчет о работе" />
-			<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" Visibility="{Property SecondLevel}" />
-		</StackPanel>
-		<Panel ux:Name="info" Width="300" Height="150" Layer="Overlay" Alignment="Center" Color="#fff" Opacity="0" Clicked="{toggleDotPreview}" Padding="10" >
-			<StackLayout />
-			<Translation Y="-1" RelativeTo="Size" />
-			<Shadow />
-			<Text Value="Подготовить отчет о работе" FontSize="18" Alignment="Left" />
-			<Rectangle Height="1" Color="#ccc" />
-			<Text Value="Исполнитель: Воробьев А.П." Alignment="Left" />
-			<Text Value="Срок: 04.12.16" Alignment="Left" />
-			<Text Value="Статус: Исполнено" Alignment="Left" />
-			<Rectangle Color="#eee" Padding="10">
-				<Text Value="Перейти в карточку" Alignment="Center" />
-			</Rectangle>
+	<Panel ux:Name="shortTask" Padding="10" Alignment="Center" Color="#fff" Layer="Overlay" HitTestMode="None" Opacity="0" >
+		<StackLayout />
+		<Text Value="На исполнение" FontSize="12" Font="Light" Alignment="Left" />
+		<Text Value="Письмо о проведении аукциона" FontSize="16" Alignment="Left" />
+		<Grid Columns="auto,1*,1*">
+			<Text Value="Орлов Г.В." Font="Light" FontSize="12" Alignment="Left" />
+			<Text Value="(+3 исп.)" Font="Light" FontSize="12" Alignment="Center" />
+			<Text Value="" Font="Light" FontSize="12" Alignment="Right" />
+			<Text Value="12.12.16" Font="Light" FontSize="12" Alignment="Left" />
+			<Text Value="Исполнено" Font="Light" FontSize="12" Alignment="Center" />
+			<Text Value="Отчет" Font="Light" FontSize="12" Alignment="Right" />
+		</Grid>
+		<Rectangle Height="1" Color="#ddd" Margin="0,0,0,10" />
+		<Text Value="+5 дочерних" FontSize="13" Alignment="Left" Margin="0,10,0,0" />
+		<fa-external-link FontSize="20" Alignment="BottomRight" LayoutRole="Inert" />
+		<fa-thumb-tack FontSize="20" Alignment="BottomRight" LayoutRole="Inert" Margin="0,0,40,0" />
+	</Panel>
 
-
-		</Panel>
-		
-
-	</StackPanel>
-
-	
-	<StackPanel ux:Class="childItem" ItemSpacing="5" Margin="0,0,0,20">
-		<Rectangle ux:Name="bgRec" Width="1" Color="#ddd" Layer="Background" Opacity="0" Alignment="Left" Margin="15,30,0,10" />
-		<StackPanel Orientation="Horizontal" ItemSpacing="5" Margin="0,0,0,5">
-			<float4 ux:Property="StatusColor" />
-			<WhileTrue ux:Name="showChild">
-				<Change plusVert.Opacity="0" Duration=".2" />
-				<Change t1.Height="80" Duration=".2" Easing="CircularOut" />
-				<Change t1.Opacity="1" Duration=".2" Easing="CircularOut" />
-				<Move Target="t1" Y="1" RelativeTo="Size" Duration=".2" Easing="CubicOut" />
-				<Change bgRec.Opacity="1" Duration=".2" />
-			</WhileTrue>
-			<Panel Alignment="TopLeft" Width="30" Height="30" HitTestMode="LocalBoundsAndChildren">
-				<Rectangle ux:Name="plusVert" Width="2" Height="8" Alignment="Center" Color="#000" Opacity="{plus}" />
-				<Rectangle Height="2" Width="8" Alignment="Center" Color="#000" />
-				<Circle Width="20" Height="20" Color="{Property StatusColor}"  />
-				<Tapped>
-					<Toggle Target="showChild" />
-				</Tapped>
-			</Panel>
-
-			<StackPanel Alignment="TopLeft" Margin="0,5,0,0">
-				<Text Value="Воробьев: Подготовить отчет о работе" />
-				<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" />
+	<Rectangle Color="0,0,0,0" ux:Name="BlockColor" Margin="-10" Clicked="{toggleTreePreview}"/>
+	<WhileActive Threshold="0.5">
+		<Set tabBar1.LayoutElement="taskTab" />
+	</WhileActive>
+	<ScrollView ux:Name="taskScroll" >
+		<StackPanel ItemSpacing="5">
+			<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,15" ItemSpacing="10" >
+				<fa-arrow-up />
+				<fa-ellipsis-h Margin="-5,7,0,0" />
 			</StackPanel>
-		</StackPanel>
+			<Text Value="Орлов: Договор о поставках торгового оборудования" Alignment="Left" />	
+			<Rectangle Height="1" Color="#ccc" />
 
-		<StackPanel ux:Name="t1" Margin="25,10,0,5" Height="0" LimitHeight="100%" Opacity="0" HitTestMode="None">
-			<Translation Y="-1" RelativeTo="Size" />
-			<StackPanel Orientation="Horizontal" ItemSpacing="5" >
-				<float4 ux:Property="StatusColor1" />
-				<WhileTrue ux:Name="showChild1">
-					<Change plusVert1.Opacity="0" Duration=".2" />
-					<Change bgRec1.Opacity="1" Duration=".2" />
-					<Change t1.Height="90" Duration=".2" />
-					<Change t2.Height="95" Duration=".2" />
-					<Change t2.Opacity="1" Duration=".2" />
-					<Move Target="t2" Y="1" RelativeTo="Size" Duration=".2" />
+			<Panel Margin="5,0,0,0">
+				<StackLayout />
+				
+				<WhileTrue Value="{treePreview}">
+					<Change BlockColor.Color="0,0,0,.5" Duration=".2" Easing="CubicOut" />
+					<Change shortTask.Opacity="1" Duration=".2" Easing="CubicOut" />
 				</WhileTrue>
-				<Panel Alignment="TopLeft" Width="30" Height="30">
-					<Rectangle ux:Name="plusVert1" Width="2" Height="8" Alignment="Center" Color="#000" />
-					<Rectangle Height="2" Width="8" Alignment="Center" Color="#000" />
-					<Circle Width="20" Height="20" Color="{Property StatusColor}"  />
+				
+				<Rectangle ux:Name="greyBg" Layer="Overlay" Color="#000" HitTestMode="None" Opacity="0" />
+
+
+				<Panel ux:Class="dotItem" Alignment="TopLeft" Width="30" Height="30" >
+					<float4 ux:Property="StatusColor" />
+					<Circle Width="15" Height="15" Color="{Property StatusColor}" Alignment="Center" />
+				</Panel>
+
+				<Panel ux:Class="plusItem" Alignment="TopLeft" Width="30" Height="30" HitTestMode="LocalBoundsAndChildren">
+					<float4 ux:Property="StatusColor" />
+					<WhileTrue ux:Name="showChild">
+						<Change plusVert.Opacity="0" Duration=".2" />
+					</WhileTrue>
+					<Rectangle ux:Name="plusVert" Width="2" Height="10" Alignment="Center" Color="#fff" Opacity="{plus}" />
+					<Rectangle Height="2" Width="10" Alignment="Center" Color="#fff" />
+					<Circle Width="16" Height="16" Color="{Property StatusColor}" Alignment="Center" />
 					<Tapped>
-						<Toggle Target="showChild1" />
+						<Toggle Target="showChild" />
 					</Tapped>
 				</Panel>
 
-				<StackPanel Margin="0,5,0,0" Alignment="TopLeft">
-					<Text Value="Воробьев: Подготовить отчет о работе" />
-					<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" Visibility="Collapsed" />
+				<StackPanel ux:Class="taskText"  Margin="5,5,0,0" Alignment="TopLeft" Clicked="{toggleTreePreview}">
+					<string ux:Property="Title" />
+					<Visibility ux:Property="SecondLevel" />
+					<Text Value="{Property Title}" />
+					<Text Value="Срок: 04.12.16     Исполнено      Отчет" Font="Light" FontSize="12" Visibility="{Property SecondLevel}" />
 				</StackPanel>
-			</StackPanel>
-				
-			<StackPanel ux:Name="t2" Margin="35,5,0,5" Height="0" LimitHeight="100%" Opacity="0" >
-				<Translation Y="-1" RelativeTo="Size" />
-				<Rectangle ux:Name="bgRec1" Width="1" Color="#ddd" Layer="Background" Opacity="0" Alignment="Left" Margin="-20,0,0,10" />
-				<Rectangle Height="40" Color="#ddd" Margin="0,0,0,0" />
-				<Rectangle Height="40" Color="#ddd" Margin="0,5,0,0" />
-			</StackPanel>
 
-			<dotItem StatusColor="done" SecondLevel="Collapsed" />
+				<StackPanel ux:Class="dotTask" Orientation="Horizontal" Margin="0,20,0,0" >
+					<string ux:Property="Title" />
+					<float4 ux:Property="StatusColor" />
+					<dotItem StatusColor="{Property StatusColor}" />
+					<taskText Title="{Property Title}" />
+				</StackPanel>
+				<StackPanel ux:Class="plusTask" Orientation="Horizontal" Margin="0,20,0,0" >
+					<string ux:Property="Title" />
+					<float4 ux:Property="StatusColor" />
+					<plusItem StatusColor="{Property StatusColor}" />
+					<taskText Title="{Property Title}" />
+				</StackPanel>
+
+
+				<dotTask StatusColor="overdue" Title="О рабочих программах 16-17" />
+				<dotTask StatusColor="overdue" Title="Письмо о проведении аукциона"  />
+				<plusTask StatusColor="done" Title="Про внесение изменений в учебный план" />
+				<plusTask StatusColor="inProgress" Title="О совместной деятельнсти" />
+				<plusTask StatusColor="overdue" Title="Отчет за первый квартал" />
+			</Panel>
 		</StackPanel>
-		<Rectangle ux:Name="info1" Width="300" Height="100" Layer="Overlay" Alignment="Center" Color="#fff" Opacity="0" HitTestMode="None" >
-			<Translation Y="-1" RelativeTo="Size" />
-			<Shadow />
-		</Rectangle>
-	</StackPanel>
-
-
-	<childItem StatusColor="inProgress" />
-	<dotItem StatusColor="overdue"  />
-	<childItem StatusColor="done" />
-	<childItem StatusColor="done" />
-
-
+		<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
+			<Set fileState.Active="fileFull"   />
+		</ScrollingAnimation>
+	</ScrollView>
+	
+		
 </Panel>

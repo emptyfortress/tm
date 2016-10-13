@@ -213,26 +213,7 @@
 				</ScrollView>
 			</Page>
 			<Page ux:Name="taskHelper">
-				<WhileActive Threshold="0.5">
-					<Set tabBar1.LayoutElement="taskTab" />
-				</WhileActive>
-				<ScrollView ux:Name="taskScroll" >
-					<StackPanel ItemSpacing="5">
-						<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,15" ItemSpacing="10" >
-							<fa-arrow-up />
-							<fa-ellipsis-h Margin="-5,7,0,0" />
-						</StackPanel>
-						<Text Value="Орлов: Договор о поставках торгового оборудования" Alignment="Left" />	
-						<Rectangle Height="1" Color="#ccc" />
-							
-							<ux:Include File="flow.ux" />
-							
-					</StackPanel>
-					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
-						<Set fileState.Active="fileFull"   />
-					</ScrollingAnimation>
-				</ScrollView>
+				<ux:Include File="flow.ux" />
 			</Page>
 			<Page ux:Name="commentHelper">
 				<WhileActive Threshold="0.5">

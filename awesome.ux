@@ -21,6 +21,7 @@
   <Text ux:Class="fa_envelope_o" Font="fa">&#xf003;</Text>
   <Text ux:Class="fa_ellipsis_h" Font="fa">&#xf141;</Text>
   <Text ux:Class="fa_exclamation_triangle" Font="fa">&#xf071;</Text>
+  <Text ux:Class="fa_external_link" Font="fa">&#xf08e;</Text>
   <Text ux:Class="fa_eye" Font="fa">&#xf06e;</Text>
   <Text ux:Class="fa_file_o" Font="fa">&#xf016;</Text>
   <Text ux:Class="fa_folder" Font="fa">&#xf07b;</Text>
@@ -45,6 +46,7 @@
   <Text ux:Class="fa_sort_amount_desc" Font="fa">&#xf161;</Text>
   <Text ux:Class="fa_star_o" Font="fa">&#xf006;</Text>
   <Text ux:Class="fa_thumbs_o_up" Font="fa">&#xf087;</Text>
+  <Text ux:Class="fa_thumb_tack" Font="fa">&#xf08d;</Text>
   <Text ux:Class="fa_times" Font="fa">&#xf00d;</Text>
   <Text ux:Class="fa_trash" Font="fa">&#xf1f8;</Text>
   <Text ux:Class="fa_trash_o" Font="fa">&#xf014;</Text>
