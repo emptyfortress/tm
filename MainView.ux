@@ -176,7 +176,11 @@
 			var userMain = Observable(false);
 			var viewComplete = Observable(false);
 			var viewLoader = Observable(false);
+			var viewTaskFilter = Observable(false);
 
+			function toggleTaskFilter(){
+				viewTaskFilter.value = !viewTaskFilter.value;
+			}
 			function toggleLetter(){
 				showLetter.value = !showLetter.value;
 			}
@@ -215,11 +219,16 @@
 			function completeOff(){
 				viewComplete.value = false;
 			}
+			function taskOff(){
+				viewTaskFilter.value = false;
+			}
 			function loader(){
 				viewLoader.value = !viewLoader.value;
 			}
 
 			module.exports = {
+				viewTaskFilter: viewTaskFilter,
+				toggleTaskFilter: toggleTaskFilter,
 				viewLoader: viewLoader,
 				viewComplete: viewComplete,
 				resetMain: resetMain,
@@ -243,6 +252,7 @@
 				toggleMainUser: toggleMainUser,
 				toggleComplete: toggleComplete,
 				completeOff: completeOff,
+				taskOff: taskOff,
 				loader: loader
 			}
 		</JavaScript>
@@ -267,6 +277,7 @@
 				<Set viewFilterPop.Value="false" /> 
 				<Set viewSortPop.Value="false" />
 				<Callback Handler="{completeOff}" /> 
+				<Callback Handler="{taskOff}" /> 
 			</Clicked>
 		</Panel>
 

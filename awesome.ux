@@ -17,13 +17,16 @@
   <Text ux:Class="fa_cloud_upload" Font="fa">&#xf0ee;</Text>
   <Text ux:Class="fa_cog" Font="fa">&#xf013;</Text>
   <Text ux:Class="fa_comment_o" Font="fa">&#xf0e5;</Text>
+  <Text ux:Class="fa_compress" Font="fa">&#xf066;</Text>
   <Text ux:Class="fa_diamond" Font="fa">&#xf219;</Text>
   <Text ux:Class="fa_envelope_o" Font="fa">&#xf003;</Text>
   <Text ux:Class="fa_ellipsis_h" Font="fa">&#xf141;</Text>
   <Text ux:Class="fa_exclamation_triangle" Font="fa">&#xf071;</Text>
   <Text ux:Class="fa_external_link" Font="fa">&#xf08e;</Text>
+  <Text ux:Class="fa_expand" Font="fa">&#xf065;</Text>
   <Text ux:Class="fa_eye" Font="fa">&#xf06e;</Text>
   <Text ux:Class="fa_file_o" Font="fa">&#xf016;</Text>
+  <Text ux:Class="fa_fire" Font="fa">&#xf06d;</Text>
   <Text ux:Class="fa_folder" Font="fa">&#xf07b;</Text>
   <Text ux:Class="fa_folder_open_o" Font="fa">&#xf115;</Text>
   <Text ux:Class="fa_folder_o" Font="fa">&#xf114;</Text>
@@ -32,6 +35,7 @@
   <Text ux:Class="fa_inbox" Font="fa">&#xf01c;</Text>
   <Text ux:Class="fa_home" Font="fa">&#xf015;</Text>
   <Text ux:Class="fa_level_up" Font="fa">&#xf148;</Text>
+  <Text ux:Class="fa_low_vision" Font="fa">&#xf2a8;</Text>
   <Text ux:Class="fa_microphone" Font="fa">&#xf130;</Text>
   <Text ux:Class="fa_minus_square" Font="fa">&#xf146;</Text>
   <Text ux:Class="fa_minus_square_o" Font="fa">&#xf147;</Text>

@@ -5,6 +5,36 @@
 		<Rectangle Layer="Background" Color="#fff" />
 	</Panel>
 	
+	<Panel ux:Name="taskFilter" Alignment="Center">
+		<Translation Y="-1.5" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" Clicked="{toggleTaskFilter}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+		<StackPanel ItemSpacing="3" >
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-expand Alignment="CenterLeft" />
+				<cardBt Value="Распахнуть все" Alignment="CenterLeft" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-compress Alignment="CenterLeft" />
+				<cardBt Value="Свернуть все" Alignment="CenterLeft" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-low-vision Alignment="CenterLeft" />
+				<cardBt Value="Скрыть завершенные" Alignment="CenterLeft" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0" Margin="0,40,0,0">
+				<fa-fire Alignment="CenterLeft" />
+				<cardBt Value="Показать критические" Alignment="CenterLeft" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0" >
+				<fa-eye Alignment="CenterLeft" />
+				<cardBt Value="Показать все" Alignment="CenterLeft" />
+			</StackPanel>
+		</StackPanel>
+	</Panel>
+
 	<Panel ux:Name="readPanel" Alignment="Center"  Width="300" Height="300" >
 		<Translation Y="-1.5" RelativeTo="ParentSize" />
 		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60">
