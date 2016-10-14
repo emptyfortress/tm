@@ -1,11 +1,11 @@
-<Panel ux:Name="dashboard" Background="#EAEAEA">
+<Panel ux:Name="dashboard" Background="#fff">
 	<Panel ux:Class="Icon" Width="40" color="#000">
 		<float4 ux:Property="color" />
 	    <Image Source="{Resource iconFile}" Color="{Property this.color}" Alignment="Center" />
 	</Panel>
 	<Panel ux:Class="Header" Margin="0,0,0,50">
 		<string ux:Property="Text"/>
-		<Text Value="{Property this.Text}" FontSize="25" Color="#999" Alignment="TopCenter" />
+		<Text Value="{Property this.Text}" FontSize="25" Color="#000" Alignment="TopCenter" />
 	</Panel>
 	<StackPanel Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
 		<Icon>
@@ -22,7 +22,7 @@
 
 	<DockPanel>
 		<StackPanel Dock="Bottom" Margin="10,0,50,0">
-			<Rectangle Height="1" Color="#fff" />
+			<Rectangle Height="1" Color="#000" />
 			<MultiLayoutPanel Height="65" ux:Name="tabBar" >
 				<GridLayout ColumnCount="3" Rows="1*"/>
 				<Panel ux:Name="tahoTab">
@@ -33,7 +33,7 @@
 							</LayoutAnimation>
 						</Rectangle>
 					</Placeholder>
-					<Icon>
+					<Icon color="#000">
 						<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="taho" />
@@ -42,7 +42,7 @@
 				</Panel>
 				<Panel ux:Name="foldersTab">
 					<Placeholder  Target="indicator"/>
-					<Icon>
+					<Icon color="#000">
 						<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="folders" />
@@ -51,7 +51,7 @@
 				</Panel>
 				<Panel ux:Name="usersTab">
 					<Placeholder  Target="indicator"/>
-					<Icon>
+					<Icon color="#000">
 						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
 						<Clicked>
 							<Set _dashPages.Active="users" />
@@ -76,7 +76,7 @@
 						<Panel Margin="0,20,0,0">
 							<StackPanel>
 								<dashHeader Value="Новое" />
-								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
+								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#000" Alignment="TopRight" Offset="-2,5" />
 								<StackPanel >
 									<unreadText Quantity="3" Text="Мои документы">
 										<Tapped>
@@ -198,7 +198,7 @@
 							</Panel>
 							<Panel  Margin="0,20,0,0">
 								<StackLayout Orientation="Vertical" />
-								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#aaa" Alignment="TopRight" Offset="-2,5" />
+								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#000" Alignment="TopRight" Offset="-2,5" />
 								<dashHeader Value="Лента событий" />
 								<dashPanel Height="200">
 									<ScrollView AllowedScrollDirections="Horizontal">
@@ -377,4 +377,5 @@
 			</Page>
 		</PageControl>
 	</DockPanel>
+	<Image File="Assets/bg/06.jpg"  Layer="Background" StretchMode="UniformToFill" Opacity=".8" />
 </Panel>

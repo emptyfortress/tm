@@ -5,7 +5,8 @@
 		<Size ux:Property="Load"/>
 		<Size ux:Property="Suck"/>
 		<Image File="Assets/user-icon.png" Width="30" Alignment="CenterLeft" />
-		<Text Value="{Property this.User}" Color="#000" Alignment="CenterLeft"/>
+		<!-- <Text Value="{Property this.User}" Color="#000" Alignment="CenterLeft"/> -->
+		<Text Value="{Property this.User}"  Color="#000" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  />
 	</Grid>
 	<Rectangle Height="1" Color="#ccc" />
@@ -23,5 +24,5 @@
 	    	</LinearGradient>
 		</Rectangle>
 	</StackPanel>
-	<Rectangle Layer="Background" Color="#fff" />
+	<Rectangle Layer="Background" Color="#fff" Opacity=".7" />
 </StackPanel>

@@ -3,6 +3,7 @@
 		var Observable = require('FuseJS/Observable');
 		var treePreview = Observable(false);
 		var showChild = Observable(false);
+		var moveTask = Observable(false);
 
 		function toggleTreePreview(){
 			treePreview.value = !treePreview.value;
@@ -10,11 +11,16 @@
 		function toggleChild(){
 			showChild.value = !showChild.value;
 		}
+		function move(){
+			moveTask.value = !moveTask.value;
+		}
 		module.exports = {
 			treePreview: treePreview,
 			toggleTreePreview: toggleTreePreview,
 			showChild: showChild,
-			toggleChild: toggleChild
+			toggleChild: toggleChild,
+			moveTask: moveTask,
+			move: move
 		}
 	</JavaScript>
 	<Panel ux:Name="shortTask" Padding="10" Alignment="Center" Color="#fff" Layer="Overlay" HitTestMode="None" Opacity="0" >
@@ -34,8 +40,8 @@
 		<fa-external-link FontSize="20" Alignment="BottomRight" LayoutRole="Inert" Clicked="{toggleTreePreview}" />
 		<fa-thumb-tack FontSize="20" Alignment="BottomRight" LayoutRole="Inert" Margin="0,0,40,0">
 			<Tapped>
-				<Callback Handler="{toggleTreePreview}" />
-				<Toggle Target="showLevel2" Delay=".5" />
+				<!-- <Callback Handler="{toggleTreePreview}" />
+				<Toggle Target="showLevel2" Delay=".5" /> -->
 			</Tapped>
 		</fa-thumb-tack>
 	</Panel>
@@ -47,19 +53,26 @@
 	<ScrollView ux:Name="taskScroll" >
 		<StackPanel ItemSpacing="5">
 			<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
-			<StackPanel Orientation="Horizontal" Margin="0,0,0,10" ItemSpacing="10" >
-				<fa-home FontSize="22" Margin="0,0,20,0" />
-				<fa-ellipsis-h Margin="0,7,-5,0" />
-				<fa-level-up FontSize="20" />
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,10" ItemSpacing="10" HitTestMode="LocalBoundsAndChildren">
+				<!-- <fa-home FontSize="22" Margin="0,0,20,0" /> -->
+				<fa-level-up FontSize="20">
+					<Scaling X="-1"  />
+				</fa-level-up>
+				<fa-ellipsis-h Margin="-5,7,0,0" />
 				<Tapped>
-					<Toggle Target="showLevel2" />
+					<Callback Handler="{move}" />
+					<!-- <Toggle Target="showLevel2" /> -->
 				</Tapped>
 			</StackPanel>
-			<Text ux:Name="headTask" Value="Орлов: Договор о поставках торгового оборудования" Alignment="Left" />	
-			<Text ux:Name="headTask1" Value="Орлов: Письмо о проведении аукциона" Alignment="Left" Visibility="Collapsed" >
-				<Translation X="1" RelativeTo="ParentSize" />
-			</Text>
-			<Rectangle Height="1" Color="#ccc" />
+			<StackPanel Orientation="Horizontal" ItemSpacing="10">
+				<Panel Alignment="TopLeft" HitTestMode="LocalBoundsAndChildren">
+					<Rectangle Height="2" Width="10" Alignment="Center" Color="#fff" />
+					<Circle Width="16" Height="16" Color="inProgress" Alignment="Center" />
+				</Panel>
+				<Text ux:Name="headTask" Value="Орлов: Договор о поставках торгового оборудования" Alignment="Left" FontSize="18" />	
+				<!-- <Text ux:Name="headTask1" Value="Орлов: Письмо о проведении аукциона" Alignment="Left" Visibility="Collapsed" Opacity="0" >
+				</Text> -->
+			</StackPanel>
 
 			<Panel Margin="5,0,0,0">
 				<StackLayout />
@@ -71,16 +84,22 @@
 					<Change shortTask.Opacity="1" Duration=".1" Easing="CircularOut" />
 				</WhileTrue>
 				<WhileTrue ux:Name="showLevel2">
-					<Change level2.Visibility="Visible" />
-					<Move Target="headTask" X="-1" RelativeTo="ParentSize" Duration=".3"   />
-					<Change headTask.Visibility="Collapsed" Delay=".3" />
-					<Move Target="level1" X="-1" RelativeTo="ParentSize" Duration=".4" Delay=".1"   />
-					<Change level1.Visibility="Collapsed" Delay=".3" />
-					<Change headTask1.Visibility="Visible" Delay=".3" />
-					<Move Target="headTask1" X="-1" RelativeTo="ParentSize" Duration=".3" Delay=".35"  />
-					<Move Target="level2" X="-1" RelativeTo="ParentSize" Duration=".3" Delay=".5"  />
+					<Move Target="headTask" X="10" Duration=".1"   />
+					<Move Target="headTask" Y="-35" Duration=".1"   />
+					<Change headTask.FontSize="14" Duration=".1" />
+					<Change fly.LayoutMaster="headTask" />
+					<Change fly.Margin="0" Duration=".2" />
+		            <Change fly.FontSize="18" Duration=".2" />
+					<Change level1.Opacity="0"  />
+					<Change level1.Visibility="Collapsed" Delay=".2"   />
+					<Change level2.Height="400" Duration=".2" Delay=".5"   />
+					<Change level2.Opacity="1" Duration=".2" Delay=".5"   />
 				</WhileTrue>
-
+				<WhileTrue Value="{moveTask}">
+					<Change showLevel2.Value="true" />
+					<!-- <Toggle Target="showLevel2" /> -->
+					<!-- <Change fly.LayoutMaster="headTask" /> -->
+				</WhileTrue>
 
 
 				<Panel ux:Class="dotItem" Alignment="TopLeft" Width="30" Height="30" >
@@ -99,6 +118,9 @@
 					<Tapped>
 						<Toggle Target="showChild" />
 					</Tapped>
+					<LongPressed>
+						<Callback Handler="{move}" />
+					</LongPressed>
 				</Panel>
 
 				<StackPanel ux:Class="taskText"  Margin="5,5,0,0" Alignment="TopLeft" Clicked="{toggleTreePreview}">
@@ -127,8 +149,13 @@
 					<dotTask StatusColor="done" Title="Королев: Вычитать тексты" />
 				</StackPanel>
 				
+				<Text ux:Name="fly" Value="Орлов: Подготовить заключение по проекту договора" Layer="Overlay" LayoutMaster="next" Margin="35,5,0,0">
+					<LayoutAnimation>
+			            <Move RelativeTo="WorldPositionChange" X="1" Y="1" Duration="0.3" Easing="CubicInOut" />
+			        </LayoutAnimation>
+				</Text>
 
-				<StackPanel ux:Name="level1">
+				<StackPanel ux:Name="level1" Margin="10,0,0,0" Height="600" LimitHeight="100%" ClipToBounds="true">
 					<WhileTrue ux:Name="showChild">
 						<Change t1.Height="190" Duration=".2" Easing="CubicIn" />
 					</WhileTrue>
@@ -138,7 +165,6 @@
 					<WhileTrue ux:Name="showChild2">
 						<Change t3.Height="190" Duration=".2" Easing="CubicIn" />
 					</WhileTrue>
-					
 					<StackPanel>
 						<StackPanel Orientation="Horizontal" Margin="0,20,0,0" >
 							<plusItem StatusColor="done" >
@@ -176,29 +202,34 @@
 						<Rectangle Width="1" Color="#ccc" Alignment="Left" Layer="Background" Margin="15,50,0,20" />
 					</StackPanel>
 					<dotTask StatusColor="overdue" Title="Орлов: О рабочих программах 16-17" />
-					<plusTask StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
+
+					<plusTask ux:Name="next" StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
+
+
+
+
 					<plusTask StatusColor="inProgress" Title="Орлов: Подготовить предложения" />
 					<dotTask StatusColor="done" Title="Орлов: О подготовке приказа на отпуск Ивановой" />
 					<dotTask StatusColor="done" Title="Орлов: Заявка на оборудование" />
-					<plusTask StatusColor="inProgress" Title="Орлов: Ознакомиться с приказом" />
-					<dotTask StatusColor="overdue" Title="Орлов: О рабочих программах 16-17" />
-					<plusTask StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
-					<plusTask StatusColor="inProgress" Title="Орлов: Подготовить предложения" />
-					<dotTask StatusColor="done" Title="Орлов: О подготовке приказа на отпуск Ивановой" />
-					<dotTask StatusColor="done" Title="Орлов: Заявка на оборудование" />
-					<plusTask StatusColor="inProgress" Title="Орлов: Ознакомиться с приказом" />
-					<dotTask StatusColor="overdue" Title="Орлов: О рабочих программах 16-17" />
-					<plusTask StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
-					<plusTask StatusColor="inProgress" Title="Орлов: Подготовить предложения" />
 					<dotTask StatusColor="done" Title="Орлов: О подготовке приказа на отпуск Ивановой">
-						<Rectangle Layer="Background" Color="#DAECFF" Margin="-10"  />
+						<Rectangle Layer="Background" Color="#DAECFF" Margin="-5"  />
 					</dotTask>
+					<plusTask StatusColor="inProgress" Title="Орлов: Ознакомиться с приказом" />
+					<dotTask StatusColor="overdue" Title="Орлов: О рабочих программах 16-17" />
+					<plusTask StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
+					<plusTask StatusColor="inProgress" Title="Орлов: Подготовить предложения" />
+					<dotTask StatusColor="done" Title="Орлов: О подготовке приказа на отпуск Ивановой" />
+					<dotTask StatusColor="done" Title="Орлов: Заявка на оборудование" />
+					<plusTask StatusColor="inProgress" Title="Орлов: Ознакомиться с приказом" />
+					<dotTask StatusColor="overdue" Title="Орлов: О рабочих программах 16-17" />
+					<plusTask StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
+					<plusTask StatusColor="inProgress" Title="Орлов: Подготовить предложения" />
 					<dotTask StatusColor="done" Title="Орлов: Заявка на оборудование" />
 					<plusTask StatusColor="inProgress" Title="Орлов: Ознакомиться с приказом" />
 				</StackPanel>
 				
-				<StackPanel ux:Name="level2" Visibility="Collapsed">
-					<Translation X="1" RelativeTo="ParentSize" />
+				<StackPanel ux:Name="level2" Margin="10,0,0,0" Height="0" LimitHeight="100%" ClipToBounds="true" Opacity="0">
+					<!-- <Translation Y="-100"  /> -->
 					<dotTask StatusColor="overdue" Title="Орлов: О рабочих программах 16-17" />
 					<plusTask StatusColor="done" Title="Орлов: Подготовить заключение по проекту договора" />
 					<plusTask StatusColor="inProgress" Title="Орлов: Подготовить предложения" />
@@ -218,6 +249,7 @@
 					<dotTask StatusColor="done" Title="Орлов: Заявка на оборудование" />
 					<plusTask StatusColor="inProgress" Title="Орлов: Ознакомиться с приказом" />
 				</StackPanel>
+				<Rectangle Width="1" Color="#ccc" Alignment="Left" Layer="Background" Margin="2,0,0,0" />
 			</Panel>
 			<fa-diamond Alignment="Center" Color="#ccc" FontSize="50" Margin="0,50" />
 		</StackPanel>

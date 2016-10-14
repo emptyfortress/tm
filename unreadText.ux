@@ -8,6 +8,6 @@
 		<Text Value="{Property this.Text}" TextWrapping="Wrap" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Quantity}" FontSize="26" Color="#000" Alignment="CenterRight" Margin="0,0,10,0"  />
 	</Grid>
-	<Rectangle Height="1" Color="#ccc" />
-	<Rectangle Layer="Background" Color="#fff" />
+	<Rectangle Height="1" Color="#000" />
+	<Rectangle Layer="Background" Color="#fff" Opacity=".7" />
 </StackPanel>

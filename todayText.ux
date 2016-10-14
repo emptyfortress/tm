@@ -2,7 +2,7 @@
 	<string ux:Property="Text"/>
 	<string ux:Property="Quantity"/>
 
-	<fa-square-o Alignment="Left" Margin="10" Color="#000" />
-	<Text Value="{Property this.Text}" Color="#666" TextWrapping="Wrap" Alignment="CenterLeft"/>
-	<Text Value="{Property this.Quantity}" FontSize="26" Color="#000" Alignment="CenterRight" />
+	<fa-square-o Alignment="Left" Margin="10"  />
+	<Text Value="{Property this.Text}"  TextWrapping="Wrap" Alignment="CenterLeft"/>
+	<Text Value="{Property this.Quantity}" FontSize="26"  Alignment="CenterRight" />
 </Grid>

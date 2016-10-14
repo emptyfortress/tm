@@ -290,7 +290,7 @@
 
 <!-- this is main screen ****************************************** -->
 		<EdgeNavigation ux:Name="edge" />
-		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left" Background="#fff">
+		<Sidebar Width="250" ux:Name="menu" Edge="Left" Alignment="Left">
 			<EnteringAnimation>
 		        <Move X="-1.2" RelativeTo="Size"  />
 		    </EnteringAnimation>

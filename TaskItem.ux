@@ -19,12 +19,13 @@
 	
 	<Panel ClipToBounds="true">
 		<Panel Dock="Top">
-			<fa-bell-o ux:Name="bell" Alignment="TopRight" FontSize="23" Color="#008C23" Margin="0,0,10,0" Opacity="{old}">
+			<Panel ux:Name="bell" Alignment="TopRight" Margin="0,0,5,-5" Opacity="{old}" HitTestMode="LocalBoundsAndChildren">
+				<fa-bell-o  FontSize="23" Color="#008C23" Margin="5" />
 				<Clicked>
 					<Toggle Target="preview1"/>
 					<Pulse Target="GrowMe"/>
 				</Clicked>
-			</fa-bell-o>
+			</Panel>
 			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
 				<WhileTrue ux:Name="GrowMe">
 				   <Scale Factor="1.2" Duration="0.1"/>
@@ -42,7 +43,7 @@
 				<Toggle Target="newItem" />
 			</Clicked>
 		</Rectangle>
-		<Rectangle ux:Name="newRect" Width="5" Color="sky" Alignment="Left" Opacity="{new}"/>
+		<Rectangle ux:Name="newRect" Width="5" Color="#7f00ff" Alignment="Left" Opacity="{new}"/>
 		<Rectangle Width="35" Alignment="Right" HitTestMode="LocalBoundsAndChildren">
 			<StackLayout ItemSpacing="5" ContentAlignment="Center" />
 			<Rectangle Width="5" Height="5" Color="#ccc" />
