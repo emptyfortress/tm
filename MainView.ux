@@ -162,6 +162,7 @@
 			</Circle>
 		</Panel>
 		
+		
 		<JavaScript>
 			var Observable = require("FuseJS/Observable");
 			var showLetter = Observable(false);
@@ -250,7 +251,6 @@
 		
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
-		<!-- <ux:Include File="TaskCard.ux" /> -->
 
 		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center" HitTestMode="None">
 			<fa-check FontSize="40" Color="#fff" Alignment="Center" />

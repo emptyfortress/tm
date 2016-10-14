@@ -25,7 +25,7 @@
 			<Rectangle Height="1" Color="#000" />
 			<MultiLayoutPanel Height="65" ux:Name="tabBar" >
 				<GridLayout ColumnCount="3" Rows="1*"/>
-				<Panel ux:Name="tahoTab">
+				<Panel ux:Name="tahoTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder>
 						<Rectangle ux:Name="indicator" Alignment="Top" Height="6" Fill="#000">
 							<LayoutAnimation>
@@ -35,28 +35,28 @@
 					</Placeholder>
 					<Icon color="#000">
 						<FileImageSource File="Assets/taho.png" ux:Key="iconFile"/>
-						<Clicked>
-							<Set _dashPages.Active="taho" />
-						</Clicked>
 					</Icon>
+					<Clicked>
+						<Set _dashPages.Active="taho" />
+					</Clicked>
 				</Panel>
-				<Panel ux:Name="foldersTab">
+				<Panel ux:Name="foldersTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder  Target="indicator"/>
 					<Icon color="#000">
 						<FileImageSource File="Assets/folder-open.png" ux:Key="iconFile"/>
-						<Clicked>
-							<Set _dashPages.Active="folders" />
-						</Clicked>
 					</Icon>
+					<Clicked>
+						<Set _dashPages.Active="folders" />
+					</Clicked>
 				</Panel>
-				<Panel ux:Name="usersTab">
+				<Panel ux:Name="usersTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder  Target="indicator"/>
 					<Icon color="#000">
 						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
-						<Clicked>
-							<Set _dashPages.Active="users" />
-						</Clicked>
 					</Icon>
+					<Clicked>
+						<Set _dashPages.Active="users" />
+					</Clicked>
 				</Panel>
 			</MultiLayoutPanel>
 		</StackPanel>

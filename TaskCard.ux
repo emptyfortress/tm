@@ -172,6 +172,15 @@
 
 		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden" >
 			<NavigationMotion Overflow="Elastic"/>
+			<Panel ux:Name="taskIcon" Alignment="BottomLeft" Margin="-5" Layer="Overlay" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
+				<Tapped>
+					<!-- <Toggle Target="addPageActive" /> -->
+				</Tapped>
+				<fa-filter Alignment="Center" FontSize="25" />
+				<Circle ux:Name="plusCircle1" Width="50" Height="50" Color="#f00" Opacity=".4" Alignment="Center">
+					<DropShadow  />
+				</Circle>
+			</Panel>
 			<Page ux:Name="filesHelper">
 				<WhileActive Threshold="0.5">
 					<Set tabBar1.LayoutElement="fileTab" />

@@ -1,13 +1,9 @@
 <Panel>
 	<JavaScript>
 		var Observable = require('FuseJS/Observable');
-		var treePreview = Observable(false);
 		var showChild = Observable(false);
 		var moveTask = Observable(false);
 
-		function toggleTreePreview(){
-			treePreview.value = !treePreview.value;
-		}
 		function toggleChild(){
 			showChild.value = !showChild.value;
 		}
@@ -15,53 +11,27 @@
 			moveTask.value = !moveTask.value;
 		}
 		module.exports = {
-			treePreview: treePreview,
-			toggleTreePreview: toggleTreePreview,
 			showChild: showChild,
 			toggleChild: toggleChild,
 			moveTask: moveTask,
 			move: move
 		}
 	</JavaScript>
-	<Panel ux:Name="shortTask" Padding="10" Alignment="Center" Color="#fff" Layer="Overlay" HitTestMode="None" Opacity="0" >
-		<StackLayout />
-		<Text Value="На исполнение" FontSize="12" Font="Light" Alignment="Left" />
-		<Text Value="Письмо о проведении аукциона" FontSize="16" Alignment="Left" />
-		<Grid Columns="auto,1*,1*">
-			<Text Value="Орлов Г.В." Font="Light" FontSize="12" Alignment="Left" />
-			<Text Value="(+3 исп.)" Font="Light" FontSize="12" Alignment="Center" />
-			<Text Value="" Font="Light" FontSize="12" Alignment="Right" />
-			<Text Value="12.12.16" Font="Light" FontSize="12" Alignment="Left" />
-			<Text Value="Исполнено" Font="Light" FontSize="12" Alignment="Center" />
-			<Text Value="Отчет" Font="Light" FontSize="12" Alignment="Right" />
-		</Grid>
-		<Rectangle Height="1" Color="#ddd" Margin="0,0,0,10" />
-		<Text Value="+5 дочерних" FontSize="13" Alignment="Left" Margin="0,10,0,0" />
-		<fa-external-link FontSize="20" Alignment="BottomRight" LayoutRole="Inert" Clicked="{toggleTreePreview}" />
-		<fa-thumb-tack FontSize="20" Alignment="BottomRight" LayoutRole="Inert" Margin="0,0,40,0">
-			<Tapped>
-				<!-- <Callback Handler="{toggleTreePreview}" />
-				<Toggle Target="showLevel2" Delay=".5" /> -->
-			</Tapped>
-		</fa-thumb-tack>
-	</Panel>
-
 	<Rectangle Color="0,0,0,0" ux:Name="BlockColor" Margin="-10" HitTestMode="None" Clicked="{toggleTreePreview}"/>
 	<WhileActive Threshold="0.5">
 		<Set tabBar1.LayoutElement="taskTab" />
+		<Change taskIcon.Visibility="Visible" Duration=".3" />
 	</WhileActive>
 	<ScrollView ux:Name="taskScroll" >
 		<StackPanel ItemSpacing="5">
 			<Text Value="ПОРУЧЕНИЯ" FontSize="18" Alignment="TopCenter" />
 			<StackPanel Orientation="Horizontal" Margin="0,0,0,10" ItemSpacing="10" HitTestMode="LocalBoundsAndChildren">
-				<!-- <fa-home FontSize="22" Margin="0,0,20,0" /> -->
 				<fa-level-up FontSize="20">
 					<Scaling X="-1"  />
 				</fa-level-up>
 				<fa-ellipsis-h Margin="-5,7,0,0" />
 				<Tapped>
 					<Callback Handler="{move}" />
-					<!-- <Toggle Target="showLevel2" /> -->
 				</Tapped>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" ItemSpacing="10">
@@ -70,19 +40,10 @@
 					<Circle Width="16" Height="16" Color="inProgress" Alignment="Center" />
 				</Panel>
 				<Text ux:Name="headTask" Value="Орлов: Договор о поставках торгового оборудования" Alignment="Left" FontSize="18" />	
-				<!-- <Text ux:Name="headTask1" Value="Орлов: Письмо о проведении аукциона" Alignment="Left" Visibility="Collapsed" Opacity="0" >
-				</Text> -->
 			</StackPanel>
 
 			<Panel Margin="5,0,0,0">
 				<StackLayout />
-				
-				<WhileTrue Value="{treePreview}">
-					<Change BlockColor.Color="0,0,0,.5" Duration=".2" Easing="CubicOut" />
-					<Change BlockColor.HitTestMode="LocalBounds" />
-					<Change shortTask.HitTestMode="LocalBoundsAndChildren" />
-					<Change shortTask.Opacity="1" Duration=".1" Easing="CircularOut" />
-				</WhileTrue>
 				<WhileTrue ux:Name="showLevel2">
 					<Move Target="headTask" X="10" Duration=".1"   />
 					<Move Target="headTask" Y="-35" Duration=".1"   />
@@ -97,8 +58,6 @@
 				</WhileTrue>
 				<WhileTrue Value="{moveTask}">
 					<Change showLevel2.Value="true" />
-					<!-- <Toggle Target="showLevel2" /> -->
-					<!-- <Change fly.LayoutMaster="headTask" /> -->
 				</WhileTrue>
 
 
@@ -123,7 +82,7 @@
 					</LongPressed>
 				</Panel>
 
-				<StackPanel ux:Class="taskText"  Margin="5,5,0,0" Alignment="TopLeft" Clicked="{toggleTreePreview}">
+				<StackPanel ux:Class="taskText"  Margin="5,5,0,0" Alignment="TopLeft" Clicked="{toggleTask}">
 					<string ux:Property="Title" />
 					<Visibility ux:Property="SecondLevel" />
 					<Text Value="{Property Title}" />
