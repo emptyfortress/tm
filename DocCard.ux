@@ -57,9 +57,9 @@
 				<Text Value="{status}" FontSize="15" Font="Light" Color="#FF00FF" Alignment="Center"  />
 				<Stroke Width="1" Color="#FF00FF" />
 			</Rectangle>
-			<Text Value="{type}" FontSize="13" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
+			<Text Value="{type}" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
-				<Image File="Assets/card.png" Width="35" Color="{key}" Alignment="Center" />
+				<Image File="Assets/card.png" Width="46" Color="{key}" Alignment="Center" />
 			</Circle>
 		</Panel>
 
