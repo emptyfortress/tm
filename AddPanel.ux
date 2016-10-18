@@ -50,7 +50,7 @@
 		        </State>
 			</StateGroup>
 			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="60%" Background="#fff">
-				<Grid Columns="1*, auto" Dock="Top" Padding="10">
+				<Grid Columns="1*, auto,auto" Dock="Top" Padding="10">
 					<StackPanel Orientation="Horizontal"  ItemSpacing="5">
 						<Circle Width="30" Height="30" Color="#fff" >
 							<Stroke Width="1" Color="#ccc" />
@@ -63,7 +63,17 @@
 						</Panel>
 					</StackPanel>
 					<Panel Padding="5">
-						<Text ux:Name="sendButton" Value="Отправить" Color="#aaa" Alignment="Center"  />
+						<Text ux:Name="saveButton" FontSize="13" Value="Сохранить" Color="#aaa" Alignment="Center"  />
+						<Rectangle ux:Name="saveButtonBg" Layer="Background" Color="#eee" />
+						<Clicked>
+							<Move Target="addPanel" Y="-1.5" RelativeTo="Size" Duration=".2" Easing="CircularIn" />
+							<Change addPanel.Opacity.Value="0" Duration=".4" />
+							<Change doneText.Opacity.Value="1" Duration=".5" />
+							<Toggle Target="addPageActive" Delay="2" />
+						</Clicked>
+					</Panel>
+					<Panel Padding="5" Margin="2,0,0,0">
+						<Text ux:Name="sendButton" FontSize="13" Value="Отправить" Color="#aaa" Alignment="Center"  />
 						<Rectangle ux:Name="sendButtonBg" Layer="Background" Color="#eee" />
 						<Clicked>
 							<Move Target="addPanel" Y="-1.5" RelativeTo="Size" Duration=".2" Easing="CircularIn" />
@@ -93,6 +103,12 @@
 						<TextView ux:Name="taskText" Padding="10" FontSize="20" TextAlignment="Left" TextWrapping="Wrap" MinHeight="50" Margin="0,0,0,5">
 							<WhileString Test="IsEmpty">
 								<Text Color="#ccc">Текст поручения...</Text>
+							</WhileString>
+							<WhileString Test="IsNotEmpty">
+								<Change saveButtonBg.Color="blue" />
+								<Change saveButton.Color="#fff" />
+								<Change sendButtonBg.Color="blue" />
+								<Change sendButton.Color="#fff" />
 							</WhileString>
 							<Clicked>
 								<Set helperPanel.Active="textScroll" />
@@ -216,12 +232,12 @@
 				<Swiped Source="up">
 					<Set addGroup.Active="fullState" />
 				</Swiped>
-				<Panel ux:Name="downArrow" Width="40" Height="40" LayoutRole="Inert" Alignment="BottomLeft" Visibility="Collapsed">
+				<Panel ux:Name="downArrow" Width="35" Height="35" LayoutRole="Inert" Alignment="TopCenter" Visibility="Collapsed">
 					<Clicked>
 						<Set addGroup.Active="shortState" />
 					</Clicked>
-					<fa-angle-down Color="#fff" FontSize="25" Alignment="Center" />
-					<Circle Color="sky" />
+					<fa-chevron-down FontSize="23" Color="#000" Alignment="Center" />
+					<Circle Color="#fff" />
 				</Panel>
 				
 
@@ -233,7 +249,6 @@
 							<Change ico1.Color="#000" />
 						</WhileActive>
 						<Panel>
-							
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 							<WhileWindowPortrait>
 								<Change templateColumns.ColumnCount.Value="2" />
