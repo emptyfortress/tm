@@ -9,7 +9,7 @@
 		<Text Value="{Property this.User}"  Color="#000" Alignment="CenterLeft"/>
 		<Text Value="{Property this.Tasks}" FontSize="25" Color="#000" Alignment="CenterRight"  />
 	</Grid>
-	<Rectangle Height="1" Color="#ccc" />
+	<!-- <Rectangle Height="1" Color="#ccc" /> -->
 	<StackPanel Orientation="Horizontal" Layer="Background">
 		<Rectangle Color="#BFDFFF" Layer="Background"  Opacity="1" Width="{Property this.Suck}" Alignment="Left">
 			<LinearGradient StartPoint="0,0" EndPoint="0,1">
@@ -24,5 +24,5 @@
 	    	</LinearGradient>
 		</Rectangle>
 	</StackPanel>
-	<Rectangle Layer="Background" Color="#fff" Opacity=".7" />
+	<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
 </StackPanel>

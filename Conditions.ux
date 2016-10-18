@@ -143,9 +143,7 @@
 		<Pulse Target="showLoader" />
 		<Callback Handler="{loader}" />
 	</WhileTrue>
-	<WhileTrue ux:Name="showSync">
-		<Change syncPanel.Height.Value="370" Duration=".4" Easing="CircularOut" />
-	</WhileTrue>
+	
 	<WhileTrue Value="{viewTaskFilter}">
 		<Change plusIcon.Visibility.Value="Collapsed" />
 		<Change overlayRec.Visibility="Visible" />
@@ -153,5 +151,7 @@
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="taskFilter" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
-	
+	<WhileTrue ux:Name="showSync">
+		<Change syncPanel.Height.Value="370" Duration=".4" Easing="CircularOut" />
+	</WhileTrue>
 </Panel>

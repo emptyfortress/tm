@@ -11,7 +11,7 @@
 		<Icon>
 			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
 		</Icon>
-		<Text Value="4" Color="red" Alignment="Center" Offset="5,0" />
+		<Text Value="4" FontSize="20" Color="red" Alignment="Center" Offset="5,0" />
 		<Icon HitTestMode="LocalBoundsAndChildren" Clicked="{loader}">
 			<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 			<WhileVisible>
@@ -74,10 +74,10 @@
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />
 						<Panel Margin="0,20,0,0">
-							<StackPanel>
+							<StackPanel >
 								<dashHeader Value="Новое" />
 								<Text Value="Очистить" FontSize="12" Layer="Overlay" Color="#000" Alignment="TopRight" Offset="-2,5" />
-								<StackPanel >
+								<StackPanel ItemSpacing="1">
 									<unreadText Quantity="3" Text="Мои документы">
 										<Tapped>
 											<Toggle Target="dashboardUp" />
@@ -222,7 +222,7 @@
 							<Panel  Margin="0,20,0,0">
 								<StackLayout Orientation="Vertical"/>
 								<dashHeader Value="Моя команда" />
-								<StackPanel>
+								<StackPanel ItemSpacing="1">
 									<userName User="Орлов П.С." Tasks="5" Load="35%" />
 									<userName User="Воробьев У.С." Tasks="5" Load="35%" />
 									<userName User="Воронова Г.Т." Tasks="3" Load="20%" />
@@ -273,7 +273,7 @@
 								</dashPanel>
 							</Panel>
 							<Panel Height="50">
-								<fa-diamond FontSize="50" Color="#fff" Alignment="Center" />
+								<fa-diamond FontSize="50" Color="#fff" Alignment="Center" Opacity=".5" />
 							</Panel>
 						</Panel>
 					</StackPanel>
@@ -290,6 +290,29 @@
 				</Header>
 				<ScrollView Margin="0,50,0,0">
 					<StackPanel>
+						<StackPanel Margin="5,10,5,50" ItemSpacing="1">
+							<Grid Columns="auto,1*,auto" Padding="5" CellSpacing="5">
+								<fa-star-o FontSize="20" Color="#000" />
+								<Text Value="Избранное" FontSize="15" Color="#000" Margin="10,0,0,0"  />
+								<Text Value="31" FontSize="18" Color="#000" Alignment="CenterLeft"  />
+								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+							</Grid>
+							<Grid Columns="auto,1*,auto" Padding="5" CellSpacing="5">
+								<Image File="Assets/refresh.png" Width="27" Color="#000" Alignment="CenterLeft" />
+								<Text Value="На синхронизацию" FontSize="15" Color="#000" Margin="10,0,0,0" Alignment="CenterLeft"  />
+								<Text Value="4" FontSize="18" Color="#000"  />
+								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+								<Tapped>
+									<Toggle Target="showSync" />
+								</Tapped>
+							</Grid>
+							<Grid Columns="auto,1*,auto" Padding="5" CellSpacing="5">
+								<fa-pencil FontSize="19" Color="#000" Alignment="CenterLeft" />
+								<Text Value="Черновики" FontSize="15" Color="#000" Margin="10,0,0,0" Alignment="CenterLeft"  />
+								<Text Value="8" FontSize="18" Color="#000"  />
+								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+							</Grid>
+						</StackPanel>
 						<Panel>
 							<ColumnLayout ux:Name="folderColumn" ColumnCount="4" ColumnSpacing="5" ItemSpacing="5" />
 							<WhileWindowPortrait>
@@ -304,83 +327,9 @@
 								</folder2>
 							</Each>
 						</Panel>
-						<StackPanel Margin="5,40,5,50" ItemSpacing="1">
-							<!-- <StackPanel Orientation="Horizontal">
-								<fa-star-o FontSize="22" Color="#000" />
-								<Text Value="Избранное" FontSize="18" Color="#000"  />
-							</StackPanel> -->
-							<Grid Columns="auto,1*,auto" Padding="10" CellSpacing="5">
-								<fa-star-o FontSize="22" Color="#000" />
-								<Text Value="Избранное" FontSize="17" Color="#000" Margin="10,0,0,0"  />
-								<Text Value="31" FontSize="18" Color="#000"  />
-								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
-							</Grid>
-							<Grid Columns="auto,1*,auto" Padding="10" CellSpacing="5">
-								<Image File="Assets/refresh.png" Width="27" Color="#000" />
-								<Text Value="На синхронизацию" FontSize="17" Color="#000" Margin="10,0,0,0"  />
-								<Text Value="4" FontSize="18" Color="#000"  />
-								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
-							</Grid>
-							<Grid Columns="auto,1*,auto" Padding="10" CellSpacing="5">
-								<fa-pencil FontSize="22" Color="#000" />
-								<Text Value="Черновики" FontSize="17" Color="#000" Margin="10,0,0,0"  />
-								<Text Value="8" FontSize="18" Color="#000"  />
-								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
-							</Grid>
-
-							<!-- <unreadText Quantity="31" Text="Избранное">
-								<Tapped>
-									<Toggle Target="dashboardUp" />
-									<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
-								</Tapped>
-							</unreadText>
-							<unreadText Quantity="4" Text="На синхронизацию">
-								<Tapped>
-									<Toggle Target="dashboardUp" />
-									<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
-								</Tapped>
-							</unreadText>
-							<unreadText Quantity="2" Text="Черновики ">
-								<Tapped>
-									<Toggle Target="dashboardUp" />
-									<NavigateTo Target="folder5" NavigationContext="_listNavigation" />
-								</Tapped>
-							</unreadText> -->
-						</StackPanel>
-						<!-- <Panel Margin="5">
-							<WrapLayout Orientation="Horizontal" />
-							<Panel>
-								<dashPanel Width="180" Height="100">
-									<fa-folder-o Alignment="TopLeft" Color="#000" />
-									<Text Value="На синхронизацию" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
-									<Text Value="4" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
-									<Icon Alignment="BottomRight" Offset="10" >
-										<FileImageSource File="Assets/refresh.png" ux:Key="iconFile" />
-									</Icon>
-									<Tapped>
-										<Toggle Target="showSync" />
-									</Tapped>
-								</dashPanel>
-							</Panel>
-							<Panel>
-								<dashPanel Width="180" Height="100">
-									<fa-folder-o Alignment="TopLeft" Color="#000" />
-									<Text Value="Черновики" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
-									<Text Value="11" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
-									<fa-pencil FontSize="22" Alignment="BottomRight"  />
-								</dashPanel>
-							</Panel>
-							<Panel>
-								<dashPanel Width="180" Height="100">
-									<fa-folder-o Alignment="TopLeft" Color="#000" />
-									<Text Value="Избранное" FontSize="14" Color="#666" Alignment="TopLeft" Margin="25,0,0,0"  />
-									<Text Value="6" FontSize="30"  Alignment="BottomLeft" Offset="0,7"/>
-									<fa-star-o FontSize="22" Alignment="BottomRight" />
-								</dashPanel>
-							</Panel>
-						</Panel> -->
-						<Panel Height="50">
-							<fa-diamond FontSize="50" Color="#fff" Alignment="Center" />
+						
+						<Panel Margin="0,30,0,50">
+							<fa-diamond FontSize="50" Color="#fff" Alignment="Center" Opacity=".5" />
 						</Panel>
 					</StackPanel>
 				</ScrollView>
