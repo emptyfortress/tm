@@ -273,13 +273,13 @@
 								</dashPanel>
 							</Panel>
 							<Panel Height="50">
-								<fa-diamond FontSize="50" Color="#ccc" Alignment="Center" />
+								<fa-diamond FontSize="50" Color="#fff" Alignment="Center" />
 							</Panel>
 						</Panel>
 					</StackPanel>
 				</ScrollView>
 			</Page>
-			<Page ux:Name="folders" Padding="20,10">
+			<Page ux:Name="folders" Padding="5,10">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="foldersTab" />
 				</WhileActive>
@@ -290,7 +290,64 @@
 				</Header>
 				<ScrollView Margin="0,50,0,0">
 					<StackPanel>
-						<Panel Margin="10">
+						<Panel>
+							<ColumnLayout ux:Name="folderColumn" ColumnCount="4" ColumnSpacing="5" ItemSpacing="5" />
+							<WhileWindowPortrait>
+								<Change folderColumn.ColumnCount="2" />
+							</WhileWindowPortrait>
+							<Each Items="{items.folders}">
+								<folder2 Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Total="{total}" >
+									<Tapped>
+										<Toggle Target="dashboardUp" />
+										<NavigateTo Target="{folder}" NavigationContext="_listNavigation" />
+									</Tapped>
+								</folder2>
+							</Each>
+						</Panel>
+						<StackPanel Margin="5,40,5,50" ItemSpacing="1">
+							<!-- <StackPanel Orientation="Horizontal">
+								<fa-star-o FontSize="22" Color="#000" />
+								<Text Value="Избранное" FontSize="18" Color="#000"  />
+							</StackPanel> -->
+							<Grid Columns="auto,1*,auto" Padding="10" CellSpacing="5">
+								<fa-star-o FontSize="22" Color="#000" />
+								<Text Value="Избранное" FontSize="17" Color="#000" Margin="10,0,0,0"  />
+								<Text Value="31" FontSize="18" Color="#000"  />
+								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+							</Grid>
+							<Grid Columns="auto,1*,auto" Padding="10" CellSpacing="5">
+								<Image File="Assets/refresh.png" Width="27" Color="#000" />
+								<Text Value="На синхронизацию" FontSize="17" Color="#000" Margin="10,0,0,0"  />
+								<Text Value="4" FontSize="18" Color="#000"  />
+								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+							</Grid>
+							<Grid Columns="auto,1*,auto" Padding="10" CellSpacing="5">
+								<fa-pencil FontSize="22" Color="#000" />
+								<Text Value="Черновики" FontSize="17" Color="#000" Margin="10,0,0,0"  />
+								<Text Value="8" FontSize="18" Color="#000"  />
+								<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+							</Grid>
+
+							<!-- <unreadText Quantity="31" Text="Избранное">
+								<Tapped>
+									<Toggle Target="dashboardUp" />
+									<NavigateTo Target="folder1" NavigationContext="_listNavigation" />
+								</Tapped>
+							</unreadText>
+							<unreadText Quantity="4" Text="На синхронизацию">
+								<Tapped>
+									<Toggle Target="dashboardUp" />
+									<NavigateTo Target="folder4" NavigationContext="_listNavigation" />
+								</Tapped>
+							</unreadText>
+							<unreadText Quantity="2" Text="Черновики ">
+								<Tapped>
+									<Toggle Target="dashboardUp" />
+									<NavigateTo Target="folder5" NavigationContext="_listNavigation" />
+								</Tapped>
+							</unreadText> -->
+						</StackPanel>
+						<!-- <Panel Margin="5">
 							<WrapLayout Orientation="Horizontal" />
 							<Panel>
 								<dashPanel Width="180" Height="100">
@@ -321,17 +378,7 @@
 									<fa-star-o FontSize="22" Alignment="BottomRight" />
 								</dashPanel>
 							</Panel>
-						</Panel>
-						<WrapPanel Orientation="Horizontal" Margin="10,30,10,0">
-							<Each Items="{items.folders}">
-								<folder Text="{name}" Count="{new}" Changed="{changed}" Deadline="{deadline}" Margin="0,0,5,5">
-									<Tapped>
-										<Toggle Target="dashboardUp" />
-										<NavigateTo Target="{folder}" NavigationContext="_listNavigation" />
-									</Tapped>
-								</folder>
-							</Each>
-						</WrapPanel>
+						</Panel> -->
 						<Panel Height="50">
 							<fa-diamond FontSize="50" Color="#fff" Alignment="Center" />
 						</Panel>
@@ -377,5 +424,5 @@
 			</Page>
 		</PageControl>
 	</DockPanel>
-	<Image File="Assets/bg/06.jpg"  Layer="Background" StretchMode="UniformToFill" Opacity=".8" />
+	<Image File="Assets/bg/green3.jpg"  Layer="Background" StretchMode="UniformToFill" Opacity="1" />
 </Panel>

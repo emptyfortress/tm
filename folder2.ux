@@ -1,0 +1,32 @@
+<StackPanel ux:Class="folder2">
+		<string ux:Property="Text"/>
+		<string ux:Property="Count"/>
+		<string ux:Property="Changed"/>
+		<string ux:Property="Deadline"/>
+		<string ux:Property="Total"/>
+		
+	<Grid Columns="2*,1*" Padding="5">
+		<!-- <fa-folder-o Alignment="Left" Margin="10" Color="#000" /> -->
+		<Text Value="{Property Text}" Color="#000" TextWrapping="Wrap" Alignment="CenterLeft"/>
+		<Text Value="{Property Total}" FontSize="40" Font="Light" Color="#fff" Alignment="CenterRight"  />
+		<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+	</Grid>
+	<Grid Columns="1*, auto" Padding="5" Visibility="{newcount}" Margin="0,1,0,0">
+		<Text Value="Новые" Font="Light" FontSize="13" Color="#000" TextWrapping="Wrap" Alignment="CenterLeft"/>
+		<Text Value="{Property Count}" Color="#000"  />
+		<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+	</Grid>
+	<Grid Columns="1*, auto" Padding="5" Visibility="{bell}" Margin="0,1,0,0">
+		<Text Value="Измененные" Font="Light" FontSize="13" Color="#000" TextWrapping="Wrap" Alignment="CenterLeft"/>
+		<Text Value="{Property Changed}" Color="#000" />
+		<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+	</Grid>
+	<Grid Columns="1*, auto" Padding="5" Visibility="{deadvis}" Margin="0,1,0,0">
+		<Text Value="Просроченные" Font="Light" FontSize="13" Color="#000" TextWrapping="Wrap" Alignment="CenterLeft"/>
+		<Text Value="{Property Deadline}" Color="#000" />
+		<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+	</Grid>
+	<Rectangle Layer="Overlay" >
+		<Stroke Width="1" Color="green" />
+	</Rectangle>
+</StackPanel>

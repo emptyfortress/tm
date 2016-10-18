@@ -2,6 +2,6 @@
 	<!-- <Rectangle Color="#fff" Layer="Background" > -->
 	<!-- <DropShadow Distance="1" Size="2" Angle="135"  /> -->
 	<Rectangle Color="#fff" Layer="Background" Opacity=".7">
-		<Stroke Width="1" Color="#ddd" />
+		<Stroke Width="1" Color="green" />
 	</Rectangle>
 </Panel>

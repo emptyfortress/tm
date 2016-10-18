@@ -344,7 +344,8 @@
         "bell": "Collapsed",
         "changed": "",
         "folder": "folder1",
-        "deadvis": "Collapsed"
+        "deadvis": "Collapsed",
+        "total": "20"
         },
         {
         "name": "Рассмотрение",
@@ -355,7 +356,8 @@
         "changed": "7",
         "folder": "folder2",
         "deadline": "5",
-        "deadvis": "Visible"
+        "deadvis": "Visible",
+        "total": "17"
         },
         {
         "name": "Ознакомление",
@@ -366,7 +368,8 @@
         "newcount": "Collapsed",
         "folder": "folder3",
         "deadline": "1",
-        "deadvis": "Visible"
+        "deadvis": "Visible",
+        "total": "11"
         },
         {
         "name": "Входящие",
@@ -376,7 +379,8 @@
         "bell": "Visible",
         "changed": "4",
         "folder": "folder4",
-        "deadvis": "Collapsed"
+        "deadvis": "Collapsed",
+        "total": "9"
         },
         {
         "name": "Исходящие",
@@ -385,7 +389,8 @@
         "newcount": "Collapsed",
         "folder": "folder5",
         "bell": "Visible",
-        "deadvis": "Collapsed"
+        "deadvis": "Collapsed",
+        "total": "3"
         }
     ],
     "numbers": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],

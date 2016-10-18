@@ -60,9 +60,13 @@
 		<DockPanel ux:Name="syncPanel" Dock="Top" Height="0" LimitHeight="100%" ClipToBounds="true" Padding="10">
 			<StackLayout ItemSpacing="15" />
 			<LinearGradient StartPoint="1,1" EndPoint="0,0">
+		        <GradientStop Offset="0" Color="#87B55B" />
+		        <GradientStop Offset="1" Color="#154015" />
+		    </LinearGradient>
+		    <!-- <LinearGradient StartPoint="1,1" EndPoint="0,0">
 		        <GradientStop Offset="0" Color="#6BAAD3" />
 		        <GradientStop Offset="1" Color="#013A61" />
-		    </LinearGradient>
+		    </LinearGradient> -->
 		    <Panel Dock="Top">
 			    <StackPanel Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="10">
 			    	<fa-cloud-upload FontSize="27" Alignment="CenterLeft" Color="#fff" />
@@ -144,9 +148,13 @@
 <!-- ***************************************************************************************************** -->
 		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
-		<LinearGradient StartPoint="1,1" EndPoint="0,0">
+		<!-- <LinearGradient StartPoint="1,1" EndPoint="0,0">
 	        <GradientStop Offset="1" Color="#6BAAD3" />
 	        <GradientStop Offset="0" Color="#013A61" />
+	    </LinearGradient> -->
+	    <LinearGradient StartPoint="1,1" EndPoint="0,0">
+	       <GradientStop Offset="0" Color="#87B55B" />
+	       <GradientStop Offset="1" Color="#154015" />
 	    </LinearGradient>
 		
 		<Panel ux:Name="plusIcon" Alignment="BottomRight" Margin="15" Visibility="Visible" HitTestMode="LocalBoundsAndChildren">
@@ -330,7 +338,7 @@
 
 			<ScrollView ux:Name="dashScroll" Margin="0,70,0,0" >
 				<StackPanel>
-					<Image ux:Name="logo" File="Assets/alrosa.png" Width="120" Margin="0,10,0,40" />
+					<Image ux:Name="logo" File="Assets/logo.png" Width="120" Margin="0,10,0,40" />
 
 					<StackPanel ux:Name="dashButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 						<Tapped>
@@ -964,7 +972,7 @@
 			</PageControl>
 		</Panel>
 		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
-	
+		<!-- <Image File="Assets/bg/green4.jpg" Layer="Background" Alignment="BottomRight" StretchMode="Fill"   /> -->
 
 	</DockPanel>
 

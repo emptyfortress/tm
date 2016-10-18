@@ -3,20 +3,22 @@
 	<string ux:Property="Count"/>
 	<string ux:Property="Changed"/>
 	<string ux:Property="Deadline"/>
-	<dashPanel Width="180" Height="100">
-		<Rectangle Width="3" Height="100" Color="#7f00ff" Alignment="Left" Offset="-10,0" Visibility="{newcount}" />
+	<string ux:Property="Total"/>
+	<dashPanel Height="100">
+		<Rectangle Width="5" Height="100" Color="#7f00ff" Alignment="Left" Visibility="{newcount}" />
 		<fa-folder-o Alignment="TopLeft" Color="#000" />
 		<Text Value="{Property this.Text}" FontSize="14" Color="#000" Alignment="TopLeft" Margin="25,0,0,0"  />
-		<Text Value="{Property this.Count}" FontSize="30" Color="#7F00FF" Alignment="BottomLeft" Offset="0,7"/>
-		<Panel Alignment="BottomRight">
-			<StackLayout Orientation="Horizontal" />
+		<Panel Alignment="BottomLeft">
+			<StackLayout Orientation="Horizontal" ItemSpacing="10" />
 
-			<fa-bell-o Color="#7DB9EE" Visibility="{bell}" FontSize="14" Alignment="CenterRight" />
-			<Text Value="{Property this.Changed}" Color="#7DB9EE" Visibility="{bell}" Alignment="CenterLeft" Margin="0,0,10,0" />
+			<Text Value="{Property this.Count}" FontSize="23" Color="#7F00FF" Alignment="BottomLeft" />
+			<fa-bell-o Color="#008C23" Visibility="{bell}" FontSize="18" Alignment="CenterRight" />
+			<Text Value="{Property this.Changed}" Color="#008C23" FontSize="20" Visibility="{bell}" Alignment="CenterLeft" Margin="0,0,10,0" />
 			<Image File="Assets/clock.png" Alignment="CenterRight" Width="18" Color="red"  Visibility="{deadvis}" />
 			<Text Value="{Property this.Deadline}" Visibility="{deadvis}" Color="red" Alignment="CenterRight" />
 		</Panel>
 	</dashPanel>
+	<Text Value="{Property Total}" FontSize="70" Color="#fff" Alignment="BottomRight" Layer="Background" />
 	<!-- <Rectangle Layer="Background" >
 		<Stroke Width="1" Color="#000" />
 	</Rectangle> -->

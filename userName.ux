@@ -20,7 +20,7 @@
 		<Rectangle Layer="Background" Color="#BFDFFF" Opacity="1" Width="{Property this.Load}" Alignment="Left">
 			<LinearGradient StartPoint="0,0" EndPoint="0,1">
 		        <GradientStop Offset="0" Color="#fff" />
-		        <GradientStop Offset="1" Color="#BFDFFF" />
+		        <GradientStop Offset="1" Color="#87B55B" />
 	    	</LinearGradient>
 		</Rectangle>
 	</StackPanel>
