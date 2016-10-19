@@ -25,7 +25,7 @@
 		<Set helperPanel.Active="templateScroll" />
 		<Set addGroup.Active="shortState" />
 		<Set hiddenGrid.Visibility.Value="Hidden" />
-		<Set hiddenBt.Visibility.Value="Hidden" />
+		<!-- <Set hiddenBt.Visibility.Value="Hidden" /> -->
 		<Set Target="sendButtonBg.Color" Value="#eee" />
 		<Set Target="sendButton.Color" Value="#aaa" />
 		<Set taskText.Value="" />

@@ -16,7 +16,7 @@
 				<Stroke Width="5" Color="{Property this.BarColor}" />
 			</Circle>
 			<Circle>
-				<Stroke Width="5" Color="#fff" />
+				<Stroke Width="5" Color="#fff9"  />
 			</Circle>
 		</Panel>
 		<Text Value="{Property this.Header}" FontSize="14" Alignment="Center"/>

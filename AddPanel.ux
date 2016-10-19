@@ -66,10 +66,7 @@
 						<Text ux:Name="saveButton" FontSize="13" Value="Сохранить" Color="#aaa" Alignment="Center"  />
 						<Rectangle ux:Name="saveButtonBg" Layer="Background" Color="#eee" />
 						<Clicked>
-							<Move Target="addPanel" Y="-1.5" RelativeTo="Size" Duration=".2" Easing="CircularIn" />
-							<Change addPanel.Opacity.Value="0" Duration=".4" />
-							<Change doneText.Opacity.Value="1" Duration=".5" />
-							<Toggle Target="addPageActive" Delay="2" />
+							<NavigateTo Target="Drafts" NavigationContext="AddDraftNavigation" />
 						</Clicked>
 					</Panel>
 					<Panel Padding="5" Margin="2,0,0,0">
@@ -147,7 +144,7 @@
 								<Text Color="blue" Value="screenshot.jpg" />
 							</Panel>
 						</Grid>
-						<StackPanel ux:Name="hiddenBt" Orientation="Horizontal" ItemSpacing="10" Visibility="Hidden" Margin="0,50,0,0">
+						<!-- <StackPanel ux:Name="hiddenBt" Orientation="Horizontal" ItemSpacing="10" Visibility="Hidden" Margin="0,50,0,0">
 							<Panel Padding="5" Alignment="Left">
 								<Text  Value="Сохранить" Color="#aaa"  />
 								<Rectangle Layer="Background" Color="#eee" />
@@ -165,7 +162,7 @@
 									<Toggle Target="addPageActive" Delay="2" />
 								</Clicked>
 							</Panel>
-						</StackPanel>
+						</StackPanel> -->
 					</StackPanel>
 				</ScrollView>
 				
@@ -286,7 +283,7 @@
 										<Set addGroup.Active="offState" />
 										<Set hiddenGrid.Visibility.Value="Visible" Delay=".2"  />
 										<Set taskType1.Visibility.Value="Visible" Delay=".2"  />
-										<Set hiddenBt.Visibility.Value="Visible" Delay=".2"  />
+										<!-- <Set hiddenBt.Visibility.Value="Visible" Delay=".2"  /> -->
 										<Set taskText.Value="Всем отделам собрать данные за квартал и подготовить отчет. Механическая система преобразует кожух, даже если рамки подвеса буду ориентированы под прямым углом." />
 										<Set Target="sendButtonBg.Color" Value="blue" />
 										<Set Target="sendButton.Color" Value="#fff" />

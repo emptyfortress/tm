@@ -48,7 +48,7 @@
 	<ux:Include File="awesome.ux" />
 
 	<DockPanel>
-		<StatusBarBackground Dock="Top"/>
+		<StatusBarBackground Dock="Top" Background="#000"/>
 		
 		<StackPanel ux:Name="loaderPanel" Background="#000" Dock="Top" Height="0" LimitHeight="100%" Opacity="0" ClipToBounds="true">
             <ProgressBar ux:Name="_progressBar" />
@@ -60,21 +60,18 @@
 		<DockPanel ux:Name="syncPanel" Dock="Top" Height="0" LimitHeight="100%" ClipToBounds="true" Padding="10">
 			<StackLayout ItemSpacing="15" />
 			<LinearGradient StartPoint="1,1" EndPoint="0,0">
-		        <GradientStop Offset="0" Color="#87B55B" />
-		        <GradientStop Offset="1" Color="#154015" />
+		        <GradientStop Offset="0" Color="#0D8704" />
+		        <GradientStop Offset="1" Color="#000" />
 		    </LinearGradient>
-		    <!-- <LinearGradient StartPoint="1,1" EndPoint="0,0">
-		        <GradientStop Offset="0" Color="#6BAAD3" />
-		        <GradientStop Offset="1" Color="#013A61" />
-		    </LinearGradient> -->
 		    <Panel Dock="Top">
 			    <StackPanel Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="10">
 			    	<fa-cloud-upload FontSize="27" Alignment="CenterLeft" Color="#fff" />
-			    	<Text Value="На синхронизацию (4)" FontSize="18" Alignment="CenterLeft" Color="#fff" />
+			    	<Text Value="Ожидает синхронизации (4)" FontSize="18" Alignment="CenterLeft" Color="#fff" />
+			    	<Tapped>
+			    		<Toggle Target="showSync" />
+			    	</Tapped>
 			    </StackPanel>
-				<Rectangle Color="#0f0" Alignment="TopRight" Clicked="{loader}">
-			    	<Text Value="Старт" Alignment="Center" Margin="5,2"   />
-			    </Rectangle>
+				<Image File="Assets/refresh.png" Color="#fff" Alignment="TopRight" Clicked="{loader}" />
 			</Panel>
 		    <ScrollView>
 		    	<StackPanel ItemSpacing="2">
@@ -148,10 +145,6 @@
 <!-- ***************************************************************************************************** -->
 		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
-		<!-- <LinearGradient StartPoint="1,1" EndPoint="0,0">
-	        <GradientStop Offset="1" Color="#6BAAD3" />
-	        <GradientStop Offset="0" Color="#013A61" />
-	    </LinearGradient> -->
 	    <LinearGradient StartPoint="1,1" EndPoint="0,0">
 	       <GradientStop Offset="0" Color="#87B55B" />
 	       <GradientStop Offset="1" Color="#154015" />

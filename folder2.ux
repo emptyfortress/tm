@@ -5,27 +5,25 @@
 		<string ux:Property="Deadline"/>
 		<string ux:Property="Total"/>
 		
-	<Grid Columns="2*,1*" Padding="5">
+	<Grid Columns="auto, 1*, auto" Padding="10, 5" CellSpacing="5">
+		<fa-folder-o Color="#000" FontSize="20" Alignment="CenterLeft" />
 		<Text Value="{Property Text}" Color="#000" TextWrapping="Wrap" Alignment="CenterLeft"/>
-		<Text Value="{Property Total}" FontSize="40" Font="Light" Color="#fff" Alignment="CenterRight"  />
+		<Text Value="{Property Total}" FontSize="30" Font="Light" Color="green" Alignment="CenterRight"  />
 		<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
 	</Grid>
-	<Grid Columns="1*,1*,1*" CellSpacing="1">
-		<StackPanel Orientation="Horizontal" Padding="5" Visibility="{newcount}">
-			<Rectangle Width="5" Color="#7f00ff" Alignment="Left" Margin="-5" />
-			<Text Value="{Property Count}" Color="#7f00ff" Margin="15,0,0,0" />
+	<Grid Columns="1*,1*,1*" CellSpacing="1" Height="40">
+		<Panel Visibility="{newcount}">
+			<Rectangle Width="5" Color="#7f00ff" Alignment="Left" />
+			<Text Value="{Property Count}" FontSize="20" Color="#7f00ff" Alignment="Center"  />
+		</Panel>
+		<StackPanel Orientation="Horizontal" ItemSpacing="5" Alignment="Center" Visibility="{bell}">
+			<fa-bell-o Color="#008C23" Alignment="CenterLeft" />
+			<Text Value="{Property Changed}" FontSize="20" Color="#008C23" Alignment="CenterLeft"  />
 		</StackPanel>
-		<StackPanel Orientation="Horizontal" Padding="5" ItemSpacing="5" Alignment="Center" Visibility="{bell}">
-			<fa-bell-o Color="#008C23" />
-			<Text Value="{Property Changed}" Color="#008C23" />
+		<StackPanel Orientation="Horizontal" ItemSpacing="5" Alignment="Center" Visibility="{deadvis}">
+			<Image File="Assets/clock.png" Color="red" Width="20" Alignment="CenterLeft" />
+			<Text Value="{Property Deadline}" FontSize="20" Color="red" Alignment="CenterLeft" />
 		</StackPanel>
-		<StackPanel Orientation="Horizontal" Padding="5" Alignment="CenterRight" ItemSpacing="5" Visibility="{deadvis}">
-			<Image File="Assets/clock.png" Color="red" Width="20" />
-			<Text Value="{Property Deadline}" Color="red"  />
-		</StackPanel>
-			<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+		<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
 	</Grid>
-	<Rectangle Layer="Overlay" >
-		<Stroke Width="1" Color="green" />
-	</Rectangle>
 </StackPanel>

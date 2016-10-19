@@ -8,7 +8,7 @@
     "*",
     "Assets/data.json:Bundle"
   ],
-  "Title": "alrosa",
+  "Title": "Top Manager",
   "iOS": {
     "Icons": {
       "iPhone_29_2x": "Assets/appicon/iOS/Icon-iPhone-29@2x.png",
