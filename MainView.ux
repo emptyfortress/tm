@@ -566,7 +566,7 @@
 					</StateGroup>
 
 					<Rectangle ux:Name="filterRec" Width="30" Color="sky" Opacity=".1" Layer="Background" Alignment="Left" Margin="60,0,0,0" Visibility="Hidden" />
-
+					
 					<DockPanel>
 						<StackLayout />
 						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
@@ -581,7 +581,7 @@
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
 								<Text ux:Name="folderTitle" Value="Мои документы" FontSize="20" />
-								<Text ux:Name="total" Value="15 документов" FontSize="13" Color="#666" Alignment="Center" />
+								<Text ux:Name="total" Value="15 всего" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe1" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe" Direction="Right"  Length="100" />
 								<Swiped Source="filterSwipe">
@@ -685,7 +685,7 @@
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
 								<Text ux:Name="folderTitle2" Value="Рассмотрение" FontSize="20" />
-								<Text ux:Name="total2" Value="20 документов" FontSize="13" Color="#666" Alignment="Center" />
+								<Text ux:Name="total2" Value="20 всего" FontSize="13" Color="#666" Alignment="Center" />
 								<SwipeGesture ux:Name="filterSwipe21" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe2" Direction="Right"  Length="100" />
 								<Swiped Source="filterSwipe21">
