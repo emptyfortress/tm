@@ -11,7 +11,7 @@
 		<Move Target="searchIcon" X=".5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".1" />
 		<Move Target="filterIcon" X="-.5" Y=".5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" Delay=".2" />
 		<Move Target="readPanel" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" Delay=".3" />
-		<Change overRec.Opacity=".3" Duration=".5" />
+		<Change overRec.Opacity=".5" Duration=".5" />
 		<Change overRec.Visibility="Visible" />
 		<Change plusIcon.HitTestMode="None" />
 	</WhileTrue>
