@@ -116,6 +116,7 @@
 					<Set ZoomToSize.RelativeNode="selfImage"/>
 					<PulseBackward Target="ZoomTo"/>
 				</Tapped>
+				<!-- <fa-asterisk Color="#7f00ff" FontSize="10" Alignment="CenterLeft" /> -->
 				<Text ux:Name="docTitle" Value="{title}" Alignment="Left" FontSize="24" Opacity="{new}" TextWrapping="Wrap" Font="Bold"  />
 				<Text ux:Name="docTitle1" Value="{title}" Alignment="Left" FontSize="24" Opacity="{old}" Font="Regular" TextWrapping="Wrap" />
 			</Panel>

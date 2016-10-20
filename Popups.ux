@@ -103,7 +103,7 @@
 				</Grid>
 				<Grid ColumnCount="3" Margin="0,-5,0,0" >
 					<fa-bookmark Color="#7F00FF" FontSize="70" Alignment="TopCenter">
-						<fa-asterisk Color="#fff" FontSize="21" Alignment="Center" Offset="0,-10" />
+						<fa-asterisk Color="#fff" FontSize="16" Alignment="Center" Offset="0,-10" />
 						<Clicked>
 							<Set filterGroup.Active="blueState"/>
 							<Toggle Target="iconsVisible" />
