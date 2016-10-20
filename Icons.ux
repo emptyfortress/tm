@@ -1,9 +1,4 @@
 <Panel ux:Name="iconsPanel" Visibility="Collapsed">
-	
-	
-	
-
-
 
 	<Panel ux:Name="viewIcon" Width="200" Height="200" Alignment="BottomLeft">
 		<fa-filter Color="#000" FontSize="30" Alignment="Center">

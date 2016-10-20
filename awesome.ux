@@ -6,6 +6,8 @@
   <Text ux:Class="fa_angle_double_right" Font="fa">&#xf101;</Text>
   <Text ux:Class="fa_bell_o" Font="fa">&#xf0a2;</Text>
   <Text ux:Class="fa_briefcase" Font="fa">&#xf0b1;</Text>
+  <Text ux:Class="fa_bookmark" Font="fa">&#xf02e;</Text>
+  <Text ux:Class="fa_bookmark_o" Font="fa">&#xf097;</Text>
   <Text ux:Class="fa_calendar_check_o" Font="fa">&#xf274;</Text>
   <Text ux:Class="fa_camera" Font="fa">&#xf030;</Text>
   <Text ux:Class="fa_caret_down" Font="fa">&#xf0d7;</Text>

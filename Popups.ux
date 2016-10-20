@@ -35,7 +35,7 @@
 		</StackPanel>
 	</Panel>
 
-	<Panel ux:Name="readPanel" Alignment="Center"  Width="300" Height="300" >
+	<Panel ux:Name="readPanel" Alignment="Center"  Width="300"  >
 		<Translation Y="-1.5" RelativeTo="ParentSize" />
 		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60">
 			<Stroke Width="3" Color="#fff" />
@@ -50,7 +50,7 @@
 			<Panel ux:Name="sort" Color="#fff" Width="300" Height="220" Alignment="Top" >
 				<Text Value="Здесь сортировка списков" Alignment="Center" TextWrapping="Wrap" />
 			</Panel>
-			<StackPanel ItemSpacing="2" ux:Name="readAll" Width="300" Height="310" >
+			<StackPanel ItemSpacing="2" ux:Name="readAll" Width="300" >
 				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
 					<fa-refresh Alignment="CenterLeft" />
 					<cardBt Value="Синхронизировать папку" Alignment="CenterLeft" />
@@ -71,8 +71,11 @@
 					<fa-eye Alignment="CenterLeft" />
 					<cardBt Value="Показать все" Alignment="CenterLeft" />
 				</StackPanel>
-				<Grid ColumnCount="3" CellSpacing="2"  >
-					<StackPanel Orientation="Vertical" Background="#fff" Height="65">
+				<Grid ColumnCount="3" >
+					<fa-bookmark Color="#fff" FontSize="50" Alignment="TopCenter" />
+					<fa-bookmark Color="#fff" FontSize="50" Alignment="TopCenter" />
+					<fa-bookmark Color="#fff" FontSize="50" Alignment="TopCenter" />
+					<!-- <StackPanel Orientation="Vertical" Background="#fff" Height="65">
 						<Image File="Assets/bookmark.png" Width="30" Color="#7F00FF"/>
 						<Text Value="Новые" FontSize="13" Alignment="Center" />
 						<Clicked>
@@ -98,7 +101,7 @@
 							<Toggle Target="iconsVisible" />
 							<Toggle Target="filterActive" Delay=".3" />
 						</Clicked>
-					</StackPanel>
+					</StackPanel> -->
 				</Grid>
 			</StackPanel>
 			<Panel ux:Name="filters" Color="#fff" Width="300" Height="220" Alignment="Top" >
