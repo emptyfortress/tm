@@ -419,9 +419,94 @@
 			<Rectangle Height="1" Color="#ccc" Margin="-30,0" />
 			<Text FontSize="16" Value="Сбросить" Alignment="HorizontalCenter" Clicked="{resetMain}"/>
 		</StackPanel>
-
 	</Panel>
 	
+	<DockPanel ux:Name="marshrutPreview" Layer="Overlay" Margin="20" Color="#fff" Padding="20,10">
+		
+		<StackPanel ux:Class="plusCycle" Orientation="Horizontal" Clicked="{toggleChild1}" >
+			<float4 ux:Property="StatusColor" />
+			<string ux:Property="Title" />
+			<Size ux:Property="Size"  />
+			<WhileTrue ux:Name="showChild1">
+				<Change plusVert1.Opacity="0" Duration=".2" />
+			</WhileTrue>
+			<Tapped>
+				<Toggle Target="showChild1" />
+			</Tapped>
+			<Panel Alignment="TopLeft" Width="30" Height="30" HitTestMode="LocalBoundsAndChildren">
+				<Rectangle ux:Name="plusVert1" Width="2" Height="10" Alignment="Center" Color="#fff" Opacity="{plus}" />
+				<Rectangle Height="2" Width="10" Alignment="Center" Color="#fff" />
+				<Circle Width="{Property Size}" Height="{Property Size}" Color="{Property StatusColor}" Alignment="Center" />
+			</Panel>
+			<Text Value="{Property Title}" Alignment="CenterLeft" />
+		</StackPanel>
+		<StackPanel ux:Class="userSogl" Orientation="Horizontal" ItemSpacing="10">
+			<string ux:Property="Lastname" />
+			<fa-user Color="#ccc" />
+			<Text Value="{Property Lastname}" />
+		</StackPanel>
+		<Translation Y="1.5" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Layer="Overlay" Alignment="TopRight" Offset="40,-30" Clicked="{toggleMarshrut}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+		</Circle>
+		<StackPanel Orientation="Horizontal" ItemSpacing="10" Alignment="Center" Dock="Top">
+			<fa-random FontSize="20" Alignment="CenterLeft" />
+			<Text Value="Маршрут согласования" Alignment="CenterLeft" FontSize="18"  />
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Alignment="Center" Dock="Top" Margin="0,20,0,10">
+			<TextInput Width="200">
+				<WhileString Test="IsEmpty">
+			        <Text Color="#ccc">Введите фамилию</Text>
+			    </WhileString>
+			</TextInput>
+			<fa-search Layer="Background" Alignment="Right" Color="#999" />
+			<Rectangle Height="1" Color="#000" Layer="Background" Alignment="Bottom" />
+		</StackPanel>
+		<ScrollView Margin="0,10">
+			<WhileTrue ux:Name="show3">
+				<Change ch3.LimitHeight="100%" Duration=".2" Easing="QuadraticIn" />
+			</WhileTrue>
+			<WhileTrue ux:Name="show4">
+				<Change ch4.LimitHeight="100%" Duration=".2" Easing="QuadraticIn" />
+			</WhileTrue>
+			<StackPanel ItemSpacing="15" >
+				<plusCycle Size="16" Title="Цикл согласования 1" StatusColor="green" />
+				<plusCycle Size="16" Title="Цикл согласования 2" StatusColor="green" />
+				<plusCycle Size="16" Title="Цикл согласования 3" StatusColor="#ccc" >
+					<Tapped>
+						<Toggle Target="show3" />
+					</Tapped>
+				</plusCycle>
+				<StackPanel ux:Name="ch3" ItemSpacing="15" Margin="15,0,0,0" Padding="10,0,0,0" BoxSizing="Limit" LimitHeight="0%" ClipToBounds="true">	
+					<plusCycle Size="16" Title="Этап 1. Согласование с отделами" StatusColor="green" />
+					<StackPanel Orientation="Horizontal" ItemSpacing="0" Margin="0,0,0,0">
+						<plusCycle Size="16" Title="Этап 2. Согласование с бухгалтерией " StatusColor="#ccc" />
+						<Rectangle Layer="Background" Color="#DDEEFF" Margin="0,-7" />
+						<Tapped>
+							<Toggle Target="show4" />
+						</Tapped>
+					</StackPanel>
+					<StackPanel ux:Name="ch4" ItemSpacing="10" Margin="10,0,0,0" Padding="20,0,0,0" BoxSizing="Limit" LimitHeight="0%" ClipToBounds="true" >
+						<Text Value="Параллельное согласование без срока исполнения" Font="Light" FontSize="12" />
+						<userSogl Lastname="Орлов Г.С." />
+						<userSogl Lastname="Воробьев П.И." />
+						<userSogl Lastname="Снегирева Ж.Е." />
+						<userSogl Lastname="Лебедева А.А." />
+						<Rectangle Width="1" Color="#ccc" Layer="Background" Alignment="Left"   />
+					</StackPanel>
+					<plusCycle Size="16" Title="Этап 3. Согласование с контрагентами" StatusColor="#ccc" />
+					<plusCycle Size="16" Title="Этап 4. Консолидация" StatusColor="#ccc" />
+					<plusCycle Size="16" Title="Этап 5. Подписание" StatusColor="#ccc" />
+					<Rectangle Width="1" Color="#ccc" Layer="Background" Alignment="Left" />
+				</StackPanel>
+			</StackPanel>
+		</ScrollView>
+
+
+		<Text Value="Закрыть" FontSize="16" Alignment="Center" Color="#999" Dock="Bottom" Clicked="{toggleMarshrut}" />
+	</DockPanel>
+
 
 	<Panel ux:Name="overlayRec1" Color="#000" Opacity="0" HitTestMode="None" Clicked="{toggleMainUser}">
 	</Panel>

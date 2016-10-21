@@ -68,6 +68,7 @@
 
 				<Panel ux:Class="plusItem" Alignment="TopLeft" Width="30" Height="30" HitTestMode="LocalBoundsAndChildren">
 					<float4 ux:Property="StatusColor" />
+					<Size ux:Property="Size"  />
 					<WhileTrue ux:Name="showChild">
 						<Change plusVert.Opacity="0" Duration=".2" />
 					</WhileTrue>

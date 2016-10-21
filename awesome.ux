@@ -2,6 +2,7 @@
   <Text ux:Class="fa_angle_down" Font="fa">&#xf107;</Text>
   <Text ux:Class="fa_angle_up" Font="fa">&#xf106;</Text>
   <Text ux:Class="fa_arrow_left" Font="fa">&#xf060;</Text>
+  <Text ux:Class="fa_arrow_right" Font="fa">&#xf061;</Text>
   <Text ux:Class="fa_arrow_up" Font="fa">&#xf062;</Text>
   <Text ux:Class="fa_angle_double_right" Font="fa">&#xf101;</Text>
   <Text ux:Class="fa_asterisk" Font="fa">&#xf069;</Text>
@@ -39,6 +40,7 @@
   <Text ux:Class="fa_home" Font="fa">&#xf015;</Text>
   <Text ux:Class="fa_level_up" Font="fa">&#xf148;</Text>
   <Text ux:Class="fa_low_vision" Font="fa">&#xf2a8;</Text>
+  <Text ux:Class="fa_map_o" Font="fa">&#xf278;</Text>
   <Text ux:Class="fa_microphone" Font="fa">&#xf130;</Text>
   <Text ux:Class="fa_minus_square" Font="fa">&#xf146;</Text>
   <Text ux:Class="fa_minus_square_o" Font="fa">&#xf147;</Text>
@@ -48,6 +50,7 @@
   <Text ux:Class="fa_plus_square" Font="fa">&#xf0fe;</Text>
   <Text ux:Class="fa_file_picture_o" Font="fa">&#xf1c5;</Text>
   <Text ux:Class="fa_pencil" Font="fa">&#xf040;</Text>
+  <Text ux:Class="fa_random" Font="fa">&#xf074;</Text>
   <Text ux:Class="fa_refresh" Font="fa">&#xf021;</Text>
   <Text ux:Class="fa_search" Font="fa">&#xf002;</Text>
   <Text ux:Class="fa_square_o" Font="fa">&#xf096;</Text>

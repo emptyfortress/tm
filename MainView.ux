@@ -178,6 +178,7 @@
 			var viewComplete = Observable(false);
 			var viewLoader = Observable(false);
 			var viewTaskFilter = Observable(false);
+			var viewMarshrut = Observable(false);
 
 			function toggleTaskFilter(){
 				viewTaskFilter.value = !viewTaskFilter.value;
@@ -226,6 +227,9 @@
 			function loader(){
 				viewLoader.value = !viewLoader.value;
 			}
+			function toggleMarshrut(){
+				viewMarshrut.value = !viewMarshrut.value;
+			}
 
 			module.exports = {
 				viewTaskFilter: viewTaskFilter,
@@ -254,7 +258,9 @@
 				toggleComplete: toggleComplete,
 				completeOff: completeOff,
 				taskOff: taskOff,
-				loader: loader
+				loader: loader,
+				viewMarshrut: viewMarshrut,
+				toggleMarshrut: toggleMarshrut
 			}
 		</JavaScript>
 

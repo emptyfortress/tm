@@ -105,9 +105,15 @@
 				<Text ux:Name="description" Font="Light" TextWrapping="Wrap" Margin="0,10,0,20" Value="{description}" />
 				
 				
-				<StackPanel ux:Name="listPanel" Orientation="Horizontal" Clicked="{toggleList}" Visibility="{list}">
-					<Image File="Assets/list.png" Color="#008C23" Width="25" Alignment="CenterLeft" />
-					<Text Value="Лист согласования" Color="#008C23" Font="Light" Alignment="CenterLeft" />
+				<StackPanel ux:Name="listPanel" Visibility="{list}">
+					<StackPanel  ItemSpacing="10" Orientation="Horizontal" Clicked="{toggleList}">
+						<Image File="Assets/list.png" Color="#008C23" Width="25" Alignment="CenterLeft" />
+						<Text Value="Лист согласования" Color="#008C23" Font="Light" Alignment="CenterLeft" />
+					</StackPanel>
+					<StackPanel ItemSpacing="10" Orientation="Horizontal" Margin="0,20,0,0" Clicked="{toggleMarshrut}" Visibility="{list}">
+						<fa-random Color="#008C23" FontSize="20" Alignment="CenterLeft" />
+						<Text Value="Маршрут согласования" Color="#008C23" Font="Light" Alignment="CenterLeft" />
+					</StackPanel>
 				</StackPanel>
 
 				<Grid ux:Name="attributes" Columns="auto,auto" Margin="10,15,0,0">
