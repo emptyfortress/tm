@@ -3,13 +3,35 @@
 		<float4 ux:Property="color" />
 	    <Image Source="{Resource iconFile}" Color="{Property this.color}" Alignment="Center" />
 	</Panel>
+
 	<Panel ux:Class="Header" Margin="0,0,0,50">
 		<string ux:Property="Text"/>
 		<Text Value="{Property this.Text}" FontSize="25" Color="#000" Alignment="TopCenter" />
 	</Panel>
-	<StackPanel Alignment="TopRight" Orientation="Horizontal" Height="50" Margin="0,0,10,0">
-		<Icon>
+	<StateGroup ux:Name="searchGroup" >
+		<State ux:Name="reststate">
+			
+		</State>
+		<State ux:Name="viewSearch" >
+			<Move Target="searchBox" Y="1" RelativeTo="ParentSize" Duration=".2" Easing="CubicOut" />
+		</State>
+		<State ux:Name="reststate1" />
+		<State ux:Name="viewResults">
+			<Move Target="searchBox" Y="1" RelativeTo="ParentSize" Duration=".2" Easing="CubicOut" />
+			<Change plusIcon.Visibility="Collapsed" />
+			<Change bottomTab.Visibility="Collapsed" />
+			<Change _dashPages.Visibility="Collapsed" />
+			<Change searchResults.Visibility="Visible" />
+			<Change closeText.Visibility="Visible" />
+		</State>
+	</StateGroup>
+	
+	<StackPanel  Orientation="Horizontal" Alignment="TopRight" Margin="0,10,15,0">
+		<Icon Alignment="Right">
 			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
+			<Clicked>
+				<TransitionState Target="searchGroup" Type="Next"/>
+			</Clicked>
 		</Icon>
 		<Text Value="4" FontSize="20" Color="red" Alignment="Center" Offset="5,0" />
 		<Icon HitTestMode="LocalBoundsAndChildren" Clicked="{loader}">
@@ -20,8 +42,18 @@
 		</Icon>
 	</StackPanel>
 
+	<Panel ux:Name="searchBox" Alignment="Top" Height="36" Margin="50,10,70,0">
+		<Rectangle  Color="#fff" Layer="Background" CornerRadius="20"   />
+		<Translation Y="-1" RelativeTo="ParentSize" />
+	</Panel>
+
 	<DockPanel>
-		<StackPanel Dock="Bottom" Margin="10,0,50,0">
+		<Text ux:Name="closeText" Value="Закрыть" Alignment="Center" Dock="Bottom" Margin="20" Visibility="Collapsed">
+			<Tapped>
+				<TransitionState Target="searchGroup" Type="Next"/>
+			</Tapped>
+		</Text>
+		<StackPanel ux:Name="bottomTab" Dock="Bottom" Margin="10,0,50,0">
 			<Rectangle Height="1" Color="#000" />
 			<MultiLayoutPanel Height="65" ux:Name="tabBar" >
 				<GridLayout ColumnCount="3" Rows="1*"/>
@@ -60,6 +92,7 @@
 				</Panel>
 			</MultiLayoutPanel>
 		</StackPanel>
+		
 		<PageControl ux:Name="_dashPages" Active="taho">
 			<Page ux:Name="taho" Padding="20,10">
 				<WhileActive Threshold="0.5">
@@ -360,6 +393,17 @@
 				</ScrollView>
 			</Page>
 		</PageControl>
+		<StackPanel ux:Name="searchResults" Margin="20,50,20,0" ClipToBounds="true" Visibility="Collapsed">
+			<Text Value="Найдено 3 карточки" FontSize="16" Color="#000" Alignment="Center" />
+			<ScrollView Margin="0,10,0,0" >
+				<StackPanel ItemSpacing="80">
+					<Each Items="{items.search}">
+						<DocItem />
+					</Each>
+				</StackPanel>
+			</ScrollView>
+			<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
+		</StackPanel>	
 	</DockPanel>
 	<Image File="Assets/bg/green3.jpg"  Layer="Background" StretchMode="UniformToFill" Opacity="1" />
 </Panel>

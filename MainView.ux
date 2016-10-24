@@ -52,7 +52,7 @@
 		
 		<StackPanel ux:Name="loaderPanel" Background="#000" Dock="Top" Height="0" LimitHeight="100%" Opacity="0" ClipToBounds="true">
             <ProgressBar ux:Name="_progressBar" />
-            <Text Value="Идет синхронизация, обновляем данные"  Color="#fff" Alignment="BottomCenter" />
+            <Text Value="Обновляем данные...    ОТМЕНА"  Color="#fff" Alignment="BottomCenter" />
         </StackPanel>
 <!-- **************************************************************************************************** -->
 		
