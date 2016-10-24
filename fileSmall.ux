@@ -35,20 +35,12 @@
 			</Panel>
 		</Grid>
 		<StackPanel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">
-			<Grid Columns="auto,1*" Padding="10">
-				<StackPanel >
-					<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
-					<Grid Columns="auto,auto">
-						<tabtext Value="Последняя синхр.:" Alignment="Right" />
-						<tabtext Value="23.10.2016  15:20" />
-					</Grid>
-				</StackPanel>
-				<Panel>
-					<Text Value="Обновить" Color="blue" Alignment="BottomLeft" />
-				</Panel>
-			</Grid>
+			<StackPanel Orientation="Horizontal" Margin="50,-5,0,0" ItemSpacing="20">
+				<Text Value="123 kB" FontSize="13"  Alignment="Left"  />
+				<Text Value="Файл не догрузился!" Color="red" FontSize="13" Alignment="Left" Visibility="{missing1}" />
+			</StackPanel>
 			<StackPanel ux:Name="mark" Orientation="Horizontal" ItemSpacing="10" Margin="30,10,0,20" Alignment="CenterLeft">
-				<Text Value="Пометить файл:" FontSize="15" Alignment="CenterLeft" />
+				<Text Value="Метка:" FontSize="15" Alignment="CenterLeft" />
 				<Rectangle Width="40" Height="40" Color="#D5EAA8" Clicked="{toggleFile}">
 					<Clicked>
 						<Set bgRec.Color="#D5EAA8" />
@@ -67,14 +59,14 @@
 					</Clicked>
 					<Stroke Width="1" Color="#fff" />
 				</Rectangle>
-				<Text Value="Снять метку" FontSize="15" Alignment="CenterLeft" Color="blue" Clicked="{toggleFile}">
+				<Text Value="Очистить" FontSize="15" Alignment="CenterLeft" Color="blue" Clicked="{toggleFile}">
 					<Clicked>
 						<Set bgRec.Color="#fff" />
 					</Clicked>
 				</Text>
 			</StackPanel>
 		</StackPanel>
-		<Rectangle ux:Name="bgRec" Layer="Background" Color="#fff" Margin="0,5" Opacity="{missing}" >
+		<Rectangle ux:Name="bgRec" Layer="Background" Color="#fff" Margin="0,5" Opacity="{missing}" Clicked="{toggleFile}" >
 		</Rectangle>
 	</StackPanel>
 

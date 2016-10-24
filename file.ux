@@ -14,6 +14,7 @@
 	<WhileTrue Value="{hide}">
 		<Change child.LimitHeight.Value="0" Duration="0.4" Easing="CircularInOut"/>
 		<Change child.Opacity.Value="0" Duration="0.25"  Easing="CircularInOut"/>
+		<Change child.Visibility.Value="Hidden" Delay=".5" />
 		<Rotate Target="chevron" Degrees="-180" Duration=".25" Easing="CircularInOut" />
 	</WhileTrue>
 
@@ -34,21 +35,13 @@
 				</fa-angle-down>
 			</Panel>
 		</Grid>
-		<StackPanel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%">
-			<Grid Columns="auto,1*" Padding="10">
-				<StackPanel >
-					<Text Value="123 kB" FontSize="13" Margin="5,0,0,0" Alignment="Left"  />
-					<Grid Columns="auto,auto">
-						<tabtext Value="Последняя синхр.:" Alignment="Right" />
-						<tabtext Value="23.10.2016  15:20" />
-					</Grid>
-				</StackPanel>
-				<Panel>
-					<Text Value="Обновить" Color="blue" Alignment="BottomLeft" />
-				</Panel>
-			</Grid>
+		<StackPanel ux:Name="child" Margin="15,0,0,0" BoxSizing="Limit" LimitHeight="100%" >
+			<StackPanel Orientation="Horizontal" Margin="90,-20,0,0" ItemSpacing="20">
+				<Text Value="123 kB" FontSize="13"  Alignment="Left"  />
+				<Text Value="Файл не догрузился!" Color="red" FontSize="13" Alignment="Left" Visibility="{missing1}" />
+			</StackPanel>
 			<StackPanel ux:Name="mark" Orientation="Horizontal" ItemSpacing="10" Margin="30,10,0,20" Alignment="CenterLeft">
-				<Text Value="Пометить файл:" FontSize="15" Alignment="CenterLeft" />
+				<Text Value="Метка:" FontSize="15" Alignment="CenterLeft" />
 				<Rectangle Width="40" Height="40" Color="#D5EAA8" Clicked="{toggleFile}">
 					<Clicked>
 						<Set bgRec.Color="#D5EAA8" />
@@ -67,15 +60,15 @@
 					</Clicked>
 					<Stroke Width="1" Color="#fff" />
 				</Rectangle>
-				<Text Value="Снять метку" FontSize="15" Alignment="CenterLeft" Color="blue" Clicked="{toggleFile}">
+				<Text Value="Очистить" FontSize="15" Alignment="CenterLeft" Color="blue" Clicked="{toggleFile}">
 					<Clicked>
 						<Set bgRec.Color="#eee" />
 					</Clicked>
 				</Text>
 			</StackPanel>
 		</StackPanel>
-		<Rectangle ux:Name="bgRec" Layer="Background" Color="{miss-color}" Margin="0,5" >
-			<Stroke Width="1" Color="#ddd" />
+		<Rectangle ux:Name="bgRec" Layer="Background" Color="{miss-color}" Margin="0,7" Clicked="{toggleFile}" >
+			<!-- <Stroke Width="1" Color="#ddd" /> -->
 		</Rectangle>
 	</StackPanel>
 	<Rectangle Height="1" Color="#000" Layer="Background" Margin="20,0"  />
