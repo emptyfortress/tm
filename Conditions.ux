@@ -1,10 +1,20 @@
 <Panel>
 	<WhileTrue ux:Name="dashboardUp">
 		<Set iconsVisible.Value="false" />
-		<Change iconsPanel.Visibility="Visible" Delay=".6" />
+		<Change iconsPanel.Visibility="Visible" />
 		<Move Target="dashboard" Y="-1.2" RelativeTo="Size" Duration=".6" Easing="BackIn" />
 	</WhileTrue>
-
+	
+	<WhileTrue ux:Name="viewLogin">
+		<Change mainApp.Visibility="Collapsed" />
+		<Change dashboardUp.Value="true" />
+		<NavigateToggle Target="menu" />
+		<Change plusIcon.Visibility="Hidden" />
+		<!-- <Change logobg.Visibility="Visible" /> -->
+		<!-- <Change logodv.Visibility="Visible" /> -->
+		<Change diamond.Opacity="0" Duration=".3" />
+		<Move Target="loginScreen" Y="1" RelativeTo="ParentSize" Delay=".5" Duration=".3" Easing="CubicOut" />
+	</WhileTrue>
 
 	<WhileTrue ux:Name="iconsVisible">
 		<Move Target="viewIcon" X=".5" Y="-.5" RelativeTo="Size" Duration=".3" Easing="BackOut" EasingBack="CubicIn" />
@@ -54,7 +64,7 @@
 		<Change topRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
 		<Change middleRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
 		<Change bottomRectangle.Color="#000" Duration=".3" Easing="CubicOut" />
-		<Change plusIcon.Visibility="Hidden" Duration=".2" />
+		<!-- <Change plusIcon.Visibility="Hidden" Duration=".2" /> -->
 	</WhileTrue>
 
 	<WhileTrue ux:Name="viewFilterPop">

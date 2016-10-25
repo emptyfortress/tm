@@ -145,7 +145,7 @@
 <!-- ***************************************************************************************************** -->
 		<BottomBarBackground Dock="Bottom"/>
 		<ux:Include File="Conditions.ux" />
-	    <LinearGradient StartPoint="1,1" EndPoint="0,0">
+	    <LinearGradient ux:Name="gradient" StartPoint="1,1" EndPoint="0,0">
 	       <GradientStop Offset="0" Color="#87B55B" />
 	       <GradientStop Offset="1" Color="#154015" />
 	    </LinearGradient>
@@ -472,6 +472,9 @@
 						<StackPanel>
 							<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
 							<Text Value="Выход" FontSize="12"  Alignment="Center"  />
+							<Tapped>
+								<Toggle Target="viewLogin" />
+							</Tapped>
 						</StackPanel>
 					</Grid>
 				</StackPanel>
@@ -970,8 +973,32 @@
 				</Page>
 			</PageControl>
 		</Panel>
-		<Image File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
-		<!-- <Image File="Assets/bg/green4.jpg" Layer="Background" Alignment="BottomRight" StretchMode="Fill"   /> -->
+		
+		<StackPanel ux:Name="loginScreen" Width="300"  Alignment="TopCenter" ItemSpacing="30" Margin="0,50,0,0">
+			<Image ux:Name="logodv" File="Assets/dv.png" Alignment="Top" Width="300"   />
+			<StackPanel ItemSpacing="5" Margin="0,10,0,70">
+				<Text Value="Выберите базу данных" Font="Light" FontSize="16" Color="#ffffffaa" Alignment="Left" />
+				<Rectangle Height="1" Color="#ffffff33" />
+				<fa-angle-down Layer="Background" Color="#fff" Alignment="Right" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5">
+				<Text Value="Имя пользователя" Font="Light" FontSize="20" Color="#fff" Alignment="Center" />
+				<Rectangle Height="1" Color="#ffffff33" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5">
+				<Text Value="Пароль" Font="Light" FontSize="20" Color="#fff" Alignment="Center" />
+				<Rectangle Height="1" Color="#ffffff33" />
+			</StackPanel>
+			<Rectangle Height="60" Margin="0,30,0,0" CornerRadius="30" Color="#F8BF00">
+				<Text Value="ВОЙТИ" FontSize="20" Color="#000" Alignment="Center" />
+				<Tapped>
+					<Toggle Target="viewLogin" />
+				</Tapped>
+			</Rectangle>
+			<Translation Y="-1" RelativeTo="ParentSize" />
+			<!-- <Image ux:Name="logobg" File="Assets/logo.png"  Alignment="Bottom" Width="110"  /> -->
+		</StackPanel>
+		<Image ux:Name="diamond" File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 
 	</DockPanel>
 
