@@ -206,7 +206,7 @@
 	</Panel>
 	<Panel ux:Name="letterPreview" Layer="Overlay" Margin="20" Color="#fff">
 		<Translation Y="1" RelativeTo="ParentSize" />
-		<Image File="Assets/file-preview.png" Alignment="Center"/>
+		<Image File="Assets/doc1.jpg" Alignment="Center"/>
 		<Circle Width="40" Height="40" Color="#000" Alignment="TopRight" Offset="20,-20" Clicked="{toggleLetter}">
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
