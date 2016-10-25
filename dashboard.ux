@@ -13,11 +13,11 @@
 			
 		</State>
 		<State ux:Name="viewSearch" >
-			<Move Target="searchBox" Y="1" RelativeTo="ParentSize" Duration=".2" Easing="CubicOut" />
+			<Move Target="searchBox" Y="4" RelativeTo="Size" Duration=".3" Easing="CubicOut" />
 		</State>
 		<State ux:Name="reststate1" />
 		<State ux:Name="viewResults">
-			<Move Target="searchBox" Y="1" RelativeTo="ParentSize" Duration=".2" Easing="CubicOut" />
+			<Move Target="searchBox" Y="4" RelativeTo="Size" Duration=".3" Easing="CubicOut" />
 			<Change plusIcon.Visibility="Collapsed" />
 			<Change bottomTab.Visibility="Collapsed" />
 			<Change _dashPages.Visibility="Collapsed" />
@@ -43,8 +43,9 @@
 	</StackPanel>
 
 	<Panel ux:Name="searchBox" Alignment="Top" Height="36" Margin="50,10,70,0">
+		<Text Value="Искать на устройстве" Color="#ddd" Alignment="CenterLeft" Margin="20,0,0,0" />
 		<Rectangle  Color="#fff" Layer="Background" CornerRadius="20"   />
-		<Translation Y="-1" RelativeTo="ParentSize" />
+		<Translation Y="-4" RelativeTo="Size" />
 	</Panel>
 
 	<DockPanel>
@@ -56,7 +57,7 @@
 		<StackPanel ux:Name="bottomTab" Dock="Bottom" Margin="10,0,50,0">
 			<Rectangle Height="1" Color="#000" />
 			<MultiLayoutPanel Height="65" ux:Name="tabBar" >
-				<GridLayout ColumnCount="3" Rows="1*"/>
+				<GridLayout ColumnCount="2" Rows="1*"/>
 				<Panel ux:Name="tahoTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder>
 						<Rectangle ux:Name="indicator" Alignment="Top" Height="6" Fill="#000">
@@ -81,7 +82,7 @@
 						<Set _dashPages.Active="folders" />
 					</Clicked>
 				</Panel>
-				<Panel ux:Name="usersTab" HitTestMode="LocalBoundsAndChildren">
+				<!-- <Panel ux:Name="usersTab" HitTestMode="LocalBoundsAndChildren">
 					<Placeholder  Target="indicator"/>
 					<Icon color="#000">
 						<FileImageSource File="Assets/cal.png" ux:Key="iconFile"/>
@@ -89,7 +90,7 @@
 					<Clicked>
 						<Set _dashPages.Active="users" />
 					</Clicked>
-				</Panel>
+				</Panel> -->
 			</MultiLayoutPanel>
 		</StackPanel>
 		
@@ -355,7 +356,7 @@
 					</StackPanel>
 				</ScrollView>
 			</Page>
-			<Page ux:Name="users" Padding="20,10">
+			<!-- <Page ux:Name="users" Padding="20,10">
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="usersTab" />
 				</WhileActive>
@@ -391,19 +392,20 @@
 						</StackPanel>
 					</StackPanel>
 				</ScrollView>
-			</Page>
+			</Page> -->
 		</PageControl>
-		<StackPanel ux:Name="searchResults" Margin="20,50,20,0" ClipToBounds="true" Visibility="Collapsed">
-			<Text Value="Найдено 3 карточки" FontSize="16" Color="#000" Alignment="Center" />
-			<ScrollView Margin="0,10,0,0" >
-				<StackPanel ItemSpacing="80">
+		<Panel ux:Name="searchResults" Margin="20,50,20,0" Visibility="Collapsed">
+			<ScrollView >
+				<StackPanel Padding="0,30">
+				<Text Value="Найдено 3 карточки" FontSize="16" Color="#000" Alignment="Center" />
 					<Each Items="{items.search}">
-						<DocItem />
+						<DocItem Margin="0,40" />
 					</Each>
+					<fa-diamond FontSize="50" Color="#fff" Opacity=".5" Alignment="Center" />
 				</StackPanel>
 			</ScrollView>
-			<Rectangle Layer="Background" Color="#fff" Opacity=".5" />
-		</StackPanel>	
+			<Rectangle Layer="Background" Color="#fff" Opacity=".3" />
+		</Panel>
 	</DockPanel>
 	<Image File="Assets/bg/green3.jpg"  Layer="Background" StretchMode="UniformToFill" Opacity="1" />
 </Panel>

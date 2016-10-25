@@ -368,7 +368,7 @@
 						<Image File="Assets/folder-open.png" Width="30" Color="blue" Alignment="CenterLeft"   />
 						<Text Value="ПАПКИ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
 					</StackPanel>
-					<StackPanel ux:Name="userButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
+					<!-- <StackPanel ux:Name="userButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
 						<Tapped>
 							<Toggle Target="menuVisible" />
 							<NavigateToggle Target="menu" NavigationContext="edge" />
@@ -381,7 +381,7 @@
 						</WhilePressed>
 						<Image File="Assets/cal.png" Width="35" Color="blue" Alignment="CenterLeft"  />
 						<Text Value="КАЛЕНДАРЬ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft"  />
-					</StackPanel>
+					</StackPanel> -->
 
 					<sideButton Text="Мои документы" Quantity="3" Margin="0,30,0,0" >
 						<Tapped>

@@ -65,7 +65,7 @@
 		
 		<Panel ux:Name="quickActions" Color="#EAAF00">
 			
-			<Grid ColumnCount="5" Width="90%" Alignment="Left">
+			<Grid ColumnCount="4" Width="90%" Alignment="Left">
 				<StackPanel ux:Class="quickIcon" color="#000" Alignment="Center">
 					<float4 ux:Property="color" />
 					<string ux:Property="iconSign" />
@@ -78,18 +78,18 @@
 				<quickIcon color="#fff" iconSign="Обновить">
 					<FileImageSource File="Assets/refresh-big.png"  ux:Key="iconFile"/>
 				</quickIcon>
+				<quickIcon color="#fff" iconSign="В избранное">
+					<FileImageSource File="Assets/star1.png"  ux:Key="iconFile"/>
+				</quickIcon>
 				<quickIcon color="#fff" iconSign="Отправить почтой">
 					<FileImageSource File="Assets/sendemail.png"  ux:Key="iconFile"/>
 				</quickIcon>
-				<quickIcon color="#fff" iconSign="Спрятать">
+				<quickIcon color="#fff" iconSign="Скрыть">
 					<FileImageSource File="Assets/hide.png"  ux:Key="iconFile"/>
 				</quickIcon>
-				<quickIcon color="#fff" iconSign="Избранное">
-					<FileImageSource File="Assets/star1.png"  ux:Key="iconFile"/>
-				</quickIcon>
-				<quickIcon color="#fff" iconSign="Запланировать">
+				<!-- <quickIcon color="#fff" iconSign="Запланировать">
 					<FileImageSource File="Assets/calendar-big.png"  ux:Key="iconFile"/>
-				</quickIcon>
+				</quickIcon> -->
 			</Grid>
 			
 			<Tapped>
