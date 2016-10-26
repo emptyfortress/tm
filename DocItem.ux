@@ -1,4 +1,4 @@
-<DockPanel ux:InnerClass="DocItem" ux:Name="Item">
+<Panel ux:InnerClass="DocItem" ux:Name="Item" ClipToBounds="false">
 	<WhileTrue ux:Name="preview">
 		<Change Target="hidPanel.Visibility" Value="Visible" />
 		<Change Target="hidPanel.Opacity" Value="1" Duration=".3" />
@@ -18,51 +18,49 @@
 		<Move Target="quickActions" X="-1" RelativeTo="Size" Duration=".2" Easing="CircularInOut"  />
 	</WhileTrue>
 	
-	<Panel ClipToBounds="true">
-		<Panel Dock="Top">
-			<Panel ux:Name="bell" Alignment="TopRight" Margin="0,0,5,-5" Opacity="{old}" HitTestMode="LocalBoundsAndChildren">
-				<fa-bell-o  FontSize="23" Color="#008C23" Margin="5" />
-				<Clicked>
-					<Toggle Target="preview1"/>
-					<Pulse Target="GrowMe"/>
-				</Clicked>
-			</Panel>
-			<Panel ux:Name="hidPanel1" Layer="Overlay" Alignment="TopRight" Visibility="Collapsed">
-				<WhileTrue ux:Name="GrowMe">
-				   <Scale Factor="1.2" Duration="0.1"/>
-				</WhileTrue>
-				<Text Value="{info}" FontSize="12" Alignment="VerticalCenter" Margin="10,5" />
-				<Clicked>
-					<Set hidPanel1.Visibility.Value="Collapsed" />
-				</Clicked>
-				<Rectangle Color="#B0D397" CornerRadius="30" Layer="Background" />
-			</Panel>
-		</Panel>
+	<Panel ux:Name="bell" Alignment="TopRight" Offset="0,-15"  Opacity="{old}" HitTestMode="LocalBoundsAndChildren">
+		<fa-bell-o  FontSize="23" Color="#008C23" Margin="5" />
+		<Clicked>
+			<Toggle Target="preview1"/>
+			<Pulse Target="GrowMe"/>
+		</Clicked>
+	</Panel>
+	<Panel ux:Name="hidPanel1" Layer="Overlay" Offset="0,-15" Alignment="TopRight" Visibility="Collapsed">
+		<WhileTrue ux:Name="GrowMe">
+		   <Scale Factor="1.2" Duration="0.1"/>
+		</WhileTrue>
+		<Text Value="{info}" FontSize="12" Alignment="VerticalCenter" Margin="10,5" />
+		<Clicked>
+			<Set hidPanel1.Visibility.Value="Collapsed" />
+		</Clicked>
+		<Rectangle Color="#B0D397" CornerRadius="30" Layer="Background" />
+	</Panel>
 
-		<Rectangle Width="15" Color="#ccc" Alignment="Left" Opacity=".2">
-			<Clicked>
-				<Toggle Target="newItem" />
-			</Clicked>
-		</Rectangle>
-		<Rectangle ux:Name="newRect" Width="5" Color="#7f00ff" Alignment="Left" Opacity="{new}"/>
+	<Rectangle Width="15" Color="#ccc" Alignment="Left" Opacity=".2">
+		<Clicked>
+			<Toggle Target="newItem" />
+		</Clicked>
+	</Rectangle>
+	<Rectangle ux:Name="newRect" Width="5" Color="#7f00ff" Alignment="Left" Opacity="{new}"/>
 		
 		<!-- this is cebab -->
-		<Rectangle Width="35" Alignment="Right" HitTestMode="LocalBoundsAndChildren">
-			<StackLayout ItemSpacing="5" ContentAlignment="Center" />
-			<Rectangle Width="5" Height="5" Color="#ccc" />
-			<Rectangle Width="5" Height="5" Color="#ccc" />
-			<Rectangle Width="5" Height="5" Color="#ccc" />
-			
-			<Tapped>
-				<Toggle Target="viewQuickActions" />
-			</Tapped>
-			<SwipeGesture ux:Name="actionSwipe" Direction="Left" Length="100" />
-			
-			<Swiped Source="actionSwipe">
-				<Toggle Target="viewQuickActions" />
-			</Swiped>
-		</Rectangle>
+	<Rectangle Width="35" Alignment="Right" HitTestMode="LocalBoundsAndChildren" Color="#fff" >
+		<StackLayout ItemSpacing="5" ContentAlignment="Center" />
+		<Rectangle Width="5" Height="5" Color="#ccc" />
+		<Rectangle Width="5" Height="5" Color="#ccc" />
+		<Rectangle Width="5" Height="5" Color="#ccc" />
 		
+		<Tapped>
+			<Toggle Target="viewQuickActions" />
+		</Tapped>
+		<SwipeGesture ux:Name="actionSwipe" Direction="Left" Length="100" />
+		
+		<Swiped Source="actionSwipe">
+			<Toggle Target="viewQuickActions" />
+		</Swiped>
+	</Rectangle>
+		
+	<Panel ClipToBounds="true">
 		<Panel ux:Name="quickActions" Color="#EAAF00">
 			
 			<Grid ColumnCount="4" Width="90%" Alignment="Left">
@@ -156,4 +154,4 @@
 			</StackPanel>
 		</StackPanel>
 	</Panel>
-</DockPanel>
+</Panel>

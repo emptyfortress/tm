@@ -55,7 +55,7 @@
 		<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay" Clicked="{toggleComplete}">
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
 				<DropShadow />
-				<Image File="Assets/action.png" Color="#000" Height="42" Alignment="Center" />
+				<Image File="Assets/hand.png" Color="#666" Height="36" Alignment="Center" />
 			</Circle>
 		</Panel>
 
@@ -228,6 +228,9 @@
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 						<Set fileState.Active="fileFull"   />
 					</ScrollingAnimation>
+					<ScrollingAnimation From="-50" To="-100" Range="SnapMin" ScrollDirections="Down"  >
+						<Set fileState.Active="fileShort"   />
+					</ScrollingAnimation>
 				</ScrollView>
 			</Page>
 			<Page ux:Name="taskHelper">
@@ -243,6 +246,9 @@
 					</StackPanel>
 					<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 						<Set fileState.Active="fileFull"   />
+					</ScrollingAnimation>
+					<ScrollingAnimation From="-50" To="-100" Range="SnapMin" ScrollDirections="Down"  >
+						<Set fileState.Active="fileShort"   />
 					</ScrollingAnimation>
 				</ScrollView>
 			</Page>

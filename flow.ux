@@ -216,5 +216,8 @@
 		<ScrollingAnimation From="50" To="100" Range="SnapMin"  >
 			<Set fileState.Active="fileFull"   />
 		</ScrollingAnimation>
+		<ScrollingAnimation From="-50" To="-100" Range="SnapMin" ScrollDirections="Down"  >
+			<Set fileState.Active="fileShort"   />
+		</ScrollingAnimation>
 	</ScrollView>
 </Panel>

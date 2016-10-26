@@ -83,7 +83,8 @@
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Change plusIcon.Visibility="Hidden" Duration=".2" />
-		<Move Target="cardButton1" Y="1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+		<!-- <Scale Target="cardButton1" Factor="5" Duration=".3"  /> -->
+		<Move Target="cardButton1" X="-1" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 	<WhileTrue Value="{showLetter}">
 		<Change plusIcon.Visibility.Value="Collapsed" />

@@ -139,8 +139,9 @@
 		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
 	</Panel>
 
-	<Panel ux:Name="cardButton1" Layer="Overlay" Alignment="Center">
-		<Translation Y="-1.5" RelativeTo="ParentSize" />
+	<Panel ux:Name="cardButton1" Layer="Overlay" Alignment="Center" >
+		<Translation XY="1,-1" RelativeTo="ParentSize" />
+		<!-- <Scaling Factor=".2" /> -->
 		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" Clicked="{completeOff}">
 			<Stroke Width="3" Color="#fff" />
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
