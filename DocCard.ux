@@ -32,6 +32,8 @@
 				<Change number.Visibility.Value="Collapsed" />
 				<Change refresh.Visibility.Value="Collapsed" />
 				<Change refresh1.Visibility.Value="Collapsed" />
+				<Change type.Visibility.Value="Collapsed" />
+				<Change digitSign.Visibility.Value="Collapsed" />
 				<Change listPanel.Visibility.Value="Collapsed" />
 				<Change statusMessage.Visibility.Value="Collapsed" />
 				<Change description.Visibility.Value="Collapsed" />
@@ -50,16 +52,10 @@
 			<Move Target="sign" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut" />
 		</WhileTrue>
 		
-		<Panel ux:Name="type" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay" Clicked="{toggleComplete}">
-			<Rectangle ux:Name="statusMessage" Alignment="BottomRight" Padding="5,2" >
-				<Rotation Degrees="-7" />
-				<Translation Y="-10" />
-				<Text Value="{status}" FontSize="15" Font="Light" Color="#FF00FF" Alignment="Center"  />
-				<Stroke Width="1" Color="#FF00FF" />
-			</Rectangle>
-			<Text Value="{type}" Alignment="TopRight"  Color="{key}" Offset="-60,5" />
+		<Panel Alignment="TopRight" LayoutRole="Inert" Layer="Overlay" Clicked="{toggleComplete}">
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
-				<Image File="Assets/card.png" Width="46" Color="{key}" Alignment="Center" />
+				<DropShadow />
+				<Image File="Assets/action.png" Color="#000" Height="42" Alignment="Center" />
 			</Circle>
 		</Panel>
 
@@ -96,6 +92,14 @@
 					<Icon ux:Name="refresh1" Offset="0,-7" Clicked="{loader}">
 						<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 					</Icon>
+					<Rectangle ux:Name="statusMessage" Padding="5,1" Alignment="CenterLeft" Offset="10,-7" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleComplete}"  >
+						<Text Value="{status}" FontSize="15" Font="Light" Color="#FF00FF" Alignment="Center"  />
+						<Stroke Width="1" Color="#FF00FF" />
+					</Rectangle>
+				</StackPanel>
+				<StackPanel ux:Name="type" Orientation="Horizontal" ItemSpacing="5" >
+					<Image File="Assets/card-small.png" Color="#000"  />
+					<Text Value="{type}" Font="Light" FontSize="14" Alignment="CenterLeft"  />
 				</StackPanel>
 				<Text ux:Name="number" Value="{number}" Margin="0,10,0,20" />
 				<Text ux:Name="mainTitle" LineSpacing="-5" Value="{title}" FontSize="25" TextWrapping="Wrap">
@@ -106,7 +110,7 @@
 				</Text>
 				<Text ux:Name="description" Font="Light" TextWrapping="Wrap" Margin="0,10,0,0" Value="{description}" />
 				
-				<StackPanel Margin="0,15,0,10" ClipToBounds="true">
+				<StackPanel ux:Name="digitSign" Margin="0,15,0,10" ClipToBounds="true">
 					<Tapped>
 						<Toggle Target="viewSign" />
 					</Tapped>

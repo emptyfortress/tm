@@ -996,7 +996,6 @@
 				</Tapped>
 			</Rectangle>
 			<Translation Y="-1" RelativeTo="ParentSize" />
-			<!-- <Image ux:Name="logobg" File="Assets/logo.png"  Alignment="Bottom" Width="110"  /> -->
 		</StackPanel>
 		<Image ux:Name="diamond" File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 

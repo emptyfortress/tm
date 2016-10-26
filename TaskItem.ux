@@ -92,11 +92,12 @@
 		</Panel>
 
 		<StackPanel Margin="25,0,35,0" >
-			<StackPanel Orientation="Horizontal" ItemSpacing="5">
+			<StackPanel Orientation="Horizontal" ItemSpacing="5" HitTestMode="LocalBoundsAndChildren">
 				<Tapped>
 					<Toggle Target="preview" />
 				</Tapped>
-				<Image File="Assets/task-small.png" Color="blue" />
+				<fa-check Color="blue" />
+				<!-- <Image File="Assets/task-small.png" Color="blue" /> -->
 				<Text Value="{type}" Color="blue" />
 				<Image File="Assets/clock.png" Alignment="CenterLeft" Width="18" Color="red" Margin="20,0,0,0" Visibility="{clock}" />
 			</StackPanel>
