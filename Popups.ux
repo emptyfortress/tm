@@ -14,7 +14,7 @@
 		<StackPanel ItemSpacing="3" >
 			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
 				<fa-expand Alignment="CenterLeft" />
-				<cardBt Value="Распахнуть все" Alignment="CenterLeft" />
+				<cardBt Value="Развернуть все" Alignment="CenterLeft" />
 			</StackPanel>
 			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
 				<fa-compress Alignment="CenterLeft" />

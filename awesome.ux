@@ -5,6 +5,8 @@
   <Text ux:Class="fa_arrow_right" Font="fa">&#xf061;</Text>
   <Text ux:Class="fa_arrow_up" Font="fa">&#xf062;</Text>
   <Text ux:Class="fa_angle_double_right" Font="fa">&#xf101;</Text>
+  <!-- <Text ux:Class="fa_angle_down" Font="fa">&#xf107;</Text> -->
+  <Text ux:Class="fa_angle_left" Font="fa">&#xf104;</Text>
   <Text ux:Class="fa_asterisk" Font="fa">&#xf069;</Text>
   <Text ux:Class="fa_bell_o" Font="fa">&#xf0a2;</Text>
   <Text ux:Class="fa_briefcase" Font="fa">&#xf0b1;</Text>
@@ -17,6 +19,8 @@
   <Text ux:Class="fa_certificate" Font="fa">&#xf0a3;</Text>
   <Text ux:Class="fa_check" Font="fa">&#xf00c;</Text>
   <Text ux:Class="fa_chevron_down" Font="fa">&#xf078;</Text>
+  <Text ux:Class="fa_chevron_left" Font="fa">&#xf053;</Text>
+  <Text ux:Class="fa_chevron_right" Font="fa">&#xf054;</Text>
   <Text ux:Class="fa_clipboard" Font="fa">&#xf0ea;</Text>
   <Text ux:Class="fa_cloud_upload" Font="fa">&#xf0ee;</Text>
   <Text ux:Class="fa_cog" Font="fa">&#xf013;</Text>

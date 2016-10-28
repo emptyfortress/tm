@@ -182,7 +182,8 @@
 
 		<PageControl ux:Name="Helper" Padding="10" Visibility="Hidden" >
 			<NavigationMotion Overflow="Elastic"/>
-			<Panel ux:Name="taskIcon" Alignment="BottomLeft" Margin="-5" Layer="Overlay" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleTaskFilter}">
+			
+			<Panel ux:Name="taskIcon" Alignment="BottomCenter" Margin="-5" Layer="Overlay" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleTaskFilter}">
 				<fa-filter Alignment="Center" FontSize="25" />
 				<Circle ux:Name="plusCircle1" Width="50" Height="50" Color="#f00" Opacity=".4" Alignment="Center">
 					<DropShadow  />

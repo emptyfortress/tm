@@ -158,8 +158,9 @@
 				<Rectangle Width="20" Height="3" Color="#000" Alignment="Center" />
 				<Rectangle Width="3" Height="20" Color="#000" Alignment="Center" />
 			</Panel>
-			<Circle ux:Name="plusCircle" Width="50" Height="50" Color="#fff" Opacity=".6" Alignment="Center">
-				<DropShadow  />
+			<Circle ux:Name="plusCircle" Width="50" Height="50" Color="#fff" Opacity=".7" Alignment="Center">
+				<!-- <Stroke Width="1" Color="#aaa" /> -->
+				<DropShadow Size="10"  />
 			</Circle>
 		</Panel>
 		
@@ -268,6 +269,22 @@
 		
 		<ux:Include File="AddPanel.ux" />
 		<ux:Include File="Icons.ux" />
+		
+		<Panel ux:Name="backIcon" Alignment="BottomLeft" Margin="15" Visibility="Hidden" HitTestMode="LocalBoundsAndChildren">
+			<Tapped>
+				<Toggle Target="dashboardUp" />
+				<Set backIcon.Visibility="Hidden" />
+			</Tapped>
+			<fa-angle-left FontSize="40" Alignment="Center" Offset="-3,-1" />
+			<Circle  Width="50" Height="50" Color="#fff" Opacity=".8" Alignment="Center">
+				<!-- <Stroke Width="1" Color="#aaa" /> -->
+				<DropShadow Size="10"  />
+			</Circle>
+		</Panel>
+
+
+
+
 
 		<StackPanel ux:Name="doneText" Opacity="0" Alignment="Center" HitTestMode="None">
 			<fa-check FontSize="40" Color="#fff" Alignment="Center" />
@@ -351,7 +368,7 @@
 							<Change dashButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
 						<Image File="Assets/dash-icon.png" Width="30" Color="blue" Alignment="CenterLeft"  />
-						<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
+						<Text Value="ИНДИКАТОРЫ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 					</StackPanel>
 					
 					<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
