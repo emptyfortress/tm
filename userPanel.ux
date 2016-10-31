@@ -1,17 +1,26 @@
-<Panel ux:Class="userPanel" Width="70" Height="65" Margin="5">
+<Panel ux:Class="userPanel" Width="70" Height="65" Margin="2,5" >
+
     <string ux:Property="Label"/>
+    <float ux:Property="busy" />
     <Selectable Value="{Property this.Label}"/>
 
-    <Image File="Assets/user-icon.png" Alignment="TopCenter" />
-	<Text ux:Name="fio" Value="{Property this.Label}" FontSize="12" Alignment="BottomCenter" Color="#fff" />
+    <Panel Alignment="TopCenter">
+        <Circle Width="46" Height="46" Color="#fff" Alignment="Center">
+            <Stroke Width="2" Color="#fff" />
+            <ImageFill File="Assets/user.png" />   
+        </Circle>
+        <Circle Width="50" Height="50" Color="#f00" Alignment="Center" StartAngle="4.71239" EndAngle="{Property this.busy}" />
+        <Circle Width="50" Height="50" Color="green" Alignment="Center" />
+    </Panel>
+    <Text Value="{Property this.Label}" FontSize="12" Alignment="BottomCenter" Color="#000" />
+    
     <WhileSelected>
         <Change this.Color="#0f0"/>
-        <Change fio.Color="#000"/>
     </WhileSelected>
     <Tapped>
         <ToggleSelection />
     </Tapped>
     <LongPressed>
-    	<Callback Handler="{toggleMainUser}"/>
+        <Callback Handler="{toggleMainUser}"/>
     </LongPressed>
 </Panel>

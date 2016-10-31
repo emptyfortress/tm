@@ -28,7 +28,7 @@
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="addPageActive" >
-		<Change overlayRec.Opacity=".7" Duration=".2" Easing="CircularIn" />
+		<Change overlayRec.Opacity=".5" Duration=".2" Easing="CircularIn" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Rotate Target="plusPlus" Degrees="45" Duration=".3" />
 		<Move Target="addPanel" X="-1" Y="-1" RelativeTo="ParentSize" Duration=".4" Easing="CubicIn" />

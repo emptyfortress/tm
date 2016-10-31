@@ -164,20 +164,23 @@
 							</Panel>
 						</StackPanel> -->
 					</StackPanel>
-				</ScrollView>
+ 				</ScrollView>
 				
+				<Rectangle Height="10" Color="#fff" Alignment="Bottom">
+					<Shadow />
+				</Rectangle>
 				
-				<MultiLayoutPanel ux:Name="helperBar" Dock="Bottom" Color="#000" Padding="0,10" >
+				<MultiLayoutPanel ux:Name="helperBar" Dock="Bottom" Padding="0,10" >
 					<GridLayout ColumnCount="5" Rows="1*"/>
 
 					<Panel ux:Name="templTab" HitTestMode="LocalBoundsAndChildren">
-						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
+						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="templateScroll" />
 							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder>
-							<Circle ux:Name="indic" Alignment="Top" Height="40" Width="40" Fill="#ccc">
+							<Circle ux:Name="indic" Alignment="Top" Height="40" Width="40" Fill="#666">
 								<LayoutAnimation>
 									<Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn"/>
 								</LayoutAnimation>
@@ -185,7 +188,7 @@
 						</Placeholder>
 					</Panel>
 					<Panel ux:Name="textTab" HitTestMode="LocalBoundsAndChildren">
-						<fa-font ux:Name="ico2" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
+						<fa-font ux:Name="ico2" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
 							<Set addGroup.Active="shortState" />
@@ -193,7 +196,7 @@
 						<Placeholder Target="indic"/>
 					</Panel>
 					<Panel ux:Name="userTab" HitTestMode="LocalBoundsAndChildren">
-						<fa-user ux:Name="ico3" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
+						<fa-user ux:Name="ico3" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="userScroll" />
 							<Set addGroup.Active="shortState" />
@@ -201,7 +204,7 @@
 						<Placeholder Target="indic"/>
 					</Panel>
 					<Panel ux:Name="dateTab" HitTestMode="LocalBoundsAndChildren">
-						<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5" />
+						<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="dateScroll" />
 							<Set addGroup.Active="shortState" />
@@ -209,7 +212,7 @@
 						<Placeholder Target="indic"/>
 					</Panel>
 					<Panel ux:Name="attachTab" HitTestMode="LocalBoundsAndChildren">
-						<fa-paperclip ux:Name="ico5" FontSize="20" Color="#bbb" Alignment="Center" Margin="0,5">
+						<fa-paperclip ux:Name="ico5" FontSize="20" Color="#666" Alignment="Center" Margin="0,5">
 							<Rotation Degrees="-90" />
 						</fa-paperclip>
 						<Clicked>
@@ -221,7 +224,7 @@
 				</MultiLayoutPanel>
 			</DockPanel>
 
-			<Panel HitTestMode="LocalVisualAndChildren" Background="#000">
+			<Panel HitTestMode="LocalVisualAndChildren" Background="#fff">
 
 
 
@@ -243,9 +246,9 @@
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
 						<WhileActive Threshold="0.5">
 							<Set helperBar.LayoutElement="templTab" />
-							<Change ico1.Color="#000" />
+							<Change ico1.Color="#fff" />
 						</WhileActive>
-						<Panel>
+						<Panel Padding="5,0">
 							<ColumnLayout ux:Name="templateColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
 							<WhileWindowPortrait>
 								<Change templateColumns.ColumnCount.Value="2" />
@@ -257,11 +260,14 @@
 								<string ux:Property="Value" />
 								<Selectable Value="{Property this.Value}"/>
 
-								<Text ux:Name="btText" Value="{Property this.Value}" Alignment="Center" Color="#fff" />
-								<Rectangle ux:Name="btBg" Layer="Background" Color="#666" />
+								<Text ux:Name="btText" Value="{Property this.Value}" Alignment="Center" Color="#000" />
+								<Rectangle ux:Name="btBg" Layer="Background" Color="#eee">
+									<Stroke ux:Name="btBgStroke" Width="1" Color="#eee"/>
+								</Rectangle>
 
 								<WhileSelected>
 									<Change btBg.Color="#0f0" />
+    								<Change btBgStroke.Color="#aaa" />
     								<Change btText.Color="#000" />
 								</WhileSelected>
 								<Tapped>
@@ -274,8 +280,8 @@
 
 							<typeButton Value="На ознакомление" />
 							<typeButton Value="На исполнение" />
-							<typeButton Value="На согласование" />
-							<typeButton Value="На подписание" />
+							<!-- <typeButton Value="На согласование" /> -->
+							<!-- <typeButton Value="На подписание" /> -->
 
 							<Each Items="{items.count}" >
 								<TemplateBlock >
@@ -295,7 +301,7 @@
 					</ScrollView>
 					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico2.Color="#000" />
+							<Change ico2.Color="#fff" />
 							<Set helperBar.LayoutElement="textTab" />
 						</WhileActive>
 						<Panel>
@@ -303,23 +309,23 @@
 							<WhileWindowPortrait>
 								<Change textColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
-							<TextBlock bgColor="#666" boxText="Иванов, срочно разберись и доложи, в чем проблема" >
+							<!-- <TextBlock bgColor="#fff" boxText="Иванов, срочно разберись и доложи, в чем проблема" >
 								<Clicked>
 										<Set taskText.Value="Иванов, срочно разберись и доложи, в чем проблема" />
 									</Clicked>
 							</TextBlock>
-							<TextBlock bgColor="#666" boxText="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." >
+							<TextBlock bgColor="#fff" boxText="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." >
 								<Clicked>
 										<Set taskText.Value="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." />
 									</Clicked>
 							</TextBlock>
-							<TextBlock bgColor="#666" boxText="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." >
+							<TextBlock bgColor="#fff" boxText="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." >
 								<Clicked>
 										<Set taskText.Value="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." />
 									</Clicked>
-							</TextBlock>
+							</TextBlock> -->
 							<Each Items="{items.texts}">
-								<TextBlock bgColor="#666" boxText="{}" >
+								<TextBlock bgColor="#efefef" boxText="{}" >
 									<Clicked>
 										<Set taskText.Value="Нормально работают только первые три блока..." />
 									</Clicked>
@@ -333,66 +339,72 @@
 					</ScrollView>
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
-							<Change ico3.Color="#000" />
+							<Change ico3.Color="#fff" />
 							<Set helperBar.LayoutElement="userTab" />
 						</WhileActive>
 						<StackPanel>
-							<Panel ux:Name="userList" >
+							<ScrollView AllowedScrollDirections="Horizontal" ux:Name="userList" Background="#eee">
+								<JavaScript>
+									var favuser = [
+									{fio: 'Снегирев', busy: 1}, 
+									{fio: 'Воробьев', busy: .5}, 
+									{fio: 'Уткин', busy: 3}, 
+									{fio: 'Гусев', busy: 2.5}, 
+									{fio: 'Галкина', busy: .7}, 
+									{fio: 'Синицына', busy: .3}, 
+									{fio: 'Тетерев', busy: 4}, 
+									{fio: 'Орлов', busy: 2}, 
+									{fio: 'Жаворонков', busy: 4.3}, 
+									{fio: 'Индюков', busy: 1.7}, 
+									]
+									module.exports ={
+										favuser: favuser
+									}
+								</JavaScript>
+								<StackPanel Orientation="Horizontal" ItemSpacing="3">
+									<Selection Values="{values}"/>
+									
+								    <Panel>
+								    	<WhileTrue Value="{userMain}">
+									        <Change contrU.Visibility="Visible" />
+									        <Change mainU.Visibility="Visible" />
+									    </WhileTrue>
+
+
+									    <Circle ux:Name="contrU" Width="20" Height="20" Color="#f00" Alignment="TopRight" Visibility="Hidden">
+									        <Text Value="K" Alignment="Center" Color="#fff" />
+									    </Circle>
+									    <Circle ux:Name="mainU" Width="20" Height="20" Color="#f00" Alignment="TopLeft" Visibility="Hidden">
+									        <Text Value="O" Alignment="Center" Color="#fff" />
+									    </Circle>
+									    <userPanel Label="Соловьев" busy=".2" />
+									</Panel>
+									<Each Items="{favuser}">
+								    	<userPanel Label="{fio}" busy="{busy}"  />
+									</Each>
+								</StackPanel>
+							</ScrollView>
+							<Panel ux:Name="groupList" Margin="5,20" >
+								<JavaScript>
+									var departments = [
+										"Отдел кадров", "Производство", "Бухгалтерия", "Склад", "Тестировщики", "АХУ", "Сервисный отдел", "Бригада Ух"
+									]
+									module.exports = {
+										departments: departments
+									}
+								</JavaScript> 
 								<WrapLayout Orientation="Horizontal"/>
-								<Selection Values="{values}"/>
-								
-								<Panel ux:Name="Clear" Width="60" Height="65" Opacity=".3" Clicked="{reset}">
-									<Image File="Assets/back.png" Width="50" Alignment="Top" />
-									<Text Value="Сброс" FontSize="12" Alignment="BottomCenter" Color="#fff" />
-								</Panel>
-						    	<userPanel Label="Снегирев" />
-							    <userPanel Label="Воробьев" />
-							    <userPanel Label="Уткин" />
-							    <userPanel Label="Синицына" />
-							    <Panel>
-							    	<WhileTrue Value="{userMain}">
-										<Change main.Visibility="Visible" />
-										<Change cont.Visibility="Visible" />
-										<Change contrU.Visibility="Visible" />
-										<Change mainU.Visibility="Visible" />
-										<Change userStroke.Color="#0f0" />
-									</WhileTrue>
-							    	<Circle ux:Name="contrU" Width="20" Height="20" Color="#f00" Alignment="TopRight" Visibility="Hidden">
-										<Text Value="K" Alignment="Center" Color="#fff" />
-									</Circle>
-									<Circle ux:Name="mainU" Width="20" Height="20" Color="#FFFF00" Alignment="TopLeft" Visibility="Hidden">
-										<Text Value="O" Alignment="Center" Color="#000" />
-									</Circle>
-							    	<userPanel Label="Лебедева" />
-							    	<Rectangle ux:Name="bgUser" Layer="Background" Color="#000">
-								    	<Stroke ux:Name="userStroke" Width="1" Color="#000" />
-								    </Rectangle>
-							    </Panel>
+									<Each Items="{departments}">
+										<groupPanel Label="{}" />
+									</Each>
 							</Panel>
-							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
-							<Panel ux:Name="groupList" >
-								<WrapLayout Orientation="Horizontal"/>
-								<Each Count="7" >
-									<groupPanel />
-								</Each>
-							</Panel>
-							<Rectangle Height="1" Color="#fff5" Margin="0,5" />
 							<TextInput ux:Name="text" PlaceholderColor="#ccc" Height="50" Padding="5" Margin="20,0"   >
-						        <StateGroup ux:Name="inputGroup" Active="normal">
-						        	<State ux:Name="normal">
-						        		
-						        	</State>
-						        	<State ux:Name="active">
-						        		<Change input.Opacity.Value="1" Duration=".2" />
-						        		<Change searchIc.Color="#000" Duration=".2" />
-						        		<Change searchIc.Alignment="CenterRight" />
-						        	</State>
-						        </StateGroup>
-						        <fa-search ux:Name="searchIc" FontSize="20" Alignment="Center" Color="#fff" Margin="20,0" />
-						        <Rectangle ux:Name="input" Layer="Background" Color="#fff" Opacity="0" CornerRadius="50" />
+						        <fa-search ux:Name="searchIc" FontSize="20" Alignment="CenterLeft" Color="#000" Margin="10,0">
+						        	<Scaling X="-1"  />
+						        </fa-search>
+						        <Rectangle ux:Name="input" Layer="Background" Color="#eee" Opacity="1" CornerRadius="50" />
 						        <WhileFocusWithin>
 						        	<Change addGroup.Active="fullState" />
-						        	<Change inputGroup.Active="active" />
 						        	<Change userList.Visibility.Value="Collapsed" />
 						        	<Change groupList.Visibility.Value="Collapsed" />
 						        </WhileFocusWithin>
@@ -401,7 +413,7 @@
 					</ScrollView>
 					<DockPanel ux:Name="dateScroll">
 						<WhileActive Threshold="0.5">
-							<Change ico4.Color="#000" />
+							<Change ico4.Color="#fff" />
 							<Set helperBar.LayoutElement="dateTab" />
 						</WhileActive>
 						<WhileTrue Value="{chooseDate}">
@@ -510,7 +522,7 @@
 					</DockPanel>
 					<DockPanel ux:Name="attachScroll">
 						<WhileActive Threshold="0.5">
-							<Change ico5.Color="#000" />
+							<Change ico5.Color="#fff" />
 							<Set helperBar.LayoutElement="attachTab" />
 						</WhileActive>
 						<Rectangle Height="120" Dock="Top">
@@ -548,41 +560,6 @@
 									<attachRec Value="{}"  />
 								</Each>
 							</Panel>
-
-
-
-							<!-- <Selection Value="{type}" MaxCount="1"/>
-							
-							<Panel ux:Class="typeButton" Height="40">
-								<string ux:Property="Value" />
-								<Selectable Value="{Property this.Value}"/>
-
-								<Text ux:Name="btText" Value="{Property this.Value}" Alignment="Center" Color="#fff" />
-								<Rectangle ux:Name="btBg" Layer="Background" Color="#666" />
-
-								<WhileSelected>
-									<Change btBg.Color="#0f0" />
-    								<Change btText.Color="#000" />
-								</WhileSelected>
-								<Tapped>
-									<ToggleSelection/>
-								</Tapped>
-								<Selected>
-									<Scale Factor="1.1" Duration="0.2" />
-								</Selected>
-							</Panel> -->
-
-
-
-
-
-
-
-
-
-
-
-
 						</ScrollView>
 						<Grid Height="50" ColumnCount="4" Dock="Bottom">
 							<Rectangle />

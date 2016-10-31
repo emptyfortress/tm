@@ -174,8 +174,8 @@
 			var showAbout = Observable(false);
 			var showReport = Observable(false);
 			var showList = Observable(false);
-			var showMainUser = Observable(false);
 			var userMain = Observable(false);
+			var showMainUser = Observable(false);
 			var viewComplete = Observable(false);
 			var viewLoader = Observable(false);
 			var viewTaskFilter = Observable(false);
@@ -205,17 +205,11 @@
 			function toggleList(){
 				showList.value = !showList.value;
 			}
+			
 			function toggleMainUser(){
-				showMainUser.value = !showMainUser.value;
-			}
-			function setMain(){
-				userMain.value = true;
-				showMainUser.value = false;
-			}
-			function resetMain(){
-				userMain.value = false;
-				showMainUser.value = false;
-			}
+	            showMainUser.value = !showMainUser.value;
+	        }
+
 			function toggleComplete(){
 				viewComplete.value = !viewComplete.value;
 			}
@@ -231,15 +225,20 @@
 			function toggleMarshrut(){
 				viewMarshrut.value = !viewMarshrut.value;
 			}
+			function setMain(){
+		         userMain.value = true;
+		         showMainUser.value = false;
+	        }
+	        function resetMain(){
+		         userMain.value = false;
+		         showMainUser.value = false;
+	        }
 
 			module.exports = {
 				viewTaskFilter: viewTaskFilter,
 				toggleTaskFilter: toggleTaskFilter,
 				viewLoader: viewLoader,
 				viewComplete: viewComplete,
-				resetMain: resetMain,
-				userMain: userMain,
-				setMain: setMain,
 				showLetter: showLetter,
 				toggleLetter: toggleLetter,
 				showRecord: showRecord,
@@ -254,14 +253,17 @@
 				toggleReport: toggleReport,
 				showList: showList,
 				toggleList: toggleList,
-				showMainUser: showMainUser,
-				toggleMainUser: toggleMainUser,
 				toggleComplete: toggleComplete,
 				completeOff: completeOff,
 				taskOff: taskOff,
 				loader: loader,
 				viewMarshrut: viewMarshrut,
-				toggleMarshrut: toggleMarshrut
+				toggleMarshrut: toggleMarshrut,
+				toggleMainUser: toggleMainUser,
+				showMainUser: showMainUser,
+				setMain: setMain,
+				resetMain: resetMain,
+				userMain: userMain
 			}
 		</JavaScript>
 

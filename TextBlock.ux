@@ -5,6 +5,6 @@
 		<Change bg.Color="#000" />
 	</WhilePressed> -->
 
-	<Text Value="{Property this.boxText}" Color="#fff" TextWrapping="Wrap"  />
+	<Text Value="{Property this.boxText}" Color="#666" TextWrapping="Wrap"  />
 	<Rectangle ux:Name="bg" Layer="Background" Color="{Property this.bgColor}" />
 </Panel>
