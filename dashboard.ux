@@ -54,7 +54,7 @@
 				<TransitionState Target="searchGroup" Type="Next"/>
 			</Tapped>
 		</Text>
-		<StackPanel ux:Name="bottomTab" Dock="Bottom" Margin="10,0,50,0">
+		<StackPanel ux:Name="bottomTab" Dock="Bottom" Margin="50,0">
 			<Rectangle Height="1" Color="#000" />
 			<MultiLayoutPanel Height="65" ux:Name="tabBar" >
 				<GridLayout ColumnCount="2" Rows="1*"/>

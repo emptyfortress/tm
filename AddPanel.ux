@@ -514,14 +514,12 @@
 						<Grid Height="50" ColumnCount="4" Dock="Bottom">
 							<Rectangle />
 							<Panel>
-								<fa-folder-open-o FontSize="25" Color="#333" Alignment="Center" />
+								<fa-folder-open-o FontSize="25" Color="#000" Alignment="Center" />
 							</Panel>
 							<Panel  Clicked="{toggleRecord}" HitTestMode="LocalBoundsAndChildren">
-								<fa-microphone FontSize="25" Color="#333" Alignment="Center" />
+								<fa-microphone FontSize="25" Color="#000" Alignment="Center" />
 							</Panel>
-							<Rectangle Layer="Background" Color="#ddd" >
-								<!-- <Stroke Width="1" Color="#000" /> -->
-							</Rectangle>
+							<Rectangle Layer="Background" Color="#eee" />
 						</Grid>
 					</DockPanel>
 				</PageControl>
