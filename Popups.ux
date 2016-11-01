@@ -289,6 +289,7 @@
 		<ScrollView >
 			<StackPanel Margin="10">
 				<Text Value="Лист согласования" FontSize="22" Alignment="TopCenter" Margin="0,50,0,20" />
+				<Text Value="Запущено 10.09.16 15:40" Alignment="TopCenter" Margin="0,0,0,20" />
 				<Text ux:Class="gridtext" Value="" FontSize="15" TextWrapping="Wrap" Alignment="TopLeft"  TextAlignment="Left" />
 				<Grid Columns="18,120,75,1*" Margin="0,5,0,0" Alignment="Top" CellSpacing="1">
 					<Panel Color="#D5EAA8" Padding="5,10">

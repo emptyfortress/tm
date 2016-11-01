@@ -317,7 +317,7 @@
 							<Set helperBar.LayoutElement="userTab" />
 						</WhileActive>
 						<StackPanel>
-							<ScrollView AllowedScrollDirections="Horizontal" ux:Name="userList" Background="#eee">
+							<ScrollView AllowedScrollDirections="Horizontal" ux:Name="userList" Background="#fff">
 								<JavaScript>
 									var favuser = [
 									{fio: 'Снегирев', busy: 1}, 
@@ -376,13 +376,27 @@
 						        <fa-search ux:Name="searchIc" FontSize="20" Alignment="CenterLeft" Color="#000" Margin="10,0">
 						        	<Scaling X="-1"  />
 						        </fa-search>
+						        <Text Value="Искать" Color="#ccc" Alignment="CenterLeft" Margin="40,0,0,0" />
 						        <Rectangle ux:Name="input" Layer="Background" Color="#eee" Opacity="1" CornerRadius="50" />
 						        <WhileFocusWithin>
 						        	<Change addGroup.Active="fullState" />
 						        	<Change userList.Visibility.Value="Collapsed" />
 						        	<Change groupList.Visibility.Value="Collapsed" />
+						        	<Change searchRes.Visibility.Value="Visible" />
 						        </WhileFocusWithin>
 						    </TextInput>
+						    <ScrollView Margin="30" ux:Name="searchRes" Visibility="Hidden">
+						    	<Grid ux:Class="newFav" Columns="auto, 1*,auto" Padding="10" >
+						    		<Text Value="Орлов А.И." Alignment="CenterLeft" />
+						    		<Text Value="Отдел продаж" Alignment="CenterLeft" Margin="20,0,0,0" FontSize="13" />
+						    		<fa-star-o FontSize="17" />
+						    	</Grid>
+						    	<StackPanel ItemSpacing="5">
+						    		<Each Count="10" >
+						    			<newFav />
+						    		</Each>
+						    	</StackPanel>
+						    </ScrollView>
 						</StackPanel>
 						<ScrollingAnimation From="0" To="-200" >
 				            <Set addGroup.Active="shortState" />

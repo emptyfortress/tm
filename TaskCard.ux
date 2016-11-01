@@ -48,7 +48,8 @@
 		<Panel ux:Name="Action" Alignment="TopRight" LayoutRole="Inert" Layer="Overlay" Clicked="{toggleComplete}">
 			<Circle Width="60" Height="60" Color="#fff" Alignment="TopRight" Offset="0,-30" >
 				<DropShadow />
-				<Image File="Assets/to.png" Color="#666" Height="40" Alignment="Center" />
+				<Image File="Assets/hand.png" Color="#666" Height="36" Alignment="Center" />
+				<!-- <Image File="Assets/to.png" Color="#666" Height="40" Alignment="Center" /> -->
 			</Circle>
 		</Panel>
 		
