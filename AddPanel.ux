@@ -5,6 +5,8 @@
 		exports.attach = Observable('')
 		exports.values = Observable()
 		exports.values1 = Observable()
+		exports.date = Observable()
+		exports.srok = Observable()
 		
 	    exports.list = Observable()
 	    exports.attach = Observable()
@@ -14,43 +16,47 @@
 	    exports.values1.onValueChanged( module, function() {
 	        exports.attach.value = "Вложения: " +  exports.values1.toArray().join(", ")
 	    })
+	    exports.date.onValueChanged( module, function() {
+	        exports.srok.value = "Срок исполнения: " +  exports.date.toArray().join(" ") + " декабря, 19:00"
+	    })
 
 
 	</JavaScript>
-	<JavaScript File="date.js" />
+	<!-- <JavaScript File="date.js" /> -->
 	<Translation XY="1,1" RelativeTo="ParentSize" />
 	
 	<PageControl ux:Name="AddDraftNavigation">
 		<DockPanel ux:Name="add">
 			<StateGroup ux:Name="addGroup" Active="shortState">
 				<State ux:Name="fullState">
-		            <Change mainAddPanel.Height="0" Duration="0.2"/>
-		            <Change mainAddPanel.Visibility.Value="Collapsed" Delay=".3" />
+		            <!-- <Change mainAddPanel.Visibility.Value="Collapsed" Delay=".3" /> -->
+		            <Change mainAddPanel.Height="10" Duration="0.2"/>
+		            <Change buttonGrid.Visibility="Collapsed" />
+		            <Change taskScroll.Visibility="Collapsed" />
 		            <Change templateScroll.RelativeScrollPosition="0" />
-		            <Change downArrow.Visibility.Value="Visible" Duration=".2" />
+		            <Change downArrow.Visibility.Value="Visible"  />
 		            <Change templateScroll.UserScroll="true"  />
 		            <Change textScroll.UserScroll="true"  />
+		            <Change monthPanel.UserScroll="true"  />
 		            <Change userScroll.UserScroll="true"  />
 		            <Change fileScroll.UserScroll="true"  />
 		            <Change monthPanel.Visibility="Visible" />
 		        </State>
 		        <State ux:Name="shortState">
-		            <Change templateScroll.RelativeScrollPosition="0" />
-		            <Change templateScroll.UserScroll="false" />
-		            <Change textScroll.RelativeScrollPosition="0" />
-		            <Change textScroll.UserScroll="false" />
-		            <Change userScroll.RelativeScrollPosition="0" />
-		            <Change userScroll.UserScroll="false" />
-		            <Change fileScroll.RelativeScrollPosition="0" />
-		            <Change fileScroll.UserScroll="false" />
 		        </State>
 		        <State ux:Name="offState">
 		            <Change mainAddPanel.Height="100" Duration="0.2"/>
 		            <Change templateScroll.UserScroll="false" />
 		        </State>
 			</StateGroup>
+			<Panel ux:Name="downArrow" Width="35" Height="35" Layer="Overlay"  Alignment="TopCenter" Offset="0,-3" Visibility="Collapsed">
+				<Clicked>
+					<Set addGroup.Active="shortState" />
+				</Clicked>
+				<fa-chevron-down FontSize="23" Color="#000" Alignment="Center" />
+			</Panel>
 			<DockPanel ux:Name="mainAddPanel" Dock="Top" Height="60%" Background="#fff">
-				<Grid Columns="1*, auto,auto" Dock="Top" Padding="10">
+				<Grid ux:Name="buttonGrid" Columns="1*, auto,auto" Dock="Top" Padding="10">
 					<StackPanel Orientation="Horizontal"  ItemSpacing="5">
 						<Circle Width="30" Height="30" Color="#fff" >
 							<Stroke Width="1" Color="#ccc" />
@@ -80,7 +86,7 @@
 						</Clicked>
 					</Panel>
 				</Grid>
-				<ScrollView >
+				<ScrollView ux:Name="taskScroll">
 					<Panel ux:Class="who" Margin="0,0,5,5" Padding="3">
 						<string ux:Property="Value" />
 						<Text Value="{Property this.Value}"  Color="blue" Alignment="Center" />
@@ -119,13 +125,11 @@
 						<Label ux:Name="main" Value="Ответственный: Лебедева"  Visibility="Collapsed"/>
 						<Label ux:Name="cont" Value="Контролер: Лебедева, дата контроля 12.01.2017"  Visibility="Collapsed" />
 						
+						<Label Value="{srok}"  />
 						<Label ux:Name="deadline" Value="Срок исполнения: 25.12.2016  19:00"  Visibility="Collapsed"/>
 						<Label ux:Name="attachList" Value="{attach}" />
 						<Label ux:Name="parentCard" Value="Родительская карточка: Письмо о проведении аукциона "  Visibility="Collapsed"/>
 						<Label ux:Name="parentAttach" Value="Вложения: Договор с подрядчиком.pdf, Приложение к договору.docx, Смета расходов.xls" Visibility="Collapsed"/>
-						
-
-
 
 						<Grid ux:Name="hiddenGrid" Columns="auto, 1*" CellSpacing="20" Visibility="Hidden">
 							<fa-user FontSize="20" Color="blue" Margin="0,0,10,0" />
@@ -144,25 +148,6 @@
 								<Text Color="blue" Value="screenshot.jpg" />
 							</Panel>
 						</Grid>
-						<!-- <StackPanel ux:Name="hiddenBt" Orientation="Horizontal" ItemSpacing="10" Visibility="Hidden" Margin="0,50,0,0">
-							<Panel Padding="5" Alignment="Left">
-								<Text  Value="Сохранить" Color="#aaa"  />
-								<Rectangle Layer="Background" Color="#eee" />
-								<Clicked>
-									<NavigateTo Target="Drafts" NavigationContext="AddDraftNavigation" />
-								</Clicked>
-							</Panel>
-							<Panel Padding="5" Alignment="Left">
-								<Text  Value="Отправить" Color="#fff"  />
-								<Rectangle Layer="Background" Color="blue" />
-								<Clicked>
-									<Move Target="addPanel" Y="-1.5" RelativeTo="Size" Duration=".2" Easing="CircularIn" />
-									<Change addPanel.Opacity.Value="0" Duration=".4" />
-									<Change doneText.Opacity.Value="1" Duration=".5" />
-									<Toggle Target="addPageActive" Delay="2" />
-								</Clicked>
-							</Panel>
-						</StackPanel> -->
 					</StackPanel>
  				</ScrollView>
 				
@@ -177,7 +162,6 @@
 						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="templateScroll" />
-							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder>
 							<Circle ux:Name="indic" Alignment="Top" Height="40" Width="40" Fill="#666">
@@ -191,7 +175,6 @@
 						<fa-font ux:Name="ico2" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
-							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
@@ -199,7 +182,6 @@
 						<fa-user ux:Name="ico3" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="userScroll" />
-							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
@@ -207,7 +189,6 @@
 						<fa-calendar-check-o ux:Name="ico4" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="dateScroll" />
-							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
@@ -217,30 +198,22 @@
 						</fa-paperclip>
 						<Clicked>
 							<Set helperPanel.Active="attachScroll" />
-							<Set addGroup.Active="shortState" />
 						</Clicked>
 						<Placeholder Target="indic"/>
 					</Panel>
 				</MultiLayoutPanel>
 			</DockPanel>
 
-			<Panel HitTestMode="LocalVisualAndChildren" Background="#fff">
-
-
-
+			<Panel HitTestMode="LocalBoundsAndChildren" Background="#fff">
 				<SwipeGesture ux:Name="up" Direction="Up" Length="100" />
+				<SwipeGesture ux:Name="down" Direction="Down" Length="100" />
 				<Swiped Source="up">
 					<Set addGroup.Active="fullState" />
 				</Swiped>
-				<Panel ux:Name="downArrow" Width="35" Height="35" LayoutRole="Inert" Alignment="TopCenter" Visibility="Collapsed">
-					<Clicked>
-						<Set addGroup.Active="shortState" />
-					</Clicked>
-					<fa-chevron-down FontSize="23" Color="#000" Alignment="Center" />
-					<Circle Color="#fff" />
-				</Panel>
+				<Swiped Source="down">
+					<Set addGroup.Active="shortState" />
+				</Swiped>
 				
-
 				<PageControl ux:Name="helperPanel" >
 					<NavigationMotion GotoEasing="CircularInOut" Overflow="Elastic" SnapType="Easing" />
 					<ScrollView ux:Name="templateScroll" UserScroll="false" SnapMinTransform="false">
@@ -298,7 +271,19 @@
 							</Each>
 							<fa-diamond Color="#ccc" FontSize="30" Alignment="Center" Margin="0,30"  />
 						</Panel>
+						<ScrollingAnimation From="0" To="-200" >
+				            <Set addGroup.Active="shortState" />
+				        </ScrollingAnimation>
 					</ScrollView>
+					
+
+
+
+
+
+
+
+
 					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
 							<Change ico2.Color="#fff" />
@@ -309,34 +294,23 @@
 							<WhileWindowPortrait>
 								<Change textColumns.ColumnCount.Value="2" />
 							</WhileWindowPortrait>
-							<!-- <TextBlock bgColor="#fff" boxText="Иванов, срочно разберись и доложи, в чем проблема" >
-								<Clicked>
-										<Set taskText.Value="Иванов, срочно разберись и доложи, в чем проблема" />
-									</Clicked>
-							</TextBlock>
-							<TextBlock bgColor="#fff" boxText="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." >
-								<Clicked>
-										<Set taskText.Value="Эпигенез отчетлив. Область развития мерзлых пород, главным образом в карбонатных породах палеозоя, анизотропно прекращает малиньит. Плато, особенно в верхах разреза, инверсионно." />
-									</Clicked>
-							</TextBlock>
-							<TextBlock bgColor="#fff" boxText="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." >
-								<Clicked>
-										<Set taskText.Value="Вулканическое стекло, скажем, за 100 тысяч лет, поднимает исток. Магнитное наклонение занимает пелагический оз." />
-									</Clicked>
-							</TextBlock> -->
 							<Each Items="{items.texts}">
 								<TextBlock bgColor="#efefef" boxText="{}" >
 									<Clicked>
-										<Set taskText.Value="Нормально работают только первые три блока..." />
+										<Set taskText.Value="{}" />
 									</Clicked>
 								</TextBlock>
 							</Each>
 							<Panel>
 								<fa-diamond Color="#ccc" FontSize="30" Alignment="Center" Margin="0,30"  />
-								
 							</Panel>
 						</Panel>
+						<ScrollingAnimation From="0" To="-200" >
+				            <Set addGroup.Active="shortState" />
+				        </ScrollingAnimation>
 					</ScrollView>
+
+
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">
 							<Change ico3.Color="#fff" />
@@ -377,7 +351,7 @@
 									    <Circle ux:Name="mainU" Width="20" Height="20" Color="#f00" Alignment="TopLeft" Visibility="Hidden">
 									        <Text Value="O" Alignment="Center" Color="#fff" />
 									    </Circle>
-									    <userPanel Label="Соловьев" busy=".2" />
+									    <userPanel Label="Соловьев" busy="4" />
 									</Panel>
 									<Each Items="{favuser}">
 								    	<userPanel Label="{fio}" busy="{busy}"  />
@@ -410,6 +384,9 @@
 						        </WhileFocusWithin>
 						    </TextInput>
 						</StackPanel>
+						<ScrollingAnimation From="0" To="-200" >
+				            <Set addGroup.Active="shortState" />
+				        </ScrollingAnimation>
 					</ScrollView>
 					<DockPanel ux:Name="dateScroll">
 						<WhileActive Threshold="0.5">
@@ -417,66 +394,33 @@
 							<Set helperBar.LayoutElement="dateTab" />
 						</WhileActive>
 						<WhileTrue Value="{chooseDate}">
-							<Change dummy.Visibility.Value="Collapsed" />
-							<Change mainDate.Visibility.Value="Visible" />
 							<Change deadtime.Visibility.Value="Visible" />
-							<Move Target="mainDate" Y="1" RelativeTo="ParentSize" Duration=".3" Easing="CircularOut"  />
 						</WhileTrue>
 						<StackPanel Dock="Top">
-							<ScrollView AllowedScrollDirections="Horizontal">
-								<StackPanel Orientation="Horizontal">
-									<dateShortcut text="Сегодня" Clicked="{today}" />
-									<dateShortcut text="Завтра" Clicked="{tomorrow}" />
-									<dateShortcut text="+2 дня" Clicked="{addWeek}" />
-									<dateShortcut text="Пятница" Clicked="{addWeek}"/>
-									<dateShortcut text="Понедельник" Clicked="{today}" />
-									<dateShortcut text="Через неделю" Clicked="{addWeek}" />
-									<dateShortcut text="Конец месяца" Clicked="{addMonth}" />
-									<dateShortcut text="Конец квартала" Clicked="{addMonth}" />
-								</StackPanel>
-							</ScrollView>
-							<Grid ux:Name="mainDate" Columns="1*" Margin="10,20" Visibility="Collapsed">
-								<Translation Y="-1" RelativeTo="ParentSize" />
-								<StackPanel Alignment="Center" Padding="10"  Width="150">
-
-									<Circle Width="30" Height="30" Color="red" Layer="Overlay" Alignment="TopLeft" Offset="-20" Clicked="{closeDate}">
-										<fa-times Color="#fff" Alignment="Center" />
-									</Circle>
-									<Circle Width="30" Height="30" Color="#0f0" Layer="Overlay" Alignment="TopRight" Offset="20,-20" Clicked="{showDate}">
-										<fa-check Color="#000" Alignment="Center" />
-									</Circle>
-
-									<Text Value="{month}" FontSize="16" Color="#ccc" Alignment="Center" />
-									<PageControl>
-										<StackPanel>
-											<Text Value="{date}" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
-											<Text Value="{day}" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
-										</StackPanel>
-										<StackPanel>
-											<Text Value="16" Font="Light" FontSize="60" Color="#ccc" Alignment="Center" Margin="0,-5,0,0" />
-											<Text Value="Пятница" FontSize="20" Color="#ccc" Alignment="Center" Margin="0,-10,0,0" />
-										</StackPanel>
-										<StackPanel>
-											<Text Value="17" Font="Light" FontSize="60" Color="#f00" Alignment="Center" Margin="0,-5,0,0" />
-											<Text Value="Суббота" FontSize="20" Color="#f00" Alignment="Center" Margin="0,-10,0,0" />
-										</StackPanel>
-										<StackPanel>
-											<Text Value="18" Font="Light" FontSize="60" Color="#f00" Alignment="Center" Margin="0,-5,0,0" />
-											<Text Value="Воскресенье" FontSize="20" Color="#f00" Alignment="Center" Margin="0,-10,0,0" />
-										</StackPanel>
-										
-										
-									</PageControl>
-									<Rectangle ux:Name="bgrec" Layer="Background" Color="#333">
-										<Stroke Width="1" Color="#ccc" />
-									</Rectangle>
-								</StackPanel>
-							</Grid>
-							<StackPanel ux:Name="dummy"  Margin="0,20" Clicked="{today}"  >
-								<fa-diamond FontSize="50" Color="#666"  Alignment="Center"/>
-								<Text Value="Срок исполнения не задан" FontSize="15" Color="#ccc" Alignment="Center" /> 
-							</StackPanel>
-							<StackPanel ux:Name="deadtime" Visibility="Hidden">
+							<ux:Include File="dateShortcut.ux" />
+							<Selection Value="{date}" MaxCount="1"/>
+							<PageControl Active="thisWeek">
+								<Grid ColumnCount="7" Margin="10" CellSpacing="2" ux:Name="thisWeek">
+									<dateShortcut date="12" day="Пн" Color="#999" current="0" Opacity=".3"  />
+									<dateShortcut date="13" day="Вт" Color="#999" current="0" Opacity=".3"  />
+									<dateShortcut date="14" day="Ср" Color="#999" current="1" />
+									<dateShortcut date="15" day="Чт" Color="#999" current="0" />
+									<dateShortcut date="16" day="Пт" Color="#999" current="0"  />
+									<dateShortcut date="17" day="Сб" Color="red" current="0"  />
+									<dateShortcut date="18" day="Вс" Color="red" current="0"  />
+								</Grid>
+								<Grid ColumnCount="7" Margin="10" CellSpacing="2">
+									<dateShortcut date="19" day="Пн" Color="#999" current="0"  />
+									<dateShortcut date="20" day="Вт" Color="#999" current="0"   />
+									<dateShortcut date="21" day="Ср" Color="#999" current="0" />
+									<dateShortcut date="22" day="Чт" Color="#999" current="0" />
+									<dateShortcut date="23" day="Пт" Color="#999" current="0"  />
+									<dateShortcut date="24" day="Сб" Color="red" current="0"  />
+									<dateShortcut date="25" day="Вс" Color="red" current="0"  />
+								</Grid>
+							</PageControl>
+							
+							<StackPanel ux:Name="deadtime" Visibility="Hidden" Margin="0,10">
 								<JavaScript>
 									var Observable = require('FuseJS/Observable');
 									var deadTime = Observable(19);
@@ -486,11 +430,11 @@
 										sliderText: sliderText
 									}
 								</JavaScript>
-								<Text Value="{sliderText}" Color="#fff" Alignment="Center" />
+								<Text Value="{sliderText}" Color="#999" Alignment="Center" />
 								<Slider ux:Name="time" Value="{deadTime}" Minimum="0" Maximum="24" />
 							</StackPanel>
 						</StackPanel>
-						<ScrollView ux:Name="monthPanel" Visibility="Hidden">
+						<ScrollView ux:Name="monthPanel" Visibility="Visible" UserScroll="false">
 							<Panel Alignment="HorizontalCenter" Margin="0,0,0,100">
 								<ColumnLayout ux:Name="dateColumn" ColumnCount="2" />
 								<WhileWindowPortrait>
@@ -505,7 +449,7 @@
 										month: month
 									};
 								</JavaScript>
-								<Text ux:Class="month"  Color="#fff" ColumnSpan="7" FontSize="20" Alignment="Center" />
+								<Text ux:Class="month"  Color="#000" ColumnSpan="7" FontSize="20" Alignment="Center" />
 								<Text ux:Class="day" FontSize="17" TextAlignment="Right" Color="#999"  />
 								<Each Items="{month}">
 									<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
@@ -518,6 +462,9 @@
 									</Grid>
 								</Each>
 							</Panel>
+							<ScrollingAnimation From="0" To="-200" >
+					            <Set addGroup.Active="shortState" />
+					        </ScrollingAnimation>
 						</ScrollView>
 					</DockPanel>
 					<DockPanel ux:Name="attachScroll">
@@ -537,11 +484,11 @@
 										pic: pic
 									}
 								</JavaScript>
-								<Rectangle ux:Class="attachRec" Height="60" Color="#666">
+								<Rectangle ux:Class="attachRec" Height="60" Color="#eee">
 									<string ux:Property="Value"/>
 									<Selectable Value="{Property this.Value}"/>
 									<Text Value="{Property this.Value}" Visibility="Hidden" />
-									<fa-picture-o ux:Name="imgPic" FontSize="25" Color="#fff" Alignment="Center" />
+									<fa-picture-o ux:Name="imgPic" FontSize="25" Color="#999" Alignment="Center" />
 									<WhileSelected>
 										<Change this.Color="#0f0" />
 										<Change imgPic.Color="#000" />
@@ -560,15 +507,21 @@
 									<attachRec Value="{}"  />
 								</Each>
 							</Panel>
+							<ScrollingAnimation From="0" To="-200" >
+					            <Set addGroup.Active="shortState" />
+					        </ScrollingAnimation>
 						</ScrollView>
 						<Grid Height="50" ColumnCount="4" Dock="Bottom">
 							<Rectangle />
 							<Panel>
-								<fa-folder-open-o FontSize="25" Color="#fff" Alignment="Center" />
+								<fa-folder-open-o FontSize="25" Color="#333" Alignment="Center" />
 							</Panel>
 							<Panel  Clicked="{toggleRecord}" HitTestMode="LocalBoundsAndChildren">
-								<fa-microphone FontSize="25" Color="#fff" Alignment="Center" />
+								<fa-microphone FontSize="25" Color="#333" Alignment="Center" />
 							</Panel>
+							<Rectangle Layer="Background" Color="#ddd" >
+								<!-- <Stroke Width="1" Color="#000" /> -->
+							</Rectangle>
 						</Grid>
 					</DockPanel>
 				</PageControl>

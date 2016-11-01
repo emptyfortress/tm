@@ -1,12 +1,24 @@
-<Panel ux:Class="dateShortcut" Margin="10">
-	<string ux:Property="text" />
-	<!-- <Clicked>
-		<Change bg.Color="#0f0" Duration=".1" />
-	</Clicked> -->
-	<WhilePressed>
-		<Change bg.Color="#0f0" />
-	</WhilePressed>
+<StackPanel ux:InnerClass="dateShortcut">
+	<string ux:Property="date" />
+	<string ux:Property="day" />
+	<float4 ux:Property="Color" />
+	<float ux:Property="current" />
 	
-	<Text Value="{Property this.text}" FontSize="20" Color="#ccc" Margin="5,2"/>
-	<Rectangle ux:Name="bg" Color="#000" />
-</Panel>
+	<Selectable Value="{Property this.date}"/>
+
+	<WhileSelected>
+		<Change bg.Color="#0f0" />
+		<Change deadtime.Visibility="Visible" />
+	</WhileSelected>
+	<Tapped>
+		<ToggleSelection/>
+	</Tapped>
+	
+	<Text Value="{Property this.day}" Alignment="Center" Color="#000"/>
+	<Viewbox Margin="10,0">
+		<Text Value="{Property this.date}" Alignment="Center" FontSize="50" Color="{Property this.Color}" Margin="3"/>
+	</Viewbox>
+	<Rectangle Color="#000" Height="4" Margin="5,0" Opacity="{Property this.current}" />
+	<Rectangle Layer="Background" ux:Name="bg" Color="#fff" />
+
+</StackPanel>

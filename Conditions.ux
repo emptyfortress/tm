@@ -104,9 +104,9 @@
 	</WhileTrue>
 	<WhileTrue Value="{showRecord}">
 		<Change plusIcon.Visibility.Value="Collapsed" />
-		<Change overlayRec.Visibility="Visible" />
-		<Change overlayRec.Opacity=".5" Duration=".5" />
-		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
+		<Change overlayRec1.Visibility="Visible" />
+		<Change overlayRec1.Opacity=".5" Duration=".5" />
+		<Change overlayRec1.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="recordPop" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
 	<WhileTrue Value="{showCard}">
