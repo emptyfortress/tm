@@ -16,7 +16,7 @@
 	
 	<Text Value="{Property this.day}" Alignment="Center" Color="#000"/>
 	<Viewbox Margin="10,0">
-		<Text Value="{Property this.date}" Alignment="Center" FontSize="50" Color="{Property this.Color}" Margin="3"/>
+		<Text Value="{Property this.date}" Alignment="Center" FontSize="100" Color="{Property this.Color}" Margin="3"/>
 	</Viewbox>
 	<Rectangle Color="#000" Height="4" Margin="5,0" Opacity="{Property this.current}" />
 	<Rectangle Layer="Background" ux:Name="bg" Color="#fff" />

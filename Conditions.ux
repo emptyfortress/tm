@@ -40,6 +40,7 @@
 		<Set Target="sendButtonBg.Color" Value="#eee" />
 		<Set Target="sendButton.Color" Value="#aaa" />
 		<Set taskText.Value="" />
+		<Set srok.Value="" />
 		<Set attachList.Value="" />
 		<Set taskType.Value="" />
 		<Set usersList.Value="" />
