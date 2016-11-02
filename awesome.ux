@@ -54,6 +54,7 @@
   <Text ux:Class="fa_plus_square" Font="fa">&#xf0fe;</Text>
   <Text ux:Class="fa_file_picture_o" Font="fa">&#xf1c5;</Text>
   <Text ux:Class="fa_pencil" Font="fa">&#xf040;</Text>
+  <Text ux:Class="fa_pie_chart" Font="fa">&#xf200;</Text>
   <Text ux:Class="fa_random" Font="fa">&#xf074;</Text>
   <Text ux:Class="fa_refresh" Font="fa">&#xf021;</Text>
   <Text ux:Class="fa_search" Font="fa">&#xf002;</Text>

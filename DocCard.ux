@@ -58,7 +58,10 @@
 				<Image File="Assets/hand.png" Color="#666" Height="36" Alignment="Center" />
 			</Circle>
 		</Panel>
-
+		<Rectangle ux:Name="statusMessage" Padding="5,1" Alignment="TopRight" LayoutRole="Inert" Offset="-50,5" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleComplete}"  >
+			<Text Value="{status}" FontSize="20" Font="Light" Color="#FF00FF" Alignment="Center"  />
+			<Stroke Width="1" Color="#FF00FF" />
+		</Rectangle>
 		<ScrollView ux:Name="infoCard" Height="60%" Dock="Top">
 			<DoubleTapped>
 				<Callback Handler="{toggleComplete}" />
@@ -92,10 +95,7 @@
 					<Icon ux:Name="refresh1" Offset="0,-7" Clicked="{loader}">
 						<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>
 					</Icon>
-					<Rectangle ux:Name="statusMessage" Padding="5,1" Alignment="CenterLeft" Offset="10,-7" HitTestMode="LocalBoundsAndChildren" Clicked="{toggleComplete}"  >
-						<Text Value="{status}" FontSize="15" Font="Light" Color="#FF00FF" Alignment="Center"  />
-						<Stroke Width="1" Color="#FF00FF" />
-					</Rectangle>
+					
 				</StackPanel>
 				<StackPanel ux:Name="type" Orientation="Horizontal" ItemSpacing="5" >
 					<Image File="Assets/card-small.png" Color="#000"  />
@@ -140,7 +140,7 @@
 				</StackPanel>
 
 				<Grid ux:Name="attributes" Columns="auto,auto" Margin="10,15,0,0">
-					<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="7,0" Value="" FontSize="12" />
+					<Text ux:Class="tabtext" Alignment="CenterLeft" Font="Light" Margin="7,0" Value="" FontSize="15" />
 					<tabtext Value="Автор:" Alignment="Right" />
 					<tabtext Value="Орлов П.С." />
 					<tabtext Value="Дата:" Alignment="Right" />
