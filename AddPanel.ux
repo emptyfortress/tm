@@ -410,6 +410,20 @@
 						<WhileTrue Value="{chooseDate}">
 							<Change deadtime.Visibility.Value="Visible" />
 						</WhileTrue>
+						<Grid Dock="Top" Columns="1*,1*,1*,1*" CellSpacing="2" Height="36">
+							<Rectangle Color="#eee">
+								<Text Value="+2 дня" Alignment="Center" />
+							</Rectangle>
+							<Rectangle Color="#eee">
+								<Text Value="+5 дней" Alignment="Center" />
+							</Rectangle>
+							<Rectangle Color="#eee">
+								<Text Value="+7 дней" Alignment="Center" />
+							</Rectangle>
+							<Rectangle Color="#eee">
+								<Text Value="+14 дней" Alignment="Center" />
+							</Rectangle>
+						</Grid>
 						<StackPanel Dock="Top">
 							<ux:Include File="dateShortcut.ux" />
 							<Selection Value="{date}" MaxCount="1"/>
@@ -434,7 +448,7 @@
 								</Grid>
 							</PageControl>
 							
-							<StackPanel ux:Name="deadtime" Visibility="Hidden" Margin="0,10">
+							<StackPanel ux:Name="deadtime" Margin="0,10" BoxSizing="Limit" LimitHeight="0" ClipToBounds="true">
 								<JavaScript>
 									var Observable = require('FuseJS/Observable');
 									var deadTime = Observable(19);

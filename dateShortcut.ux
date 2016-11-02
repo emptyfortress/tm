@@ -8,17 +8,17 @@
 
 	<WhileSelected>
 		<Change bg.Color="#0f0" />
-		<Change deadtime.Visibility="Visible" />
+		<Change deadtime.LimitHeight="100" Duration=".3" />
 	</WhileSelected>
 	<Tapped>
 		<ToggleSelection/>
 	</Tapped>
 	
-	<Text Value="{Property this.day}" Alignment="Center" Color="#000"/>
+	<Text ux:Name="dayText" Value="{Property this.day}" Alignment="Center" Color="#000"/>
 	<Viewbox Margin="10,0">
-		<Text Value="{Property this.date}" Alignment="Center" FontSize="100" Color="{Property this.Color}" Margin="3"/>
+		<Text ux:Name="dateText" Value="{Property this.date}" Alignment="Center" FontSize="100" Color="{Property this.Color}" Margin="3"/>
 	</Viewbox>
 	<Rectangle Color="#000" Height="4" Margin="5,0" Opacity="{Property this.current}" />
-	<Rectangle Layer="Background" ux:Name="bg" Color="#fff" />
+	<Rectangle Layer="Background" ux:Name="bg" Color="#fff"  />
 
 </StackPanel>
