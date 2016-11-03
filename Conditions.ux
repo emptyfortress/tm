@@ -26,6 +26,11 @@
 		<Change overRec.Visibility="Visible" />
 		<Change plusIcon.HitTestMode="None" />
 	</WhileTrue>
+
+	<WhileTrue ux:Name="filtersVisible">
+		<Move Target="readPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" />
+		<Move Target="filterPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
 	
 	<WhileTrue ux:Name="addPageActive" >
 		<Change overlayRec.Opacity=".5" Duration=".2" Easing="CircularIn" />
@@ -69,7 +74,7 @@
 		<!-- <Change plusIcon.Visibility="Hidden" Duration=".2" /> -->
 	</WhileTrue>
 
-	<WhileTrue ux:Name="viewFilterPop">
+	<!-- <WhileTrue ux:Name="viewFilterPop">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
@@ -79,7 +84,7 @@
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
 		<Move Target="sortFilter" Y="-1" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
-	</WhileTrue>
+	</WhileTrue> -->
 	<WhileTrue Value="{viewComplete}">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />

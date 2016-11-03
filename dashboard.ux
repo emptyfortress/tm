@@ -99,7 +99,7 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
-				<Header Text="ИНДИКАТОРЫ">
+				<Header Text="СВОДКА">
 					<Tapped>
 			    		<Set showSync.Value="false" />
 			    	</Tapped>

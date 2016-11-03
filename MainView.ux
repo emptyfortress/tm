@@ -300,8 +300,8 @@
 		
 		<Panel ux:Name="overlayRec" Color="#000" Opacity="0" HitTestMode="None">
 			<Clicked>
-				<Set viewFilterPop.Value="false" /> 
-				<Set viewSortPop.Value="false" />
+				<!-- <Set viewFilterPop.Value="false" />  -->
+				<!-- <Set viewSortPop.Value="false" /> -->
 				<Callback Handler="{completeOff}" /> 
 				<Callback Handler="{taskOff}" /> 
 			</Clicked>

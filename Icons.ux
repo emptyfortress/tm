@@ -9,7 +9,9 @@
 			<DropShadow Angle="225" />
 		</Circle>
 		<Tapped>
-			<NavigateTo Target="filters" NavigationContext="iconPages" />
+			<Toggle Target="filtersVisible" />
+			<!-- <Move Target="readPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="CubicIn" /> -->
+			<!-- <NavigateTo Target="filters" NavigationContext="iconPages" /> -->
 		</Tapped>
 	</Panel>
 	<Panel ux:Name="searchIcon" Width="200" Height="200" Alignment="TopLeft">
@@ -30,7 +32,7 @@
 			<DropShadow  Angle="45" />
 		</Circle>
 		<Tapped>
-			<NavigateTo Target="sort" NavigationContext="iconPages" />
+			<!-- <NavigateTo Target="sort" NavigationContext="iconPages" /> -->
 		</Tapped>
 	</Panel>
 	<Rectangle ux:Name="overRec" Color="#000" Opacity="0" Visibility="Hidden" >

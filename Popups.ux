@@ -42,14 +42,14 @@
 			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
 			<Clicked>
 				<Toggle Target="iconsVisible" />
-				<Set iconPages.Active="readAll" />
+				<!-- <Set iconPages.Active="readAll" /> -->
 			</Clicked>
 		</Circle>
 		
-		<PageControl ux:Name="iconPages" Active="readAll">
-			<Panel ux:Name="sort" Color="#fff" Width="300" Height="220" Alignment="Top" >
+		<!-- <PageControl ux:Name="iconPages" Active="readAll"> -->
+			<!-- <Panel ux:Name="sort" Color="#fff" Width="300" Height="220" Alignment="Top" >
 				<Text Value="Здесь сортировка списков" Alignment="Center" TextWrapping="Wrap" />
-			</Panel>
+			</Panel> -->
 			<StackPanel ItemSpacing="2" ux:Name="readAll" Width="300" >
 				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
 					<fa-refresh Alignment="CenterLeft" />
@@ -128,15 +128,96 @@
 					</fa-bookmark>
 				</Grid>
 			</StackPanel>
-			<Panel ux:Name="filters" Color="#fff" Width="300" Height="220" Alignment="Top" >
+			<!-- <Panel ux:Name="filters" Color="#fff" Width="300" Height="220" Alignment="Top" >
 				<Text Value="Здесь настройки фильтрации списков" Alignment="Center" TextWrapping="Wrap" />
-			</Panel>
-		</PageControl>
+			</Panel> -->
+		<!-- </PageControl> -->
 	</Panel>
 
-	<Panel ux:Name="sortFilter" Layer="Overlay" Width="300" Height="300" Color="#fff">
-		<Translation Y="1" RelativeTo="ParentSize" />
-		<Text Value="Здесь сортировка" TextWrapping="Wrap" Alignment="Center" />
+	<Panel ux:Name="filterPanel" Layer="Overlay" MinWidth="300" Width="80%" Height="70%" Color="#fff" Alignment="Center">
+		<Translation Y="1.5" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" Clicked="{}">
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+			<Clicked>
+				<Toggle Target="iconsVisible" />
+				<Toggle Target="filtersVisible" />
+			</Clicked>
+		</Circle>
+		<PageControl ux:Name="ControlFilter" Active="filt">
+			<JavaScript>
+				module.exports = {
+					fields: [
+					"Вид", "Автор", "Создано", "Подписано", "Начато", "Окончено", "Дата контроля", "Тип контроля", "Контролер"
+					]
+				}
+			</JavaScript>
+			
+			<DockPanel ux:Name="filt" >
+				<Text Value="Фильтры" FontSize="20" Dock="Top" Alignment="Center" Margin="10" />
+				<StackPanel ItemSpacing="20">
+					<Grid Columns="1*,auto,auto" CellSpacing="5" Margin="15">
+						<Each Items="{fields}">
+							<Text Value="{}" Alignment="CenterLeft" />
+							<Text Value="Не задано" Color="#ccc" Alignment="CenterLeft">
+								<Clicked>
+									<NavigateTo Target="Properties" NavigationContext="ControlFilter" />
+								</Clicked>
+							</Text>
+							<Switch Alignment="CenterRight"  />
+						</Each>
+					</Grid>
+				</StackPanel>
+				<StackPanel  Dock="Bottom"  Margin="0,0,0,20">
+					<Rectangle Height="1" Color="#ccc"  Margin="0,0,0,10" />
+					<Text Value="Сбросить все" Alignment="BottomCenter"  />
+				</StackPanel>
+			</DockPanel>
+
+			<DockPanel ux:Name="Properties">
+				<fa-angle-left FontSize="33" LayoutRole="Inert" Alignment="TopLeft" Margin="10,3" >
+					<Clicked>
+						<NavigateTo Target="filt" NavigationContext="ControlFilter" />
+					</Clicked>
+				</fa-angle-left>
+				<Text Value="Дата контроля" FontSize="18" Dock="Top" Alignment="TopCenter" Margin="0,10" />
+				<Grid Columns="1*,1*,1*,1*" Dock="Top"  CellSpacing="2" Height="36" Margin="10,0">
+					<Rectangle Color="#eee">
+						<Text Value="Вчера" Alignment="Center" />
+					</Rectangle>
+					<Rectangle Color="#eee">
+						<Text Value="Сегодня" Alignment="Center" />
+					</Rectangle>
+					<Rectangle Color="#eee">
+						<Text Value="Завтра" Alignment="Center" />
+					</Rectangle>
+					<Rectangle Color="#eee">
+						<Text Value="Пятница" Alignment="Center" />
+					</Rectangle>
+				</Grid>
+				<ScrollView Margin="20,20">
+					<Panel Alignment="HorizontalCenter">
+						<ColumnLayout ColumnCount="1" />
+						<JavaScript File="calendar.js" />
+						<Each Items="{month}">
+							<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
+								<month Value="{}" />
+								<Each Items="{days}">
+									<Panel>
+										<day Value="{}" />
+									</Panel>
+								</Each>
+							</Grid>
+						</Each>
+					</Panel>
+				</ScrollView>
+				<StackPanel  Dock="Bottom"  Margin="0,0,0,20">
+					<Rectangle Height="1" Color="#ccc"  Margin="0,0,0,10" />
+					<Text Value="Очистить        OK" Alignment="BottomCenter"  />
+				</StackPanel>
+			</DockPanel>
+
+		</PageControl>
 	</Panel>
 
 	<Panel ux:Name="cardButton1" Layer="Overlay" Alignment="Center" >
