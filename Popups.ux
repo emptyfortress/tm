@@ -46,92 +46,84 @@
 			</Clicked>
 		</Circle>
 		
-		<!-- <PageControl ux:Name="iconPages" Active="readAll"> -->
-			<!-- <Panel ux:Name="sort" Color="#fff" Width="300" Height="220" Alignment="Top" >
-				<Text Value="Здесь сортировка списков" Alignment="Center" TextWrapping="Wrap" />
-			</Panel> -->
-			<StackPanel ItemSpacing="2" ux:Name="readAll" Width="300" >
-				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
-					<fa-refresh Alignment="CenterLeft" />
-					<cardBt Value="Синхронизировать папку" Alignment="CenterLeft" />
+		<StackPanel ItemSpacing="2" ux:Name="readAll" Width="300" >
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-refresh Alignment="CenterLeft" />
+				<cardBt Value="Синхронизировать папку" Alignment="CenterLeft" />
+				<Clicked>
+					<Toggle Target="iconsVisible" />
+					<Pulse Target="showLoader" Delay=".3" />
+				</Clicked>
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-envelope-o Alignment="CenterLeft" />
+				<cardBt Value="Прочитать все" Alignment="CenterLeft" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-bell-o Alignment="CenterLeft" />
+				<cardBt Value="Сбросить уведомления" Alignment="CenterLeft" />
+			</StackPanel>
+			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
+				<fa-eye Alignment="CenterLeft" />
+				<cardBt Value="Показать все" Alignment="CenterLeft" />
+			</StackPanel>
+			<!-- <Grid ColumnCount="3" Height="40" Margin="0,20,0,0">
+				<StackPanel Alignment="Center">
+					<Text FontSize="13" Value="Только" Alignment="Center" />
+					<Text FontSize="13" Value="новые" Alignment="Center" />
 					<Clicked>
+						<Set filterGroup.Active="blueState"/>
 						<Toggle Target="iconsVisible" />
-						<Pulse Target="showLoader" Delay=".3" />
+						<Toggle Target="filterActive" Delay=".3" />
 					</Clicked>
 				</StackPanel>
-				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
-					<fa-envelope-o Alignment="CenterLeft" />
-					<cardBt Value="Прочитать все" Alignment="CenterLeft" />
+				<StackPanel Alignment="Center">
+					<Text FontSize="13" Value="Только" Alignment="Center" />
+					<Text FontSize="13" Value="просроченные" Alignment="Center" />
+					<Clicked>
+						<Set filterGroup.Active="redState"/>
+						<Toggle Target="iconsVisible" />
+						<Toggle Target="filterActive" Delay=".3" />
+					</Clicked>
 				</StackPanel>
-				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
-					<fa-bell-o Alignment="CenterLeft" />
-					<cardBt Value="Сбросить уведомления" Alignment="CenterLeft" />
+				<StackPanel Alignment="Center">
+					<Text FontSize="13" Value="Только" Alignment="Center" />
+					<Text FontSize="13" Value="измененные" Alignment="Center" />
+					<Clicked>
+						<Set filterGroup.Active="greenState"/>
+						<Toggle Target="iconsVisible" />
+						<Toggle Target="filterActive" Delay=".3" />
+					</Clicked>
 				</StackPanel>
-				<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
-					<fa-eye Alignment="CenterLeft" />
-					<cardBt Value="Показать все" Alignment="CenterLeft" />
-				</StackPanel>
-				<Grid ColumnCount="3" Height="40" Margin="0,20,0,0">
-					<StackPanel Alignment="Center">
-						<Text FontSize="13" Value="Только" Alignment="Center" />
-						<Text FontSize="13" Value="новые" Alignment="Center" />
-						<Clicked>
-							<Set filterGroup.Active="blueState"/>
-							<Toggle Target="iconsVisible" />
-							<Toggle Target="filterActive" Delay=".3" />
-						</Clicked>
-					</StackPanel>
-					<StackPanel Alignment="Center">
-						<Text FontSize="13" Value="Только" Alignment="Center" />
-						<Text FontSize="13" Value="просроченные" Alignment="Center" />
-						<Clicked>
-							<Set filterGroup.Active="redState"/>
-							<Toggle Target="iconsVisible" />
-							<Toggle Target="filterActive" Delay=".3" />
-						</Clicked>
-					</StackPanel>
-					<StackPanel Alignment="Center">
-						<Text FontSize="13" Value="Только" Alignment="Center" />
-						<Text FontSize="13" Value="измененные" Alignment="Center" />
-						<Clicked>
-							<Set filterGroup.Active="greenState"/>
-							<Toggle Target="iconsVisible" />
-							<Toggle Target="filterActive" Delay=".3" />
-						</Clicked>
-					</StackPanel>
-					<Rectangle Layer="Background" Color="#fff" CornerRadius="30" />
-				</Grid>
-				<Grid ColumnCount="3" Margin="0,-5,0,0" >
-					<fa-bookmark Color="#7F00FF" FontSize="70" Alignment="TopCenter">
-						<fa-asterisk Color="#fff" FontSize="16" Alignment="Center" Offset="0,-10" />
-						<Clicked>
-							<Set filterGroup.Active="blueState"/>
-							<Toggle Target="iconsVisible" />
-							<Toggle Target="filterActive" Delay=".3" />
-						</Clicked>
-					</fa-bookmark>
-					<fa-bookmark Color="red" FontSize="70" Alignment="TopCenter">
-						<Image File="Assets/clock.png" Width="26" Alignment="Center" Offset="0,-10"  />
-						<Clicked>
-							<Set filterGroup.Active="redState"/>
-							<Toggle Target="iconsVisible" />
-							<Toggle Target="filterActive" Delay=".3" />
-						</Clicked>
-					</fa-bookmark>
-					<fa-bookmark Color="#008C23" FontSize="70" Alignment="TopCenter">
-						<fa-bell-o Color="#fff" FontSize="22" Alignment="Center" Offset="0,-10" />
-						<Clicked>
-							<Set filterGroup.Active="greenState"/>
-							<Toggle Target="iconsVisible" />
-							<Toggle Target="filterActive" Delay=".3" />
-						</Clicked>
-					</fa-bookmark>
-				</Grid>
-			</StackPanel>
-			<!-- <Panel ux:Name="filters" Color="#fff" Width="300" Height="220" Alignment="Top" >
-				<Text Value="Здесь настройки фильтрации списков" Alignment="Center" TextWrapping="Wrap" />
-			</Panel> -->
-		<!-- </PageControl> -->
+				<Rectangle Layer="Background" Color="#fff" CornerRadius="30" />
+			</Grid> -->
+			<!-- <Grid ColumnCount="3" Margin="0,-5,0,0" >
+				<fa-bookmark Color="#7F00FF" FontSize="70" Alignment="TopCenter">
+					<fa-asterisk Color="#fff" FontSize="16" Alignment="Center" Offset="0,-10" />
+					<Clicked>
+						<Set filterGroup.Active="blueState"/>
+						<Toggle Target="iconsVisible" />
+						<Toggle Target="filterActive" Delay=".3" />
+					</Clicked>
+				</fa-bookmark>
+				<fa-bookmark Color="red" FontSize="70" Alignment="TopCenter">
+					<Image File="Assets/clock.png" Width="26" Alignment="Center" Offset="0,-10"  />
+					<Clicked>
+						<Set filterGroup.Active="redState"/>
+						<Toggle Target="iconsVisible" />
+						<Toggle Target="filterActive" Delay=".3" />
+					</Clicked>
+				</fa-bookmark>
+				<fa-bookmark Color="#008C23" FontSize="70" Alignment="TopCenter">
+					<fa-bell-o Color="#fff" FontSize="22" Alignment="Center" Offset="0,-10" />
+					<Clicked>
+						<Set filterGroup.Active="greenState"/>
+						<Toggle Target="iconsVisible" />
+						<Toggle Target="filterActive" Delay=".3" />
+					</Clicked>
+				</fa-bookmark>
+			</Grid> -->
+		</StackPanel>
 	</Panel>
 
 	<Panel ux:Name="filterPanel" Layer="Overlay" MinWidth="300" Width="80%" Height="70%" Color="#fff" Alignment="Center">
@@ -148,29 +140,103 @@
 			<JavaScript>
 				module.exports = {
 					fields: [
-					"Вид", "Автор", "Создано", "Подписано", "Начато", "Окончено", "Дата контроля", "Тип контроля", "Контролер"
+					{type: "Вид", value: "На исполнение"},
+					{type: "Автор", value: "Задать"},
+					{type: "Создано", value: "20.12.16"},
+					{type: "Подписано", value: "Задать"},
+					{type: "Начато", value: "Задать"},
+					{type: "Окончено", value: "Задать"},
+					{type: "Дата контроля", value: "Не задано"},
+					{type: "Тип контроля", value: "Задать"},
+					{type: "Контролер", value: "Задать"}
 					]
 				}
 			</JavaScript>
 			
 			<DockPanel ux:Name="filt" >
 				<Text Value="Фильтры" FontSize="20" Dock="Top" Alignment="Center" Margin="10" />
-				<StackPanel ItemSpacing="20">
-					<Grid Columns="1*,auto,auto" CellSpacing="5" Margin="15">
-						<Each Items="{fields}">
-							<Text Value="{}" Alignment="CenterLeft" />
-							<Text Value="Не задано" Color="#ccc" Alignment="CenterLeft">
+				<ScrollView>
+					<StackPanel>
+						<Grid ColumnCount="3" Height="40" >
+							<StackPanel Alignment="Center">
+								<Text FontSize="13" Value="Только" Alignment="Center" />
+								<Text FontSize="13" Value="новые" Alignment="Center" />
 								<Clicked>
-									<NavigateTo Target="Properties" NavigationContext="ControlFilter" />
+									<Set filterGroup.Active="blueState"/>
+									<Toggle Target="iconsVisible" />
+									<Toggle Target="filtersVisible" />
+									<Toggle Target="filterActive" Delay=".3" />
 								</Clicked>
-							</Text>
-							<Switch Alignment="CenterRight"  />
-						</Each>
-					</Grid>
-				</StackPanel>
+							</StackPanel>
+							<StackPanel Alignment="Center">
+								<Text FontSize="13" Value="Только" Alignment="Center" />
+								<Text FontSize="13" Value="просроченные" Alignment="Center" />
+								<Clicked>
+									<Set filterGroup.Active="redState"/>
+									<Toggle Target="iconsVisible" />
+									<Toggle Target="filtersVisible"  />
+									<Toggle Target="filterActive" Delay=".3" />
+								</Clicked>
+							</StackPanel>
+							<StackPanel Alignment="Center">
+								<Text FontSize="13" Value="Только" Alignment="Center" />
+								<Text FontSize="13" Value="измененные" Alignment="Center" />
+								<Clicked>
+									<Set filterGroup.Active="greenState"/>
+									<Toggle Target="iconsVisible" />
+									<Toggle Target="filtersVisible"  />
+									<Toggle Target="filterActive" Delay=".3" />
+								</Clicked>
+							</StackPanel>
+							<Rectangle Layer="Background" Color="#fff" CornerRadius="30" />
+						</Grid>
+						<Grid ColumnCount="3"  >
+							<fa-bookmark Color="#7F00FF" FontSize="70" Alignment="TopCenter">
+								<fa-asterisk Color="#fff" FontSize="16" Alignment="Center" Offset="0,-10" />
+								<Clicked>
+									<Set filterGroup.Active="blueState"/>
+									<Toggle Target="iconsVisible" />
+									<Toggle Target="filtersVisible"  />
+									<Toggle Target="filterActive" Delay=".3" />
+								</Clicked>
+							</fa-bookmark>
+							<fa-bookmark Color="red" FontSize="70" Alignment="TopCenter">
+								<Image File="Assets/clock.png" Width="26" Alignment="Center" Offset="0,-10"  />
+								<Clicked>
+									<Set filterGroup.Active="redState"/>
+									<Toggle Target="iconsVisible" />
+									<Toggle Target="filtersVisible" />
+									<Toggle Target="filterActive" Delay=".3" />
+								</Clicked>
+							</fa-bookmark>
+							<fa-bookmark Color="#FF7F00" FontSize="70" Alignment="TopCenter">
+								<fa-bell-o Color="#fff" FontSize="22" Alignment="Center" Offset="0,-10" />
+								<Clicked>
+									<Set filterGroup.Active="greenState"/>
+									<Toggle Target="iconsVisible" />
+									<Toggle Target="filtersVisible" />
+									<Toggle Target="filterActive" Delay=".3" />
+								</Clicked>
+							</fa-bookmark>
+						</Grid>
+						<StackPanel ItemSpacing="20">
+							<Grid Columns="1*,auto,auto" CellSpacing="5" Margin="15">
+								<Each Items="{fields}">
+									<Text Value="{type}" Alignment="CenterLeft" />
+									<Text Value="{value}" Color="#ccc" Alignment="CenterLeft">
+										<Clicked>
+											<NavigateTo Target="Properties" NavigationContext="ControlFilter" />
+										</Clicked>
+									</Text>
+									<Switch Alignment="CenterRight" Margin="10,0,0,0" />
+								</Each>
+							</Grid>
+						</StackPanel>
+					</StackPanel>
+				</ScrollView>
 				<StackPanel  Dock="Bottom"  Margin="0,0,0,20">
 					<Rectangle Height="1" Color="#ccc"  Margin="0,0,0,10" />
-					<Text Value="Сбросить все" Alignment="BottomCenter"  />
+					<Text Value="Сбросить все        Выключить все" Alignment="BottomCenter"  />
 				</StackPanel>
 			</DockPanel>
 

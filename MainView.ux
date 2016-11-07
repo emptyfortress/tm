@@ -370,7 +370,7 @@
 							<Change dashButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
 						<Image File="Assets/dash-icon.png" Width="30" Color="blue" Alignment="CenterLeft"  />
-						<Text Value="ИНДИКАТОРЫ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
+						<Text Value="СВОДКА" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 					</StackPanel>
 					
 					<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
@@ -587,8 +587,8 @@
 				            <Change redCount.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState">
-				        	<Change bookmark.Color="#008C23" Duration="0.2"/>
-				            <Change filterRec.Color="#008C23" Duration="0.2"/>
+				        	<Change bookmark.Color="#FF7F00" Duration="0.2"/>
+				            <Change filterRec.Color="#FF7F00" Duration="0.2"/>
 				            <Change greenCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
@@ -691,8 +691,8 @@
 				            <Change redCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState2">
-				        	<Change bookmark2.Color="#008C23" Duration="0.2"/>
-				            <Change filterRec2.Color="#008C23" Duration="0.2"/>
+				        	<Change bookmark2.Color="#FF7F00" Duration="0.2"/>
+				            <Change filterRec2.Color="#FF7F00" Duration="0.2"/>
 				            <Change greenCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
@@ -803,8 +803,8 @@
 				            <Change redCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState4">
-				        	<Change bookmark4.Color="#008C23" Duration="0.2"/>
-				            <Change filterRec4.Color="#008C23" Duration="0.2"/>
+				        	<Change bookmark4.Color="#FF7F00" Duration="0.2"/>
+				            <Change filterRec4.Color="#FF7F00" Duration="0.2"/>
 				            <Change greenCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
@@ -907,8 +907,8 @@
 				            <Change redCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState5">
-				        	<Change bookmark5.Color="#008C23" Duration="0.2"/>
-				            <Change filterRec5.Color="#008C23" Duration="0.2"/>
+				        	<Change bookmark5.Color="#FF7F00" Duration="0.2"/>
+				            <Change filterRec5.Color="#FF7F00" Duration="0.2"/>
 				            <Change greenCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>

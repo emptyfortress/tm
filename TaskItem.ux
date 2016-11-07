@@ -19,7 +19,7 @@
 	</WhileTrue>
 	
 	<Panel ux:Name="bell" Alignment="TopRight" Offset="0,-15"  Opacity="{old}" HitTestMode="LocalBoundsAndChildren">
-		<fa-bell-o  FontSize="23" Color="#008C23" Margin="5" />
+		<fa-bell-o  FontSize="23" Color="#FF7F00" Margin="5" />
 		<Clicked>
 			<Toggle Target="preview1"/>
 			<Pulse Target="GrowMe"/>
@@ -33,7 +33,7 @@
 		<Clicked>
 			<Set hidPanel1.Visibility.Value="Collapsed" />
 		</Clicked>
-		<Rectangle Color="#B0D397" CornerRadius="30" Layer="Background" />
+		<Rectangle Color="#FF7F00" Opacity=".5" CornerRadius="30" Layer="Background" />
 	</Panel>
 
 	<Rectangle Width="15" Color="#ccc" Alignment="Left" Opacity=".2">
