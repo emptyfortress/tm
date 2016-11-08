@@ -4,6 +4,8 @@
 	<Text Value="{type}" FontSize="12" Color="#000"  />
 	<Text Value="{date}" FontSize="12" Color="#000" Visibility="{dat}" />
 	<Text Value="{user}" FontSize="12" Color="#000" TextWrapping="Wrap" />
-
+	
+	<Text Value="{count}" FontSize="60" Layer="Background" Alignment="BottomRight" Color="#fff" />
+	
 	<Rectangle ux:Name="bg1" Layer="Background" Color="#ededed" />
 </Panel>
