@@ -1,30 +1,36 @@
-<StackPanel ux:Class="groupPanel"  ClipToBounds="true" Margin="2">
+<StackPanel ux:Class="groupPanel"  ClipToBounds="true" Margin="5">
     <string ux:Property="Label" />
-    <StateGroup ux:Name="groupGroup" Active="normalState">
+    <StateGroup ux:Name="selectGroup" Active="normalState">
         <State ux:Name="normalState" />
         <State ux:Name="selectedState">
             <Change userBg.Color="#0f0" />
-            <Change dep.Color="#000" />
+            <Change userDepBg.Color="#0f0" />
         </State>
+    </StateGroup>
+    <StateGroup ux:Name="expandGroup" Active="closedState">
+        <State ux:Name="closedState" />
          <State ux:Name="expandedState">
-            <Change userBg.Color="#0f0" />
-            <Change dep.Color="#000" />
             <Change userDep.LimitHeight="100%" Duration=".2" Easing="CircularOut" />
-        </State>
-        <State ux:Name="selectedState1">
-            <Change userBg.Color="#0f0" />
-            <Change dep.Color="#000" />
         </State>
     </StateGroup>    
     
 
-    <Panel Padding="10" Margin="0,1" >
-        <Text ux:Name="dep" Value="{Property this.Label}" TextAlignment="Center" Alignment="Center" LineSpacing="2" Color="#000" TextWrapping="Wrap"  />
+    <StackPanel Orientation="Horizontal" Margin="0,1" ItemSpacing="10" >
+        
+        <Panel HitTestMode="LocalBoundsAndChildren">
+            <Text ux:Name="dep" Value="{Property this.Label}" TextAlignment="Center" Alignment="Center" LineSpacing="2" Color="#000" Margin="5" />
+            <Clicked>
+                <TransitionState Target="selectGroup" Type="Next"/>
+            </Clicked>
+        </Panel>
+        <Panel Height="40" Width="40" HitTestMode="LocalBoundsAndChildren">
+            <fa-angle-down Alignment="Center" FontSize="22" />
+            <Clicked>
+                <TransitionState Target="expandGroup" Type="Next"/>
+            </Clicked>
+        </Panel>
         <Rectangle ux:Name="userBg" Layer="Background" Color="#eee" />
-        <Clicked>
-            <TransitionState Target="groupGroup" Type="Next"/>
-        </Clicked>
-    </Panel>
+    </StackPanel>
    
     <StackPanel ux:Name="userDep" Padding="10,7" BoxSizing="Limit" LimitHeight="0%" ClipToBounds="true" ItemSpacing="15">
         <Text Value="Снегирев" FontSize="16" />
@@ -32,7 +38,7 @@
         <Text Value="Уткин" FontSize="16" />
         <Text Value="Гусев" FontSize="16" />
         <Text Value="Галкина" FontSize="16" />
-        <Rectangle ux:Name="userDepBg" Layer="Background" Color="#0f0" />
+        <Rectangle ux:Name="userDepBg" Layer="Background" Color="#eee" />
     </StackPanel>
     
 </StackPanel>
