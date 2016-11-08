@@ -36,7 +36,7 @@
 		            <Change templateScroll.RelativeScrollPosition="0" />
 		            <Change downArrow.Visibility.Value="Visible"  />
 		            <Change templateScroll.UserScroll="true"  />
-		            <Change textScroll.UserScroll="true"  />
+		            <!-- <Change textScroll.UserScroll="true"  /> -->
 		            <Change monthPanel.UserScroll="true"  />
 		            <Change userScroll.UserScroll="true"  />
 		            <Change fileScroll.UserScroll="true"  />
@@ -114,7 +114,7 @@
 								<Change sendButton.Color="#fff" />
 							</WhileString>
 							<Clicked>
-								<Set helperPanel.Active="textScroll" />
+								<!-- <Set helperPanel.Active="textScroll" /> -->
 							</Clicked>
 						</TextView>
 						<WhileTrue Value="{showDeadline}">
@@ -156,7 +156,7 @@
 				</Rectangle>
 				
 				<MultiLayoutPanel ux:Name="helperBar" Dock="Bottom" Padding="0,10" >
-					<GridLayout ColumnCount="5" Rows="1*"/>
+					<GridLayout ColumnCount="4" Rows="1*"/>
 
 					<Panel ux:Name="templTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-clipboard ux:Name="ico1" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
@@ -171,13 +171,13 @@
 							</Circle>
 						</Placeholder>
 					</Panel>
-					<Panel ux:Name="textTab" HitTestMode="LocalBoundsAndChildren">
+					<!-- <Panel ux:Name="textTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-font ux:Name="ico2" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
 							<Set helperPanel.Active="textScroll" />
 						</Clicked>
 						<Placeholder Target="indic"/>
-					</Panel>
+					</Panel> -->
 					<Panel ux:Name="userTab" HitTestMode="LocalBoundsAndChildren">
 						<fa-user ux:Name="ico3" FontSize="20" Color="#666" Alignment="Center" Margin="0,5" />
 						<Clicked>
@@ -251,18 +251,11 @@
 								</Selected>
 							</Panel>
 
-							<typeButton Value="На ознакомление" />
-							<typeButton Value="На исполнение" />
-							<!-- <typeButton Value="На согласование" /> -->
-							<!-- <typeButton Value="На подписание" /> -->
-
-							<Each Items="{items.count}" >
+							<Each Items="{items.templates}" >
 								<TemplateBlock >
 									<Clicked>
-										<Set addGroup.Active="offState" />
 										<Set hiddenGrid.Visibility.Value="Visible" Delay=".2"  />
 										<Set taskType1.Visibility.Value="Visible" Delay=".2"  />
-										<!-- <Set hiddenBt.Visibility.Value="Visible" Delay=".2"  /> -->
 										<Set taskText.Value="Всем отделам собрать данные за квартал и подготовить отчет. Механическая система преобразует кожух, даже если рамки подвеса буду ориентированы под прямым углом." />
 										<Set Target="sendButtonBg.Color" Value="blue" />
 										<Set Target="sendButton.Color" Value="#fff" />
@@ -275,41 +268,6 @@
 				            <Set addGroup.Active="shortState" />
 				        </ScrollingAnimation>
 					</ScrollView>
-					
-
-
-
-
-
-
-
-
-					<ScrollView ux:Name="textScroll" UserScroll="false" SnapMinTransform="true">
-						<WhileActive Threshold="0.5">
-							<Change ico2.Color="#fff" />
-							<Set helperBar.LayoutElement="textTab" />
-						</WhileActive>
-						<Panel>
-							<ColumnLayout ux:Name="textColumns" ColumnCount="4" ItemSpacing="5" ColumnSpacing="5" />
-							<WhileWindowPortrait>
-								<Change textColumns.ColumnCount.Value="2" />
-							</WhileWindowPortrait>
-							<Each Items="{items.texts}">
-								<TextBlock bgColor="#efefef" boxText="{}" >
-									<Clicked>
-										<Set taskText.Value="{}" />
-									</Clicked>
-								</TextBlock>
-							</Each>
-							<Panel>
-								<fa-diamond Color="#ccc" FontSize="30" Alignment="Center" Margin="0,30"  />
-							</Panel>
-						</Panel>
-						<ScrollingAnimation From="0" To="-200" >
-				            <Set addGroup.Active="shortState" />
-				        </ScrollingAnimation>
-					</ScrollView>
-
 
 					<ScrollView ux:Name="userScroll" UserScroll="false" SnapMinTransform="true">
 						<WhileActive Threshold="0.5">

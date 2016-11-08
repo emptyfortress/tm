@@ -1,13 +1,9 @@
 <Panel ux:Class="TemplateBlock" Height="100" Padding="10" ClipToBounds="true">
 	<StackLayout />
-	<Text Value="Название шаблона" Margin="0,0,0,10" Color="#000" />
-	<Text Value="Вид поручения" FontSize="12" Color="#000"  />
-	<Text Value="Исполнители" FontSize="12" Color="#000" />
-	
-	<Text Value="{}" Color="#fff" FontSize="60" Alignment="BottomRight" Layer="Background" />
+	<Text Value="{title}" FontSize="18" Margin="0,0,0,10" Color="#000" />
+	<Text Value="{type}" FontSize="12" Color="#000"  />
+	<Text Value="{date}" FontSize="12" Color="#000" Visibility="{dat}" />
+	<Text Value="{user}" FontSize="12" Color="#000" TextWrapping="Wrap" />
 
-	<!-- <Rectangle ux:Name="bg1" Layer="Background" Color="#596573" > -->
-	<Rectangle ux:Name="bg1" Layer="Background" Color="#ededed" >
-		<Stroke Width="1" Color="#eee" />
-	</Rectangle>
+	<Rectangle ux:Name="bg1" Layer="Background" Color="#ededed" />
 </Panel>
