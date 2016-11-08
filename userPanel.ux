@@ -5,11 +5,15 @@
     <Selectable Value="{Property this.Label}"/>
 
     <Panel Alignment="TopCenter">
+        <!-- <fa-star-o Alignment="BottomLeft" Color="#000" FontSize="20" Offset="-2,2"  /> -->
+        <!-- <fa-star Alignment="BottomRight" Color="#EAAF00" /> -->
+        <!-- <Circle Width="16" Height="16" Color="#000" Alignment="BottomRight" /> -->
+        <Image File="Assets/star-y.png" Alignment="BottomRight" Width="15" />
         <Circle Width="50" Height="50" Color="#fff" Alignment="Center">
             <Stroke Width="2" Color="#fff" />
             <ImageFill File="Assets/user.png" />   
         </Circle>
-        <Circle Width="56" Height="56" Color="#f00" Alignment="Center" StartAngle="4.71239" EndAngle="{Property this.busy}" />
+        <Circle Width="56" Height="56" Color="#6DA148" Alignment="Center" StartAngle="4.71239" EndAngle="{Property this.busy}" />
         <Circle Width="56" Height="56" Color="#ccc" Alignment="Center" />
     </Panel>
     <Text Value="{Property this.Label}" FontSize="12" Alignment="BottomCenter" Color="#000" />
