@@ -99,7 +99,7 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
-				<Header Text="8 ноября, 14:15 ">
+				<Header Text="8 ноября">
 					<Tapped>
 			    		<Set showSync.Value="false" />
 			    	</Tapped>

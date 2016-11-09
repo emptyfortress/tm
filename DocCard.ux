@@ -74,7 +74,7 @@
 							<Change Target="bell.Visibility" Value="Collapsed" />
 						</WhileTrue>
 
-						<fa-bell-o ux:Name="bell" FontSize="23" Color="#FF7F00" Margin="0,0,10,0">
+						<fa-bell-o ux:Name="bell" FontSize="23" Color="#008C23" Margin="0,0,10,0">
 							<Clicked>
 								<Toggle Target="info2"/>
 			  					<Pulse Target="GrowMe2"/>
@@ -89,7 +89,7 @@
 							<Clicked>
 								<Set infoPanel.Visibility.Value="Collapsed" />
 							</Clicked>
-							<Rectangle Color="#FF7F00" CornerRadius="30" Layer="Background" Opacity=".5" />
+							<Rectangle Color="#7BB652" CornerRadius="30" Layer="Background" Opacity=".5" />
 						</Panel>
 					</Panel>
 					<Icon ux:Name="refresh1" Offset="0,-7" Clicked="{loader}">
