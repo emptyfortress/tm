@@ -74,12 +74,8 @@
 		<!-- <Change plusIcon.Visibility="Hidden" Duration=".2" /> -->
 	</WhileTrue>
 
-	<!-- <WhileTrue ux:Name="viewFilterPop">
-		<Change overlayRec.Opacity=".5" Duration=".5" />
-		<Change overlayRec.Visibility="Visible" />
-		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />
-	</WhileTrue>
-	<WhileTrue ux:Name="viewSortPop">
+	
+	<!-- <WhileTrue ux:Name="viewSortPop">
 		<Change overlayRec.Opacity=".5" Duration=".5" />
 		<Change overlayRec.Visibility="Visible" />
 		<Change overlayRec.HitTestMode="LocalBoundsAndChildren" />

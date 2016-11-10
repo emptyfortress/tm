@@ -180,6 +180,11 @@
 			var viewLoader = Observable(false);
 			var viewTaskFilter = Observable(false);
 			var viewMarshrut = Observable(false);
+			var viewSearchPanel = Observable(false);
+
+			function toggleSearch() {
+				viewSearchPanel.value = !viewSearchPanel.value;
+			}
 
 			function toggleTaskFilter(){
 				viewTaskFilter.value = !viewTaskFilter.value;
@@ -263,7 +268,9 @@
 				showMainUser: showMainUser,
 				setMain: setMain,
 				resetMain: resetMain,
-				userMain: userMain
+				userMain: userMain,
+				viewSearchPanel: viewSearchPanel,
+				toggleSearch: toggleSearch
 			}
 		</JavaScript>
 
@@ -634,13 +641,16 @@
 							<Change greenCount.FontSize.Value="35" />
 							<Change folderTitle.FontSize.Value="30" />
 						</WhileWindowSize>
+						<SearchPanel ux:Name="f1Search" Margin="20,0"  />
 					</DockPanel>
 
-					<ScrollView Margin="0,80,0,0">
+					<ScrollView ux:Name="f1Scroll" Margin="0,80,0,0">
 
 						<ScrollingAnimation From="80" To="200">
 							<Move Target="moveMe" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
+							<Move Target="f1Search" Y="-60"  Duration=".2" Easing="QuarticOut" />
+							<Change f1Search.Margin="50,0,50,0" Duration=".2" />
 							<Scale Target="filterRec" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
 							<Change filterText.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
@@ -738,6 +748,7 @@
 							<Change greenCount2.FontSize.Value="35" />
 							<Change folderTitle2.FontSize.Value="30" />
 						</WhileWindowSize>
+						<SearchPanel ux:Name="f2Search" Margin="20,0"  />
 					</DockPanel>
 
 					<ScrollView Margin="0,80,0,0">
@@ -746,6 +757,8 @@
 							<Move Target="moveMe2" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe2" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec2" X=".5" Duration=".5" Easing="QuadraticOut" />
+							<Move Target="f2Search" Y="-60"  Duration=".2" Easing="QuarticOut" />
+							<Change f2Search.Margin="50,0,50,0" Duration=".2" />
 							<Change filterRec2.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
 							<Change filterText2.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
 							<Change total2.Visibility.Value="Hidden" />
@@ -851,6 +864,7 @@
 							<Change greenCount4.FontSize.Value="35" />
 							<Change folderTitle4.FontSize.Value="30" />
 						</WhileWindowSize>
+						<SearchPanel ux:Name="f4Search" Margin="20,0"  />
 					</DockPanel>
 
 					<ScrollView Margin="0,80,0,0">
@@ -859,6 +873,8 @@
 							<Move Target="moveMe4" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe4" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec4" X=".5" Duration=".5" Easing="QuadraticOut" />
+							<Move Target="f4Search" Y="-60"  Duration=".2" Easing="QuarticOut" />
+							<Change f4Search.Margin="50,0,50,0" Duration=".2" />
 							<Change filterRec4.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
 							<Change filterText4.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
 							<Change total4.Visibility.Value="Hidden" />
@@ -955,6 +971,7 @@
 							<Change greenCount5.FontSize.Value="35" />
 							<Change folderTitle5.FontSize.Value="30" />
 						</WhileWindowSize>
+						<SearchPanel ux:Name="f5Search" Margin="20,0"  />
 					</DockPanel>
 
 					<ScrollView Margin="0,80,0,0">
@@ -963,6 +980,8 @@
 							<Move Target="moveMe5" X="31"  Duration=".5" Easing="QuarticOut" />
 							<Scale Target="moveMe5" Factor=".5" Duration=".5" Easing="QuadraticOut"/>
 							<Scale Target="filterRec5" X=".5" Duration=".5" Easing="QuadraticOut" />
+							<Move Target="f5Search" Y="-60"  Duration=".2" Easing="QuarticOut" />
+							<Change f5Search.Margin="50,0,50,0" Duration=".2" />
 							<Change filterRec5.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
 							<Change filterText5.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
 							<Change total5.Visibility.Value="Hidden" />

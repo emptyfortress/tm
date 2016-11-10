@@ -27,12 +27,12 @@
 	</StateGroup>
 	
 	<StackPanel  Orientation="Horizontal" Alignment="TopRight" Margin="0,10,15,0">
-		<Icon Alignment="Right">
-			<FileImageSource File="Assets/search.png" ux:Key="iconFile"/>
+		<Panel Alignment="Right" Width="50" Height="40" HitTestMode="LocalBoundsAndChildren">
+			<fa-search Alignment="Center" FontSize="20" />
 			<Clicked>
 				<TransitionState Target="searchGroup" Type="Next"/>
 			</Clicked>
-		</Icon>
+		</Panel>
 		<Text Value="4" FontSize="20" Color="red" Alignment="Center" Offset="5,0" />
 		<Icon HitTestMode="LocalBoundsAndChildren" Clicked="{loader}">
 			<FileImageSource File="Assets/refresh.png" ux:Key="iconFile"/>

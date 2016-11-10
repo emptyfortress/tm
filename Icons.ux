@@ -22,6 +22,10 @@
 			<Translation XY="-1,-1" RelativeTo="Size" />
 			<DropShadow  Angle="135" />
 		</Circle>
+		<Tapped>
+			<Toggle Target="iconsVisible" />
+			<Callback Handler="{toggleSearch}" Delay=".5" />
+		</Tapped>
 	</Panel>
 	<Panel ux:Name="filterIcon" Width="200" Height="200" Alignment="TopRight">
 		<fa-sort-amount-desc Color="#000" FontSize="22" Alignment="Center">

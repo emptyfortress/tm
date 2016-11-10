@@ -1,0 +1,51 @@
+<Panel ux:Class="SearchPanel" ux:Name="SearchPanel" BoxSizing="Limit" LimitHeight="0" ClipToBounds="true" >
+	<JavaScript>
+		var Observable = require('FuseJS/Observable');
+		var search = Observable("");
+		// var viewSearchPanel = Observable(false);
+		
+		function clearSearch(){
+			search.value = "";
+		}
+
+		module.exports = {
+			search: search,
+			clearSearch: clearSearch
+			
+		}
+	</JavaScript>
+	<WhileTrue Value="{viewSearchPanel}">
+		<Change SearchPanel.LimitHeight="100" Duration=".2" />
+	</WhileTrue>
+	<PageControl ux:Name="searchPageControl" Active="searchPage" Height="33">
+		<Page >
+			<WhileActive>
+				<Callback Handler ="{toggleSearch}" />
+				<Set searchPageControl.Active="searchPage" Delay="2" />
+			</WhileActive>
+		</Page>
+		<Page ux:Name="searchPage" Background="#fff">
+			<fa-search Alignment="CenterLeft" Margin="5,0,0,0" Color="#aaa">
+				<Clicked>
+					<Callback Handler ="{toggleSearch}" />
+				</Clicked>
+			</fa-search>
+			<Panel Padding="5"  Alignment="CenterRight" Margin="0,0,5,0" Clicked="{clearSearch}" HitTestMode="LocalBoundsAndChildren">
+				<fa-times ux:Name="clearIcon" Color="#aaa"/>
+			</Panel>
+			<TextInput ux:Name="folderSearch" Value="{search}" FontSize="23" Padding="25,0,0,0" TextColor="sky" Font="Light">
+				<WhileContainsText Invert="true">
+					<Text Value="Поиск" FontSize="18" Color="#ccc" Offset="0,5" />
+					<Change clearIcon.Visibility="Hidden" />
+				</WhileContainsText>
+			</TextInput>
+			<Rectangle Height="1" Color="#bbb" Alignment="Bottom" />
+		</Page>
+		<Page>
+			<WhileActive>
+				<Callback Handler ="{toggleSearch}" />
+				<Set searchPageControl.Active="searchPage" Delay="2" />
+			</WhileActive>
+		</Page>
+	</PageControl>
+</Panel>
