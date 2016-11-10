@@ -4,14 +4,14 @@
 	    <Image Source="{Resource iconFile}" Color="{Property this.color}" Alignment="Center" />
 	</Panel>
 
-	<Panel ux:Class="Header" Margin="0,0,0,50">
+	<StackPanel ux:Class="Header" Margin="0,0,0,50" Alignment="TopCenter">
 		<string ux:Property="Text"/>
-		<Text Value="{Property this.Text}" FontSize="25" Color="#000" Alignment="TopCenter" />
-	</Panel>
+		<string ux:Property="Time"/>
+		<Text Value="{Property this.Text}" FontSize="25" Color="#000" Alignment="Center" />
+		<Text Value="{Property this.Time}" FontSize="13" Color="#000" Alignment="Center" />
+	</StackPanel>
 	<StateGroup ux:Name="searchGroup" >
-		<State ux:Name="reststate">
-			
-		</State>
+		<State ux:Name="reststate" />
 		<State ux:Name="viewSearch" >
 			<Move Target="searchBox" Y="4" RelativeTo="Size" Duration=".3" Easing="CubicOut" />
 		</State>
@@ -99,11 +99,11 @@
 				<WhileActive Threshold="0.5">
 					<Set tabBar.LayoutElement="tahoTab" />
 				</WhileActive>
-				<Header Text="8 ноября">
+				<Header Text="8 ноября" Time="12:34">
 					<Tapped>
 			    		<Set showSync.Value="false" />
 			    	</Tapped>
-				</Header>
+			    </Header>
 				<ScrollView Margin="0,40,0,0">
 					<StackPanel ItemSpacing="50">
 						<Text ux:Class="dashHeader" FontSize="25" TextAlignment="Left" Color="#000" Value="head" />

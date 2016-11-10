@@ -377,7 +377,7 @@
 							<Change dashButton.Background.Value="#CCE4F8" />
 						</WhilePressed>
 						<Image File="Assets/dash-icon.png" Width="30" Color="blue" Alignment="CenterLeft"  />
-						<Text Value="ГЛАВНАЯ" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
+						<Text Value="ОБЗОР" FontSize="18" Color="#2F6A92" Margin="10,0,0,0" Alignment="CenterLeft" />
 					</StackPanel>
 					
 					<StackPanel ux:Name="folderButton" Orientation="Horizontal" ContentAlignment="CenterLeft" HitTestMode="LocalBoundsAndChildren" Padding="10">
