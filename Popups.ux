@@ -139,17 +139,7 @@
 		<PageControl ux:Name="ControlFilter" Active="filt">
 			<JavaScript>
 				module.exports = {
-					fields: [
-					{type: "Вид", value: "На исполнение"},
-					{type: "Автор", value: "Задать"},
-					{type: "Создано", value: "20.12.16"},
-					{type: "Подписано", value: "Задать"},
-					{type: "Начато", value: "Задать"},
-					{type: "Окончено", value: "Задать"},
-					{type: "Дата контроля", value: "Не задано"},
-					{type: "Тип контроля", value: "Задать"},
-					{type: "Контролер", value: "Задать"}
-					]
+					type: ["Вид", "Автор", "Создано","Подписано", "Начато", "Окончено", "Дата контроля", "Тип контроля", "Контролер"]
 				}
 			</JavaScript>
 			
@@ -219,18 +209,11 @@
 								</Clicked>
 							</fa-bookmark>
 						</Grid>
-						<StackPanel ItemSpacing="20">
-							<Grid Columns="1*,auto,auto" CellSpacing="5" Margin="15">
-								<Each Items="{fields}">
-									<Text Value="{type}" Alignment="CenterLeft" />
-									<Text Value="{value}" Color="#ccc" Alignment="CenterLeft">
-										<Clicked>
-											<NavigateTo Target="Properties" NavigationContext="ControlFilter" />
-										</Clicked>
-									</Text>
-									<Switch Alignment="CenterRight" Margin="10,0,0,0" />
-								</Each>
-							</Grid>
+						<StackPanel ItemSpacing="3" Margin="10,20">
+							<ux:Include File="filterItem.ux" />
+							<Each Items="{type}">
+								<filterItem  />
+							</Each>
 						</StackPanel>
 					</StackPanel>
 				</ScrollView>
@@ -241,12 +224,12 @@
 			</DockPanel>
 
 			<DockPanel ux:Name="Properties">
-				<fa-angle-left FontSize="33" LayoutRole="Inert" Alignment="TopLeft" Margin="10,3" >
+				<fa-angle-left FontSize="40" LayoutRole="Inert" Alignment="TopLeft" Margin="10,3" >
 					<Clicked>
 						<NavigateTo Target="filt" NavigationContext="ControlFilter" />
 					</Clicked>
 				</fa-angle-left>
-				<Text Value="Дата контроля" FontSize="18" Dock="Top" Alignment="TopCenter" Margin="0,10" />
+				<Text Value="Дата контроля" FontSize="18" Dock="Top" Alignment="TopCenter" Margin="0,10,0,20" />
 				<Grid Columns="1*,1*,1*,1*" Dock="Top"  CellSpacing="2" Height="36" Margin="10,0">
 					<Rectangle Color="#eee">
 						<Text Value="Вчера" Alignment="Center" />

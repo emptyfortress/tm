@@ -1,0 +1,17 @@
+<Panel ux:InnerClass="filterItem" >
+	<!-- <DockPanel ux:Dependency="Properties" /> -->
+	<!-- <PageControl ux:Dependency="ControlFilter" /> -->
+	<Grid Columns="1*,auto,auto" CellSpacing="5" Margin="15,0">
+		<Text Value="{}" Alignment="CenterLeft" />
+		<Text ux:Name="Zadano" Value="Не задано" Color="blue" Alignment="CenterLeft" Visibility="Hidden">
+			<Clicked>
+				<NavigateTo Target="Properties" NavigationContext="ControlFilter" />
+			</Clicked>
+		</Text>
+		<Switch Alignment="CenterRight" Margin="10,0,0,0" >
+			<WhileTrue>
+				<Change Zadano.Visibility.Value="Visible" />
+			</WhileTrue>
+		</Switch>
+	</Grid>
+</Panel>
