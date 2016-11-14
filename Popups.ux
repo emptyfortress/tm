@@ -70,8 +70,63 @@
 		</StackPanel>
 	</Panel>
 
-	<Panel ux:Name="sortPanel">
-		
+	<Panel ux:Name="sortPanel" MinWidth="350" Alignment="Center" Color="#fff" >
+		<Translation Y="1.5" RelativeTo="ParentSize" />
+		<Circle Width="40" Height="40" Color="#000" Alignment="Top" Offset="0,-60" >
+			<Stroke Width="3" Color="#fff" />
+			<fa-times Color="#fff" FontSize="25" Alignment="Center" />
+			<Clicked>
+				<Toggle Target="iconsVisible" />
+				<Toggle Target="sortVisible" />
+			</Clicked>
+		</Circle>
+		<DockPanel>
+			<JavaScript>
+				module.exports = {
+					sort: ["Название", "Описание", "Автор","Дата начала", "Дата окончания", "Дата контроля", "Признак контроля", "Факт. время завершения"]
+				}
+			</JavaScript>
+			<Grid ux:Class="sortItem" Columns="1*,auto" Padding="10,15">
+				<StateGroup ux:Name="sortGroup" Active="unselected">
+					<State ux:Name="unselected"></State>
+					<State ux:Name="down">
+						<Change bgSort.Color="#0f0" />
+						<Change downArrow.Visibility="Visible" />
+					</State>
+					<State ux:Name="up">
+						<Change bgSort.Color="#0f0" />
+						<Change upArrow.Visibility="Visible" />
+					</State>
+				</StateGroup>
+				<string ux:Property="Sort" />
+				<Text Value="{Property this.Sort}" />
+				<Panel>
+					<fa-arrow-up ux:Name="upArrow" Alignment="Center" Visibility="Hidden" />
+					<fa-arrow-down ux:Name="downArrow" Alignment="Center" Visibility="Hidden" />
+				</Panel>
+				<Rectangle ux:Name="bgSort" Layer="Background" Color="#eee" />
+				<Clicked>
+					<TransitionState Target="sortGroup" Type="Next"/>
+				</Clicked>
+			</Grid>
+			<Text Value="Сортировка" FontSize="20" Dock="Top" Alignment="Center" Margin="10" />
+			<ScrollView Margin="15,0,15,15">
+				<StackPanel ItemSpacing="2">
+					<Each Items="{sort}">
+						<sortItem Sort="{}" />
+					</Each>
+				</StackPanel>
+			</ScrollView>
+			<StackPanel  Dock="Bottom"  Margin="0,0,0,20">
+				<Rectangle Height="1" Color="#ccc"  Margin="0,0,0,10" />
+				<Text Value="Сортировка по умолчанию" Alignment="BottomCenter" >
+					<Clicked>
+						<Toggle Target="iconsVisible" />
+						<Toggle Target="sortVisible" />
+					</Clicked>
+				</Text>
+			</StackPanel>
+		</DockPanel>
 	</Panel>
 	
 

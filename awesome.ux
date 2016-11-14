@@ -4,6 +4,7 @@
   <Text ux:Class="fa_arrow_left" Font="fa">&#xf060;</Text>
   <Text ux:Class="fa_arrow_right" Font="fa">&#xf061;</Text>
   <Text ux:Class="fa_arrow_up" Font="fa">&#xf062;</Text>
+  <Text ux:Class="fa_arrow_down" Font="fa">&#xf063;</Text>
   <Text ux:Class="fa_angle_double_right" Font="fa">&#xf101;</Text>
   <!-- <Text ux:Class="fa_angle_down" Font="fa">&#xf107;</Text> -->
   <Text ux:Class="fa_angle_left" Font="fa">&#xf104;</Text>

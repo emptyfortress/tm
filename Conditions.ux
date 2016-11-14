@@ -31,6 +31,10 @@
 		<Move Target="readPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" />
 		<Move Target="filterPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
 	</WhileTrue>
+	<WhileTrue ux:Name="sortVisible">
+		<Move Target="readPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" />
+		<Move Target="sortPanel" Y="-1.5" RelativeTo="ParentSize" Duration=".3" Easing="QuadraticOut" EasingBack="CubicIn" />
+	</WhileTrue>
 	
 	<WhileTrue ux:Name="addPageActive" >
 		<Change overlayRec.Opacity=".5" Duration=".2" Easing="CircularIn" />
