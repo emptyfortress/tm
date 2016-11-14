@@ -261,7 +261,7 @@
 				<PageControl Dock="Top" Margin="10,10,10,0" Height="32">
 					<Grid ColumnCount="3">
 						<Panel><Text Value="2015" FontSize="20" Alignment="Center" /></Panel>
-						<Panel Background="#0f0" ><Text Value="2016" FontSize="20" Alignment="Center" /></Panel>
+						<Panel Background="#999" ><Text Value="2016" FontSize="20" Color="#fff" Alignment="Center" /></Panel>
 						<Panel><Text Value="2017" FontSize="20" Alignment="Center" /></Panel>
 					</Grid>
 					<Grid ColumnCount="3" >
