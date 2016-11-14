@@ -1014,25 +1014,67 @@
 		
 		<StackPanel ux:Name="loginScreen" Width="300"  Alignment="TopCenter" ItemSpacing="30" Margin="0,50,0,0">
 			<Image ux:Name="logodv" File="Assets/dv.png" Alignment="Top" Width="300"   />
-			<StackPanel ItemSpacing="5" Margin="0,10,0,70">
-				<Text Value="Выберите базу данных" Font="Light" FontSize="16" Color="#ffffffaa" Alignment="Left" />
-				<Rectangle Height="1" Color="#ffffff33" />
-				<fa-angle-down Layer="Background" Color="#fff" Alignment="Right" />
-			</StackPanel>
-			<StackPanel ItemSpacing="5">
-				<Text Value="Имя пользователя" Font="Light" FontSize="20" Color="#fff" Alignment="Center" />
-				<Rectangle Height="1" Color="#ffffff33" />
-			</StackPanel>
-			<StackPanel ItemSpacing="5">
-				<Text Value="Пароль" Font="Light" FontSize="20" Color="#fff" Alignment="Center" />
-				<Rectangle Height="1" Color="#ffffff33" />
-			</StackPanel>
-			<Rectangle Height="60" Margin="0,30,0,0" CornerRadius="30" Color="#F8BF00">
-				<Text Value="ВОЙТИ" FontSize="20" Color="#000" Alignment="Center" />
-				<Tapped>
-					<Toggle Target="viewLogin" />
-				</Tapped>
-			</Rectangle>
+			
+			<PageControl>
+				<Page>
+					<StackPanel  ItemSpacing="30">
+						<StackPanel ItemSpacing="5" Margin="0,10,0,70">
+							<Text Value="Выберите базу данных" Font="Light" FontSize="16" Color="#ffffffaa" Alignment="Left" />
+							<Rectangle Height="1" Color="#ffffff33" />
+							<fa-angle-down Layer="Background" Color="#fff" Alignment="Right" />
+						</StackPanel>
+						<StackPanel ItemSpacing="5">
+							<Text Value="Имя пользователя" Font="Light" FontSize="20" Color="#fff" Alignment="Center" />
+							<Rectangle Height="1" Color="#ffffff33" />
+						</StackPanel>
+						<StackPanel ItemSpacing="5">
+							<Text Value="Пароль" Font="Light" FontSize="20" Color="#fff" Alignment="Center" />
+							<Rectangle Height="1" Color="#ffffff33" />
+						</StackPanel>
+						<Rectangle Height="60" Margin="0,30,0,0" CornerRadius="30" Color="#F8BF00">
+							<Text Value="ВОЙТИ" FontSize="20" Color="#000" Alignment="Center" />
+							<Tapped>
+								<NavigateTo Target="pinPage" />
+							</Tapped>
+						</Rectangle>
+					</StackPanel>
+				</Page>
+				<Page ux:Name="pinPage">
+					<StackPanel ItemSpacing="30">
+						<StackPanel Orientation="Horizontal" Alignment="Center" ItemSpacing="2">
+							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
+							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
+							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
+							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
+						</StackPanel>
+						<!-- <Text Value="Введите пинкод" Font="Light" FontSize="20" Color="#fff" Alignment="Center" /> -->
+						<Circle ux:InnerClass="pinItem" Width="72" Height="72" Margin="5">
+							<string ux:Property="numer" />
+							<Stroke Width="2" Color="#ffffff99" />
+							<Text Value="{Property this.numer}" Color="#fff" Alignment="Center" Font="Light" FontSize="38" />
+							<Clicked>
+								<Toggle Target="viewLogin" />
+							</Clicked>
+						</Circle>
+						<Grid Columns="auto,auto,auto" Alignment="Center">
+							<pinItem numer="1" />
+							<pinItem numer="2" />
+							<pinItem numer="3" />
+							<pinItem numer="4" />
+							<pinItem numer="5" />
+							<pinItem numer="6" />
+							<pinItem numer="7" />
+							<pinItem numer="8" />
+							<pinItem numer="9" />
+							<Rectangle />
+							<pinItem numer="0" />
+							<Rectangle />
+							
+						</Grid>
+					</StackPanel>
+				</Page>
+			</PageControl>
+			
 			<Translation Y="-1" RelativeTo="ParentSize" />
 		</StackPanel>
 		<Image ux:Name="diamond" File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
