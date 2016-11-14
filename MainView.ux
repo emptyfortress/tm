@@ -1047,7 +1047,6 @@
 							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
 							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
 						</StackPanel>
-						<!-- <Text Value="Введите пинкод" Font="Light" FontSize="20" Color="#fff" Alignment="Center" /> -->
 						<Circle ux:InnerClass="pinItem" Width="72" Height="72" Margin="5">
 							<string ux:Property="numer" />
 							<Stroke Width="2" Color="#ffffff99" />
