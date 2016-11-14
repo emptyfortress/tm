@@ -434,7 +434,7 @@
 										<month Value="{}" />
 										<Each Items="{days}">
 											<Panel>
-												<day Value="{}" />
+												<day Value="{d}" Color="{color}" />
 											</Panel>
 										</Each>
 									</Grid>
