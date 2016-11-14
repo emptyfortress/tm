@@ -67,64 +67,13 @@
 				<fa-eye Alignment="CenterLeft" />
 				<cardBt Value="Показать все" Alignment="CenterLeft" />
 			</StackPanel>
-			<!-- <Grid ColumnCount="3" Height="40" Margin="0,20,0,0">
-				<StackPanel Alignment="Center">
-					<Text FontSize="13" Value="Только" Alignment="Center" />
-					<Text FontSize="13" Value="новые" Alignment="Center" />
-					<Clicked>
-						<Set filterGroup.Active="blueState"/>
-						<Toggle Target="iconsVisible" />
-						<Toggle Target="filterActive" Delay=".3" />
-					</Clicked>
-				</StackPanel>
-				<StackPanel Alignment="Center">
-					<Text FontSize="13" Value="Только" Alignment="Center" />
-					<Text FontSize="13" Value="просроченные" Alignment="Center" />
-					<Clicked>
-						<Set filterGroup.Active="redState"/>
-						<Toggle Target="iconsVisible" />
-						<Toggle Target="filterActive" Delay=".3" />
-					</Clicked>
-				</StackPanel>
-				<StackPanel Alignment="Center">
-					<Text FontSize="13" Value="Только" Alignment="Center" />
-					<Text FontSize="13" Value="измененные" Alignment="Center" />
-					<Clicked>
-						<Set filterGroup.Active="greenState"/>
-						<Toggle Target="iconsVisible" />
-						<Toggle Target="filterActive" Delay=".3" />
-					</Clicked>
-				</StackPanel>
-				<Rectangle Layer="Background" Color="#fff" CornerRadius="30" />
-			</Grid> -->
-			<!-- <Grid ColumnCount="3" Margin="0,-5,0,0" >
-				<fa-bookmark Color="#7F00FF" FontSize="70" Alignment="TopCenter">
-					<fa-asterisk Color="#fff" FontSize="16" Alignment="Center" Offset="0,-10" />
-					<Clicked>
-						<Set filterGroup.Active="blueState"/>
-						<Toggle Target="iconsVisible" />
-						<Toggle Target="filterActive" Delay=".3" />
-					</Clicked>
-				</fa-bookmark>
-				<fa-bookmark Color="red" FontSize="70" Alignment="TopCenter">
-					<Image File="Assets/clock.png" Width="26" Alignment="Center" Offset="0,-10"  />
-					<Clicked>
-						<Set filterGroup.Active="redState"/>
-						<Toggle Target="iconsVisible" />
-						<Toggle Target="filterActive" Delay=".3" />
-					</Clicked>
-				</fa-bookmark>
-				<fa-bookmark Color="#008C23" FontSize="70" Alignment="TopCenter">
-					<fa-bell-o Color="#fff" FontSize="22" Alignment="Center" Offset="0,-10" />
-					<Clicked>
-						<Set filterGroup.Active="greenState"/>
-						<Toggle Target="iconsVisible" />
-						<Toggle Target="filterActive" Delay=".3" />
-					</Clicked>
-				</fa-bookmark>
-			</Grid> -->
 		</StackPanel>
 	</Panel>
+
+	<Panel ux:Name="sortPanel">
+		
+	</Panel>
+	
 
 	<Panel ux:Name="filterPanel" Layer="Overlay" MinWidth="300" Width="80%" Height="70%" Color="#fff" Alignment="Center">
 		<Translation Y="1.5" RelativeTo="ParentSize" />
@@ -136,7 +85,7 @@
 				<Toggle Target="filtersVisible" />
 			</Clicked>
 		</Circle>
-		<PageControl ux:Name="ControlFilter" Active="filt">
+		<PageControl ux:Name="ControlFilter" Active="filt" Interaction="None">
 			<JavaScript>
 				module.exports = {
 					type: ["Вид", "Автор", "Создано","Подписано", "Начато", "Окончено", "Дата контроля", "Тип контроля", "Контролер"]
@@ -209,7 +158,7 @@
 								</Clicked>
 							</fa-bookmark>
 						</Grid>
-						<StackPanel ItemSpacing="3" Margin="10,20">
+						<StackPanel ItemSpacing="5" Margin="10,20">
 							<ux:Include File="filterItem.ux" />
 							<Each Items="{type}">
 								<filterItem  />
@@ -229,10 +178,20 @@
 						<NavigateTo Target="filt" NavigationContext="ControlFilter" />
 					</Clicked>
 				</fa-angle-left>
-				<Text Value="Дата контроля" FontSize="18" Dock="Top" Alignment="TopCenter" Margin="0,10,0,20" />
+				<Text Value="Дата контроля" FontSize="18" Dock="Top" Alignment="TopCenter" Margin="0,10,0,10" />
+				<Panel Dock="Top" Height="60">
+					<Grid Columns="1*,auto,1*" Margin="15,0">
+						<Text Value="Начало" FontSize="26" Color="#ccc" Alignment="Center" />
+						<Text Value="—" Alignment="Center" />
+						<Text Value="Конец" FontSize="26" Color="#ccc" Alignment="Center" />
+					</Grid>
+				</Panel>
+
+
+
 				<Grid Columns="1*,1*,1*,1*" Dock="Top"  CellSpacing="2" Height="36" Margin="10,0">
 					<Rectangle Color="#eee">
-						<Text Value="Вчера" Alignment="Center" />
+						<Text Value="Ранее" Alignment="Center" />
 					</Rectangle>
 					<Rectangle Color="#eee">
 						<Text Value="Сегодня" Alignment="Center" />
@@ -241,31 +200,104 @@
 						<Text Value="Завтра" Alignment="Center" />
 					</Rectangle>
 					<Rectangle Color="#eee">
-						<Text Value="Пятница" Alignment="Center" />
+						<Text Value="На неделе" Alignment="Center" />
 					</Rectangle>
 				</Grid>
-				<ScrollView Margin="20,20">
-					<Panel Alignment="HorizontalCenter">
-						<ColumnLayout ColumnCount="1" />
-						<JavaScript File="calendar.js" />
-						<Each Items="{month}">
-							<Grid ColumnCount="7" CellSpacing="15" Margin="10,20,20,0">
-								<month Value="{}" />
-								<Each Items="{days}">
-									<Panel>
-										<day Value="{}" />
-									</Panel>
-								</Each>
-							</Grid>
-						</Each>
+				<PageControl Dock="Top" Margin="10,10,10,0" Height="32">
+					<Grid ColumnCount="3">
+						<Panel><Text Value="2015" FontSize="20" Alignment="Center" /></Panel>
+						<Panel Background="#0f0" ><Text Value="2016" FontSize="20" Alignment="Center" /></Panel>
+						<Panel><Text Value="2017" FontSize="20" Alignment="Center" /></Panel>
+					</Grid>
+					<Grid ColumnCount="3" >
+						<Panel><Text Value="2018" FontSize="20" Alignment="Center" /></Panel>
+						<Panel><Text Value="2019" FontSize="20" Alignment="Center" /></Panel>
+						<Panel><Text Value="2020" FontSize="20" Alignment="Center" /></Panel>
+					</Grid>
+				</PageControl>
+				<PageControl>
+					<JavaScript File="calendar.js" />
+					<Panel ux:Class="datePanel">
+						<Grid ColumnCount="7" CellSpacing="15" Margin="10,5,10,0">
+							<month Value="{}" />
+							<Each Items="{days}">
+								<Panel>
+									<day Value="{d}" Color="{color}"/>
+								</Panel>
+							</Each>
+						</Grid>
 					</Panel>
-				</ScrollView>
-				<StackPanel  Dock="Bottom"  Margin="0,0,0,20">
-					<Rectangle Height="1" Color="#ccc"  Margin="0,0,0,10" />
-					<Text Value="Очистить        OK" Alignment="BottomCenter"  />
-				</StackPanel>
+					<Each Items="{month}">
+						<datePanel Margin="20,0" />
+					</Each>
+				</PageControl>
+				<Panel  Dock="Bottom"  Height="50">
+					<Text Value="Очистить                     OK" Alignment="Center"  />
+					<Rectangle Layer="Background">
+						<Stroke Width="1" Color="#ccc" />
+					</Rectangle>
+					<Clicked>
+						<NavigateTo Target="selectUser" NavigationContext="ControlFilter" />
+					</Clicked>
+				</Panel>
 			</DockPanel>
+			<DockPanel ux:Name="selectUser">
+				<JavaScript>
+					var favuser = [
+					{fio: 'Снегирев', busy: 1}, 
+					{fio: 'Воробьев', busy: .5}, 
+					{fio: 'Уткин', busy: 3}, 
+					{fio: 'Гусев', busy: 2.5}, 
+					{fio: 'Галкина', busy: .7}, 
+					{fio: 'Синицына', busy: .3}, 
+					{fio: 'Тетерев', busy: 4}, 
+					{fio: 'Орлов', busy: 2}, 
+					{fio: 'Жаворонков', busy: 4.3}, 
+					{fio: 'Индюков', busy: 1.7}, 
+					]
+					module.exports ={
+						favuser: favuser
+					}
+				</JavaScript>
 
+				<fa-angle-left FontSize="40" LayoutRole="Inert" Alignment="TopLeft" Margin="10,3" >
+					<Clicked>
+						<NavigateTo Target="filt" NavigationContext="ControlFilter" />
+					</Clicked>
+				</fa-angle-left>
+				<Text Value="Контролер" FontSize="18" Dock="Top" Alignment="TopCenter" Margin="0,10,0,10" />
+				<ScrollView>
+					<StackPanel Margin="15">
+						<WrapPanel>
+							<Selection Values="{values}" MaxCount="1"/>
+							<Each Items="{favuser}">
+						    	<userPanel Label="{fio}" busy="{busy}"  />
+							</Each>
+						</WrapPanel>
+						<TextInput  PlaceholderColor="#ccc" Height="46" Padding="5" Margin="20"   >
+					        <fa-search  FontSize="20" Alignment="CenterLeft" Color="#000" Margin="10,0">
+					        	<Scaling X="-1"  />
+					        </fa-search>
+					        <Text Value="Искать" Color="#ccc" Alignment="CenterLeft" Margin="40,0,0,0" />
+					        <Rectangle Layer="Background" Color="#eee" Opacity="1" CornerRadius="50" />
+					    </TextInput>
+					    <StackPanel ItemSpacing="5">
+				    		<Each Count="10" >
+				    			<newFav />
+				    		</Each>
+				    	</StackPanel>
+					</StackPanel>
+				</ScrollView>
+				<Panel  Dock="Bottom"  Height="50">
+					<Text Value="Очистить                     OK" Alignment="Center"  />
+					<Rectangle Layer="Background">
+						<Stroke Width="1" Color="#ccc" />
+					</Rectangle>
+					<Clicked>
+						<NavigateTo Target="filt" NavigationContext="ControlFilter" />
+					</Clicked>
+				</Panel>
+			</DockPanel>
 		</PageControl>
 	</Panel>
 
