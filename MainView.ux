@@ -580,28 +580,33 @@
 						<Change filterText.Visibility.Value="Visible" />
 						<Change filterRec.Visibility.Value="Visible" />
 						<Move Target="filterText" X="-1" RelativeTo="ParentSize" Duration=".4" Easing="QuinticOut" />
+						<Change filterText.Opacity="0" Duration=".3" Delay="1" DurationBack=".1" DelayBack="0" />
 					</WhileTrue>
 					
-					<StateGroup ux:Name="filterGroup">
+					<StateGroup ux:Name="filterGroup" Active="grayState">
 						<State ux:Name="blueState">
 				            <Change bookmark.Color="#7F00FF" Duration="0.2"/>
 				            <Change filterRec.Color="#7F00FF" Duration="0.2"/>
 				            <Change blueCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				            <Change total.Visibility="Visible" Delay=".3" />
 				        </State>
 				        <State ux:Name="redState">
 				            <Change bookmark.Color="red" Duration="0.2"/>
 				            <Change filterRec.Color="red" Duration="0.2"/>
 				            <Change redCount.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
+				            <Change total11.Visibility="Visible" Delay=".3" />
 				        </State>
 				        <State ux:Name="greenState">
-				        	<Change bookmark.Color="#FF7F00" Duration="0.2"/>
-				            <Change filterRec.Color="#FF7F00" Duration="0.2"/>
+				        	<Change bookmark.Color="#7BB652" Duration="0.2"/>
+				            <Change filterRec.Color="#7BB652" Duration="0.2"/>
 				            <Change greenCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				            <Change total12.Visibility="Visible" Delay=".3" />
 				        </State>
 				        <State ux:Name="grayState">
 				        	<Change bookmark.Color="#ddd" Duration="0.2"/>
 				            <Change filterRec.Color="#ddd" Duration="0.2"/>
 				            <Change grayCount.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
+				            <Change total13.Visibility="Visible" Delay=".3" />
 				        </State>
 					</StateGroup>
 
@@ -612,17 +617,27 @@
 						<StackPanel Orientation="Horizontal" Dock="Top" ux:Name="moveMe" TransformOrigin="TopLeft" >
 							<Panel ux:Name="zagPanel" Alignment="TopLeft" Margin="50,0,0,0" >
 								<Text ux:Name="blueCount" Value="4" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
-								<Text ux:Name="redCount" Value="12" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
+								<Text ux:Name="redCount" Value="6" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
 								<Text ux:Name="greenCount" Value="8" FontSize="25" Alignment="Center" Color="#fff" Opacity="0" />
 								<Text ux:Name="grayCount" Value="15" FontSize="25" Alignment="Center" Color="#000" Opacity="0" />
-								<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="sky"/>
+								<Grid ux:Name="IndicatorPanel" ColumnCount="3" Height="7" Alignment="Top">
+									<Rectangle Color="#7F00FF"  />
+									<Rectangle Color="#B20000" />
+									<Rectangle Color="#7BB652"  />
+									<Rectangle Height="1" Layer="Overlay" Color="#fff" Alignment="Bottom" />
+								</Grid>
+								<Image ux:Name="bookmark" File="Assets/bookmark.png" Width="30" Color="sky" />
 								<Clicked>
 									<Toggle Target="filterActive" />
 								</Clicked>
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
 								<Text ux:Name="folderTitle" Value="Мои документы" FontSize="20" />
-								<Text ux:Name="total" Value="15 всего" FontSize="13" Color="#666" Alignment="Center" />
+								<Text ux:Name="total" Visibility="Collapsed"  Value="  4 новых  |  15 всего" FontSize="13" Color="#999" Alignment="Left" />
+								<Text ux:Name="total11" Visibility="Collapsed"  Value="  6 просроченных  |  15 всего" FontSize="13" Color="#999" Alignment="Left" />
+								<Text ux:Name="total12" Visibility="Collapsed"  Value="  8 измененных  |  15 всего" FontSize="13" Color="#999" Alignment="Left" />
+								<Text ux:Name="total13" Visibility="Collapsed"  Value="  15 всего" FontSize="13" Color="#999" Alignment="Left" />
+							</StackPanel>
 								<SwipeGesture ux:Name="filterSwipe1" Direction="Left"  Length="100" />
 								<SwipeGesture ux:Name="filterSwipe" Direction="Right"  Length="100" />
 								<Swiped Source="filterSwipe">
@@ -631,9 +646,8 @@
 								<Swiped Source="filterSwipe1">
 									<TransitionState Target="filterGroup" Type="Next"/>
 								</Swiped>
-							</StackPanel>
 						</StackPanel>
-						<StackPanel ux:Name="filterText" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Hidden">
+						<StackPanel ux:Name="filterText" Orientation="Horizontal" Margin="100,10,0,0" ItemSpacing="5" Visibility="Visible">
 							<Translation X="1" RelativeTo="ParentSize" />
 							<fa-arrow-left Alignment="Left" />
 							<Text Value="Быстрый фильтр включен" FontSize="13" Alignment="Left"  />
@@ -660,12 +674,20 @@
 							<Scale Target="filterRec" X=".5" Duration=".5" Easing="QuadraticOut" />
 							<Change filterRec.Margin.Value="65,0,0,0" Duration=".3" Easing="QuadraticOut" />
 							<Change filterText.Opacity.Value="0" Duration=".2" Easing="CircularIn" />
-							<Change total.Visibility.Value="Hidden" />
+							<Change total.Visibility.Value="Collapsed" />
+							<Change total11.Visibility.Value="Collapsed" />
+							<Change total12.Visibility.Value="Collapsed" />
+							<Change total13.Visibility.Value="Collapsed" />
+							<Change IndicatorPanel.Visibility.Value="Collapsed" />
 						</ScrollingAnimation>
 						<WhileWindowSize GreaterThan="380">
 							<ScrollingAnimation From="80" To="200">
 								<Change filterRec.Margin.Value="50,0,0,0" Duration=".3" Easing="QuadraticOut" />
-								<Change total.Visibility.Value="Hidden" />
+								<Change total.Visibility.Value="Collapsed" />
+								<Change total11.Visibility.Value="Collapsed" />
+								<Change total12.Visibility.Value="Collapsed" />
+								<Change total13.Visibility.Value="Collapsed" />
+								<Change IndicatorPanel.Visibility.Value="Collapsed" />
 							</ScrollingAnimation>
 						</WhileWindowSize>
 
@@ -707,8 +729,8 @@
 				            <Change redCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState2">
-				        	<Change bookmark2.Color="#FF7F00" Duration="0.2"/>
-				            <Change filterRec2.Color="#FF7F00" Duration="0.2"/>
+				        	<Change bookmark2.Color="#7BB652" Duration="0.2"/>
+				            <Change filterRec2.Color="#7BB652" Duration="0.2"/>
 				            <Change greenCount2.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 				         <State ux:Name="grayState2">
@@ -828,8 +850,8 @@
 				            <Change redCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState4">
-				        	<Change bookmark4.Color="#FF7F00" Duration="0.2"/>
-				            <Change filterRec4.Color="#FF7F00" Duration="0.2"/>
+				        	<Change bookmark4.Color="#7BB652" Duration="0.2"/>
+				            <Change filterRec4.Color="#7BB652" Duration="0.2"/>
 				            <Change greenCount4.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
@@ -935,8 +957,8 @@
 				            <Change redCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn"  />
 				        </State>
 				        <State ux:Name="greenState5">
-				        	<Change bookmark5.Color="#FF7F00" Duration="0.2"/>
-				            <Change filterRec5.Color="#FF7F00" Duration="0.2"/>
+				        	<Change bookmark5.Color="#7BB652" Duration="0.2"/>
+				            <Change filterRec5.Color="#7BB652" Duration="0.2"/>
 				            <Change greenCount5.Opacity.Value="1" Duration=".3" Easing="CircularIn" />
 				        </State>
 					</StateGroup>
