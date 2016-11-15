@@ -56,8 +56,8 @@
 				</Clicked>
 			</StackPanel>
 			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
-				<fa-envelope-o Alignment="CenterLeft" />
-				<cardBt Value="Прочитать все" Alignment="CenterLeft" />
+				<fa-asterisk Color="#000" FontSize="15" Alignment="CenterLeft" />
+				<cardBt Value="Сбросить новые" Alignment="CenterLeft" />
 			</StackPanel>
 			<StackPanel ItemSpacing="5" Orientation="Horizontal" Background="#fff" Padding="10,0,0,0">
 				<fa-bell-o Alignment="CenterLeft" />
