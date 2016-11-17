@@ -1,0 +1,24 @@
+<DockPanel>
+	<Title Value="Разрешения" />
+	<ScrollView Margin="30">
+		<StackPanel ItemSpacing="20">
+			<Line Value="Разрешить приложению доступ к" Alignment="Center" />
+			<Grid Columns="1*, auto">
+				<Line Value="Сотовые данные" />
+				<Switch />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Камера" />
+				<Switch />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Фотоальбом" />
+				<Switch />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Микрофон" />
+				<Switch />
+			</Grid>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

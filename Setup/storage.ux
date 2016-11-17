@@ -1,0 +1,61 @@
+<DockPanel>
+	<Title Value="Память" />
+	<ScrollView Margin="30,5">
+		<StackPanel ItemSpacing="20">
+			<Grid Columns="auto, 1*">
+				<storageDiagram Count="67" End="147" BarColor="#0f0" Header="SunDisk 6 Гб" TextColor="#fff" />
+				<StackPanel Alignment="Center" ItemSpacing="10">
+					<Line Value="13.05 Гб / 20.12 Гб" FontSize="15" Alignment="Center" />
+					<Line Value="Доступно 5.37 Гб" FontSize="20" Alignment="Center" />
+				</StackPanel>
+			</Grid>
+			<Rectangle Height="1" Width="100%" Color="#fff" Opacity=".3" />
+			<Line Value="Место хранения данных" FontSize="15" Alignment="Center" />
+			<Line Value="Перенос данных может занять некоторое время" FontSize="12" Alignment="Center" Opacity=".5" Margin="0,-15,0,0" />
+			<Grid Columns="1*, auto, 1*">
+				<Line Value="Устройство" FontSize="15" Alignment="Center"  />
+				<Switch Value="true" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5" Alignment="Center">
+					<Line Value="SunDisk 6 Гб" FontSize="15" Alignment="Center"  />
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			<!-- <Rectangle Height="1" Width="100%" Color="#fff" Opacity=".5" /> -->
+			<Panel Padding="15,5" Alignment="Center">
+				<Text Value="Применить" Alignment="Center" FontSize="16" Color="#fff" />
+				<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
+			</Panel>
+			<Rectangle Height="1" Width="100%" Color="#fff" Opacity=".3" />
+			<Line Value="Данные — 1.02 Гб" FontSize="20" Alignment="Center" />
+			<Grid Columns="1*, auto">
+				<!-- <Line Value="Всего" />
+				<Line Value="1.02 Гб" Alignment="Right" /> -->
+				<Line Value="Файлы" />
+				<Line Value="700 Mб" Alignment="Right" />
+				<Line Value="Избранное" />
+				<Line Value="230 Mб" Alignment="Right" />
+			</Grid>
+
+			<Rectangle Height="1" Width="100%" Color="#fff" Opacity=".3" />
+			<Line Value="Очистка" FontSize="20" Alignment="Center" />
+			<Grid Columns="1*, auto">
+				<Line Value="Карточки не открывавшиеся" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="2 недели"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Файлы больше" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="10 Мб"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			<Panel Padding="15,5" Alignment="Center">
+				<Text Value="Очистить" Alignment="Center" FontSize="16" Color="#fff" />
+				<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
+			</Panel>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

@@ -8,6 +8,7 @@
   <Text ux:Class="fa_angle_double_right" Font="fa">&#xf101;</Text>
   <!-- <Text ux:Class="fa_angle_down" Font="fa">&#xf107;</Text> -->
   <Text ux:Class="fa_angle_left" Font="fa">&#xf104;</Text>
+  <Text ux:Class="fa_angle_right" Font="fa">&#xf105;</Text>
   <Text ux:Class="fa_asterisk" Font="fa">&#xf069;</Text>
   <Text ux:Class="fa_bell_o" Font="fa">&#xf0a2;</Text>
   <Text ux:Class="fa_briefcase" Font="fa">&#xf0b1;</Text>

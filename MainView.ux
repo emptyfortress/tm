@@ -491,11 +491,14 @@
 					<Rectangle Height="15"/>
 					<Rectangle Height="1" Color="blue"  />
 					<Grid ColumnCount="2" Margin="0,20">
-						<StackPanel>
+						<StackPanel HitTestMode="LocalBoundsAndChildren">
 							<fa-cog Alignment="Center" Color="#2F6A92"  FontSize="25"/>
 							<Text Value="Настройки" FontSize="12" Alignment="Center" />
+							<Tapped>
+								<Toggle Target="viewSetup" />
+							</Tapped>
 						</StackPanel>
-						<StackPanel>
+						<StackPanel HitTestMode="LocalBoundsAndChildren">
 							<fa-sign-out Color="#2F6A92"  FontSize="25" Alignment="Center"/>
 							<Text Value="Выход" FontSize="12"  Alignment="Center"  />
 							<Tapped>
@@ -633,9 +636,9 @@
 							</Panel>
 							<StackPanel ItemSpacing="0"  Margin="5,15,0,0">
 								<Text ux:Name="folderTitle" Value="Мои документы" FontSize="20" />
-								<Text ux:Name="total" Visibility="Collapsed"  Value="  4 новых  |  15 всего" FontSize="13" Color="#999" Alignment="Left" />
-								<Text ux:Name="total11" Visibility="Collapsed"  Value="  6 просроченных  |  15 всего" FontSize="13" Color="#999" Alignment="Left" />
-								<Text ux:Name="total12" Visibility="Collapsed"  Value="  8 измененных  |  15 всего" FontSize="13" Color="#999" Alignment="Left" />
+								<Text ux:Name="total" Visibility="Collapsed"  Value="  4 новых из 15" FontSize="13" Color="#999" Alignment="Left" />
+								<Text ux:Name="total11" Visibility="Collapsed"  Value="  6 просроченных из 15" FontSize="13" Color="#999" Alignment="Left" />
+								<Text ux:Name="total12" Visibility="Collapsed"  Value="  8 измененных из 15" FontSize="13" Color="#999" Alignment="Left" />
 								<Text ux:Name="total13" Visibility="Collapsed"  Value="  15 всего" FontSize="13" Color="#999" Alignment="Left" />
 							</StackPanel>
 								<SwipeGesture ux:Name="filterSwipe1" Direction="Left"  Length="100" />
@@ -1047,7 +1050,7 @@
 		</Panel>
 		
 		<StackPanel ux:Name="loginScreen" Width="300"  Alignment="TopCenter" ItemSpacing="30" Margin="0,50,0,0">
-			<Image ux:Name="logodv" File="Assets/dv.png" Alignment="Top" Width="300"   />
+			<Image File="Assets/dv.png" Alignment="Top" Width="300"   />
 			
 			<PageControl>
 				<Page>
@@ -1081,7 +1084,7 @@
 							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
 							<Circle Width="10" Height="10" Color="#fff" Opacity=".5" />
 						</StackPanel>
-						<Circle ux:InnerClass="pinItem" Width="72" Height="72" Margin="5">
+						<Circle ux:InnerClass="pinItem" Width="72" Height="72" Margin="5" HitTestMode="LocalBoundsAndChildren">
 							<string ux:Property="numer" />
 							<Stroke Width="2" Color="#ffffff99" />
 							<Text Value="{Property this.numer}" Color="#fff" Alignment="Center" Font="Light" FontSize="38" />
@@ -1102,14 +1105,156 @@
 							<Rectangle />
 							<pinItem numer="0" />
 							<Rectangle />
-							
 						</Grid>
+						<Text Value="Сбросить PIN-code" Alignment="Center" Color="#fff" Margin="0,50,0,0"  />
 					</StackPanel>
 				</Page>
 			</PageControl>
 			
 			<Translation Y="-1" RelativeTo="ParentSize" />
 		</StackPanel>
+
+		<Panel ux:Name="setupScreen" >
+			<Text ux:Class="Title" Color="#9CC319" Alignment="TopCenter" FontSize="30" Margin="0,20" Dock="Top" />
+			<Text ux:Class="Line" Color="#fff" FontSize="18" Alignment="Left" TextWrapping="Wrap" />
+			
+			<PageControl>
+				<Page ux:Name="List">
+					<DockPanel>
+						<Title Value="Настройка" />
+						<ScrollView Margin="30,20">
+							<StackPanel ItemSpacing="2">
+								<Panel ux:Class="setup" Padding="20">
+									<string ux:Property="name" />
+									<Text Color="#fff" Value="{Property this.name}" Font="Light" FontSize="22" Alignment="Center" />
+									<Rectangle Layer="Background" Color="#fff" Opacity=".1" />
+								</Panel>
+								<setup name="Общие">
+									<Clicked>
+										<NavigateTo Target="Main" />
+									</Clicked>
+								</setup>
+								<setup name="Разрешения" >
+									<Clicked>
+										<NavigateTo Target="Approve" />
+									</Clicked>
+								</setup>
+								<setup name="Подключение" >
+									<Clicked>
+										<NavigateTo Target="Connect" />
+									</Clicked>
+								</setup>
+								<setup name="Папки" >
+									<Clicked>
+										<NavigateTo Target="Folders" />
+									</Clicked>
+								</setup>
+								<setup name="Исполнители" >
+									<Clicked>
+										<NavigateTo Target="Users" />
+									</Clicked>
+								</setup>
+								<setup name="Виджеты" >
+									<Clicked>
+										<NavigateTo Target="Widgets" />
+									</Clicked>
+								</setup>
+								<setup name="Синхронизация" >
+									<Clicked>
+										<NavigateTo Target="Sync" />
+									</Clicked>
+								</setup>
+								<setup name="Уведомления" >
+									<Clicked>
+										<NavigateTo Target="Note" />
+									</Clicked>
+								</setup>
+								<setup name="Память" >
+									<Clicked>
+										<NavigateTo Target="Storage" />
+									</Clicked>
+								</setup>
+								<setup name="Стиль">
+									<Clicked>
+										<NavigateTo Target="Style" />
+									</Clicked>
+								</setup>
+							</StackPanel>
+						</ScrollView>
+					</DockPanel>
+					<Activated>
+			            <Set setupnav.Visibility="Visible" />
+			            <Set listnav.Visibility="Hidden" />
+			        </Activated>
+					<Deactivated>
+			            <Set setupnav.Visibility="Hidden" />
+			            <Set listnav.Visibility="Visible" />
+			        </Deactivated>
+				</Page>
+				
+				<Page ux:Name="Main">
+					<ux:Include File="Setup/main.ux" />
+				</Page>
+				<Page ux:Name="Approve">
+					<ux:Include File="Setup/approve.ux" />
+				</Page>
+				<Page ux:Name="Connect">
+					<ux:Include File="Setup/connect.ux" />
+				</Page>
+				<Page ux:Name="Folders">
+					<ux:Include File="Setup/folders.ux" />
+				</Page>
+				<Page ux:Name="Users">
+					<ux:Include File="Setup/users.ux" />
+				</Page>
+				<Page ux:Name="Widgets">
+					<ux:Include File="Setup/widgets.ux" />
+				</Page>
+				<Page ux:Name="Sync">
+					<ux:Include File="Setup/sync.ux" />
+				</Page>
+				<Page ux:Name="Note">
+					<ux:Include File="Setup/note.ux" />
+				</Page>
+				<Page ux:Name="Storage">
+					<ux:Include File="Setup/storage.ux" />
+				</Page>
+				<Page ux:Name="Style">
+					<ux:Include File="Setup/style.ux" />
+				</Page>
+
+
+
+
+				<!-- <Panel ux:Class="Next" Layer="Overlay" Alignment="BottomRight" Margin="15" HitTestMode="LocalBoundsAndChildren">
+					<fa-angle-right FontSize="40" Alignment="Center" Offset="3,-1" />
+					<Circle  Width="50" Height="50" Color="#fff" Opacity=".8" Alignment="Center">
+						<DropShadow Size="10"  />
+					</Circle>
+				</Panel> -->
+				
+				<Prev ux:Name="listnav" Visibility="Hidden">
+					<Clicked>
+						<NavigateTo Target="List" />
+					</Clicked>
+				</Prev>
+				<Panel ux:Class="Prev" Layer="Overlay" Alignment="BottomLeft" Margin="15" HitTestMode="LocalBoundsAndChildren">
+					<fa-angle-left FontSize="40" Alignment="Center" Offset="-3,-1" />
+					<Circle  Width="50" Height="50" Color="#fff" Opacity=".8" Alignment="Center">
+						<DropShadow Size="10"  />
+					</Circle>
+				</Panel>
+			</PageControl>
+
+			
+			<Prev ux:Name="setupnav">
+				<Clicked>
+					<Toggle Target="viewSetup" />
+				</Clicked>
+			</Prev>
+			<Translation Y="-1" RelativeTo="ParentSize" />
+		</Panel>
+
 		<Image ux:Name="diamond" File="Assets/diamond.png" Layer="Background" Width="250" Alignment="BottomRight" Offset="-50"/>
 
 	</DockPanel>

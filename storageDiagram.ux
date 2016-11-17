@@ -1,22 +1,23 @@
-<Panel ux:Class="storageDiagram"  >
+<Panel ux:Class="storageDiagram" TextColor="#000" >
 	<string ux:Property="Header"/>
 	<string ux:Property="Count"/>
 	<float ux:Property="End" />
 	<float4 ux:Property="BarColor"/>
+	<float4 ux:Property="TextColor"/>
 	
 	<StackPanel Alignment="Center" ItemSpacing="4">
 		<Panel BoxSizing="Standard">
 			<StackPanel Orientation="Horizontal" Alignment="Center">
-				<Text Value="{Property this.Count}" FontSize="30" />
-				<Text Value="%" FontSize="16" Alignment="CenterRight" />
+				<Text Value="{Property this.Count}" FontSize="30" Color="{Property this.TextColor}" />
+				<Text Value="%" FontSize="16" Alignment="CenterRight" Color="{Property this.TextColor}" />
 			</StackPanel>
 			<Circle Width="100" Height="100" StartAngleDegrees="-90" EndAngleDegrees="{Property this.End}">
 				<Stroke Width="10" Color="{Property this.BarColor}" />
 			</Circle>
-			<Circle>
-				<Stroke Width="10" Color="#fff9" />
+			<Circle Opacity=".3">
+				<Stroke Width="10" Color="#fff" />
 			</Circle>
 		</Panel>
-		<Text Value="{Property this.Header}" FontSize="14" Alignment="Center"/>
+		<Text Value="{Property this.Header}" FontSize="14" Alignment="Center" Color="{Property this.TextColor}"/>
 	</StackPanel>
 </Panel>

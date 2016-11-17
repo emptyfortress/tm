@@ -1,0 +1,42 @@
+<DockPanel>
+	<Title Value="Синхронизация" />
+	<ScrollView Margin="30">
+		<StackPanel ItemSpacing="30">
+
+			<Grid Columns="1*, auto">
+				<Line Value="Синхронизация по сотовой сети" />
+				<Switch />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Таймаут" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="3 мин"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			<StackPanel Margin="0,30,0,0">
+				<Line Value="ФАЙЛЫ" Alignment="Center"  />
+				<Rectangle Height="1" Color="#fff" Opacity=".3" />
+			</StackPanel>
+			<Grid Columns="1*, auto">
+				<Line Value="Синхронизация по сотовой сети" />
+				<Switch />
+			</Grid>
+			<Grid Columns="1*, auto" Opacity=".4">
+				<Line Value="Макс. размер файлов (сотовая сеть)" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="5 MB"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			
+			<Grid Columns="1*, auto">
+				<Line Value="Макс. размер файлов (wi-fi)" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="50 MB"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

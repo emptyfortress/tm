@@ -1,0 +1,56 @@
+<DockPanel>
+	<Title Value="Исполнители"/>
+	<ScrollView Margin="30,0">
+		<StackPanel ItemSpacing="10">
+			<Line Value="Выберите исполнителей для быстрого доступа" Alignment="Center" FontSize="15" Margin="0,0,0,25" />
+			<JavaScript>
+				var favuser = [
+				{fio: 'Снегирев', busy: 1}, 
+				{fio: 'Воробьев', busy: .5}, 
+				{fio: 'Уткин', busy: 3}, 
+				{fio: 'Гусев', busy: 2.5}, 
+				{fio: 'Тетерев', busy: 4}, 
+				{fio: 'Орлов', busy: 2}
+				]
+				module.exports ={
+					favuser: favuser
+				}
+			</JavaScript>
+			<Each Items="{favuser}">
+				<Grid Columns="auto,3*,1*,50" CellSpacing="10">
+					<Panel Alignment="TopCenter">
+				        <Circle Width="50" Height="50" Color="#fff" Alignment="Center">
+				            <Stroke Width="2" Color="#fff" />
+				            <ImageFill File="../Assets/user.png" />   
+				        </Circle>
+				    </Panel>
+	    			<Text Value="Уткин А.В., младший разработчик программного обеспечения" FontSize="15" Color="#fff" Alignment="CenterLeft" TextWrapping="Wrap" />
+	    			<Panel Alignment="Left">
+	    				<Text Value="{fio}" FontSize="15" Color="#fff" Alignment="CenterLeft" />
+	    				<Rectangle Height="1" Color="#fff" Opacity=".4" Offset="0,8" />
+    				</Panel>
+	    			<fa-star FontSize="25" Color="#fff" Alignment="CenterRight" />
+				</Grid>
+			</Each>
+			<Grid Columns="auto,3*,1*,50" CellSpacing="10">
+					<Panel Alignment="TopCenter">
+				        <Circle Width="50" Height="50" Color="#fff" Alignment="Center">
+				            <Stroke Width="2" Color="#fff" />
+				            <ImageFill File="../Assets/user.png" />   
+				        </Circle>
+				    </Panel>
+	    			<Text Value="Уткин А.В., младший разработчик программного обеспечения" FontSize="15" Color="#fff" Alignment="CenterLeft" TextWrapping="Wrap" />
+	    			<Panel Alignment="Left">
+	    				<Text Value="Псевдоним" FontSize="15" Color="#fff" Alignment="CenterLeft" />
+	    				<Rectangle Height="1" Color="#fff" Opacity=".4" Offset="0,8" />
+    				</Panel>
+	    			<fa-star FontSize="25" Color="#fff" Alignment="CenterRight" />
+				</Grid>
+			<TextInput PlaceholderColor="#ccc" Height="50" Padding="5" Margin="30"   >
+		        <fa-search FontSize="20" Alignment="CenterLeft" Color="#fff" Margin="10,0" />
+		        <Text Value="Искать в справочнике" Color="#fff" Alignment="CenterLeft" Margin="40,0,0,0" />
+		        <Rectangle Layer="Background" Color="#eee" Opacity=".3" CornerRadius="50" />
+		    </TextInput>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

@@ -1,0 +1,42 @@
+<DockPanel>
+	<Title Value="Стиль" />
+	<Circle ux:Class="radio" Width="30" Height="30" Color="#fff" check="#fff">
+		<float4 ux:Property="check" />
+		<Stroke Width="1" Color="#999" />
+		<fa-check Alignment="Center" FontSize="20" Color="{Property this.check}" />
+	</Circle>
+	<ScrollView Margin="30,5">
+		<StackPanel ItemSpacing="20">
+			<Grid Columns="1*, auto">
+				<Line Value="Без фоноваой картинки" />
+				<radio Opacity=".5" />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Фоновая картинка (по умолчанию)" />
+				<radio check="#000" />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Фоновая картинка (фотоальбом)" />
+				<radio Opacity=".5"/>
+			</Grid>
+			
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Image File="../Assets/camera-pic.jpg" Width="100" />
+				<Panel Padding="15,5" Alignment="CenterLeft">
+					<Text Value="Выбрать" Alignment="Center" FontSize="16" Color="#fff" />
+					<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
+				</Panel>
+			</Grid>
+
+
+
+			<Grid Columns="1*, auto" Margin="0,50,0,0">
+				<Line Value="Размер шрифта" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="Средний"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

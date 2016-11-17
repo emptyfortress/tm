@@ -1,0 +1,32 @@
+<DockPanel>
+	<Title Value="Общие" />
+	<ScrollView Margin="30">
+		<StackPanel ItemSpacing="40">
+			<Grid Columns="1*, auto">
+				<Line Value="Язык интерфейса" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="Русский"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Звуки событий" />
+				<Switch />
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Длина аудио" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="40 сек"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+			<Grid Columns="1*, auto">
+				<Line Value="Качество изображений" />
+				<StackPanel Orientation="Horizontal" ItemSpacing="5">
+					<Line Value="Среднее"/>
+					<fa-angle-down FontSize="20" Color="#fff" />
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

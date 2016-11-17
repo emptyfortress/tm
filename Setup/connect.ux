@@ -1,0 +1,36 @@
+<DockPanel>
+	<Title Value="Подключение" />
+	<ScrollView Margin="30">
+		<StackPanel ItemSpacing="40">
+			<!-- <Line Value="Разрешить приложению доступ к" Alignment="Center" /> -->
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="Адрес сервера" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="Логин" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="Пароль" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="ПИН" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="Внешняя ссылка" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="Внутренняя ссылка" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+			<Grid Columns="auto,1*" CellSpacing="20">
+				<Line Value="Почта администратора" />
+				<Rectangle Height="1" Width="100%" Color="#fff" Alignment="BottomRight" />
+			</Grid>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>

@@ -1,0 +1,11 @@
+<DockPanel>
+	<Title Value="Уведомления" />
+	<ScrollView Margin="30,5">
+		<StackPanel ItemSpacing="20">
+			<Grid Columns="1*, auto">
+				<Line Value="Push уведомления" />
+				<Switch />
+			</Grid>
+		</StackPanel>
+	</ScrollView>
+</DockPanel>
