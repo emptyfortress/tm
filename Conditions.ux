@@ -1,7 +1,7 @@
 <Panel>
 	<WhileTrue ux:Name="dashboardUp">
-		<Set iconsVisible.Value="false" />
-		<Set backIcon.Visibility="Visible" />
+		<Change iconsVisible.Value="false" />
+		<Change backIcon.Visibility="Visible" />
 		<Change iconsPanel.Visibility="Visible" />
 		<Move Target="dashboard" Y="-1.2" RelativeTo="Size" Duration=".6" Easing="BackIn" />
 	</WhileTrue>
