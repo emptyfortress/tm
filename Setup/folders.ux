@@ -1,22 +1,28 @@
 <DockPanel>
 	<Title Value="Папки" />
+	<Line Value="Выберите папки, которые будут доступны на устройстве" Dock="Top" Alignment="Center" FontSize="15" />
+	<Grid ColumnCount="2" CellSpacing="5" Dock="Top" Margin="0,30">
+		<Panel Padding="15,5" Alignment="Right">
+			<Text Value="Вкл. все" Alignment="Center" FontSize="16" Color="#fff" />
+			<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
+		</Panel>
+		<Panel Padding="25,10" Alignment="Left">
+			<Text Value="Выкл. все" Alignment="Center" FontSize="16" Color="#fff" />
+			<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
+		</Panel>
+	</Grid>
 	<ScrollView Margin="30">
 		<StackPanel ItemSpacing="20">
-			<Line Value="Выберите папки, которые будут доступны на устройстве" Alignment="Center" FontSize="15" />
-			<Grid ColumnCount="2" CellSpacing="5">
-				<Panel Padding="15,5" Alignment="Right">
-					<Text Value="Вкл. все" Alignment="Center" FontSize="16" Color="#fff" />
-					<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
-				</Panel>
-				<Panel Padding="25,10" Alignment="Left">
-					<Text Value="Выкл. все" Alignment="Center" FontSize="16" Color="#fff" />
-					<Rectangle Color="#fff" CornerRadius="30" Layer="Background" Opacity=".3" />
-				</Panel>
+			<Grid Columns="40, 1*, auto">
+				<fa-star-o Color="#fff" FontSize="25" Alignment="CenterLeft" Offset="0,-4" Opacity=".5" />
+				<Line Value="Избранное" />
+				<Switch />
 			</Grid>
-
-			<Each Count="20">
-				<Grid Columns="1*, auto">
-					<Line Value="Имя папки" />
+			<Rectangle Height="1" Color="#fff" Opacity=".3" />
+			<Each Items="{items.folders}">
+				<Grid Columns="40, 1*, auto">
+					<fa-folder-o Color="#fff" FontSize="25" Alignment="CenterLeft" Offset="0,-4" Opacity=".5" />
+					<Line Value="{name}" />
 					<Switch />
 				</Grid>
 			</Each>

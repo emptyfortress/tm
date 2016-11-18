@@ -283,7 +283,7 @@
 							    </WhileTrue>
 								<dashPanel ux:Name="storagePanel" Padding="20,10" >
 									<Grid Columns="auto,1*">
-										<storageDiagram Count="67" End="147" BarColor="sky" Header="Занято" HitTestMode="LocalBoundsAndChildren">
+										<storageDiagram Count="67" End="147" BarColor="sky" Header="Sandisk 6 Гб" HitTestMode="LocalBoundsAndChildren">
 											<Clicked>
 												<Toggle Target="showStorage" />
 												<Pulse Target="calculate" />
@@ -299,15 +299,13 @@
 											</Circle>
 											<Grid ux:Name="storageGrid" Columns="auto,auto">
 												<tabtext Value="Объем:" Alignment="Right" />
-												<tabtext Value="5 Гб" />
+												<tabtext Value="6 Гб" />
 												<tabtext Value="Всего занято:" Alignment="Right" />
 												<tabtext Value="3.43 Гб" />
-												<tabtext Value="Избранное:" Alignment="Right" />
+												<tabtext Value="Доступно:" Alignment="Right" />
 												<tabtext Value="1.8 Гб" />
-												<tabtext Value="Файлы:" Alignment="Right" />
-												<tabtext Value="2 Гб" />
 											</Grid>
-											<Text Value="Настроить" Alignment="Center" Color="blue" Margin="0,20,0,0" />
+											<Text Value="Настройки" Alignment="Center" Color="blue" Margin="0,20,0,0" />
 										</Panel>
 									</Grid>
 								</dashPanel>

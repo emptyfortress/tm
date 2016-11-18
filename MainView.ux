@@ -1126,7 +1126,7 @@
 			<Text ux:Class="Title" Color="#9CC319" Alignment="TopCenter" FontSize="30" Margin="0,20" Dock="Top" />
 			<Text ux:Class="Line" Color="#fff" FontSize="18" Alignment="Left" TextWrapping="Wrap" />
 			
-			<PageControl>
+			<PageControl ux:Name="setupNav">
 				<Page ux:Name="List">
 					<DockPanel>
 						<Title Value="Настройка" />
