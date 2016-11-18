@@ -66,7 +66,7 @@
 		    <Panel Dock="Top">
 			    <StackPanel Orientation="Horizontal" Alignment="TopLeft" ItemSpacing="10">
 			    	<fa-cloud-upload FontSize="27" Alignment="CenterLeft" Color="#fff" />
-			    	<Text Value="Ожидает синхронизации (4)" FontSize="18" Alignment="CenterLeft" Color="#fff" />
+			    	<Text Value="На синхронизацию (4)" FontSize="18" Alignment="CenterLeft" Color="#fff" />
 			    	<Tapped>
 			    		<Toggle Target="showSync" />
 			    	</Tapped>
