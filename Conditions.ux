@@ -7,10 +7,11 @@
 	</WhileTrue>
 	
 	<WhileTrue ux:Name="viewLogin">
-		<Change mainApp.Visibility="Collapsed" />
+		<Change mainApp.Visibility="Hidden" />
+		<Change dashboard.Visibility="Hidden" />
 		<Change backIcon.Visibility="Hidden" />
-		<Change dashboardUp.Value="true" />
 		<NavigateToggle Target="menu" />
+		<Change ham.Visibility="Hidden" />
 		<Change plusIcon.Visibility="Hidden" />
 		<Change diamond.Opacity="0" Duration=".3" />
 		<Move Target="loginScreen" Y="1" RelativeTo="ParentSize" Delay=".5" Duration=".3" Easing="CubicOut" />
@@ -18,12 +19,11 @@
 
 	<WhileTrue ux:Name="viewSetup">
 		<Change backIcon.Visibility="Hidden" />
-		<Change ham.Visibility="Hidden" />
-		<Change mainApp.Visibility="Collapsed" />
-		<Move Target="mainApp" Y="1" RelativeTo="ParentSize" Duration=".3" />
-		<Change dashboardUp.Value="true" />
-		<NavigateToggle Target="menu" />
 		<Change plusIcon.Visibility="Hidden" />
+		<Change ham.Visibility="Hidden" />
+		<Change mainApp.Visibility="Hidden" />
+		<Change dashboard.Visibility="Hidden" />
+		<NavigateToggle Target="menu" />
 		<Change diamond.Opacity="0" Duration=".3" />
 		<Move Target="setupScreen" Y="1" RelativeTo="ParentSize" Delay=".5" Duration=".3" Easing="CubicOut" />
 	</WhileTrue>
